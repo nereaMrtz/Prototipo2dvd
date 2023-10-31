@@ -15,6 +15,7 @@ public class PlayerContoller : MonoBehaviour
     
     private Vector2 movementInput = Vector2.zero;
     private bool hasJumped = false;
+    private bool canWallJump = false;
 
     private void Start()
     {
@@ -31,6 +32,7 @@ public class PlayerContoller : MonoBehaviour
         if (aux != 0f ) { hasJumped = true; }
         else { hasJumped = false;  }
        // hasJumped = context.action.triggered;
+
     }
 
     void Update()
@@ -49,7 +51,22 @@ public class PlayerContoller : MonoBehaviour
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
         }
 
+        //WallJump
+        if(hasJumped && canWallJump)
+        {
+           
+        }
+
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
+
+        Debug.Log(canWallJump);
+    }
+
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if(groundedPlayer && hit.collider.CompareTag("Wall")){
+            canWallJump = true;
+        }
     }
 }
