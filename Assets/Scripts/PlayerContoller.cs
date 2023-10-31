@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(CharacterController))]
+
 public class PlayerContoller : MonoBehaviour
 {  
     [SerializeField] private float playerSpeed = 2.0f;
@@ -26,8 +27,10 @@ public class PlayerContoller : MonoBehaviour
     }
     public void OnJump(InputAction.CallbackContext context)
     {
-        hasJumped = context.ReadValue<bool>();
-        hasJumped = context.action.triggered;
+        float aux = context.ReadValue<float>();
+        if (aux != 0f ) { hasJumped = true; }
+        else { hasJumped = false;  }
+       // hasJumped = context.action.triggered;
     }
 
     void Update()
