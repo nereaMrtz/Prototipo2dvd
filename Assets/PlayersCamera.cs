@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Networking.PlayerConnection;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayersCamera : MonoBehaviour
 {
@@ -8,9 +10,14 @@ public class PlayersCamera : MonoBehaviour
 
     public Vector3 offset;
 
+    private void Update()
+    {
+        Debug.Log(targets.Count);
+       
+    }
+
     private void LateUpdate()
     {
-
         if(targets.Count == 0)
         {
             return;
@@ -19,6 +26,7 @@ public class PlayersCamera : MonoBehaviour
         Vector3 centerPoint = GetCenterPoint();
         Vector3 newPosition = centerPoint + offset;
         transform.position = newPosition; 
+
 
     }
 
@@ -33,13 +41,16 @@ public class PlayersCamera : MonoBehaviour
         for (int i = 0; i < targets.Count; i++)
         {
             bounds.Encapsulate(targets[i].position);
+            Debug.Log(targets[i].position);
         }
         return bounds.center;
     }
 
-    void PlayerConnected()
+    public void AddPlayer(PlayerInput player)
     {
-       Transform aux = GetComponent<PlayerContoller>().gameObject.transform;
+        Transform aux = player.gameObject.transform;
+
+        targets.Add(aux);
     }
 
 }

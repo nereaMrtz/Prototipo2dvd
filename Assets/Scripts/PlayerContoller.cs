@@ -17,9 +17,12 @@ public class PlayerContoller : MonoBehaviour
     private bool hasJumped = false;
     private bool canWallJump = false;
 
+    PlayersCamera playersCamera;
+
     private void Start()
     {
         controller = gameObject.GetComponent<CharacterController>();
+        playersCamera = FindAnyObjectByType<PlayersCamera>();
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -60,7 +63,6 @@ public class PlayerContoller : MonoBehaviour
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
 
-        Debug.Log(canWallJump);
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
@@ -68,5 +70,12 @@ public class PlayerContoller : MonoBehaviour
         if(groundedPlayer && hit.collider.CompareTag("Wall")){
             canWallJump = true;
         }
+    }
+    
+    public void AddPlayer()
+    {
+        playersCamera.AddPlayer(transform);
+
+        Debug.Log("Player connected");
     }
 }
