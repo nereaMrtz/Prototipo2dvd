@@ -209,7 +209,7 @@ MonoBehaviour:
     m_ActionId: 35d52729-1ecb-4cb8-bc92-48b12720dc06
     m_ActionName: Player/Jump[/Keyboard/space,/DualShock3GamepadHID/buttonSouth]
   m_NeverAutoSwitchControlSchemes: 1
-  m_DefaultControlScheme: Gamepad
+  m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}

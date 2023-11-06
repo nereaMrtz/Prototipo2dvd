@@ -74,7 +74,7 @@ public class PlayerContoller : MonoBehaviour
     
     public void AddPlayer()
     {
-        playersCamera.AddPlayer(transform);
+       // playersCamera.AddPlayer(player);
 
         Debug.Log("Player connected");
     }
