@@ -1294,4 +1294,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targets: []
-  offset: {x: 0, y: 0, z: 0}
+  offset: {x: 0, y: 3, z: -20}

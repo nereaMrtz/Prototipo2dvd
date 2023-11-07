@@ -8,7 +8,7 @@ public class PlayersCamera : MonoBehaviour
 {
     public List<Transform> targets;
 
-    public Vector3 offset = new Vector3(0, 3, -15);
+    public Vector3 offset = new Vector3(0, 3, -30);
 
     private void Update()
     {
