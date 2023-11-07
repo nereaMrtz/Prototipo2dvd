@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEngine.InputSystem.DefaultInputActions;
 
 [RequireComponent(typeof(CharacterController))]
 
@@ -19,10 +20,15 @@ public class PlayerContoller : MonoBehaviour
 
     PlayersCamera playersCamera;
 
+    public bool maldicion;
+
+    MaldicionController maldicionController;
+
     private void Start()
     {
         controller = gameObject.GetComponent<CharacterController>();
         playersCamera = FindAnyObjectByType<PlayersCamera>();
+        maldicionController = FindAnyObjectByType<MaldicionController>();
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -34,7 +40,25 @@ public class PlayerContoller : MonoBehaviour
         float aux = context.ReadValue<float>();
         if (aux != 0f ) { hasJumped = true; }
         else { hasJumped = false;  }
-       // hasJumped = context.action.triggered;
+        // hasJumped = context.action.triggered;
+    }
+
+    public void OnMaldicion(InputAction.CallbackContext context)
+    {
+
+        
+        if (context.action.triggered)
+        {
+            //    // maldicion = !maldicion;
+            if (maldicionController.PlayersReady())
+            {
+                maldicionController.PassMaldicion();
+            }
+
+        }
+
+       
+
 
     }
 
@@ -59,23 +83,29 @@ public class PlayerContoller : MonoBehaviour
         {
            
         }
+        //if(maldicion)
+        //{
+        //    Debug.Log("maldiciooon");
+        //}
+        //if (!maldicion)
+        //{
+        //    Debug.Log("no maldito");
+        //}
 
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
+
+        Debug.Log(maldicion);
 
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if(groundedPlayer && hit.collider.CompareTag("Wall")){
-            canWallJump = true;
+        if(hit.collider.CompareTag("Wall") && maldicion){
+           // Debug.Log("tiene maldición");
         }
     }
-    
-    public void AddPlayer()
-    {
-       // playersCamera.AddPlayer(player);
 
-        Debug.Log("Player connected");
-    }
+    public bool GetMaldicion() { return maldicion; }
+    public void SetMaldicion(bool maldicion) { this.maldicion = maldicion;}
 }

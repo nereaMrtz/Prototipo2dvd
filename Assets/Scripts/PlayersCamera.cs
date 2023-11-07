@@ -13,7 +13,6 @@ public class PlayersCamera : MonoBehaviour
     private void Update()
     {
         Debug.Log(targets.Count);
-       
     }
 
     private void LateUpdate()
@@ -41,7 +40,7 @@ public class PlayersCamera : MonoBehaviour
         for (int i = 0; i < targets.Count; i++)
         {
             bounds.Encapsulate(targets[i].position);
-            Debug.Log(targets[i].position);
+           // Debug.Log(targets[i].position);
         }
         return bounds.center;
     }

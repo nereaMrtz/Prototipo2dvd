@@ -208,6 +208,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 35d52729-1ecb-4cb8-bc92-48b12720dc06
     m_ActionName: Player/Jump[/Keyboard/space,/DualShock3GamepadHID/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 329648872783534027}
+        m_TargetAssemblyTypeName: PlayerContoller, Assembly-CSharp
+        m_MethodName: OnMaldicion
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 834a446c-97f6-4463-90ac-d96a1b0189d5
+    m_ActionName: Player/Maldicion[/DualShock3GamepadHID/buttonNorth,/DualShock3GamepadHID1/buttonNorth,/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
