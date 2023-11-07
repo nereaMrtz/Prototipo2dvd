@@ -18,17 +18,18 @@ public class PlayerContoller : MonoBehaviour
     private bool hasJumped = false;
     private bool canWallJump = false;
 
-    PlayersCamera playersCamera;
-
     public bool maldicion;
 
-    MaldicionController maldicionController;
+    [SerializeField] PlayerContoller otherPlayer;
+
+    ParticleSystem particles;
+
 
     private void Start()
     {
         controller = gameObject.GetComponent<CharacterController>();
-        playersCamera = FindAnyObjectByType<PlayersCamera>();
-        maldicionController = FindAnyObjectByType<MaldicionController>();
+        particles = gameObject.GetComponent<ParticleSystem>();
+       // particles.Stop();
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -45,21 +46,14 @@ public class PlayerContoller : MonoBehaviour
 
     public void OnMaldicion(InputAction.CallbackContext context)
     {
-
-        
         if (context.action.triggered)
-        {
-            //    // maldicion = !maldicion;
-            if (maldicionController.PlayersReady())
+        { 
+            if (otherPlayer.GetMaldicion() == false)
             {
-                maldicionController.PassMaldicion();
+                otherPlayer.SetMaldicion(true);
+                maldicion = false;
             }
-
         }
-
-       
-
-
     }
 
     void Update()
@@ -83,19 +77,21 @@ public class PlayerContoller : MonoBehaviour
         {
            
         }
-        //if(maldicion)
-        //{
-        //    Debug.Log("maldiciooon");
-        //}
-        //if (!maldicion)
-        //{
-        //    Debug.Log("no maldito");
-        //}
 
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
 
         Debug.Log(maldicion);
+
+        if(maldicion)
+        {
+            particles.Play();
+        }
+
+        if(!maldicion)
+        {
+            particles.Stop();
+        }
 
     }
 
