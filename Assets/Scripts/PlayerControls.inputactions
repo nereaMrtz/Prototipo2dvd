@@ -22,6 +22,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Maldicion",
+                    "type": "Button",
+                    "id": "834a446c-97f6-4463-90ac-d96a1b0189d5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -122,6 +131,28 @@
                     "groups": "",
                     "action": "Movement",
                     "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "47cf24c3-d3a1-4ad9-886b-c0e8ba82f846",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Maldicion",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "70b52026-b4e3-4532-95c3-4dd7bc9a666a",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Maldicion",
+                    "isComposite": false,
                     "isPartOfComposite": false
                 }
             ]
