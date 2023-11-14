@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.HID;
 using static UnityEngine.InputSystem.DefaultInputActions;
+using System.Collections.Generic;
 
 [RequireComponent(typeof(CharacterController))]
 
@@ -22,14 +24,12 @@ public class PlayerContoller : MonoBehaviour
 
     [SerializeField] PlayerContoller otherPlayer;
 
-    ParticleSystem particles;
+    [SerializeField] GameObject bolita;
 
 
     private void Start()
     {
         controller = gameObject.GetComponent<CharacterController>();
-        particles = gameObject.GetComponent<ParticleSystem>();
-       // particles.Stop();
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -85,28 +85,17 @@ public class PlayerContoller : MonoBehaviour
 
         if(maldicion)
         {
-            particles.Play();
+            bolita.SetActive(true);
+            Physics.IgnoreLayerCollision(3, 7, true);
         }
 
         if(!maldicion)
         {
-            particles.Stop();
+            bolita.SetActive(false);
+            Physics.IgnoreLayerCollision(3, 7, false);
+
         }
 
-    }
-
-    private void OnControllerColliderHit(ControllerColliderHit hit)
-    {
-        if(hit.collider.CompareTag("Wall") && maldicion){
-            Debug.Log("tiene maldición");
-            Physics.IgnoreCollision(hit.collider, gameObject.GetComponent<CharacterController>());
-        }
-
-        else if(hit.collider.CompareTag("Wall") && !maldicion)
-        {
-            Debug.Log("NOOOOO tiene maldición");
-            Physics.IgnoreCollision(hit.collider, gameObject.GetComponent<CharacterController>(), true);
-        }
     }
 
     public bool GetMaldicion() { return maldicion; }
