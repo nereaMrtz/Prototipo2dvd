@@ -98,7 +98,14 @@ public class PlayerContoller : MonoBehaviour
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         if(hit.collider.CompareTag("Wall") && maldicion){
-           // Debug.Log("tiene maldición");
+            Debug.Log("tiene maldición");
+            Physics.IgnoreCollision(hit.collider, gameObject.GetComponent<CharacterController>());
+        }
+
+        else if(hit.collider.CompareTag("Wall") && !maldicion)
+        {
+            Debug.Log("NOOOOO tiene maldición");
+            Physics.IgnoreCollision(hit.collider, gameObject.GetComponent<CharacterController>(), true);
         }
     }
 
