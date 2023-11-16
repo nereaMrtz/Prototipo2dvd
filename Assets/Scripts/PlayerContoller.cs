@@ -86,15 +86,62 @@ public class PlayerContoller : MonoBehaviour
         {
             bolita.SetActive(true);
             Physics.IgnoreLayerCollision(3, 7, true);
+            Physics.IgnoreLayerCollision(3, 6, true);
         }
 
         if(!maldicion)
         {
             bolita.SetActive(false);
             Physics.IgnoreLayerCollision(3, 7, false);
+            Physics.IgnoreLayerCollision(3, 6, false);
 
         }
 
+    }
+
+    // this script pushes all rigidbodies that the character touches
+    float pushPower = 2.0f;
+    void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        Rigidbody body = hit.collider.attachedRigidbody;
+
+        // no rigidbody
+        if (body == null || body.isKinematic)
+        {
+            return;
+        }
+
+        // We dont want to push objects below us
+        if (hit.moveDirection.y < -0.3)
+        {
+            return;
+        }
+
+        if (hit.gameObject.layer == 6 && !maldicion)
+        {
+            Debug.Log("NOOchocando");
+        }
+        else 
+        {
+            Debug.Log("chocando");
+            Vector3 pushDir = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
+
+            body.velocity = pushDir * pushPower;
+
+        }
+        
+    
+        
+        //Caja agua
+        //if (hit.gameObject.layer == 6 || maldicion)
+        //{
+        //    Vector3 pushDir = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
+
+        //    body.velocity = pushDir * pushPower;
+        //}
+        //else{
+        //    Physics.IgnoreLayerCollision(3, 6, false);
+        //}
     }
 
     public bool GetMaldicion() { return maldicion; }
