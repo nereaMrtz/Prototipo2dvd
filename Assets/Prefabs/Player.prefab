@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5406436074680147759}
   - component: {fileID: 329648872783534027}
   - component: {fileID: 1912839009260257293}
+  - component: {fileID: 4389175054196738414}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -36,7 +37,7 @@ Transform:
   m_Children:
   - {fileID: 8053292941587645545}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &9145862516895263606
 MeshFilter:
@@ -228,11 +229,64 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 834a446c-97f6-4463-90ac-d96a1b0189d5
     m_ActionName: Player/Maldicion[/DualShock3GamepadHID/buttonNorth,/DualShock3GamepadHID1/buttonNorth,/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 329648872783534027}
+        m_TargetAssemblyTypeName: PlayerContoller, Assembly-CSharp
+        m_MethodName: OnInteract
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 04cfc453-9259-4e43-8a1a-d7e7e7a02e8a
+    m_ActionName: Player/Interact[/DualShock3GamepadHID/buttonEast,/Keyboard/f]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 2f87ace7-115b-48c8-aaaa-aa6cc6dfa129
+    m_ActionName: Interaction/Interact[/DualShock3GamepadHID/buttonEast,/Keyboard/f]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!65 &4389175054196738414
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147353262527568750}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.5364071, y: 2, z: 1}
+  m_Center: {x: -0.008079708, y: 0, z: 0}
 --- !u!1 &7196765717676555731
 GameObject:
   m_ObjectHideFlags: 0
@@ -295,7 +349,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7e90d28270482f043a447a5dd10de4a2, type: 3}
+  - {fileID: 2100000, guid: 92283b793882d87449d932e5f3d95007, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

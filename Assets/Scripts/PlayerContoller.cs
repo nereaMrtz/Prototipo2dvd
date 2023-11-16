@@ -18,6 +18,7 @@ public class PlayerContoller : MonoBehaviour
     
     private Vector2 movementInput = Vector2.zero;
     private bool hasJumped = false;
+
     private bool canWallJump = false;
 
     public bool maldicion;
@@ -64,6 +65,9 @@ public class PlayerContoller : MonoBehaviour
 
     void Update()
     {
+       
+       
+
         groundedPlayer = controller.isGrounded;
         if (groundedPlayer && playerVelocity.y < 0)
         {
@@ -103,7 +107,6 @@ public class PlayerContoller : MonoBehaviour
         if(!maldicion)
         {
             bolita.SetActive(false);
-
 
         }
 
