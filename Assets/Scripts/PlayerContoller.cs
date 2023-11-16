@@ -51,10 +51,16 @@ public class PlayerContoller : MonoBehaviour
             if (otherPlayer.GetMaldicion() == false)
             {
                 otherPlayer.SetMaldicion(true);
+                otherPlayer.gameObject.layer = 9;
                 maldicion = false;
+                gameObject.layer = 8;
             }
         }
     }
+
+    // LAYERS
+    // 8: NoMaldito
+    // 9: Maldito
 
     void Update()
     {
@@ -82,21 +88,52 @@ public class PlayerContoller : MonoBehaviour
         controller.Move(playerVelocity * Time.deltaTime);
         Debug.Log(maldicion);
 
-        if(maldicion)
+        // LAYERS
+        // 8: NoMaldito
+        // 9: Maldito
+
+        Physics.IgnoreLayerCollision(9, 7, false);
+        Physics.IgnoreLayerCollision(8, 7, true);
+
+        if (maldicion)
         {
             bolita.SetActive(true);
-            Physics.IgnoreLayerCollision(3, 7, true);
         }
 
         if(!maldicion)
         {
             bolita.SetActive(false);
-            Physics.IgnoreLayerCollision(3, 7, false);
+
 
         }
 
     }
 
+    // this script pushes all rigidbodies that the character touches
+    float pushPower = 2.0f;
+    void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        Rigidbody body = hit.collider.attachedRigidbody;
+
+        // no rigidbody
+        if (body == null || body.isKinematic)
+        {
+            return;
+        }
+
+        // We dont want to push objects below us
+        if (hit.moveDirection.y < -0.3)
+        {
+            return;
+        }
+
+        Vector3 pushDir = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
+
+        body.velocity = pushDir * pushPower;
+    
+    }
+
     public bool GetMaldicion() { return maldicion; }
     public void SetMaldicion(bool maldicion) { this.maldicion = maldicion;}
+
 }
