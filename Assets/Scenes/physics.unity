@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 135393725}
   - component: {fileID: 135393724}
   - component: {fileID: 135393723}
+  - component: {fileID: 135393727}
   m_Layer: 0
   m_Name: Plataforma
   m_TagString: Untagged
@@ -228,6 +229,33 @@ Transform:
   m_Father: {fileID: 1758362858}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &135393727
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135393722}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1001 &291431828
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -622,13 +650,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player1
       objectReference: {fileID: 0}
+    - target: {fileID: 147353262527568750, guid: 89afd7848faa6494285a64521ad984b1, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 329648872783534027, guid: 89afd7848faa6494285a64521ad984b1, type: 3}
       propertyPath: otherPlayer
       value: 
       objectReference: {fileID: 1836460508}
     - target: {fileID: 1912839009260257293, guid: 89afd7848faa6494285a64521ad984b1, type: 3}
       propertyPath: m_DefaultControlScheme
-      value: Gamepad
+      value: Keyboard
       objectReference: {fileID: 0}
     - target: {fileID: 5106983814784535170, guid: 89afd7848faa6494285a64521ad984b1, type: 3}
       propertyPath: m_RootOrder
@@ -674,6 +706,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7196765717676555731, guid: 89afd7848faa6494285a64521ad984b1, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -691,6 +727,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player2
       objectReference: {fileID: 0}
+    - target: {fileID: 147353262527568750, guid: 89afd7848faa6494285a64521ad984b1, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 329648872783534027, guid: 89afd7848faa6494285a64521ad984b1, type: 3}
       propertyPath: maldicion
       value: 1
@@ -701,7 +741,7 @@ PrefabInstance:
       objectReference: {fileID: 1112070107}
     - target: {fileID: 1912839009260257293, guid: 89afd7848faa6494285a64521ad984b1, type: 3}
       propertyPath: m_DefaultControlScheme
-      value: Keyboard
+      value: Gamepad
       objectReference: {fileID: 0}
     - target: {fileID: 5106983814784535170, guid: 89afd7848faa6494285a64521ad984b1, type: 3}
       propertyPath: m_RootOrder
@@ -746,6 +786,10 @@ PrefabInstance:
     - target: {fileID: 5106983814784535170, guid: 89afd7848faa6494285a64521ad984b1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7196765717676555731, guid: 89afd7848faa6494285a64521ad984b1, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7196765717676555731, guid: 89afd7848faa6494285a64521ad984b1, type: 3}
       propertyPath: m_IsActive
@@ -1100,7 +1144,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -1166,7 +1210,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1263847421}
   serializedVersion: 4
-  m_Mass: 5
+  m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -1177,7 +1221,7 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1

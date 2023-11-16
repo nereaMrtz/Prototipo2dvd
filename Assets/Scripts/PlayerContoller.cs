@@ -51,10 +51,16 @@ public class PlayerContoller : MonoBehaviour
             if (otherPlayer.GetMaldicion() == false)
             {
                 otherPlayer.SetMaldicion(true);
+                otherPlayer.gameObject.layer = 9;
                 maldicion = false;
+                gameObject.layer = 8;
             }
         }
     }
+
+    // LAYERS
+    // 8: NoMaldito
+    // 9: Maldito
 
     void Update()
     {
@@ -82,18 +88,22 @@ public class PlayerContoller : MonoBehaviour
         controller.Move(playerVelocity * Time.deltaTime);
         Debug.Log(maldicion);
 
-        if(maldicion)
+        // LAYERS
+        // 8: NoMaldito
+        // 9: Maldito
+
+        Physics.IgnoreLayerCollision(9, 7, false);
+        Physics.IgnoreLayerCollision(8, 7, true);
+
+        if (maldicion)
         {
             bolita.SetActive(true);
-            Physics.IgnoreLayerCollision(3, 7, true);
-            Physics.IgnoreLayerCollision(3, 6, true);
         }
 
         if(!maldicion)
         {
             bolita.SetActive(false);
-            Physics.IgnoreLayerCollision(3, 7, false);
-            Physics.IgnoreLayerCollision(3, 6, false);
+
 
         }
 
@@ -117,33 +127,13 @@ public class PlayerContoller : MonoBehaviour
             return;
         }
 
-        if (hit.gameObject.layer == 6 && !maldicion)
-        {
-            Debug.Log("NOOchocando");
-        }
-        else 
-        {
-            Debug.Log("chocando");
-            Vector3 pushDir = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
+        Vector3 pushDir = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
 
-            body.velocity = pushDir * pushPower;
-
-        }
-        
+        body.velocity = pushDir * pushPower;
     
-        
-        //Caja agua
-        //if (hit.gameObject.layer == 6 || maldicion)
-        //{
-        //    Vector3 pushDir = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
-
-        //    body.velocity = pushDir * pushPower;
-        //}
-        //else{
-        //    Physics.IgnoreLayerCollision(3, 6, false);
-        //}
     }
 
     public bool GetMaldicion() { return maldicion; }
     public void SetMaldicion(bool maldicion) { this.maldicion = maldicion;}
+
 }
