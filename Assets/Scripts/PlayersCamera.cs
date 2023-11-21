@@ -12,7 +12,7 @@ public class PlayersCamera : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(targets.Count);
+       // Debug.Log(targets.Count);
     }
 
     private void LateUpdate()

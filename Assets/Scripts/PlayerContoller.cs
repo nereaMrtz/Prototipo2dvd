@@ -90,7 +90,7 @@ public class PlayerContoller : MonoBehaviour
 
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
-        Debug.Log(maldicion);
+        //Debug.Log(maldicion);
 
         // LAYERS
         // 8: NoMaldito

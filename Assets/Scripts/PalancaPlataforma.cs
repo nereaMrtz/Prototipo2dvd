@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,81 +7,37 @@ using UnityEngine.UIElements;
 
 public class PalancaPlataforma : MonoBehaviour
 {
+
     [SerializeField] GameObject platform;
     [SerializeField] Transform p1;
     [SerializeField] Transform p2;
+
+    [SerializeField] GameObject platform2;
+    [SerializeField] Transform p1_2;
+    [SerializeField] Transform p2_2;
+
     float speed = 3.0f;
-     public  bool pressed = false;
-    private bool hasInteracted = false;
-    [SerializeField] bool maldita;
 
-    // transform.position = Vector3.MoveTowards(transform.position, position1.position, _speed* Time.deltaTime);
+    public bool pressed = false;
 
-
-    public void OnInteract(InputAction.CallbackContext context)
-    {
-        if (context.action.triggered){ 
-            hasInteracted = true; 
-        }
-        else { hasInteracted = false; }
-
+    private void OnTriggerStay(Collider other)
+    {  
+       this.pressed = true;
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-
-        if (maldita)
-        {
-            if(other.gameObject.layer == 9)
-            {    // if(hasInteracted){
-                    pressed = !pressed; 
-               // }               
-            }
-        }
-
-        if (!maldita)
-        {
-            if (other.gameObject.layer == 8)
-            {
-                if (hasInteracted)
-                {
-                    pressed = !pressed;
-                }
-            }
-        
-        }
-    }
-
     private void OnTriggerExit(Collider other)
     {
-        if (maldita)
-        {
-            if (other.gameObject.layer == 9)
-            {
-                pressed = false;
-            }
-        }
-
-        if (!maldita)
-        {
-            if (other.gameObject.layer == 8)
-            {
-                pressed = false;
-            }
-        }
+        this.pressed = false;
     }
 
-    private void Update()
+    public void Move()
     {
-        if (pressed)
-        {
-            platform.transform.position = Vector3.MoveTowards(platform.transform.position, p2.position, speed * Time.deltaTime);
-        }
-        else
-        {
-            platform.transform.position = Vector3.MoveTowards(platform.transform.position, p1.position, speed * Time.deltaTime);
-        }
+        platform.transform.position = Vector3.MoveTowards(platform.transform.position, p2.position, speed * Time.deltaTime);
+        platform2.transform.position = Vector3.MoveTowards(platform2.transform.position, p2_2.position, speed * Time.deltaTime);
+    }
 
-       // if (hasInteracted) { Debug.Log("interacted"); }
+    public void Back()
+    {
+        platform.transform.position = Vector3.MoveTowards(platform.transform.position, p1.position, speed * Time.deltaTime);
+        platform2.transform.position = Vector3.MoveTowards(platform2.transform.position, p1_2.position, speed * Time.deltaTime);
     }
 }
