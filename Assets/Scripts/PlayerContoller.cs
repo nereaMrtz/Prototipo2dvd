@@ -27,7 +27,6 @@ public class PlayerContoller : MonoBehaviour
 
     [SerializeField] GameObject bolita;
 
-
     private void Start()
     {
         controller = gameObject.GetComponent<CharacterController>();
@@ -65,9 +64,6 @@ public class PlayerContoller : MonoBehaviour
 
     void Update()
     {
-       
-       
-
         groundedPlayer = controller.isGrounded;
         if (groundedPlayer && playerVelocity.y < 0)
         {
@@ -92,12 +88,8 @@ public class PlayerContoller : MonoBehaviour
         controller.Move(playerVelocity * Time.deltaTime);
         //Debug.Log(maldicion);
 
-        // LAYERS
-        // 8: NoMaldito
-        // 9: Maldito
-
-        Physics.IgnoreLayerCollision(9, 7, false);
-        Physics.IgnoreLayerCollision(8, 7, true);
+        Physics.IgnoreLayerCollision(9, 7, false); // Layer 9: Maldito
+        Physics.IgnoreLayerCollision(8, 7, true); // Layer 8: NoMaldito
 
         if (maldicion)
         {
@@ -107,9 +99,7 @@ public class PlayerContoller : MonoBehaviour
         if(!maldicion)
         {
             bolita.SetActive(false);
-
         }
-
     }
 
     // this script pushes all rigidbodies that the character touches
@@ -138,5 +128,4 @@ public class PlayerContoller : MonoBehaviour
 
     public bool GetMaldicion() { return maldicion; }
     public void SetMaldicion(bool maldicion) { this.maldicion = maldicion;}
-
 }

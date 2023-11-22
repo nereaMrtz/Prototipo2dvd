@@ -18,6 +18,5 @@ public class PlatformManager : MonoBehaviour
         }
         else
             palanca1.Back();
-
     }
 }

@@ -9,7 +9,6 @@ using UnityEngine.UIElements;
 
 public class PalancaPlataforma : MonoBehaviour
 {
-
     [SerializeField] GameObject platform;
     [SerializeField] Transform p1;
     [SerializeField] Transform p2;
@@ -29,11 +28,6 @@ public class PalancaPlataforma : MonoBehaviour
     {
         notPressed = new Vector3(gameObject.transform.position.x, transform.position.y, transform.position.z);
         yesPressed = new Vector3(gameObject.transform.position.x, transform.position.y -0.048f, transform.position.z);
-    }
-
-    private void Update()
-    {
-        Debug.Log(transform.position.y);
     }
 
     private void OnTriggerStay(Collider other)

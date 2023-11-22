@@ -6,26 +6,29 @@ using UnityEngine;
 public class Boton_Puerta : MonoBehaviour
 {
     [SerializeField] GameObject door;
-    [SerializeField] Transform initialPos;
-    [SerializeField] Transform finalPos;
-
     [SerializeField] GameObject cube;
+
+    [SerializeField] Transform finalPos;
+    [SerializeField] Transform initialPos;
+    [SerializeField] Transform player1;
+    [SerializeField] Transform player2;
 
     float speed = 3.0f;
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.layer == 10)
-        {
-            transform.position = new Vector3(gameObject.transform.position.x, transform.position.y - 0.1f, transform.position.z);
-            cube.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
+        //Move();
+        door.SetActive(false);
+        this.transform.position = new Vector3(gameObject.transform.position.x, transform.position.y - 0.1f, transform.position.z);
+        cube.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
+    }
 
-            Move();
-        }
-
-        if(other.gameObject.layer == 11)
+    private void Update()
+    {
+        if (player1.position.x >= 61.5f && player2.position.x >= 61.5f)
         {
-            Back();
+            //Back();
+            door.SetActive(true);
         }
     }
 
@@ -36,6 +39,7 @@ public class Boton_Puerta : MonoBehaviour
 
     public void Back()
     {
+        Debug.Log("close door");
         door.transform.position = Vector3.MoveTowards(door.transform.position, initialPos.position, speed * Time.deltaTime);
     }
 }
