@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.HID;
 using UnityEngine.UIElements;
 
 public class PalancaPlataforma : MonoBehaviour
@@ -20,13 +22,29 @@ public class PalancaPlataforma : MonoBehaviour
 
     public bool pressed = false;
 
+    private Vector3 notPressed;
+    private Vector3 yesPressed;
+
+    private void Start()
+    {
+        notPressed = new Vector3(gameObject.transform.position.x, transform.position.y, transform.position.z);
+        yesPressed = new Vector3(gameObject.transform.position.x, transform.position.y -0.048f, transform.position.z);
+    }
+
+    private void Update()
+    {
+        Debug.Log(transform.position.y);
+    }
+
     private void OnTriggerStay(Collider other)
-    {  
+    {
        this.pressed = true;
+       transform.position = yesPressed;
     }
     private void OnTriggerExit(Collider other)
     {
         this.pressed = false;
+        this.transform.position = notPressed;
     }
 
     public void Move()

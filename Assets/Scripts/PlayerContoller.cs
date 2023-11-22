@@ -130,7 +130,7 @@ public class PlayerContoller : MonoBehaviour
             return;
         }
 
-        Vector3 pushDir = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
+        Vector3 pushDir = new Vector3(hit.moveDirection.x, 0, -0.5f);
 
         body.velocity = pushDir * pushPower;
     
