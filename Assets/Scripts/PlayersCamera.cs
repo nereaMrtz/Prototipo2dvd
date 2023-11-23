@@ -12,7 +12,7 @@ public class PlayersCamera : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(targets.Count);
+       // Debug.Log(targets.Count);
     }
 
     private void LateUpdate()
@@ -24,9 +24,7 @@ public class PlayersCamera : MonoBehaviour
 
         Vector3 centerPoint = GetCenterPoint();
         Vector3 newPosition = centerPoint + offset;
-        transform.position = newPosition; 
-
-
+        transform.position = newPosition;
     }
 
     Vector3 GetCenterPoint()
@@ -51,5 +49,4 @@ public class PlayersCamera : MonoBehaviour
 
         targets.Add(aux);
     }
-
 }

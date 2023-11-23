@@ -18,6 +18,7 @@ public class PlayerContoller : MonoBehaviour
     
     private Vector2 movementInput = Vector2.zero;
     private bool hasJumped = false;
+
     private bool canWallJump = false;
 
     public bool maldicion;
@@ -25,7 +26,6 @@ public class PlayerContoller : MonoBehaviour
     [SerializeField] PlayerContoller otherPlayer;
 
     [SerializeField] GameObject bolita;
-
 
     private void Start()
     {
@@ -51,10 +51,16 @@ public class PlayerContoller : MonoBehaviour
             if (otherPlayer.GetMaldicion() == false)
             {
                 otherPlayer.SetMaldicion(true);
+                otherPlayer.gameObject.layer = 9;
                 maldicion = false;
+                gameObject.layer = 8;
             }
         }
     }
+
+    // LAYERS
+    // 8: NoMaldito
+    // 9: Maldito
 
     void Update()
     {
@@ -80,22 +86,44 @@ public class PlayerContoller : MonoBehaviour
 
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
+        //Debug.Log(maldicion);
 
-        Debug.Log(maldicion);
+        Physics.IgnoreLayerCollision(9, 7, false); // Layer 9: Maldito
+        Physics.IgnoreLayerCollision(8, 7, true); // Layer 8: NoMaldito
 
-        if(maldicion)
+        if (maldicion)
         {
             bolita.SetActive(true);
-            Physics.IgnoreLayerCollision(3, 7, true);
         }
 
         if(!maldicion)
         {
             bolita.SetActive(false);
-            Physics.IgnoreLayerCollision(3, 7, false);
+        }
+    }
 
+    // this script pushes all rigidbodies that the character touches
+    float pushPower = 2.0f;
+    void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        Rigidbody body = hit.collider.attachedRigidbody;
+
+        // no rigidbody
+        if (body == null || body.isKinematic)
+        {
+            return;
         }
 
+        // We dont want to push objects below us
+        if (hit.moveDirection.y < -0.3)
+        {
+            return;
+        }
+
+        Vector3 pushDir = new Vector3(hit.moveDirection.x, 0, -0.5f);
+
+        body.velocity = pushDir * pushPower;
+    
     }
 
     public bool GetMaldicion() { return maldicion; }
