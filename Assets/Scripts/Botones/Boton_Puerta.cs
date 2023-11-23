@@ -15,21 +15,18 @@ public class Boton_Puerta : MonoBehaviour
 
     float speed = 3.0f;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        //Move();
-        door.SetActive(false);
-        this.transform.position = new Vector3(gameObject.transform.position.x, transform.position.y - 0.1f, transform.position.z);
         cube.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
-    }
 
-    private void Update()
-    {
         if (player1.position.x >= 61.5f && player2.position.x >= 61.5f)
         {
-            //Back();
-            door.SetActive(true);
+            Debug.Log("cierate sesamo");
+            Back();
         }
+
+        else
+            Move();
     }
 
     public void Move()
@@ -39,7 +36,6 @@ public class Boton_Puerta : MonoBehaviour
 
     public void Back()
     {
-        Debug.Log("close door");
         door.transform.position = Vector3.MoveTowards(door.transform.position, initialPos.position, speed * Time.deltaTime);
     }
 }
