@@ -33,7 +33,6 @@ public class Boton_Puerta : MonoBehaviour
     {
         door.transform.position = Vector3.MoveTowards(door.transform.position, finalPos.position, speed * Time.deltaTime);
     }
-
     public void Back()
     {
         door.transform.position = Vector3.MoveTowards(door.transform.position, initialPos.position, speed * Time.deltaTime);
