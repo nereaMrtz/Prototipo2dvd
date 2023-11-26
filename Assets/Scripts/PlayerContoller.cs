@@ -27,9 +27,12 @@ public class PlayerContoller : MonoBehaviour
 
     [SerializeField] GameObject bolita;
 
+    private AudioManager sound;
+
     private void Start()
     {
         controller = gameObject.GetComponent<CharacterController>();
+        sound = GameObject.FindGameObjectWithTag("AM").GetComponent<AudioManager>();
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -39,7 +42,10 @@ public class PlayerContoller : MonoBehaviour
     public void OnJump(InputAction.CallbackContext context)
     {
         float aux = context.ReadValue<float>();
-        if (aux != 0f ) { hasJumped = true; }
+        if (aux != 0f ) 
+        { 
+            hasJumped = true;
+        }
         else { hasJumped = false;  }
         // hasJumped = context.action.triggered;
     }
@@ -54,7 +60,9 @@ public class PlayerContoller : MonoBehaviour
                 otherPlayer.gameObject.layer = 9;
                 maldicion = false;
                 gameObject.layer = 8;
+
             }
+            sound.maldicion.Play();
         }
     }
 
@@ -76,6 +84,7 @@ public class PlayerContoller : MonoBehaviour
         if(hasJumped && groundedPlayer)
         {
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+            sound.jump.Play();
         }
 
         //WallJump

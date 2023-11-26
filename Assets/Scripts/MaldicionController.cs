@@ -50,7 +50,6 @@ public class MaldicionController : MonoBehaviour
         {
             player1.SetMaldicion(false);
             player2.SetMaldicion(true);
-
         }
         if (player2.GetMaldicion() == true)
         {

@@ -22,21 +22,42 @@ public class BotonPlatHorizontal : MonoBehaviour
 
     private Vector3 notPressed;
     private Vector3 yesPressed;
+
+    private AudioManager sound;
+
     void Start()
     {
         notPressed = new Vector3(gameObject.transform.position.x, transform.position.y, transform.position.z);
+        sound = GameObject.FindGameObjectWithTag("AM").GetComponent<AudioManager>();
         yesPressed = new Vector3(gameObject.transform.position.x, transform.position.y - 0.048f, transform.position.z);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        sound.button.Play();        
     }
 
     private void OnTriggerStay(Collider other)
     {
         this.pressed = true;
         transform.position = yesPressed;
+
+        if (platform.transform.position == p1.position || platform2.transform.position == p1_2.position || platform3.transform.position == p1_3.position)
+        {
+            sound.door_platform.Play();
+        }
+
+        if (platform.transform.position == p2.position && platform2.transform.position == p2_2.position && platform3.transform.position == p2_3.position)
+        {
+            sound.door_platform.Pause();
+        }
     }
     private void OnTriggerExit(Collider other)
     {
         this.pressed = false;
         this.transform.position = notPressed;
+
+        sound.door_platform.Pause();
     }
 
     public void Move()
