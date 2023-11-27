@@ -65,7 +65,7 @@ public class BotonPlatHorizontal : MonoBehaviour
         platform.transform.position = Vector3.MoveTowards(platform.transform.position, p2.position, speed * Time.deltaTime);
         platform2.transform.position = Vector3.MoveTowards(platform2.transform.position, p2_2.position, speed * Time.deltaTime);
         platform3.transform.position = Vector3.MoveTowards(platform3.transform.position, p2_3.position, speed * Time.deltaTime);
-        //sound.door_platform.Play();
+        sound.door_platform.Play();
     }
 
     public void Back()
@@ -73,29 +73,14 @@ public class BotonPlatHorizontal : MonoBehaviour
         platform.transform.position = Vector3.MoveTowards(platform.transform.position, p1.position, speed * Time.deltaTime);
         platform2.transform.position = Vector3.MoveTowards(platform2.transform.position, p1_2.position, speed * Time.deltaTime);
         platform3.transform.position = Vector3.MoveTowards(platform3.transform.position, p1_3.position, speed * Time.deltaTime);
-       // sound.door_platform.Play();
+        sound.door_platform.Play();
     }
 
     private void Update()
     {
-        if (platform.transform.position == p1.position || platform.transform.position == p2.position)
+        if(platform.transform.position == p1.position || platform.transform.position == p2.position)
         {
-           sound.door_platform.Pause();
-            Debug.Log("pausado");
-
-            //}
-            //if (platform.transform.position == p2.position && platform.transform.position != p1.position)
-            //{
-            //    sound.door_platform.Pause();
-            //}
-
-
+            sound.door_platform.Pause();
         }
-        else
-        {
-            sound.door_platform.Play();
-        }
-
-        Debug.Log(sound.door_platform.isPlaying);
     }
 }
