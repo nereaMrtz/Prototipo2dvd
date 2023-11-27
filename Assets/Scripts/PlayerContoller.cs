@@ -25,8 +25,6 @@ public class PlayerContoller : MonoBehaviour
 
     [SerializeField] PlayerContoller otherPlayer;
 
-    [SerializeField] GameObject bolita;
-
    // [SerializeField] Material ghost;
     [SerializeField] Material noMalditoMaterial;
     [SerializeField] Material malditoMaterial;
@@ -92,7 +90,7 @@ public class PlayerContoller : MonoBehaviour
             
         }
 
-        Vector3 move = new Vector3(movementInput.x, 0, movementInput.y);
+        Vector3 move = new Vector3(movementInput.x, -0.5f, movementInput.y);
         controller.Move(move * Time.deltaTime * playerSpeed);
 
 
@@ -118,13 +116,11 @@ public class PlayerContoller : MonoBehaviour
 
         if (maldicion)
         {
-            bolita.SetActive(true);
             gameObject.GetComponentInChildren<SkinnedMeshRenderer>().material = malditoMaterial;
         }
 
         if(!maldicion)
         {
-            bolita.SetActive(false);
             gameObject.GetComponentInChildren<SkinnedMeshRenderer>().material = noMalditoMaterial;
         }
 

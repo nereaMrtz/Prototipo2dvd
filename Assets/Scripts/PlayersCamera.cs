@@ -6,21 +6,21 @@ using UnityEngine.InputSystem;
 
 public class PlayersCamera : MonoBehaviour
 {
-    [SerializeField] Transform ghost1;
-    [SerializeField] Transform ghost2;
-
-   // [SerializeField] Vector3 minSize;
-    //[SerializeField] Vector3 maxSize;
+    public List<Transform> targets;
 
     public Vector3 offset = new Vector3(0, 3, -30);
 
     private void Update()
     {
-       // Debug.Log(targets.Count);
+        // Debug.Log(targets.Count);
     }
 
     private void LateUpdate()
     {
+        if (targets.Count == 0)
+        {
+            return;
+        }
 
         Vector3 centerPoint = GetCenterPoint();
         Vector3 newPosition = centerPoint + offset;
@@ -29,15 +29,24 @@ public class PlayersCamera : MonoBehaviour
 
     Vector3 GetCenterPoint()
     {
-        var bounds = new Bounds(ghost1.position, Vector3.zero);
-        //var bounds = new Bounds();
-       // bounds.SetMinMax(minSize, maxSize);
- 
-        //bounds.Encapsulate(ghost1.position);
-        bounds.Encapsulate(ghost2.position);
+        if (targets.Count == 1)
+        {
+            return targets[0].position;
+        }
 
-       // bounds.max = maxSize;
+        var bounds = new Bounds(targets[0].position, Vector3.zero);
+        for (int i = 0; i < targets.Count; i++)
+        {
+            bounds.Encapsulate(targets[i].position);
+            // Debug.Log(targets[i].position);
+        }
         return bounds.center;
     }
 
+    public void AddPlayer(PlayerInput player)
+    {
+        Transform aux = player.gameObject.transform;
+
+        targets.Add(aux);
+    }
 }
