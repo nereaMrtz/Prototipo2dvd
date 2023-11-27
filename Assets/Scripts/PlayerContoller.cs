@@ -25,11 +25,18 @@ public class PlayerContoller : MonoBehaviour
 
     [SerializeField] PlayerContoller otherPlayer;
 
-    [SerializeField] GameObject bolita;
+   // [SerializeField] Material ghost;
+    [SerializeField] Material noMalditoMaterial;
+    [SerializeField] Material malditoMaterial;
+
+    private float distance;
+
+    private AudioManager sound;
 
     private void Start()
     {
         controller = gameObject.GetComponent<CharacterController>();
+        sound = GameObject.FindGameObjectWithTag("AM").GetComponent<AudioManager>();
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -39,7 +46,10 @@ public class PlayerContoller : MonoBehaviour
     public void OnJump(InputAction.CallbackContext context)
     {
         float aux = context.ReadValue<float>();
-        if (aux != 0f ) { hasJumped = true; }
+        if (aux != 0f ) 
+        { 
+            hasJumped = true;
+        }
         else { hasJumped = false;  }
         // hasJumped = context.action.triggered;
     }
@@ -54,7 +64,9 @@ public class PlayerContoller : MonoBehaviour
                 otherPlayer.gameObject.layer = 9;
                 maldicion = false;
                 gameObject.layer = 8;
+
             }
+            sound.maldicion.Play();
         }
     }
 
@@ -70,12 +82,22 @@ public class PlayerContoller : MonoBehaviour
             playerVelocity.y = 0f;
         }
 
-        Vector3 move = new Vector3(movementInput.x, 0, movementInput.y);
+
+        distance = otherPlayer.transform.position.x - gameObject.transform.position.x;
+        //CALCULO DISTANCIAS PLAYERS
+        if (distance > 25)
+        {
+            
+        }
+
+        Vector3 move = new Vector3(movementInput.x, -0.5f, movementInput.y);
         controller.Move(move * Time.deltaTime * playerSpeed);
+
 
         if(hasJumped && groundedPlayer)
         {
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+            sound.jump.Play();
         }
 
         //WallJump
@@ -86,6 +108,7 @@ public class PlayerContoller : MonoBehaviour
 
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
+        
         //Debug.Log(maldicion);
 
         Physics.IgnoreLayerCollision(9, 7, false); // Layer 9: Maldito
@@ -93,13 +116,17 @@ public class PlayerContoller : MonoBehaviour
 
         if (maldicion)
         {
-            bolita.SetActive(true);
+            gameObject.GetComponentInChildren<SkinnedMeshRenderer>().material = malditoMaterial;
         }
 
         if(!maldicion)
         {
-            bolita.SetActive(false);
+            gameObject.GetComponentInChildren<SkinnedMeshRenderer>().material = noMalditoMaterial;
         }
+
+
+
+        
     }
 
     // this script pushes all rigidbodies that the character touches

@@ -24,21 +24,43 @@ public class PalancaPlataforma : MonoBehaviour
     private Vector3 notPressed;
     private Vector3 yesPressed;
 
+    private AudioManager sound;
+
     private void Start()
     {
         notPressed = new Vector3(gameObject.transform.position.x, transform.position.y, transform.position.z);
         yesPressed = new Vector3(gameObject.transform.position.x, transform.position.y -0.048f, transform.position.z);
+        sound = GameObject.FindGameObjectWithTag("AM").GetComponent<AudioManager>();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        sound.button.Play();
     }
 
     private void OnTriggerStay(Collider other)
     {
        this.pressed = true;
        transform.position = yesPressed;
+
+       if(platform.transform.position == p1.position || platform2.transform.position == p1_2.position)
+       {
+            sound.door_platform.Play();
+       }
+
+       if (platform.transform.position == p2.position && platform2.transform.position == p2_2.position)
+       {
+           sound.door_platform.Pause();
+       }
     }
+
     private void OnTriggerExit(Collider other)
     {
         this.pressed = false;
         this.transform.position = notPressed;
+        sound.button.Play();
+
+        sound.door_platform.Pause();
     }
 
     public void Move()

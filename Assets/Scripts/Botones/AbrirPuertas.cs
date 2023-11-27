@@ -13,23 +13,32 @@ public class AbrirPuertas : MonoBehaviour
     private Vector3 notPressed;
     private Vector3 yesPressed;
 
+    private AudioManager sound;
+
     private void Start()
     {
         notPressed = new Vector3(gameObject.transform.position.x, transform.position.y, transform.position.z);
         yesPressed = new Vector3(gameObject.transform.position.x, transform.position.y - 0.048f, transform.position.z);
+        sound = GameObject.FindGameObjectWithTag("AM").GetComponent<AudioManager>();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        sound.button.Play();        
     }
 
     private void OnTriggerStay(Collider other)
     {
         transform.position = yesPressed;
         Move();
+        //sound.door_platform.Play();
     }
     
-    //LA PUERTA NO SE CIERRA
     private void OnTriggerExit(Collider other)
     {
         transform.position = notPressed;
         Back();
+        sound.button.Play();
     }
 
     public void Move()
