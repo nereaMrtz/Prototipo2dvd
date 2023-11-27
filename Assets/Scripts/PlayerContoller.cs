@@ -27,6 +27,12 @@ public class PlayerContoller : MonoBehaviour
 
     [SerializeField] GameObject bolita;
 
+   // [SerializeField] Material ghost;
+    [SerializeField] Material noMalditoMaterial;
+    [SerializeField] Material malditoMaterial;
+
+    private float distance;
+
     private AudioManager sound;
 
     private void Start()
@@ -78,8 +84,17 @@ public class PlayerContoller : MonoBehaviour
             playerVelocity.y = 0f;
         }
 
+
+        distance = otherPlayer.transform.position.x - gameObject.transform.position.x;
+        //CALCULO DISTANCIAS PLAYERS
+        if (distance > 25)
+        {
+            
+        }
+
         Vector3 move = new Vector3(movementInput.x, 0, movementInput.y);
         controller.Move(move * Time.deltaTime * playerSpeed);
+
 
         if(hasJumped && groundedPlayer)
         {
@@ -95,6 +110,7 @@ public class PlayerContoller : MonoBehaviour
 
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
+        
         //Debug.Log(maldicion);
 
         Physics.IgnoreLayerCollision(9, 7, false); // Layer 9: Maldito
@@ -103,12 +119,18 @@ public class PlayerContoller : MonoBehaviour
         if (maldicion)
         {
             bolita.SetActive(true);
+            gameObject.GetComponentInChildren<SkinnedMeshRenderer>().material = malditoMaterial;
         }
 
         if(!maldicion)
         {
             bolita.SetActive(false);
+            gameObject.GetComponentInChildren<SkinnedMeshRenderer>().material = noMalditoMaterial;
         }
+
+
+
+        
     }
 
     // this script pushes all rigidbodies that the character touches
