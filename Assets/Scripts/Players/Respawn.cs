@@ -10,8 +10,10 @@ public class Respawn : MonoBehaviour
     {
         if(other.gameObject.layer == 12 && gameObject.layer == 9)
         {
-            Debug.Log("awita");
-            gameObject.GetComponent<CharacterController>().Move(respawnPos - gameObject.transform.position);
+            this.gameObject.GetComponent<CharacterController>().enabled = false;
+            this.gameObject.transform.position = respawnPos;
+            this.gameObject.GetComponent<CharacterController>().enabled = true;
+            //gameObject.GetComponent<CharacterController>().Move(respawnPos - gameObject.transform.position);
         }
     }
 }
