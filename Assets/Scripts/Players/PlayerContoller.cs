@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.HID;
 using static UnityEngine.InputSystem.DefaultInputActions;
 using System.Collections.Generic;
+using UnityEngine.TextCore.Text;
 
 [RequireComponent(typeof(CharacterController))]
 
@@ -31,12 +32,14 @@ public class PlayerContoller : MonoBehaviour
     private bool inputBuffer;
 
     float pushPower = 2.0f;
+    float pushPlayerPower = 1.0f;
+    Vector3 impact;
 
 
     [Header("Curse")]
 
     [SerializeField] PlayerContoller otherPlayer;
-    public bool curse ;
+    public bool curse;
 
     [SerializeField] Material normalMat;
     [SerializeField] Material cursedMat;
@@ -125,11 +128,11 @@ public class PlayerContoller : MonoBehaviour
             if (groundedPlayer)
                 Jump();
             buffer -= Time.deltaTime;
-            if(buffer < 0)
+            if (buffer < 0)
             {
                 inputBuffer = false;
             }
-            
+
         }
 
         playerVelocity.y += gravityValue * Time.deltaTime;
@@ -170,6 +173,16 @@ public class PlayerContoller : MonoBehaviour
     //This script pushes all rigidbodies that the character touches
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
+        if (hit.gameObject.GetComponent<PlayerContoller>() == otherPlayer)
+        {
+            Debug.Log("AA");
+            impact = AddImpact(hit.moveDirection, hit.moveLength * pushPlayerPower);
+            // apply the impact force:
+            if (impact.magnitude > 0.2) otherPlayer.GetComponent<CharacterController>().Move(impact * Time.deltaTime);
+            // consumes the impact energy each cycle:
+            impact = Vector3.Lerp(impact, Vector3.zero, 5 * Time.deltaTime);
+        }
+
         Rigidbody body = hit.collider.attachedRigidbody;
 
         if (body == null || body.isKinematic)
@@ -197,5 +210,12 @@ public class PlayerContoller : MonoBehaviour
             this.gameObject.layer = 9;
         else
             this.gameObject.layer = 8;
+    }
+
+    Vector3 AddImpact(Vector3 dir, float force)
+    {
+        dir.Normalize();
+        if (dir.y < 0) dir.y = -dir.y; // reflect down force on the ground
+        return impact + dir.normalized * force;
     }
 }
