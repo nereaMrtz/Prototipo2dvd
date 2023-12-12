@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6841348768756093141}
   - component: {fileID: 5503823244412255936}
   - component: {fileID: 8679370163592802299}
-  - component: {fileID: 7717193996740791296}
+  - component: {fileID: 3390058417294730411}
   m_Layer: 0
   m_Name: CursedButton
   m_TagString: Untagged
@@ -33,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6841348768756093141
 MeshFilter:
@@ -106,7 +106,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0000001, y: 43.0637, z: 1.0000002}
   m_Center: {x: 0.000000057734262, y: 27.702057, z: -0.000000115468524}
---- !u!114 &7717193996740791296
+--- !u!114 &3390058417294730411
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,13 +115,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 9168366675912503955}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a060ca700e7b41d45ac34d2d63cbb1d8, type: 3}
+  m_Script: {fileID: 11500000, guid: 2e3b7c5c7c4e6644d8de620c0401e036, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platform: {fileID: 0}
-  p1: {fileID: 0}
-  p2: {fileID: 0}
-  platform2: {fileID: 0}
-  p1_2: {fileID: 0}
-  p2_2: {fileID: 0}
-  pressed: 0
+  platforms: []
