@@ -14,7 +14,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 46f311046d2104da8b56be3d0a49a119, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 46f311046d2104da8b56be3d0a49a119, type: 3}
       propertyPath: m_LocalScale.x
@@ -30,11 +30,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 46f311046d2104da8b56be3d0a49a119, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.9
+      value: -11.74
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 46f311046d2104da8b56be3d0a49a119, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.6599999
+      value: 0.89
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 46f311046d2104da8b56be3d0a49a119, type: 3}
       propertyPath: m_LocalPosition.z
@@ -280,10 +280,12 @@ MonoBehaviour:
   playerSpeed: 7
   jumpHeight: 5
   gravityValue: -21
-  maldicion: 0
+  maxCoyoteTime: 0.25
+  inputBufferTime: 0.25
   otherPlayer: {fileID: 0}
-  noMalditoMaterial: {fileID: 2100000, guid: c73d46928ec1139479e77355f4bf266f, type: 2}
-  malditoMaterial: {fileID: 2100000, guid: e8f4bb0cc7f1d8944bd0e0202e470f4f, type: 2}
+  curse: 0
+  normalMat: {fileID: 2100000, guid: c73d46928ec1139479e77355f4bf266f, type: 2}
+  cursedMat: {fileID: 2100000, guid: e8f4bb0cc7f1d8944bd0e0202e470f4f, type: 2}
 --- !u!114 &5346985408287639845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -362,7 +364,7 @@ MonoBehaviour:
     m_ActionId: 04cfc453-9259-4e43-8a1a-d7e7e7a02e8a
     m_ActionName: Player/Interact[/Keyboard/f]
   m_NeverAutoSwitchControlSchemes: 1
-  m_DefaultControlScheme: Gamepad
+  m_DefaultControlScheme: Keyboard
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
