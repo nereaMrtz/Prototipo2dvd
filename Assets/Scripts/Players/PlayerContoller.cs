@@ -9,6 +9,7 @@ using System.Collections.Generic;
 public class PlayerContoller : MonoBehaviour
 {
     [Header("Player Movement")]
+
     [SerializeField] private float playerSpeed = 2.0f;
     private CharacterController controller;
     private Vector2 movementInput = Vector2.zero;
@@ -18,7 +19,6 @@ public class PlayerContoller : MonoBehaviour
     [SerializeField] private float gravityValue = -9.81f;
     private bool groundedPlayer;
     private bool jumpInput = false;
-    private bool canWallJump = false;
 
     [SerializeField] private float maxCoyoteTime = 0.25f;
     private float coyoteTimer;
@@ -30,15 +30,16 @@ public class PlayerContoller : MonoBehaviour
     private float buffer;
     private bool inputBuffer;
 
-    [Header("Maldición")]
+    float pushPower = 2.0f;
+
+
+    [Header("Curse")]
 
     [SerializeField] PlayerContoller otherPlayer;
-    public bool maldicion ;
+    public bool curse ;
 
-
-    // [SerializeField] Material ghost;
-    [SerializeField] Material noMalditoMaterial;
-    [SerializeField] Material malditoMaterial;
+    [SerializeField] Material normalMat;
+    [SerializeField] Material cursedMat;
 
     private float distance;
 
@@ -63,14 +64,13 @@ public class PlayerContoller : MonoBehaviour
             jumpInput = true;
         }
         else { jumpInput = false; }
-        // hasJumped = context.action.triggered;
     }
 
     public void OnMaldicion(InputAction.CallbackContext context)
     {
         if (context.action.triggered)
         {
-            if (!otherPlayer.maldicion)
+            if (!otherPlayer.curse)
             {
                 otherPlayer.ChangeMaldicion();
                 ChangeMaldicion();
@@ -80,8 +80,8 @@ public class PlayerContoller : MonoBehaviour
     }
 
     // LAYERS
-    // 8: NoMaldito
-    // 9: Maldito
+    // 8: Not Cursed
+    // 9: Cursed
 
     void Update()
     {
@@ -97,15 +97,6 @@ public class PlayerContoller : MonoBehaviour
         {
             playerVelocity.y = 0f;
             hasJumped = false;
-        }
-
-
-        distance = otherPlayer.transform.position.x - gameObject.transform.position.x;
-
-        //CALCULO DISTANCIAS PLAYERS
-        if (distance > 25)
-        {
-
         }
 
         Vector3 move = new Vector3(movementInput.x, -0.5f, .0f);
@@ -141,26 +132,20 @@ public class PlayerContoller : MonoBehaviour
             
         }
 
-        //WallJump
-        if (hasJumped && canWallJump)
-        {
-
-        }
-
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
 
-        Physics.IgnoreLayerCollision(9, 7, false); // Layer 9: Maldito
-        Physics.IgnoreLayerCollision(8, 7, true); // Layer 8: NoMaldito
+        Physics.IgnoreLayerCollision(9, 7, false); // Layer 9: Cursed
+        Physics.IgnoreLayerCollision(8, 7, true); // Layer 8: Not Cursed
 
-        if (maldicion)
+        if (curse)
         {
-            gameObject.GetComponentInChildren<SkinnedMeshRenderer>().material = malditoMaterial;
+            gameObject.GetComponentInChildren<SkinnedMeshRenderer>().material = cursedMat;
         }
 
-        if (!maldicion)
+        if (!curse)
         {
-            gameObject.GetComponentInChildren<SkinnedMeshRenderer>().material = noMalditoMaterial;
+            gameObject.GetComponentInChildren<SkinnedMeshRenderer>().material = normalMat;
         }
 
         if (inCoyote)
@@ -172,7 +157,6 @@ public class PlayerContoller : MonoBehaviour
         }
 
         wasGrounded = groundedPlayer;
-
     }
 
     void Jump()
@@ -183,19 +167,17 @@ public class PlayerContoller : MonoBehaviour
         inputBuffer = false;
     }
 
-    // this script pushes all rigidbodies that the character touches
-    float pushPower = 2.0f;
+    //This script pushes all rigidbodies that the character touches
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
         Rigidbody body = hit.collider.attachedRigidbody;
 
-        // no rigidbody
         if (body == null || body.isKinematic)
         {
             return;
         }
 
-        // We dont want to push objects below us
+        //We dont want to push objects below us
         if (hit.moveDirection.y < -0.3)
         {
             return;
@@ -207,10 +189,11 @@ public class PlayerContoller : MonoBehaviour
 
     }
 
+    [Tooltip("This changes the curse and layers that it collides with")]
     void ChangeMaldicion()
     {
-        maldicion = !maldicion;
-        if (maldicion)
+        curse = !curse;
+        if (curse)
             this.gameObject.layer = 9;
         else
             this.gameObject.layer = 8;

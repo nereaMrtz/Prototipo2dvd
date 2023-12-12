@@ -13,7 +13,6 @@ public class Respawn : MonoBehaviour
             this.gameObject.GetComponent<CharacterController>().enabled = false;
             this.gameObject.transform.position = respawnPos;
             this.gameObject.GetComponent<CharacterController>().enabled = true;
-            //gameObject.GetComponent<CharacterController>().Move(respawnPos - gameObject.transform.position);
         }
     }
 }
