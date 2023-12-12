@@ -32,9 +32,9 @@ public class PlayerContoller : MonoBehaviour
 
     [Header("Maldición")]
 
-    public bool maldicion;
-
     [SerializeField] PlayerContoller otherPlayer;
+    public bool maldicion ;
+
 
     // [SerializeField] Material ghost;
     [SerializeField] Material noMalditoMaterial;
@@ -48,6 +48,7 @@ public class PlayerContoller : MonoBehaviour
     {
         controller = gameObject.GetComponent<CharacterController>();
         sound = GameObject.FindGameObjectWithTag("AM").GetComponent<AudioManager>();
+        controller.attachedRigidbody.constraints = RigidbodyConstraints.FreezePositionZ;
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -69,13 +70,10 @@ public class PlayerContoller : MonoBehaviour
     {
         if (context.action.triggered)
         {
-            if (otherPlayer.GetMaldicion() == false)
+            if (!otherPlayer.maldicion)
             {
-                otherPlayer.SetMaldicion(true);
-                otherPlayer.gameObject.layer = 9;
-                maldicion = false;
-                gameObject.layer = 8;
-
+                otherPlayer.ChangeMaldicion();
+                ChangeMaldicion();
             }
             sound.maldicion.Play();
         }
@@ -209,6 +207,12 @@ public class PlayerContoller : MonoBehaviour
 
     }
 
-    public bool GetMaldicion() { return maldicion; }
-    public void SetMaldicion(bool maldicion) { this.maldicion = maldicion; }
+    void ChangeMaldicion()
+    {
+        maldicion = !maldicion;
+        if (maldicion)
+            this.gameObject.layer = 9;
+        else
+            this.gameObject.layer = 8;
+    }
 }
