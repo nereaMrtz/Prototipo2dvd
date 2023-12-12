@@ -334,7 +334,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 30445988}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -36.6216, y: -12.723632, z: -12.689251}
+  m_LocalPosition: {x: -34.6, y: -13.5, z: -12.689251}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -351,7 +351,7 @@ Rigidbody:
   serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0.5
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -384,7 +384,7 @@ BoxCollider:
     m_Bits: 256
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
-  m_ProvidesContacts: 0
+  m_ProvidesContacts: 1
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
@@ -5948,13 +5948,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ab112728a72dba40be76d504c284fff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  door: {fileID: 683241024}
-  initialPos: {fileID: 83223173}
-  finalPos: {fileID: 38699009}
-  speed: 3
-  notPressed: {x: 0, y: 0, z: 0}
-  yesPressed: {x: 0, y: 0, z: 0}
-  sound: {fileID: 0}
 --- !u!1001 &853162102
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6060,9 +6053,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d6f6842c2465e04597c8059f9132f4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boton1: {fileID: 2099529457}
-  boton2: {fileID: 1895826583}
-  boton3: {fileID: 1196940130}
 --- !u!1 &856637192
 GameObject:
   m_ObjectHideFlags: 0
@@ -7236,7 +7226,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7050233061697923678, guid: d54ea038ae13e844a905f895cdd50ac6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10
+      value: -9.37
       objectReference: {fileID: 0}
     - target: {fileID: 8731483283398164143, guid: d54ea038ae13e844a905f895cdd50ac6, type: 3}
       propertyPath: m_Name
@@ -7754,20 +7744,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a61bf44579aecbc4cb84d5ba87a91415, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platform: {fileID: 1765114481}
-  p1: {fileID: 531520506}
-  p2: {fileID: 856637193}
-  platform2: {fileID: 939204083}
-  p1_2: {fileID: 557205183}
-  p2_2: {fileID: 1904763337}
-  platform3: {fileID: 929772910}
-  p1_3: {fileID: 414615408}
-  p2_3: {fileID: 2107504343}
-  speed: 5
-  pressed: 0
-  notPressed: {x: 0, y: 0, z: 0}
-  yesPressed: {x: 0, y: 0, z: 0}
-  sound: {fileID: 0}
 --- !u!65 &1196940131
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8675,7 +8651,7 @@ GameObject:
   - component: {fileID: 1376706194}
   - component: {fileID: 1376706193}
   - component: {fileID: 1376706195}
-  m_Layer: 12
+  m_Layer: 4
   m_Name: Water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11521,13 +11497,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ab112728a72dba40be76d504c284fff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  door: {fileID: 1991077179}
-  initialPos: {fileID: 1688732705}
-  finalPos: {fileID: 506210618}
-  speed: 3
-  notPressed: {x: 0, y: 0, z: 0}
-  yesPressed: {x: 0, y: 0, z: 0}
-  sound: {fileID: 0}
 --- !u!4 &1796972852 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 555293652018627972, guid: de6656c53016cfa4a83b4e595ed43875, type: 3}
@@ -11852,20 +11821,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a61bf44579aecbc4cb84d5ba87a91415, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platform: {fileID: 1765114481}
-  p1: {fileID: 531520506}
-  p2: {fileID: 856637193}
-  platform2: {fileID: 939204083}
-  p1_2: {fileID: 557205183}
-  p2_2: {fileID: 1904763337}
-  platform3: {fileID: 929772910}
-  p1_3: {fileID: 414615408}
-  p2_3: {fileID: 2107504343}
-  speed: 5
-  pressed: 0
-  notPressed: {x: 0, y: 0, z: 0}
-  yesPressed: {x: 0, y: 0, z: 0}
-  sound: {fileID: 0}
 --- !u!65 &1895826584
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14023,20 +13978,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a61bf44579aecbc4cb84d5ba87a91415, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platform: {fileID: 1765114481}
-  p1: {fileID: 531520506}
-  p2: {fileID: 856637193}
-  platform2: {fileID: 939204083}
-  p1_2: {fileID: 557205183}
-  p2_2: {fileID: 1904763337}
-  platform3: {fileID: 929772910}
-  p1_3: {fileID: 414615408}
-  p2_3: {fileID: 2107504343}
-  speed: 5
-  pressed: 0
-  notPressed: {x: 0, y: 0, z: 0}
-  yesPressed: {x: 0, y: 0, z: 0}
-  sound: {fileID: 0}
 --- !u!1 &2107504342
 GameObject:
   m_ObjectHideFlags: 0
@@ -15176,11 +15117,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 764616680642571518, guid: 50fbc1eb949061b4b8707e5f6a558657, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.74
+      value: -15.439994
       objectReference: {fileID: 0}
     - target: {fileID: 764616680642571518, guid: 50fbc1eb949061b4b8707e5f6a558657, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.89
+      value: 0.65999985
       objectReference: {fileID: 0}
     - target: {fileID: 764616680642571518, guid: 50fbc1eb949061b4b8707e5f6a558657, type: 3}
       propertyPath: m_LocalPosition.z
@@ -15415,11 +15356,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4337081105755291289, guid: c3816692e7ca7a847b9bfaf3f0942daa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.210007
+      value: -12.91
       objectReference: {fileID: 0}
     - target: {fileID: 4337081105755291289, guid: c3816692e7ca7a847b9bfaf3f0942daa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.9299998
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 4337081105755291289, guid: c3816692e7ca7a847b9bfaf3f0942daa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -15452,6 +15393,18 @@ PrefabInstance:
     - target: {fileID: 4337081105755291289, guid: c3816692e7ca7a847b9bfaf3f0942daa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9157852695074144654, guid: c3816692e7ca7a847b9bfaf3f0942daa, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9157852695074144654, guid: c3816692e7ca7a847b9bfaf3f0942daa, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -19.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 9157852695074144654, guid: c3816692e7ca7a847b9bfaf3f0942daa, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.39
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
