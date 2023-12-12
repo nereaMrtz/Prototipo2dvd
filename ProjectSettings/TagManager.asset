@@ -13,13 +13,13 @@ TagManager:
   - Player
   - Water
   - UI
-  - Chocable
-  - Transparente
-  - NoMaldito
-  - Maldito
-  - BotonPuerta
+  - Hitable
+  - Transparent
+  - NotCursed
+  - Cursed
   - Trigger
-  - Awa
+  - Wota
+  - 
   - 
   - 
   - 
