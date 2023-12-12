@@ -8,7 +8,7 @@ public class Respawn : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.layer == 12 && gameObject.layer == 9)
+        if(other.gameObject.layer == 4 && gameObject.layer == 9)
         {
             this.gameObject.GetComponent<CharacterController>().enabled = false;
             this.gameObject.transform.position = respawnPos;

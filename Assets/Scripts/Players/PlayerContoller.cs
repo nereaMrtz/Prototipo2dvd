@@ -47,7 +47,7 @@ public class PlayerContoller : MonoBehaviour
 
     private void Start()
     {
-        controller = gameObject.GetComponent<CharacterController>();
+        controller = this.gameObject.GetComponent<CharacterController>();
         sound = GameObject.FindGameObjectWithTag("AM").GetComponent<AudioManager>();
         controller.attachedRigidbody.constraints = RigidbodyConstraints.FreezePositionZ;
     }
