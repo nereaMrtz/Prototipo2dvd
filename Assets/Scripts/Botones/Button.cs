@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Button : MonoBehaviour
 {
-    [SerializeField] private MovingPlatform platforms[];
+    [SerializeField] private GameObject[] platforms;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -14,16 +14,16 @@ public class Button : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        foreach ( MovingPlatform platform in platforms)
+        foreach ( GameObject platform in platforms)
         {
-            platform.Interact():
+            platform.GetComponent<MovingPlatform>().Interact();
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        foreach (MovingPlatform platform in platforms)
+        foreach (GameObject platform in platforms)
         {
-            platform.Uninteract():
+            platform.GetComponent<MovingPlatform>().Uninteract();
         }
     }
 
