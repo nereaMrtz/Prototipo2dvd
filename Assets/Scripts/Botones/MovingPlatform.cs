@@ -20,10 +20,10 @@ public class MovingPlatform : MonoBehaviour
     public void Interact()
     {
         interacting = true;
+        if (transform.position == lastPosition.position)
+            return;
         if(transform.position != lastPosition.position) 
         {
-            if (transform.position == lastPosition.position)
-                return;
             transform.position = Vector3.MoveTowards(transform.position, lastPosition.position, speed * Time.deltaTime);
         }
     }
