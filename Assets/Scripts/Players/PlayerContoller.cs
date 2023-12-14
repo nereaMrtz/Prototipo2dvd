@@ -14,7 +14,7 @@ public class PlayerContoller : MonoBehaviour
     [SerializeField] private float playerSpeed = 2.0f;
     private CharacterController controller;
     private Vector2 movementInput = Vector2.zero;
-    private Vector3 playerVelocity;
+    private Vector3 playerVelocity;    
 
     [SerializeField] private float jumpHeight = 1.0f;
     [SerializeField] private float gravityValue = -9.81f;
@@ -174,12 +174,11 @@ public class PlayerContoller : MonoBehaviour
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
         if (hit.gameObject.GetComponent<PlayerContoller>() == otherPlayer)
-        {
-            Debug.Log("AA");
+        {       
             impact = AddImpact(hit.moveDirection, hit.moveLength * pushPlayerPower);
             // apply the impact force:
             if (impact.magnitude > 0.2) otherPlayer.GetComponent<CharacterController>().Move(impact * Time.deltaTime);
-            // consumes the impact energy each cycle:
+            // consumes the impact energy each cycle:            
             impact = Vector3.Lerp(impact, Vector3.zero, 5 * Time.deltaTime);
         }
 
