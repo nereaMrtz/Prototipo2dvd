@@ -4,6 +4,7 @@ using UnityEngine.InputSystem.HID;
 using static UnityEngine.InputSystem.DefaultInputActions;
 using System.Collections.Generic;
 using UnityEngine.TextCore.Text;
+using System.CodeDom.Compiler;
 
 [RequireComponent(typeof(CharacterController))]
 
@@ -35,6 +36,7 @@ public class PlayerContoller : MonoBehaviour
     float pushPlayerPower = 1.0f;
     Vector3 impact;
 
+    public bool interactInput { get; private set; }
 
     [Header("Curse")]
 
@@ -67,6 +69,17 @@ public class PlayerContoller : MonoBehaviour
             jumpInput = true;
         }
         else { jumpInput = false; }
+    }
+
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        Debug.Log(interactInput);
+        float aux = context.ReadValue<float>();
+        if (aux != 0f)
+        {
+            interactInput = true;
+        }
+        else { interactInput = false; }
     }
 
     public void OnMaldicion(InputAction.CallbackContext context)
