@@ -9,6 +9,8 @@ public class Interactables : MonoBehaviour
     bool canvasActive = false;
     [SerializeField] bool forCursed;
     PlayerContoller player;
+    public float inputDelay = .25f;
+    float delayLeft;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -43,6 +45,7 @@ public class Interactables : MonoBehaviour
                 canvasAction.gameObject.SetActive(false);
                 canvasInteraction.gameObject.SetActive(false);
             }
+            delayLeft = .0f;
         }
     }
 
@@ -50,15 +53,18 @@ public class Interactables : MonoBehaviour
     {
         if (player != null)
         {
-            if(player.interactInput)
+            if(player.interactInput && delayLeft<=.0f)
             {
                 Interact();
             }
+            delayLeft -= Time.deltaTime;
         }
     }
 
     private void Interact() {
+        delayLeft = inputDelay;
         canvasActive = !canvasActive;
         canvasInteraction.gameObject.SetActive(canvasActive);
+        canvasAction.gameObject.SetActive(!canvasActive);
     }
 }
