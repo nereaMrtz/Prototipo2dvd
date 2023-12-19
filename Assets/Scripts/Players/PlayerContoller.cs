@@ -73,7 +73,6 @@ public class PlayerContoller : MonoBehaviour
 
     public void OnInteract(InputAction.CallbackContext context)
     {
-        Debug.Log(interactInput);
         float aux = context.ReadValue<float>();
         if (aux != 0f)
         {

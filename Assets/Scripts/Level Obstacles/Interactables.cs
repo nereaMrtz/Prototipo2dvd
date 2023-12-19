@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Interactables : MonoBehaviour
 {
-    [SerializeField] Canvas canvas;
+    [SerializeField] Canvas canvasAction;
+    [SerializeField] Canvas canvasInteraction;
+    bool canvasActive = false;
     [SerializeField] bool forCursed;
     PlayerContoller player;
 
@@ -14,12 +16,12 @@ public class Interactables : MonoBehaviour
         {
             if (forCursed && other.GetComponent<PlayerContoller>().curse)
             {
-                canvas.gameObject.SetActive(true);
+                canvasAction.gameObject.SetActive(true);
                 player = other.GetComponent<PlayerContoller>();
             }
             else if(!forCursed && !other.GetComponent<PlayerContoller>().curse)
             {
-                canvas.gameObject.SetActive(true);
+                canvasAction.gameObject.SetActive(true);
                 player = other.GetComponent<PlayerContoller>();
             }
         }
@@ -31,13 +33,15 @@ public class Interactables : MonoBehaviour
         {
             if (forCursed && other.GetComponent<PlayerContoller>().curse)
             {
-                canvas.gameObject.SetActive(false);
+                canvasAction.gameObject.SetActive(false);
+                canvasInteraction.gameObject.SetActive(false);
                 player = null;
             }
             else if (!forCursed && !other.GetComponent<PlayerContoller>().curse)
             {
                 player = null;
-                canvas.gameObject.SetActive(false);
+                canvasAction.gameObject.SetActive(false);
+                canvasInteraction.gameObject.SetActive(false);
             }
         }
     }
@@ -54,6 +58,7 @@ public class Interactables : MonoBehaviour
     }
 
     private void Interact() {
-        Debug.Log("It's working");
+        canvasActive = !canvasActive;
+        canvasInteraction.gameObject.SetActive(canvasActive);
     }
 }
