@@ -58,15 +58,13 @@ public class AirHazard : MonoBehaviour
 
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log(other.gameObject);
-            Debug.Log(player1);
-            if (player1 == other.gameObject)
+            if (player1 != null)
             {
                 player1Controller.enabled = true;
                 player1 = null;
                 player1Controller = null;
             }
-            else if (player2 == other.gameObject)
+            else if (player2 != null)
             {
                 player2Controller.enabled = true;
                 player2 = null;
