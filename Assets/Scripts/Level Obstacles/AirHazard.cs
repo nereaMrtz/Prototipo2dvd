@@ -18,7 +18,6 @@ public class AirHazard : MonoBehaviour
     {
         if (player1 != null)
         {
-            Debug.Log("tu madre tiene una polla");
             player1Controller.Move(force * Time.deltaTime);
         }
         if (player2 != null)
@@ -41,16 +40,6 @@ public class AirHazard : MonoBehaviour
                 player2 = other.GetComponent<PlayerContoller>();
                 player2Controller = other.GetComponent<CharacterController>();
             }
-
-            //if (player1.curse == false)
-            //{
-            //    player1Controller.enabled = false;
-            //}
-
-            //if (player2.curse == false)
-            //{
-            //    player2Controller.enabled = false;
-            //}
         }
     }
     private void OnTriggerExit(Collider other)

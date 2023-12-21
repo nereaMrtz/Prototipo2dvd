@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.HID;
 
 public class CameraBoundaries : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class CameraBoundaries : MonoBehaviour
 
     [SerializeField] private Transform cameraTarget; // The target the camera is looking at
 
+    public bool stopScaling = false;
     void Start()
     {
         boxCollider1 = GetComponent<BoxCollider>();
@@ -52,13 +54,29 @@ public class CameraBoundaries : MonoBehaviour
         float colliderSizeX = colliderSizeY * mainCamera.aspect;
 
         // Set collider size and position for boxCollider1
-        boxCollider1.size = new Vector3(0.2f, 3.5f, 5f);
-        boxCollider1.center = new Vector3(colliderSizeX / 2f, 0f, 10f); // Adjust the Z position as needed
+        boxCollider1.size = new Vector3(1.2f, 100f, 5f);
+        boxCollider1.center = new Vector3((colliderSizeX / 2f), 0f, 10f); // Adjust the Z position as needed
 
         // Set collider size and position for boxCollider2
-        boxCollider2.size = new Vector3(0.2f, 3.5f, 5f);
-        boxCollider2.center = new Vector3(-colliderSizeX / 2f, 0f, 10f); // Adjust the Z position as needed
-
-
+        boxCollider2.size = new Vector3(1.2f, 100f, 5f);
+        boxCollider2.center = new Vector3((-colliderSizeX / 2f), 0f, 10f); // Adjust the Z position as needed
     }
+
+    //private void OnTriggerEnter(Collision collision)
+    //{
+    //        Debug.Log("a");
+    //    if (collision.gameObject.CompareTag("Player"))
+    //    {
+    //        collision.gameObject.GetComponent<PlayerContoller>().SetStopMovement(true);
+    //    }
+    //}
+    
+    //private void OnTriggerExit(Collision collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Player"))
+    //    {
+    //        Debug.Log("b");
+    //        collision.gameObject.GetComponent<PlayerContoller>().SetStopMovement(false);
+    //    }
+    //}
 }

@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3120474920913393996}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -61,11 +61,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 46f311046d2104da8b56be3d0a49a119, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.210007
+      value: -11.929998
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 46f311046d2104da8b56be3d0a49a119, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.9299998
+      value: 0.17999983
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 46f311046d2104da8b56be3d0a49a119, type: 3}
       propertyPath: m_LocalPosition.z
@@ -191,6 +191,18 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 4948870729968441596, guid: 46f311046d2104da8b56be3d0a49a119, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4948870729968441596, guid: 46f311046d2104da8b56be3d0a49a119, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -19.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 4948870729968441596, guid: 46f311046d2104da8b56be3d0a49a119, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.39
+      objectReference: {fileID: 0}
     - target: {fileID: 6226328919504926872, guid: 46f311046d2104da8b56be3d0a49a119, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -225,9 +237,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 46f311046d2104da8b56be3d0a49a119, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3944136525471278368}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 46f311046d2104da8b56be3d0a49a119, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7605718974102288521}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 46f311046d2104da8b56be3d0a49a119, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4113149054617818946}
@@ -394,7 +403,19 @@ MonoBehaviour:
     m_ActionId: 834a446c-97f6-4463-90ac-d96a1b0189d5
     m_ActionName: Player/Maldicion[/Keyboard/e]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 685165716557273399}
+        m_TargetAssemblyTypeName: PlayerContoller, Assembly-CSharp
+        m_MethodName: OnInteract
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 04cfc453-9259-4e43-8a1a-d7e7e7a02e8a
     m_ActionName: Player/Interact[/Keyboard/f]
   m_NeverAutoSwitchControlSchemes: 1
@@ -402,27 +423,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!65 &7605718974102288521
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3997992392004887587}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1.3367299, z: 1}
-  m_Center: {x: -0, y: 0.38989633, z: 0}
 --- !u!114 &4113149054617818946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -435,7 +435,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79382184ce8d45d488a8b11c486447d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawnPos: {x: 65.13, y: 5.2, z: -0.5}
 --- !u!4 &4337081105755291289 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 46f311046d2104da8b56be3d0a49a119, type: 3}

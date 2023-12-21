@@ -31,6 +31,7 @@ public class Interactables : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        Debug.Log("exit");
         if (other.gameObject.CompareTag("Player"))
         {
             if (forCursed && other.GetComponent<PlayerContoller>().curse)
