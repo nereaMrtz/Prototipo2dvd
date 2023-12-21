@@ -6,7 +6,7 @@ TagManager:
   tags:
   - Wall
   - AM
-  - CM
+  - Fog
   layers:
   - Default
   - TransparentFX
