@@ -41,42 +41,29 @@ public class CameraBoundaries : MonoBehaviour
     void Update()
     {
         //// Update collider size if the camera's field of view changes
-        //if (Mathf.Approximately(boxCollider1.size.x, mainCamera.fieldOfView))
-        //{
-        //}
-        UpdateColliderSize();
+        if (mainCamera.orthographicSize <= 7f)
+        {
+            UpdateColliderSize();
+        }
     }
 
     void UpdateColliderSize()
     {
+        Debug.Log("A");
         // Calculate collider size based on the camera's field of view and distance to target
         float colliderSizeY = 2 * Mathf.Tan(mainCamera.fieldOfView * 0.5f * Mathf.Deg2Rad) * (cameraTarget.position - mainCamera.transform.position).magnitude;
         float colliderSizeX = colliderSizeY * mainCamera.aspect;
 
+
         // Set collider size and position for boxCollider1
         boxCollider1.size = new Vector3(1.2f, 100f, 5f);
-        boxCollider1.center = new Vector3((colliderSizeX / 2f), 0f, 10f); // Adjust the Z position as needed
+        boxCollider1.center = new Vector3((colliderSizeX), 0f, 10f); // Adjust the Z position as needed
 
         // Set collider size and position for boxCollider2
         boxCollider2.size = new Vector3(1.2f, 100f, 5f);
-        boxCollider2.center = new Vector3((-colliderSizeX / 2f), 0f, 10f); // Adjust the Z position as needed
-    }
+        boxCollider2.center = new Vector3((-colliderSizeX), 0f, 10f); // Adjust the Z position as needed
+        
+        
 
-    //private void OnTriggerEnter(Collision collision)
-    //{
-    //        Debug.Log("a");
-    //    if (collision.gameObject.CompareTag("Player"))
-    //    {
-    //        collision.gameObject.GetComponent<PlayerContoller>().SetStopMovement(true);
-    //    }
-    //}
-    
-    //private void OnTriggerExit(Collision collision)
-    //{
-    //    if (collision.gameObject.CompareTag("Player"))
-    //    {
-    //        Debug.Log("b");
-    //        collision.gameObject.GetComponent<PlayerContoller>().SetStopMovement(false);
-    //    }
-    //}
+    }
 }

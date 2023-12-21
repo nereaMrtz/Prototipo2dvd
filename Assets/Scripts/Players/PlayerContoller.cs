@@ -200,14 +200,8 @@ public class PlayerContoller : MonoBehaviour
 
     //This script pushes all rigidbodies that the character touches
     void OnControllerColliderHit(ControllerColliderHit hit)
-    {
-        Debug.Log(hit.gameObject);
-        if(hit.gameObject.CompareTag("MainCamera"))
-        {
-            
-            //SetStopMovement(true);
-            hit.gameObject.GetComponent<CameraBoundaries>().stopScaling = true;
-        }
+    {        
+        
         if (hit.gameObject.GetComponent<PlayerContoller>() == otherPlayer)
         {       
             impact = AddImpact(hit.moveDirection, hit.moveLength * pushPlayerPower);
