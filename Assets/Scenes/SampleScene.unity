@@ -8354,8 +8354,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_BindingMode: 1
   m_FollowOffset: {x: 0, y: 0, z: -10}
-  m_XDamping: 1
-  m_YDamping: 1
+  m_XDamping: 0
+  m_YDamping: 0
   m_ZDamping: 1
   m_AngularDampingMode: 0
   m_PitchDamping: 0
@@ -13295,6 +13295,7 @@ GameObject:
   - component: {fileID: 1971995077}
   - component: {fileID: 1971995079}
   - component: {fileID: 1971995081}
+  - component: {fileID: 1971995082}
   - component: {fileID: 1971995080}
   m_Layer: 0
   m_Name: Camera
@@ -13439,6 +13440,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ada64c6646743cf43b26279f9501a6f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boxCollider1: {fileID: 1971995081}
+  boxCollider2: {fileID: 1971995082}
   cameraTarget: {fileID: 1212250715}
 --- !u!65 &1971995081
 BoxCollider:
@@ -13459,8 +13462,29 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.2, y: 3.5, z: 5}
+  m_Center: {x: -5.8, y: -1, z: 10}
+--- !u!65 &1971995082
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1971995073}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.2, y: 3.5, z: 5}
+  m_Center: {x: 5.8, y: -1, z: 10}
 --- !u!4 &1982625775 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1274509188522124132, guid: 642176de18196364fa40aafc57bd59fd, type: 3}

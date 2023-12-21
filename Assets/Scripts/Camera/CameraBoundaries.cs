@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class CameraBoundaries : MonoBehaviour
 {
-    private BoxCollider boxCollider;
+    [SerializeField] private BoxCollider boxCollider1;
+    [SerializeField] private BoxCollider boxCollider2;
     private Camera mainCamera;
 
     [SerializeField] private Transform cameraTarget; // The target the camera is looking at
 
     void Start()
     {
-        boxCollider = GetComponent<BoxCollider>();
+        boxCollider1 = GetComponent<BoxCollider>();
         mainCamera = GetComponent<Camera>();
 
-        if (boxCollider == null)
+        if (boxCollider1 == null)
         {
             Debug.LogError("BoxCollider component not found.");
             return;
@@ -31,17 +32,17 @@ public class CameraBoundaries : MonoBehaviour
             Debug.LogError("Camera target not assigned.");
             return;
         }
-        
+
         UpdateColliderSize();
     }
 
     void Update()
     {
-        // Update collider size if the camera's field of view changes
-        if (Mathf.Approximately(boxCollider.size.x, mainCamera.fieldOfView))
-        {
-            UpdateColliderSize();
-        }
+        //// Update collider size if the camera's field of view changes
+        //if (Mathf.Approximately(boxCollider1.size.x, mainCamera.fieldOfView))
+        //{
+        //}
+        UpdateColliderSize();
     }
 
     void UpdateColliderSize()
@@ -50,8 +51,14 @@ public class CameraBoundaries : MonoBehaviour
         float colliderSizeY = 2 * Mathf.Tan(mainCamera.fieldOfView * 0.5f * Mathf.Deg2Rad) * (cameraTarget.position - mainCamera.transform.position).magnitude;
         float colliderSizeX = colliderSizeY * mainCamera.aspect;
 
-        boxCollider.size = new Vector3(colliderSizeX, colliderSizeY, 4f);
-        boxCollider.center = new Vector3(0f, 0f, 10f);
-    }
+        // Set collider size and position for boxCollider1
+        boxCollider1.size = new Vector3(0.2f, 3.5f, 5f);
+        boxCollider1.center = new Vector3(colliderSizeX / 2f, 0f, 10f); // Adjust the Z position as needed
 
+        // Set collider size and position for boxCollider2
+        boxCollider2.size = new Vector3(0.2f, 3.5f, 5f);
+        boxCollider2.center = new Vector3(-colliderSizeX / 2f, 0f, 10f); // Adjust the Z position as needed
+
+
+    }
 }

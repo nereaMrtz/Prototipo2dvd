@@ -102,8 +102,12 @@ public class PlayerContoller : MonoBehaviour
             hasJumped = false;
         }
 
-        Vector3 move = new Vector3(movementInput.x, -0.5f, .0f);
+        Vector3 move = new Vector3(movementInput.x, .0f, 0f);
         controller.Move(move * Time.deltaTime * playerSpeed);
+
+        controller.enabled = false;
+        transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
+        controller.enabled = true;
 
         if (jumpInput)
         {
@@ -159,7 +163,7 @@ public class PlayerContoller : MonoBehaviour
                 inCoyote = false;
         }
 
-        wasGrounded = groundedPlayer;
+        wasGrounded = groundedPlayer;        
     }
 
     void Jump()
@@ -195,9 +199,11 @@ public class PlayerContoller : MonoBehaviour
             return;
         }
 
-        Vector3 pushDir = new Vector3(hit.moveDirection.x, 0, -0.5f);
+        Vector3 pushDir = new Vector3(hit.moveDirection.x, 0f, 0f);
 
         body.velocity = pushDir * pushPower;
+
+        transform.position = new Vector3(transform.position.x, transform.position.y, -0.5f);
 
     }
 
