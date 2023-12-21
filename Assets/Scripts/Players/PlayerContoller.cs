@@ -4,6 +4,7 @@ using UnityEngine.InputSystem.HID;
 using static UnityEngine.InputSystem.DefaultInputActions;
 using System.Collections.Generic;
 using UnityEngine.TextCore.Text;
+using System.Collections;
 
 [RequireComponent(typeof(CharacterController))]
 
@@ -20,6 +21,7 @@ public class PlayerContoller : MonoBehaviour
     [SerializeField] private float gravityValue = -9.81f;
     private bool groundedPlayer;
     private bool jumpInput = false;
+    public bool interactInput { get; private set; }
 
     [SerializeField] private float maxCoyoteTime = 0.25f;
     private float coyoteTimer;
@@ -34,6 +36,8 @@ public class PlayerContoller : MonoBehaviour
     float pushPower = 2.0f;
     float pushPlayerPower = 1.0f;
     Vector3 impact;
+
+    private bool stopMovement = false;
 
 
     [Header("Curse")]
@@ -69,6 +73,16 @@ public class PlayerContoller : MonoBehaviour
         else { jumpInput = false; }
     }
 
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        float aux = context.ReadValue<float>();
+        if (aux != 0f)
+        {
+            interactInput = true;
+        }
+        else { interactInput = false; }
+    }
+
     public void OnMaldicion(InputAction.CallbackContext context)
     {
         if (context.action.triggered)
@@ -88,6 +102,10 @@ public class PlayerContoller : MonoBehaviour
 
     void Update()
     {
+        if (stopMovement)
+        {
+            return;
+        }
         groundedPlayer = controller.isGrounded;
 
         if (!groundedPlayer && wasGrounded)
@@ -102,8 +120,12 @@ public class PlayerContoller : MonoBehaviour
             hasJumped = false;
         }
 
-        Vector3 move = new Vector3(movementInput.x, -0.5f, .0f);
+        Vector3 move = new Vector3(movementInput.x, .0f, 0f);
         controller.Move(move * Time.deltaTime * playerSpeed);
+
+        //controller.enabled = false;
+        //transform.position = new Vector3(transform.position.x, transform.position.y, -0.5f);
+        //controller.enabled = true;
 
         if (jumpInput)
         {
@@ -160,6 +182,12 @@ public class PlayerContoller : MonoBehaviour
         }
 
         wasGrounded = groundedPlayer;
+        if (transform.position.z != -0.5f)
+        {
+            controller.enabled = false;
+            transform.position = new Vector3(transform.position.x, transform.position.y, -0.5f);
+            controller.enabled = true;
+        }
     }
 
     void Jump()
@@ -172,7 +200,8 @@ public class PlayerContoller : MonoBehaviour
 
     //This script pushes all rigidbodies that the character touches
     void OnControllerColliderHit(ControllerColliderHit hit)
-    {
+    {        
+        
         if (hit.gameObject.GetComponent<PlayerContoller>() == otherPlayer)
         {       
             impact = AddImpact(hit.moveDirection, hit.moveLength * pushPlayerPower);
@@ -195,9 +224,11 @@ public class PlayerContoller : MonoBehaviour
             return;
         }
 
-        Vector3 pushDir = new Vector3(hit.moveDirection.x, 0, -0.5f);
+        Vector3 pushDir = new Vector3(hit.moveDirection.x, 0f, 0f);
 
         body.velocity = pushDir * pushPower;
+
+        SetStopMovement(false);
 
     }
 
@@ -216,5 +247,11 @@ public class PlayerContoller : MonoBehaviour
         dir.Normalize();
         if (dir.y < 0) dir.y = -dir.y; // reflect down force on the ground
         return impact + dir.normalized * force;
+    }
+
+    public void SetStopMovement(bool set)
+    {
+        Debug.Log("A");
+        stopMovement = set;
     }
 }
