@@ -15,7 +15,8 @@ public class PlayerContoller : MonoBehaviour
     [SerializeField] private float playerSpeed = 2.0f;
     private CharacterController controller;
     private Vector2 movementInput = Vector2.zero;
-    private Vector3 playerVelocity;    
+    private Vector3 playerVelocity;
+    private Vector3 lastInput = Vector3.right;
 
     [SerializeField] private float jumpHeight = 1.0f;
     [SerializeField] private float gravityValue = -9.81f;
@@ -56,7 +57,7 @@ public class PlayerContoller : MonoBehaviour
     {
         controller = this.gameObject.GetComponent<CharacterController>();
         sound = GameObject.FindGameObjectWithTag("AM").GetComponent<AudioManager>();
-        controller.attachedRigidbody.constraints = RigidbodyConstraints.FreezePositionZ;
+        controller.attachedRigidbody.constraints = RigidbodyConstraints.FreezePositionZ;        
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -120,9 +121,8 @@ public class PlayerContoller : MonoBehaviour
             hasJumped = false;
         }
 
-        Vector3 move = new Vector3(movementInput.x, .0f, 0f);
+        Vector3 move = new Vector3(movementInput.x, 0f, 0f);
         controller.Move(move * Time.deltaTime * playerSpeed);
-
         //controller.enabled = false;
         //transform.position = new Vector3(transform.position.x, transform.position.y, -0.5f);
         //controller.enabled = true;
@@ -159,6 +159,18 @@ public class PlayerContoller : MonoBehaviour
 
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
+        
+        if(move == Vector3.zero)
+        {
+            controller.transform.forward = lastInput; 
+        }
+        else
+        {
+            controller.transform.forward = move * Time.deltaTime;
+            lastInput = move;
+        }
+
+
 
         Physics.IgnoreLayerCollision(9, 7, false); // Layer 9: Cursed
         Physics.IgnoreLayerCollision(8, 7, true); // Layer 8: Not Cursed
@@ -251,7 +263,6 @@ public class PlayerContoller : MonoBehaviour
 
     public void SetStopMovement(bool set)
     {
-        Debug.Log("A");
         stopMovement = set;
     }
 }
