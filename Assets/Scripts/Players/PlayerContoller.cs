@@ -160,15 +160,11 @@ public class PlayerContoller : MonoBehaviour
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
         
-        if(move == Vector3.zero)
+        if(move != Vector3.zero)
         {
-            controller.transform.forward = lastInput; 
-        }
-        else
-        {
-            controller.transform.forward = move * Time.deltaTime;
             lastInput = move;
-        }
+        }        
+        controller.transform.forward = lastInput; 
 
 
 
