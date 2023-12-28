@@ -49,7 +49,6 @@ public class CameraBoundaries : MonoBehaviour
 
     void UpdateColliderSize()
     {
-        Debug.Log("A");
         // Calculate collider size based on the camera's field of view and distance to target
         float colliderSizeY = 2 * Mathf.Tan(mainCamera.fieldOfView * 0.5f * Mathf.Deg2Rad) * (cameraTarget.position - mainCamera.transform.position).magnitude;
         float colliderSizeX = colliderSizeY * mainCamera.aspect;
