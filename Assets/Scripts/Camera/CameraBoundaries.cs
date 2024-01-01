@@ -41,15 +41,14 @@ public class CameraBoundaries : MonoBehaviour
     void Update()
     {
         //// Update collider size if the camera's field of view changes
-        if (mainCamera.orthographicSize <= 7f)
+        if (mainCamera.orthographicSize <= 6f)
         {
             UpdateColliderSize();
         }
     }
 
     void UpdateColliderSize()
-    {
-        Debug.Log("A");
+    {        
         // Calculate collider size based on the camera's field of view and distance to target
         float colliderSizeY = 2 * Mathf.Tan(mainCamera.fieldOfView * 0.5f * Mathf.Deg2Rad) * (cameraTarget.position - mainCamera.transform.position).magnitude;
         float colliderSizeX = colliderSizeY * mainCamera.aspect;
