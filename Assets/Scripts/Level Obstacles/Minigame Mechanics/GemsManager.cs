@@ -21,7 +21,7 @@ public class GemsManager : MonoBehaviour
         {
             if (gem.collected)
             {
-                Destroy(gem);
+                Destroy(gem.gameObject);
                 totalGems--;
             }
         }
@@ -29,7 +29,7 @@ public class GemsManager : MonoBehaviour
         {
             if (gem.collected)
             {
-                Destroy(gem);
+                Destroy(gem.gameObject);
                 totalGems--;
             }
         }
