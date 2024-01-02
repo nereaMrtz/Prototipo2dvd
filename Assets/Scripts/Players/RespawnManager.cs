@@ -8,8 +8,12 @@ public class RespawnManager : MonoBehaviour
     public bool hasRespawned { get; private set; }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == 4 && gameObject.layer == 9)
+        if (other.gameObject.layer == 4 && gameObject.layer == 9)//Cursed Death
             Respawn();
+        else if (other.gameObject.layer == 11 && gameObject.layer == 8)//Not cursed Death        
+            Respawn();
+        
+
     }
 
     public void Respawn()
