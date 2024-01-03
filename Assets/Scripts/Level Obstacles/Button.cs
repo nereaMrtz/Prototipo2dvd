@@ -13,10 +13,11 @@ public class Button : MonoBehaviour
     }
 
     private void OnTriggerStay(Collider other)
-    {
+    {        
+            
         foreach ( GameObject platform in platforms)
         {
-            platform.GetComponent<MovingPlatform>().Interact();
+           platform.GetComponent<MovingPlatform>().Interact();           
         }
     }
     private void OnTriggerExit(Collider other)
@@ -24,6 +25,7 @@ public class Button : MonoBehaviour
         foreach (GameObject platform in platforms)
         {
             platform.GetComponent<MovingPlatform>().Uninteract();
+
         }
     }
 
