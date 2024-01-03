@@ -7,7 +7,8 @@ public class MovingPlatform : MonoBehaviour
     [SerializeField]private Transform firstPosition;
     [SerializeField]private Transform lastPosition;
 
-    bool interacting = false;
+    private bool interacting = false;
+    private float speed = 5.0f;
 
     private void Update()
     {
@@ -16,7 +17,6 @@ public class MovingPlatform : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, firstPosition.position, speed * Time.deltaTime);
         }
     }
-    private float speed = 5.0f;
     public void Interact()
     {
         interacting = true;
