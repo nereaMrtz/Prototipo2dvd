@@ -34,6 +34,9 @@ public class PlayerContoller : MonoBehaviour
     private float buffer;
     private bool inputBuffer;
 
+    bool jumpBoosted=false;
+    float jumpBoost;
+
     float pushPower = 2.0f;
     float pushPlayerPower = 1.0f;
     Vector3 impact;
@@ -200,7 +203,13 @@ public class PlayerContoller : MonoBehaviour
 
     void Jump()
     {
-        playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+        if (jumpBoosted)
+        {
+            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue * jumpBoost);
+            jumpBoosted = false;
+        }
+        else
+            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
         sound.jump.Play();
         hasJumped = true;
         inputBuffer = false;
@@ -260,5 +269,12 @@ public class PlayerContoller : MonoBehaviour
     public void SetStopMovement(bool set)
     {
         stopMovement = set;
+    }
+
+    public void BoostJump(float boost)
+    {
+        Debug.Log("boosted");
+        jumpBoosted = true;
+        jumpBoost = boost;
     }
 }
