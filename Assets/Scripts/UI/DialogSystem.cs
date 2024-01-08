@@ -1,15 +1,23 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
+
+public enum TYPE { MALDITO, FANTASMA};
+ [System.Serializable]public struct line{ public string text; public TYPE type;}
 
 public class DialogSystem : MonoBehaviour
 {
     [SerializeField] GameObject dialogueBox;
     [SerializeField] TextMeshProUGUI dialogueText;
-    [SerializeField] string[] dialogue;
+    //[SerializeField] string[] dialogue;
+    [SerializeField] public line[] dialogue;
+
     int index = 0;
 
     [SerializeField] bool startText;
@@ -21,10 +29,17 @@ public class DialogSystem : MonoBehaviour
 
     [SerializeField] GameObject q;
 
+    [SerializeField] RawImage ghostImage;
+    [SerializeField] Texture maldito;
+    [SerializeField] Texture fantasma;
+
+
     void Start()
     {
         dialogueText.text = "";
         q.SetActive(false);  
+
+
     }
 
     private void Update()
@@ -37,7 +52,7 @@ public class DialogSystem : MonoBehaviour
                 typing = StartCoroutine(Typing());
 
             }
-            else if (dialogueText.text == dialogue[index] && Input.GetKeyDown(KeyCode.Q))
+            else if (dialogueText.text == dialogue[index].text && Input.GetKeyDown(KeyCode.Q))
             {
 
                 NextLine();
@@ -46,6 +61,15 @@ public class DialogSystem : MonoBehaviour
             {
                 RemoveText();
             }*/
+
+            if (dialogue[index].type == TYPE.MALDITO)
+            {
+                ghostImage.texture = maldito;
+            }
+            else if (dialogue[index].type == TYPE.FANTASMA)
+            {
+                ghostImage.texture = fantasma;
+            }
         }
         else
         {
@@ -63,7 +87,7 @@ public class DialogSystem : MonoBehaviour
 
     IEnumerator Typing()
     {
-        foreach (char letter in dialogue[index].ToCharArray())
+        foreach (char letter in dialogue[index].text.ToCharArray())
         {
             dialogueText.text += letter;
             // Dialogue sound
