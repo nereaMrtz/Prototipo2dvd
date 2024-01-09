@@ -250,7 +250,7 @@ public class PlayerContoller : MonoBehaviour
     }
 
     [Tooltip("This changes the curse and layers that it collides with")]
-    void ChangeMaldicion()
+    public void ChangeMaldicion()
     {
         curse = !curse;
         if (curse)

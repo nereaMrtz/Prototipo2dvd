@@ -8,10 +8,10 @@ public class FogTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
-        {
+        //if (other.gameObject.CompareTag("Player"))
+        //{
             fog.gameObject.SetActive(true);
             fog.active = true;
-        }
+        //}
     }
 }
