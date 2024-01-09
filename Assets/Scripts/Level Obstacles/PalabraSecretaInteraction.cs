@@ -19,8 +19,8 @@ public class PalabraSecretaInteraction : MonoBehaviour
         if (player != null) return;
         if (other.gameObject.CompareTag("Player"))
         {
-                canvasAction.gameObject.SetActive(true);
-                player = other.GetComponent<PlayerContoller>();
+            canvasAction.gameObject.SetActive(true);
+            player = other.GetComponent<PlayerContoller>();
         }
     }
 
@@ -28,9 +28,10 @@ public class PalabraSecretaInteraction : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-                canvasAction.gameObject.SetActive(false);
-                canvasInteraction.gameObject.SetActive(false);
-                player = null;
+            canvasAction.gameObject.SetActive(false);
+            canvasInteraction.gameObject.SetActive(false);
+            canvasUnactiveInteraction.gameObject.SetActive(false);
+            player = null;
         }
     }
 
