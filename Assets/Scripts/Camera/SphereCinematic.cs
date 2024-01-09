@@ -6,6 +6,9 @@ public class SphereCinematic : MonoBehaviour
 {    
     private void OnTriggerEnter(Collider other)
     {
-        AddElements.Instance.AddElement(other.gameObject);
+        if(other.gameObject.tag == "Sphere")
+        {
+            AddElements.Instance.AddElement(other.gameObject);
+        }
     }
 }
