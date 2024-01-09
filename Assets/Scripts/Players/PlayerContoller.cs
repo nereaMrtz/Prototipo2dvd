@@ -273,7 +273,6 @@ public class PlayerContoller : MonoBehaviour
 
     public void BoostJump(float boost)
     {
-        Debug.Log("boosted");
         jumpBoosted = true;
         jumpBoost = boost;
     }

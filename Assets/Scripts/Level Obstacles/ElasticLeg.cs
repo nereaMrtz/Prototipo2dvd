@@ -9,7 +9,6 @@ public class ElasticLeg : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log(1);
             other.gameObject.GetComponent<PlayerContoller>().BoostJump(jumpBoost);
         }
     }
