@@ -8,6 +8,7 @@ TagManager:
   - AM
   - Fog
   - CM
+  - Sphere
   layers:
   - Default
   - TransparentFX
