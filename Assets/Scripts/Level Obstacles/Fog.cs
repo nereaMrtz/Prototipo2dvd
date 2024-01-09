@@ -29,7 +29,10 @@ public class Fog : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
-            Debug.Log("Cazado");
+        if (other.gameObject.CompareTag("Player") && other.gameObject.layer == 8)
+        {
+            PlayerContoller aux = other.gameObject.GetComponent<PlayerContoller>();
+            aux.ChangeMaldicion();
+        }
     }
 }
