@@ -8,5 +8,6 @@ public class SphereCinematicEnd : MonoBehaviour
     {
         //AddElements.Instance.AddElement(other.gameObject);
         Destroy(other.gameObject);
+
     }
 }
