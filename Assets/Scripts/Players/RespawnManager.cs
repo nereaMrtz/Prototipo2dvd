@@ -12,9 +12,7 @@ public class RespawnManager : MonoBehaviour
             Respawn();
         else if (other.gameObject.layer == 11 && gameObject.layer == 8)//Not cursed Death        
             Respawn();
-        else if (other.gameObject.layer == 12)//All Death        
-            Respawn();
-
+        
 
     }
 
