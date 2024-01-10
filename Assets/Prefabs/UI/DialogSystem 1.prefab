@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6650570538738934135}
   - component: {fileID: 8461986802507318300}
   - component: {fileID: 1699943741497177049}
+  - component: {fileID: 7937606568220662303}
   m_Layer: 5
   m_Name: DialogSystem 1
   m_TagString: Untagged
@@ -103,6 +104,26 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &7937606568220662303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 31368740374568777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4a50a1e749c2014bb8e9c99fe0bd87c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueBox: {fileID: 7917649616171749711}
+  dialogueText: {fileID: 2061628281003764392}
+  q: {fileID: 6189918574713332183}
+  wordSpeed: 0.03
+  ghostImage: {fileID: 3696263168001155607}
+  maldito: {fileID: 2800000, guid: 859429bb6d19fb14eafb874eb7d5046f, type: 3}
+  fantasma: {fileID: 2800000, guid: 13321ba53e583ae43a4d1d90f95d8805, type: 3}
+  bolaCristal: {fileID: 2800000, guid: bc68748069d8ffe4694558ee8b69b5dc, type: 3}
 --- !u!1 &3877223202575724472
 GameObject:
   m_ObjectHideFlags: 0

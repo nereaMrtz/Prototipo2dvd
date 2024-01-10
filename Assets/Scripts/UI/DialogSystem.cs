@@ -8,47 +8,57 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum TYPE { MALDITO, FANTASMA};
+public enum TYPE { MALDITO, FANTASMA, BOLA};
  [System.Serializable]public struct line{ public string text; public TYPE type;}
 
 public class DialogSystem : MonoBehaviour
 {
     [SerializeField] GameObject dialogueBox;
     [SerializeField] TextMeshProUGUI dialogueText;
-    [SerializeField] public line[] dialogue;
+    [SerializeField] GameObject q;
+
+    line[] dialogue;
 
     int index = 0;
 
-    [SerializeField] bool startText;
+    bool startText;
     bool typingText;
+    bool endDialog;
 
     [SerializeField] float wordSpeed;
 
     Coroutine typing;
 
-    [SerializeField] GameObject q;
 
     [SerializeField] RawImage ghostImage;
     [SerializeField] Texture maldito;
     [SerializeField] Texture fantasma;
+    [SerializeField] Texture bolaCristal;
 
      PlayerContoller ghost;
-
+    DialogTrigger trigger;
     void Start()
     {
         dialogueText.text = "";
-        q.SetActive(false);  
+        q.SetActive(false);
 
+    }
 
+    public void StartDialog(Collider other)
+    {
+        startText = true;
+        ghost = other.GetComponent<PlayerContoller>();
+        ghost.FreezePosition();
     }
 
     private void Update()
     {
        if(startText)
-        {
+        {       
             
             if (!dialogueBox.activeInHierarchy)
             {
+                endDialog = false;
                 dialogueBox.SetActive(true);
                 typing = StartCoroutine(Typing());
 
@@ -70,6 +80,9 @@ public class DialogSystem : MonoBehaviour
             else if (dialogue[index].type == TYPE.FANTASMA)
             {
                 ghostImage.texture = fantasma;
+            }else if (dialogue[index].type == TYPE.BOLA)
+            {
+                ghostImage.texture = bolaCristal;
             }
 
         }
@@ -79,8 +92,8 @@ public class DialogSystem : MonoBehaviour
             if(ghost != null)
             {
                 ghost.UnfreezePosition();
-               // Debug.Log("dialogo finalisaaao");
-                this.gameObject.GetComponent<Collider>().enabled = false;
+                Debug.Log("dialogo finalisaaao");
+                trigger.SetDialogDone(true);
 
             }
            
@@ -127,22 +140,13 @@ public class DialogSystem : MonoBehaviour
             dialogueBox.SetActive(false);
         }
     }
-    private void OnTriggerEnter(Collider other)
-    {
 
-        if (other.CompareTag("Player"))
-        {
-            startText = true;
-            ghost = other.GetComponent<PlayerContoller>();
-            ghost.FreezePosition();
-        }
+
+    public void SetDialog(DialogTrigger dTrigger)
+    {
+        dialogue = dTrigger.dialogue;
+        trigger = dTrigger;
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player")) {
-           startText = false;
-            RemoveText();
-        }
-    }
+   public bool GetEndDialog() { return endDialog; }
 }
