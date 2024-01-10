@@ -14,6 +14,10 @@ public class L1_M1_Manager : ScenesManager
         {
             ChangeScene();
         }
+        if(Input.GetKeyUp(KeyCode.T)) 
+        {
+            LevelLoader.Instance.SetLoad();
+        }
     }
 
     protected override void ChangeScene()
