@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,40 +6,56 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] Canvas mainMenu;
-    [SerializeField] Canvas settingsMenu;
-    [SerializeField] Canvas creditsScreen;
-    Canvas currentMenu;
+    [SerializeField] GameObject mainMenu;
+    [SerializeField] GameObject settingsMenu;
+    [SerializeField] GameObject creditsScreen;
+    GameObject currentMenu;
 
-    void QuitGame()
+    private void Start()
+    {
+        mainMenu.SetActive(true);
+        settingsMenu.SetActive(false);
+        creditsScreen.SetActive(false);
+        currentMenu= mainMenu;
+}
+
+    public void QuitGame()
     {
         Application.Quit();
     }
 
-    void OpenSettings()
+    public void OpenSettings()
     {
-        currentMenu.gameObject.SetActive(false);
-        settingsMenu.gameObject.SetActive(true);
+        currentMenu.SetActive(false);
+        settingsMenu.SetActive(true);
         currentMenu = settingsMenu;
     }
 
-    void OpenCredits()
+    public void OpenCredits()
     {
-        currentMenu.gameObject.SetActive(false);
-        creditsScreen.gameObject.SetActive(true);
+        currentMenu.SetActive(false);
+        creditsScreen.SetActive(true);
         currentMenu = creditsScreen;
     }
 
-    void BackToMenu()
+    public void BackToMenu()
     {
-        currentMenu.gameObject.SetActive(false);
-        mainMenu.gameObject.SetActive(true);
+        currentMenu.SetActive(false);
+        mainMenu.SetActive(true);
         currentMenu = mainMenu;
     }
 
-    void Play()
+    public void BackToSettings()
     {
-        SceneManager.LoadScene("M1_L1");
+        Debug.Log(1);
+        currentMenu.SetActive(false);
+        settingsMenu.SetActive(true);
+        currentMenu = settingsMenu;
+    }
+
+    public void Play()
+    {
+        SceneManager.LoadScene("L1_M1");
     }
 
 }
