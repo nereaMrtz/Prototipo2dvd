@@ -20,9 +20,9 @@ public class WallAlphaChange : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            //wall.SetActive(false); 
+            wall.SetActive(false); 
            
-            wall.GetComponent<MeshRenderer>().material.DOColor(targetColor,0.5f);
+           // wall.GetComponent<MeshRenderer>().material.DOColor(targetColor,0.5f);
             
 
         }
@@ -30,7 +30,7 @@ public class WallAlphaChange : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        //wall.SetActive(true);
-        wall.GetComponent<MeshRenderer>().material.DOColor(originalColor, 0.5f);
+        wall.SetActive(true);
+        //wall.GetComponent<MeshRenderer>().material.DOColor(originalColor, 0.5f);
     }
 }
