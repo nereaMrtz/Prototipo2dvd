@@ -6,16 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-<<<<<<< HEAD
     path: Assets/Scenes/MainMenu.unity
     guid: d48b6a5bb2988bb4eb9a19200a3f240e
-=======
-    path: Assets/Scenes/L1_M1.unity
-    guid: 93a38920778ae034a9db15f82995b314
->>>>>>> feature/ImplementCinematics_M1_L1
-  - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: Assets/Scenes/L1_M1.unity
     guid: 93a38920778ae034a9db15f82995b314
