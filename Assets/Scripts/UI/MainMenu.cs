@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +16,7 @@ public class MainMenu : MonoBehaviour
         mainMenu.SetActive(true);
         settingsMenu.SetActive(false);
         creditsScreen.SetActive(false);
+        currentMenu= mainMenu;
 }
 
     public void QuitGame()
@@ -24,22 +26,23 @@ public class MainMenu : MonoBehaviour
 
     public void OpenSettings()
     {
-        currentMenu.gameObject.SetActive(false);
-        settingsMenu.gameObject.SetActive(true);
+        Debug.Log("Tu puta madre");
+        currentMenu.SetActive(false);
+        settingsMenu.SetActive(true);
         currentMenu = settingsMenu;
     }
 
     public void OpenCredits()
     {
-        currentMenu.gameObject.SetActive(false);
-        creditsScreen.gameObject.SetActive(true);
+        currentMenu.SetActive(false);
+        creditsScreen.SetActive(true);
         currentMenu = creditsScreen;
     }
 
     public void BackToMenu()
     {
-        currentMenu.gameObject.SetActive(false);
-        mainMenu.gameObject.SetActive(true);
+        currentMenu.SetActive(false);
+        mainMenu.SetActive(true);
         currentMenu = mainMenu;
     }
 
