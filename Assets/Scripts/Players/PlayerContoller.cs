@@ -5,6 +5,7 @@ using static UnityEngine.InputSystem.DefaultInputActions;
 using System.Collections.Generic;
 using UnityEngine.TextCore.Text;
 using System.Collections;
+using System.Runtime.CompilerServices;
 
 [RequireComponent(typeof(CharacterController))]
 
@@ -275,5 +276,27 @@ public class PlayerContoller : MonoBehaviour
     {
         jumpBoosted = true;
         jumpBoost = boost;
+    }
+
+    public void FreezePosition()
+    {
+        Debug.Log("freezzeandooo");
+        controller.attachedRigidbody.constraints = RigidbodyConstraints.FreezeAll;
+        otherPlayer.GetContoller().attachedRigidbody.constraints = RigidbodyConstraints.FreezeAll;
+    }
+
+    public void UnfreezePosition()
+    {
+        controller.attachedRigidbody.constraints = RigidbodyConstraints.None;
+        otherPlayer.GetContoller().attachedRigidbody.constraints = RigidbodyConstraints.None;
+
+        // freeze Z again
+        controller.attachedRigidbody.constraints = RigidbodyConstraints.FreezePositionZ;
+        otherPlayer.GetContoller().attachedRigidbody.constraints = RigidbodyConstraints.FreezePositionZ;
+    }
+
+    CharacterController GetContoller()
+    {
+        return controller;
     }
 }

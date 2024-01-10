@@ -15,7 +15,6 @@ public class DialogSystem : MonoBehaviour
 {
     [SerializeField] GameObject dialogueBox;
     [SerializeField] TextMeshProUGUI dialogueText;
-    //[SerializeField] string[] dialogue;
     [SerializeField] public line[] dialogue;
 
     int index = 0;
@@ -33,6 +32,7 @@ public class DialogSystem : MonoBehaviour
     [SerializeField] Texture maldito;
     [SerializeField] Texture fantasma;
 
+     PlayerContoller ghost;
 
     void Start()
     {
@@ -46,6 +46,7 @@ public class DialogSystem : MonoBehaviour
     {
        if(startText)
         {
+            
             if (!dialogueBox.activeInHierarchy)
             {
                 dialogueBox.SetActive(true);
@@ -70,11 +71,20 @@ public class DialogSystem : MonoBehaviour
             {
                 ghostImage.texture = fantasma;
             }
+
         }
         else
         {
             RemoveText();
+            if(ghost != null)
+            {
+                ghost.UnfreezePosition();
+            }
+           // this.gameObject.GetComponent<Collider>().enabled = false;
+           
         }
+
+       
     }
 
     public void RemoveText()
@@ -117,8 +127,13 @@ public class DialogSystem : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+
         if (other.CompareTag("Player"))
-           startText = true;
+        {
+            startText = true;
+            ghost = other.GetComponent<PlayerContoller>();
+            ghost.FreezePosition();
+        }
     }
 
     private void OnTriggerExit(Collider other)
