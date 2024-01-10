@@ -7,60 +7,71 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
-
-public enum TYPE { MALDITO, FANTASMA};
+using UnityEngine.InputSystem;
+public enum TYPE { MALDITO, FANTASMA, BOLA, FOG, BOOB};
  [System.Serializable]public struct line{ public string text; public TYPE type;}
 
 public class DialogSystem : MonoBehaviour
 {
     [SerializeField] GameObject dialogueBox;
     [SerializeField] TextMeshProUGUI dialogueText;
-    //[SerializeField] string[] dialogue;
-    [SerializeField] public line[] dialogue;
+    [SerializeField] GameObject q;
+
+    line[] dialogue;
 
     int index = 0;
 
-    [SerializeField] bool startText;
+    bool startText;
     bool typingText;
+    bool endDialog;
+
+    bool gamepad;
 
     [SerializeField] float wordSpeed;
 
     Coroutine typing;
 
-    [SerializeField] GameObject q;
 
     [SerializeField] RawImage ghostImage;
     [SerializeField] Texture maldito;
     [SerializeField] Texture fantasma;
+    [SerializeField] Texture bolaCristal;
+    [SerializeField] Texture fog;
+    [SerializeField] Texture boob;
 
-
+     PlayerContoller ghost;
+    DialogTrigger trigger;
     void Start()
     {
         dialogueText.text = "";
-        q.SetActive(false);  
+        q.SetActive(false);
 
+    }
 
+    public void StartDialog(PlayerContoller other)
+    {
+        startText = true;
+        ghost = other;
+        ghost.FreezePosition();
     }
 
     private void Update()
     {
        if(startText)
-        {
+        {       
+            
             if (!dialogueBox.activeInHierarchy)
             {
+                endDialog = false;
                 dialogueBox.SetActive(true);
                 typing = StartCoroutine(Typing());
 
             }
-            else if (dialogueText.text == dialogue[index].text && Input.GetKeyDown(KeyCode.Q))
+            else if (dialogueText.text == dialogue[index].text && Input.GetKeyDown(KeyCode.Q)|| dialogueText.text == dialogue[index].text && gamepad == true)
             {
 
                 NextLine();
             }
-            /*if (Input.GetKeyDown(KeyCode.Q) && dialogueBox.activeInHierarchy)
-            {
-                RemoveText();
-            }*/
 
             if (dialogue[index].type == TYPE.MALDITO)
             {
@@ -69,12 +80,32 @@ public class DialogSystem : MonoBehaviour
             else if (dialogue[index].type == TYPE.FANTASMA)
             {
                 ghostImage.texture = fantasma;
+            }else if (dialogue[index].type == TYPE.BOLA)
+            {
+                ghostImage.texture = bolaCristal;
+            }else if (dialogue[index].type == TYPE.FOG)
+            {
+                ghostImage.texture = fog;
+            }else if (dialogue[index].type == TYPE.BOOB)
+            {
+                ghostImage.texture = boob;
             }
+
         }
         else
         {
             RemoveText();
+            if(ghost != null)
+            {
+                ghost.UnfreezePosition();
+                Debug.Log("dialogo finalisaaao");
+                trigger.SetDialogDone(true);
+
+            }
+           
         }
+
+       
     }
 
     public void RemoveText()
@@ -115,17 +146,24 @@ public class DialogSystem : MonoBehaviour
             dialogueBox.SetActive(false);
         }
     }
-    private void OnTriggerEnter(Collider other)
+
+
+    public void SetDialog(DialogTrigger dTrigger)
     {
-        if (other.CompareTag("Player"))
-           startText = true;
+        dialogue = dTrigger.dialogue;
+        trigger = dTrigger;
     }
 
-    private void OnTriggerExit(Collider other)
+   public bool GetEndDialog() { return endDialog; }
+
+    ///////////PLAYER ACTION INPUT
+    public void Next(InputAction.CallbackContext context)
     {
-        if (other.CompareTag("Player")) {
-           startText = false;
-            RemoveText();
+        float aux = context.ReadValue<float>();
+        if (aux != 0f)
+        {
+            gamepad = true;
         }
+        else { gamepad = false; }
     }
 }
