@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
@@ -9,6 +10,9 @@ public class MainMenu : MonoBehaviour
     [SerializeField] GameObject mainMenu;
     [SerializeField] GameObject settingsMenu;
     [SerializeField] GameObject creditsScreen;
+    [SerializeField] GameObject firstButtonMain;
+    [SerializeField] GameObject firstButtonSettings;
+    [SerializeField] GameObject firstButtonCredits;
     GameObject currentMenu;
 
     private void Start()
@@ -17,7 +21,7 @@ public class MainMenu : MonoBehaviour
         settingsMenu.SetActive(false);
         creditsScreen.SetActive(false);
         currentMenu= mainMenu;
-}
+    }
 
     public void QuitGame()
     {
@@ -29,6 +33,7 @@ public class MainMenu : MonoBehaviour
         currentMenu.SetActive(false);
         settingsMenu.SetActive(true);
         currentMenu = settingsMenu;
+        EventSystem.current.SetSelectedGameObject(firstButtonSettings);
     }
 
     public void OpenCredits()
@@ -36,10 +41,13 @@ public class MainMenu : MonoBehaviour
         currentMenu.SetActive(false);
         creditsScreen.SetActive(true);
         currentMenu = creditsScreen;
+        EventSystem.current.SetSelectedGameObject(firstButtonCredits);
+
     }
 
     public void BackToMenu()
     {
+        EventSystem.current.SetSelectedGameObject(firstButtonMain);
         currentMenu.SetActive(false);
         mainMenu.SetActive(true);
         currentMenu = mainMenu;
@@ -48,6 +56,7 @@ public class MainMenu : MonoBehaviour
     public void BackToSettings()
     {
         Debug.Log(1);
+        EventSystem.current.SetSelectedGameObject(firstButtonSettings);
         currentMenu.SetActive(false);
         settingsMenu.SetActive(true);
         currentMenu = settingsMenu;
