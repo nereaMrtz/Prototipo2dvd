@@ -72,7 +72,6 @@ public class PlayerContoller : MonoBehaviour
             isFirstLevel= false;        
         controller = this.gameObject.GetComponent<CharacterController>();
         sound = GameObject.FindGameObjectWithTag("AM").GetComponent<AudioManager>();
-        controller.attachedRigidbody.constraints = RigidbodyConstraints.FreezePositionZ;     
         
     }
 
