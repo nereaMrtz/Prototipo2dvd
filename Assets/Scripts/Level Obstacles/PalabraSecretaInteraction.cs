@@ -5,9 +5,10 @@ using UnityEngine;
 public class PalabraSecretaInteraction : MonoBehaviour
 {
     [SerializeField] Canvas canvasAction;
-    [SerializeField] Canvas canvasInteraction;
+    [SerializeField] MovingPlatform platform;
     [SerializeField] Canvas canvasUnactiveInteraction;
     bool canvasActive = false;
+    bool interacted = false;
     PlayerContoller player;
     public float inputDelay = .25f;
     float delayLeft;
@@ -29,7 +30,6 @@ public class PalabraSecretaInteraction : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             canvasAction.gameObject.SetActive(false);
-            canvasInteraction.gameObject.SetActive(false);
             canvasUnactiveInteraction.gameObject.SetActive(false);
             player = null;
         }
@@ -39,16 +39,21 @@ public class PalabraSecretaInteraction : MonoBehaviour
     {
         if (player != null)
         {
-            if (player.interactInput && delayLeft <= .0f)
+            if (!interacted)
             {
-                if (interactActive)
-                    Interact();
-                else
+                if (player.interactInput && delayLeft <= .0f)
                 {
-                    UnableToInteract();
+                    if (interactActive)
+                        Interact();
+                    else
+                    {
+                        UnableToInteract();
+                    }
                 }
+                delayLeft -= Time.deltaTime;
             }
-            delayLeft -= Time.deltaTime;
+            else
+                platform.Interact();
         }
     }
 
@@ -56,8 +61,9 @@ public class PalabraSecretaInteraction : MonoBehaviour
     {
         delayLeft = inputDelay;
         canvasActive = !canvasActive;
-        canvasInteraction.gameObject.SetActive(canvasActive);
+        platform.Interact();
         canvasAction.gameObject.SetActive(!canvasActive);
+        interacted = true;
     }
 
     void UnableToInteract()
