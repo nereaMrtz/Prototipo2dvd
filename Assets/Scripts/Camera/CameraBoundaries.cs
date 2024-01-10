@@ -48,7 +48,6 @@ public class CameraBoundaries : MonoBehaviour
     }
 
     void UpdateColliderSize()
-
     {        
 
         // Calculate collider size based on the camera's field of view and distance to target
@@ -58,12 +57,11 @@ public class CameraBoundaries : MonoBehaviour
 
         // Set collider size and position for boxCollider1
         boxCollider1.size = new Vector3(1.2f, 100f, 5f);
-        boxCollider1.center = new Vector3((colliderSizeX), 0f, 10f); // Adjust the Z position as needed
+        boxCollider1.center = new Vector3((colliderSizeX)/1.9f, 0f, 10f); // Adjust the Z position as needed
 
         // Set collider size and position for boxCollider2
         boxCollider2.size = new Vector3(1.2f, 100f, 5f);
-        boxCollider2.center = new Vector3((-colliderSizeX), 0f, 10f); // Adjust the Z position as needed
-        
+        boxCollider2.center = new Vector3((-colliderSizeX)/ 1.9f, 0f, 10f); // Adjust the Z position as needed        
         
 
     }
