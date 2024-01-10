@@ -276,4 +276,5 @@ public class PlayerContoller : MonoBehaviour
         jumpBoosted = true;
         jumpBoost = boost;
     }
-}
+
+}   
