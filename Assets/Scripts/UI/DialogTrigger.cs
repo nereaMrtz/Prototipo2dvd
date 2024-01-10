@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DialogTrigger : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class DialogTrigger : MonoBehaviour
     bool triggerDone;
 
     Collider ghost;
+
+    [SerializeField]public UnityEvent OtherEndingFunctions;
     void Start()
     {
         dialogSystem = FindAnyObjectByType<DialogSystem>();
@@ -22,6 +25,7 @@ public class DialogTrigger : MonoBehaviour
     {
         if (triggerDone)
         {
+            OtherEndingFunctions.Invoke();
             Destroy(this.gameObject);
         }
     }
