@@ -79,8 +79,10 @@ public class DialogSystem : MonoBehaviour
             if(ghost != null)
             {
                 ghost.UnfreezePosition();
+               // Debug.Log("dialogo finalisaaao");
+                this.gameObject.GetComponent<Collider>().enabled = false;
+
             }
-           // this.gameObject.GetComponent<Collider>().enabled = false;
            
         }
 

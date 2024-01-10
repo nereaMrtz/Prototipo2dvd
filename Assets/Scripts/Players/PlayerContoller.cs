@@ -281,18 +281,12 @@ public class PlayerContoller : MonoBehaviour
     public void FreezePosition()
     {
         Debug.Log("freezzeandooo");
-        controller.attachedRigidbody.constraints = RigidbodyConstraints.FreezeAll;
-        otherPlayer.GetContoller().attachedRigidbody.constraints = RigidbodyConstraints.FreezeAll;
+        this.gameObject.GetComponent<PlayerContoller>().enabled = false;
     }
 
     public void UnfreezePosition()
     {
-        controller.attachedRigidbody.constraints = RigidbodyConstraints.None;
-        otherPlayer.GetContoller().attachedRigidbody.constraints = RigidbodyConstraints.None;
-
-        // freeze Z again
-        controller.attachedRigidbody.constraints = RigidbodyConstraints.FreezePositionZ;
-        otherPlayer.GetContoller().attachedRigidbody.constraints = RigidbodyConstraints.FreezePositionZ;
+        this.gameObject.GetComponent<PlayerContoller>().enabled = true;
     }
 
     CharacterController GetContoller()
