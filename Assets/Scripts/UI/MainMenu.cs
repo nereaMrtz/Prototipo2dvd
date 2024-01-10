@@ -26,7 +26,6 @@ public class MainMenu : MonoBehaviour
 
     public void OpenSettings()
     {
-        Debug.Log("Tu puta madre");
         currentMenu.SetActive(false);
         settingsMenu.SetActive(true);
         currentMenu = settingsMenu;
@@ -44,6 +43,14 @@ public class MainMenu : MonoBehaviour
         currentMenu.SetActive(false);
         mainMenu.SetActive(true);
         currentMenu = mainMenu;
+    }
+
+    public void BackToSettings()
+    {
+        Debug.Log(1);
+        currentMenu.SetActive(false);
+        settingsMenu.SetActive(true);
+        currentMenu = settingsMenu;
     }
 
     public void Play()
