@@ -5,6 +5,7 @@ using static UnityEngine.InputSystem.DefaultInputActions;
 using System.Collections.Generic;
 using UnityEngine.TextCore.Text;
 using System.Collections;
+using System.Runtime.CompilerServices;
 
 [RequireComponent(typeof(CharacterController))]
 
@@ -275,5 +276,23 @@ public class PlayerContoller : MonoBehaviour
     {
         jumpBoosted = true;
         jumpBoost = boost;
+    }
+
+    public void FreezePosition()
+    {
+        Debug.Log("freezzeandooo");
+        this.gameObject.GetComponent<PlayerContoller>().enabled = false;
+        otherPlayer.enabled = false;
+    }
+
+    public void UnfreezePosition()
+    {
+        this.gameObject.GetComponent<PlayerContoller>().enabled = true;
+        otherPlayer.enabled = true;
+    }
+
+    CharacterController GetContoller()
+    {
+        return controller;
     }
 }
