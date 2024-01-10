@@ -8,21 +8,11 @@ public class ScenesManager : MonoBehaviour
 {
 
     [SerializeField] private int sceneIndex;
-    [SerializeField] private string sceneName;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] private string sceneName;    
 
     protected virtual void ChangeScene()
     {
+        LevelLoader.Instance.SetLoad();
         SceneManager.LoadScene(sceneIndex);
     }
 }

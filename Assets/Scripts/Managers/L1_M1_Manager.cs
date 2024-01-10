@@ -12,12 +12,8 @@ public class L1_M1_Manager : ScenesManager
     {
         if(ghost1.layer == 9 && ghost2.layer == 9)
         {
-            ChangeScene();
-        }
-        if(Input.GetKeyUp(KeyCode.T)) 
-        {
-            LevelLoader.Instance.SetLoad();
-        }
+            StartCoroutine("WaitThenChangeScene");
+        }        
     }
 
     protected override void ChangeScene()
