@@ -5,40 +5,47 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] Canvas mainMenu;
-    [SerializeField] Canvas settingsMenu;
-    [SerializeField] Canvas creditsScreen;
-    Canvas currentMenu;
+    [SerializeField] GameObject mainMenu;
+    [SerializeField] GameObject settingsMenu;
+    [SerializeField] GameObject creditsScreen;
+    GameObject currentMenu;
 
-    void QuitGame()
+    private void Start()
+    {
+        mainMenu.SetActive(true);
+        settingsMenu.SetActive(false);
+        creditsScreen.SetActive(false);
+}
+
+    public void QuitGame()
     {
         Application.Quit();
     }
 
-    void OpenSettings()
+    public void OpenSettings()
     {
         currentMenu.gameObject.SetActive(false);
         settingsMenu.gameObject.SetActive(true);
         currentMenu = settingsMenu;
     }
 
-    void OpenCredits()
+    public void OpenCredits()
     {
         currentMenu.gameObject.SetActive(false);
         creditsScreen.gameObject.SetActive(true);
         currentMenu = creditsScreen;
     }
 
-    void BackToMenu()
+    public void BackToMenu()
     {
         currentMenu.gameObject.SetActive(false);
         mainMenu.gameObject.SetActive(true);
         currentMenu = mainMenu;
     }
 
-    void Play()
+    public void Play()
     {
-        SceneManager.LoadScene("M1_L1");
+        SceneManager.LoadScene("L1_M1");
     }
 
 }
