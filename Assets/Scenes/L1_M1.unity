@@ -43647,7 +43647,7 @@ MonoBehaviour:
   sceneName: L2_M2
   ghost1: {fileID: 5769451956628355340}
   ghost2: {fileID: 1722040645}
-  timeToChangeScene: 2
+  timeToChangeScene: 5
 --- !u!1001 &1763703245
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -8,8 +8,10 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.Timeline;
 
-using System.Runtime.CompilerServices;
-
+using System.Runtime.CompilerServices;
+
+
+
 [RequireComponent(typeof(CharacterController))]
 
 public class PlayerContoller : MonoBehaviour
@@ -64,13 +66,14 @@ public class PlayerContoller : MonoBehaviour
 
     private void Start()
     {
+        if(SceneManager.GetActiveScene().name == "L1_M1")        
+            isFirstLevel = true;        
+        else        
+            isFirstLevel= false;        
         controller = this.gameObject.GetComponent<CharacterController>();
         sound = GameObject.FindGameObjectWithTag("AM").GetComponent<AudioManager>();
-        controller.attachedRigidbody.constraints = RigidbodyConstraints.FreezePositionZ;      
-        if(SceneManager.GetActiveScene().name == "L1_M1")        
-            isFirstLevel = true;
-        else
-            isFirstLevel= false;
+        controller.attachedRigidbody.constraints = RigidbodyConstraints.FreezePositionZ;     
+        
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -291,21 +294,33 @@ public class PlayerContoller : MonoBehaviour
         jumpBoost = boost;
     }
 
-    public void FreezePosition()
-    {
-        Debug.Log("freezzeandooo");
-        this.gameObject.GetComponent<PlayerContoller>().enabled = false;
-        otherPlayer.enabled = false;
+    public void FreezePosition()
+
+    {
+
+        Debug.Log("freezzeandooo");
+
+        this.gameObject.GetComponent<PlayerContoller>().enabled = false;
+
+        otherPlayer.enabled = false;
+
     }
 
-    public void UnfreezePosition()
-    {
-        this.gameObject.GetComponent<PlayerContoller>().enabled = true;
-        otherPlayer.enabled = true;
+    public void UnfreezePosition()
+
+    {
+
+        this.gameObject.GetComponent<PlayerContoller>().enabled = true;
+
+        otherPlayer.enabled = true;
+
     }
 
-    CharacterController GetContoller()
-    {
-        return controller;
+    CharacterController GetContoller()
+
+    {
+
+        return controller;
+
     }
 }
