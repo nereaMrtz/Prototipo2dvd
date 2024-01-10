@@ -35,4 +35,5 @@ public class DialogTrigger : MonoBehaviour
     }
 
     public void SetDialogDone(bool done) { triggerDone = done; }
+    
 }

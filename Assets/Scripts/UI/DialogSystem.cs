@@ -7,7 +7,7 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.InputSystem;
 public enum TYPE { MALDITO, FANTASMA, BOLA};
  [System.Serializable]public struct line{ public string text; public TYPE type;}
 
@@ -24,6 +24,8 @@ public class DialogSystem : MonoBehaviour
     bool startText;
     bool typingText;
     bool endDialog;
+
+    bool gamepad;
 
     [SerializeField] float wordSpeed;
 
@@ -63,15 +65,11 @@ public class DialogSystem : MonoBehaviour
                 typing = StartCoroutine(Typing());
 
             }
-            else if (dialogueText.text == dialogue[index].text && Input.GetKeyDown(KeyCode.Q))
+            else if (dialogueText.text == dialogue[index].text && Input.GetKeyDown(KeyCode.Q)|| dialogueText.text == dialogue[index].text && gamepad == true)
             {
 
                 NextLine();
             }
-            /*if (Input.GetKeyDown(KeyCode.Q) && dialogueBox.activeInHierarchy)
-            {
-                RemoveText();
-            }*/
 
             if (dialogue[index].type == TYPE.MALDITO)
             {
@@ -149,4 +147,15 @@ public class DialogSystem : MonoBehaviour
     }
 
    public bool GetEndDialog() { return endDialog; }
+
+    ///////////PLAYER ACTION INPUT
+    public void Next(InputAction.CallbackContext context)
+    {
+        float aux = context.ReadValue<float>();
+        if (aux != 0f)
+        {
+            gamepad = true;
+        }
+        else { gamepad = false; }
+    }
 }

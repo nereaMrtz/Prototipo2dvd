@@ -40884,6 +40884,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1234987292}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1235269644 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7937606568220662303, guid: 1043ac95b8f388b41960ed1af3f0ac84, type: 3}
+  m_PrefabInstance: {fileID: 1460915605}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4a50a1e749c2014bb8e9c99fe0bd87c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1264404651
 GameObject:
   m_ObjectHideFlags: 3
@@ -59761,6 +59772,10 @@ PrefabInstance:
       propertyPath: otherPlayer
       value: 
       objectReference: {fileID: 4348996550334536780}
+    - target: {fileID: 5346985408287639845, guid: 50fbc1eb949061b4b8707e5f6a558657, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1235269644}
     - target: {fileID: 8200058781507594713, guid: 50fbc1eb949061b4b8707e5f6a558657, type: 3}
       propertyPath: m_Height
       value: 1
@@ -59838,6 +59853,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 3944136525471278368, guid: c3816692e7ca7a847b9bfaf3f0942daa, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1235269644}
     - target: {fileID: 3997992392004887587, guid: c3816692e7ca7a847b9bfaf3f0942daa, type: 3}
       propertyPath: m_Name
       value: Ghost 2
