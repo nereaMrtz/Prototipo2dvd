@@ -329,6 +329,7 @@ MonoBehaviour:
   curse: 1
   normalMat: {fileID: 2100000, guid: c73d46928ec1139479e77355f4bf266f, type: 2}
   cursedMat: {fileID: 2100000, guid: e8f4bb0cc7f1d8944bd0e0202e470f4f, type: 2}
+  isFirstLevel: 0
 --- !u!114 &3944136525471278368
 MonoBehaviour:
   m_ObjectHideFlags: 0

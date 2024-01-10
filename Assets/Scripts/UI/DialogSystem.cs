@@ -8,8 +8,8 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
-public enum TYPE { MALDITO, FANTASMA, BOLA, FOG, BOOB};
- [System.Serializable]public struct line{ public string text; public TYPE type;}
+public enum TYPE { MALDITO, FANTASMA, BOLA, FOG, BOOB };
+[System.Serializable] public struct line { public string text; public TYPE type; }
 
 public class DialogSystem : MonoBehaviour
 {
@@ -39,7 +39,7 @@ public class DialogSystem : MonoBehaviour
     [SerializeField] Texture fog;
     [SerializeField] Texture boob;
 
-     PlayerContoller ghost;
+    PlayerContoller ghost;
     DialogTrigger trigger;
     void Start()
     {
@@ -57,9 +57,9 @@ public class DialogSystem : MonoBehaviour
 
     private void Update()
     {
-       if(startText)
-        {       
-            
+        if (startText)
+        {
+
             if (!dialogueBox.activeInHierarchy)
             {
                 endDialog = false;
@@ -67,7 +67,7 @@ public class DialogSystem : MonoBehaviour
                 typing = StartCoroutine(Typing());
 
             }
-            else if (dialogueText.text == dialogue[index].text && Input.GetKeyDown(KeyCode.Q)|| dialogueText.text == dialogue[index].text && gamepad == true)
+            else if (dialogueText.text == dialogue[index].text && Input.GetKeyDown(KeyCode.Q) || dialogueText.text == dialogue[index].text && gamepad == true)
             {
 
                 NextLine();
@@ -80,13 +80,16 @@ public class DialogSystem : MonoBehaviour
             else if (dialogue[index].type == TYPE.FANTASMA)
             {
                 ghostImage.texture = fantasma;
-            }else if (dialogue[index].type == TYPE.BOLA)
+            }
+            else if (dialogue[index].type == TYPE.BOLA)
             {
                 ghostImage.texture = bolaCristal;
-            }else if (dialogue[index].type == TYPE.FOG)
+            }
+            else if (dialogue[index].type == TYPE.FOG)
             {
                 ghostImage.texture = fog;
-            }else if (dialogue[index].type == TYPE.BOOB)
+            }
+            else if (dialogue[index].type == TYPE.BOOB)
             {
                 ghostImage.texture = boob;
             }
@@ -95,17 +98,17 @@ public class DialogSystem : MonoBehaviour
         else
         {
             RemoveText();
-            if(ghost != null)
+            if (ghost != null)
             {
                 ghost.UnfreezePosition();
                 Debug.Log("dialogo finalisaaao");
                 trigger.SetDialogDone(true);
 
             }
-           
+
         }
 
-       
+
     }
 
     public void RemoveText()
@@ -154,7 +157,7 @@ public class DialogSystem : MonoBehaviour
         trigger = dTrigger;
     }
 
-   public bool GetEndDialog() { return endDialog; }
+    public bool GetEndDialog() { return endDialog; }
 
     ///////////PLAYER ACTION INPUT
     public void Next(InputAction.CallbackContext context)
