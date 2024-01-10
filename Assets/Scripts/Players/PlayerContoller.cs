@@ -5,6 +5,7 @@ using static UnityEngine.InputSystem.DefaultInputActions;
 using System.Collections.Generic;
 using UnityEngine.TextCore.Text;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(CharacterController))]
 
@@ -52,6 +53,7 @@ public class PlayerContoller : MonoBehaviour
     [SerializeField] Material normalMat;
     [SerializeField] Material cursedMat;
 
+    private bool isFirstLevel = false;
     private float distance;
 
     private AudioManager sound;
@@ -60,7 +62,11 @@ public class PlayerContoller : MonoBehaviour
     {
         controller = this.gameObject.GetComponent<CharacterController>();
         sound = GameObject.FindGameObjectWithTag("AM").GetComponent<AudioManager>();
-        controller.attachedRigidbody.constraints = RigidbodyConstraints.FreezePositionZ;        
+        controller.attachedRigidbody.constraints = RigidbodyConstraints.FreezePositionZ;      
+        if(SceneManager.GetActiveScene().name == "L1_M1")        
+            isFirstLevel = true;
+        else
+            isFirstLevel= false;
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -252,6 +258,10 @@ public class PlayerContoller : MonoBehaviour
     [Tooltip("This changes the curse and layers that it collides with")]
     public void ChangeMaldicion()
     {
+        if(isFirstLevel) 
+        {
+            return;
+        }
         curse = !curse;
         if (curse)
             this.gameObject.layer = 9;
