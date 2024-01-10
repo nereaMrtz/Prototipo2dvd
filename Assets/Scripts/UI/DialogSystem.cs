@@ -8,7 +8,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
-public enum TYPE { MALDITO, FANTASMA, BOLA};
+public enum TYPE { MALDITO, FANTASMA, BOLA, FOG, BOOB};
  [System.Serializable]public struct line{ public string text; public TYPE type;}
 
 public class DialogSystem : MonoBehaviour
@@ -36,6 +36,8 @@ public class DialogSystem : MonoBehaviour
     [SerializeField] Texture maldito;
     [SerializeField] Texture fantasma;
     [SerializeField] Texture bolaCristal;
+    [SerializeField] Texture fog;
+    [SerializeField] Texture boob;
 
      PlayerContoller ghost;
     DialogTrigger trigger;
@@ -46,10 +48,10 @@ public class DialogSystem : MonoBehaviour
 
     }
 
-    public void StartDialog(Collider other)
+    public void StartDialog(PlayerContoller other)
     {
         startText = true;
-        ghost = other.GetComponent<PlayerContoller>();
+        ghost = other;
         ghost.FreezePosition();
     }
 
@@ -81,6 +83,12 @@ public class DialogSystem : MonoBehaviour
             }else if (dialogue[index].type == TYPE.BOLA)
             {
                 ghostImage.texture = bolaCristal;
+            }else if (dialogue[index].type == TYPE.FOG)
+            {
+                ghostImage.texture = fog;
+            }else if (dialogue[index].type == TYPE.BOOB)
+            {
+                ghostImage.texture = boob;
             }
 
         }

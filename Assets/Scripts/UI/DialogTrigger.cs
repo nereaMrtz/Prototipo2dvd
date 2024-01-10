@@ -10,6 +10,8 @@ public class DialogTrigger : MonoBehaviour
     DialogSystem dialogSystem;
 
     bool triggerDone;
+
+    Collider ghost;
     void Start()
     {
         dialogSystem = FindAnyObjectByType<DialogSystem>();
@@ -30,10 +32,17 @@ public class DialogTrigger : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             dialogSystem.SetDialog(this);
-            dialogSystem.StartDialog(other);
+            dialogSystem.StartDialog(other.GetComponent<PlayerContoller>());
         }
     }
 
+    public void StartDialog()
+    {
+        dialogSystem.SetDialog(this);
+        dialogSystem.StartDialog(FindAnyObjectByType<PlayerContoller>());
+    }
+
     public void SetDialogDone(bool done) { triggerDone = done; }
+    public bool GetDialogDone() { return triggerDone; }
     
 }

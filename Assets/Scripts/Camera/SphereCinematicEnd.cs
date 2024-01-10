@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SphereCinematicEnd : MonoBehaviour
 {
     [SerializeField] private GameObject brokenSphere;
     [SerializeField] private float timeToStopCamera = 5.0f;
+    [SerializeField] Fog fog;
     private void OnTriggerEnter(Collider other)
     {
         //AddElements.Instance.AddElement(other.gameObject);
@@ -24,5 +26,16 @@ public class SphereCinematicEnd : MonoBehaviour
         yield return new WaitForSeconds(timeToStopCamera);
         Sphere.SetActive(false);
         //Destroy(Sphere);
+        Debug.Log("finalisasion");
+        GetComponent<DialogTrigger>().StartDialog();
+    }
+
+    private void Update()
+    {
+        if (GetComponent<DialogTrigger>().GetDialogDone())
+        {
+            fog.gameObject.SetActive(true);
+            fog.active = true;
+        }
     }
 }

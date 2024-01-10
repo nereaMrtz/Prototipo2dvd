@@ -124,6 +124,8 @@ MonoBehaviour:
   maldito: {fileID: 2800000, guid: 859429bb6d19fb14eafb874eb7d5046f, type: 3}
   fantasma: {fileID: 2800000, guid: 13321ba53e583ae43a4d1d90f95d8805, type: 3}
   bolaCristal: {fileID: 2800000, guid: bc68748069d8ffe4694558ee8b69b5dc, type: 3}
+  fog: {fileID: 2800000, guid: 4ecfab50cb296304a8304b5fbb93b29f, type: 3}
+  boob: {fileID: 2800000, guid: 116eb26f9e797d341a95cc12373e593a, type: 3}
 --- !u!1 &3877223202575724472
 GameObject:
   m_ObjectHideFlags: 0
