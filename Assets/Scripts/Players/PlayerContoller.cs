@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using UnityEngine.TextCore.Text;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.Timeline;
 
 [RequireComponent(typeof(CharacterController))]
 
@@ -53,7 +54,8 @@ public class PlayerContoller : MonoBehaviour
     [SerializeField] Material normalMat;
     [SerializeField] Material cursedMat;
 
-    private bool isFirstLevel = false;
+    [HideInInspector]public bool isFirstLevel = false;
+
     private float distance;
 
     private AudioManager sound;

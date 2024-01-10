@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -18,5 +19,10 @@ public class ScenesManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    protected virtual void ChangeScene()
+    {
+        SceneManager.LoadScene(sceneIndex);
     }
 }
