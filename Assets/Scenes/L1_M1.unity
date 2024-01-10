@@ -43643,7 +43643,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cd05b62579763a4f904cbdaeb287f3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneIndex: 2
+  sceneIndex: 0
   sceneName: L2_M2
   ghost1: {fileID: 5769451956628355340}
   ghost2: {fileID: 1722040645}
