@@ -13,7 +13,11 @@ public class L1_M1_Manager : ScenesManager
         if(ghost1.layer == 9 && ghost2.layer == 9)
         {
             StartCoroutine("WaitThenChangeScene");
-        }        
+        }      
+        
+        if(Input.GetKeyDown(KeyCode.T)) {
+            StartCoroutine("WaitThenChangeScene");
+        }
     }
 
     protected override void ChangeScene()

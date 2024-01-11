@@ -12,9 +12,9 @@ public class WallAlphaChange : MonoBehaviour
 
     private void Start()
     {
-        originalColor = wall.GetComponent<MeshRenderer>().material.color;
+        /*originalColor = wall.GetComponent<MeshRenderer>().material.color;
         targetColor = originalColor; 
-        targetColor.a = 0.3f;
+        targetColor.a = 0.3f;*/
     }
     private void OnTriggerEnter(Collider other)
     {
