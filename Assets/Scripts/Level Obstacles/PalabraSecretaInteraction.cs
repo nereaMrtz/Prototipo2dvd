@@ -9,7 +9,7 @@ public class PalabraSecretaInteraction : MonoBehaviour
     [SerializeField] Canvas canvasUnactiveInteraction;
     bool canvasActive = false;
     bool interacted = false;
-    PlayerContoller player;
+    PlayerController player;
     public float inputDelay = .25f;
     float delayLeft;
 
@@ -21,7 +21,7 @@ public class PalabraSecretaInteraction : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             canvasAction.gameObject.SetActive(true);
-            player = other.GetComponent<PlayerContoller>();
+            player = other.GetComponent<PlayerController>();
         }
     }
 

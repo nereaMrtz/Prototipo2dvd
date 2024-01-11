@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class AirHazard : MonoBehaviour
 {
-    PlayerContoller player1 = null;
+    PlayerController player1 = null;
     CharacterController player1Controller = null;
 
-    PlayerContoller player2 = null;
+    PlayerController player2 = null;
     CharacterController player2Controller = null;
 
     [Header("Force")]
@@ -32,12 +32,12 @@ public class AirHazard : MonoBehaviour
         {
             if (player1 == null)
             {
-                player1 = other.GetComponent<PlayerContoller>();
+                player1 = other.GetComponent<PlayerController>();
                 player1Controller = other.GetComponent<CharacterController>();
             }
             else if (player2 == null)
             {
-                player2 = other.GetComponent<PlayerContoller>();
+                player2 = other.GetComponent<PlayerController>();
                 player2Controller = other.GetComponent<CharacterController>();
             }
         }
