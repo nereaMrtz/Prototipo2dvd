@@ -73215,6 +73215,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1861101189373357369, guid: 50fbc1eb949061b4b8707e5f6a558657, type: 3}
+      propertyPath: cursedMat
+      value: 
+      objectReference: {fileID: 2100000, guid: eed87166b238e464cb2b65ad5991faf4, type: 2}
+    - target: {fileID: 1861101189373357369, guid: 50fbc1eb949061b4b8707e5f6a558657, type: 3}
       propertyPath: jumpHeight
       value: 3
       objectReference: {fileID: 0}
@@ -73268,6 +73272,10 @@ PrefabInstance:
       propertyPath: curse
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 685165716557273399, guid: c3816692e7ca7a847b9bfaf3f0942daa, type: 3}
+      propertyPath: normalMat
+      value: 
+      objectReference: {fileID: 2100000, guid: b2f7bfa2320f21e4ead3d6761acaa75f, type: 2}
     - target: {fileID: 685165716557273399, guid: c3816692e7ca7a847b9bfaf3f0942daa, type: 3}
       propertyPath: jumpHeight
       value: 3
