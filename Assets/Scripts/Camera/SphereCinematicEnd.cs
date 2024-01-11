@@ -10,8 +10,6 @@ public class SphereCinematicEnd : MonoBehaviour
     [SerializeField] Fog fog;
     private void OnTriggerEnter(Collider other)
     {
-        //AddElements.Instance.AddElement(other.gameObject);
-        //Destroy(other.gameObject);
         other.gameObject.GetComponent<MeshRenderer>().enabled = false;
         other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
         brokenSphere.SetActive(true);

@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class ColorSelector : MonoBehaviour
 {
-   // [SerializeField] public Button[] buttons;
-
     [SerializeField] GameObject ghost1;
     [SerializeField] GameObject ghost2;
 
@@ -13,5 +11,11 @@ public class ColorSelector : MonoBehaviour
     {
         ghost1.GetComponent<SkinnedMeshRenderer>().material = button;
         ghost2.GetComponent<SkinnedMeshRenderer>().material = button;
+    }
+
+    public Material ApplyColor()
+    {
+        //Esto se cambiara a un void que guarde el material en el script de cada player
+        return ghost1.GetComponent<SkinnedMeshRenderer>().material;
     }
 }

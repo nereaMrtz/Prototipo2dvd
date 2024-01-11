@@ -84,4 +84,8 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("L1_M1");
     }
 
+    public void GhostColors()
+    {
+        SceneManager.LoadScene("GhostColor");
+    }
 }

@@ -7,6 +7,6 @@ public class PalLobby : MonoBehaviour
 {
     public void PalLoby()
     {
-        SceneManager.LoadScene("Main Menu");
+        SceneManager.LoadScene("MainMenu");
     }
 }
