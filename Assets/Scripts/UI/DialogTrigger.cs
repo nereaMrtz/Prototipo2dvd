@@ -36,14 +36,14 @@ public class DialogTrigger : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             dialogSystem.SetDialog(this);
-            dialogSystem.StartDialog(other.GetComponent<PlayerContoller>());
+            dialogSystem.StartDialog(other.GetComponent<PlayerController>());
         }
     }
 
     public void StartDialog()
     {
         dialogSystem.SetDialog(this);
-        dialogSystem.StartDialog(FindAnyObjectByType<PlayerContoller>());
+        dialogSystem.StartDialog(FindAnyObjectByType<PlayerController>());
     }
 
     public void SetDialogDone(bool done) { triggerDone = done; }

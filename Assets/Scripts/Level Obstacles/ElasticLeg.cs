@@ -9,7 +9,7 @@ public class ElasticLeg : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            other.gameObject.GetComponent<PlayerContoller>().BoostJump(jumpBoost);
+            other.gameObject.GetComponent<PlayerController>().BoostJump(jumpBoost);
         }
     }
 }

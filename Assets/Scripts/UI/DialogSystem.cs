@@ -39,7 +39,7 @@ public class DialogSystem : MonoBehaviour
     [SerializeField] Texture fog;
     [SerializeField] Texture boob;
 
-    PlayerContoller ghost;
+    PlayerController ghost;
     DialogTrigger trigger;
     void Start()
     {
@@ -48,11 +48,11 @@ public class DialogSystem : MonoBehaviour
 
     }
 
-    public void StartDialog(PlayerContoller other)
+    public void StartDialog(PlayerController other)
     {
         startText = true;
         ghost = other;
-        ghost.FreezePosition();
+        ghost.SetStopMovement(true);
     }
 
     private void Update()
@@ -100,8 +100,7 @@ public class DialogSystem : MonoBehaviour
             RemoveText();
             if (ghost != null)
             {
-                ghost.UnfreezePosition();
-                Debug.Log("dialogo finalisaaao");
+                ghost.SetStopMovement(false);
                 trigger.SetDialogDone(true);
 
             }

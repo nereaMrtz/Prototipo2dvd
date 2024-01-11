@@ -31,7 +31,7 @@ public class Fog : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player") && other.gameObject.layer == 8)
         {
-            PlayerContoller aux = other.gameObject.GetComponent<PlayerContoller>();
+            PlayerController aux = other.gameObject.GetComponent<PlayerController>();
             aux.isFirstLevel = false;
             aux.ChangeMaldicion();
         }

@@ -14,7 +14,7 @@ using System.Runtime.CompilerServices;
 
 [RequireComponent(typeof(CharacterController))]
 
-public class PlayerContoller : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     [Header("Player Movement")]
 
@@ -23,6 +23,7 @@ public class PlayerContoller : MonoBehaviour
     private Vector2 movementInput = Vector2.zero;
     private Vector3 playerVelocity;
     private Vector3 lastInput = Vector3.right;
+    private Vector3 move = Vector3.zero;
 
     [SerializeField] private float jumpHeight = 1.0f;
     [SerializeField] private float gravityValue = -9.81f;
@@ -52,7 +53,7 @@ public class PlayerContoller : MonoBehaviour
 
     [Header("Curse")]
 
-    [SerializeField] PlayerContoller otherPlayer;
+    [SerializeField] PlayerController otherPlayer;
     public bool curse;
 
     [SerializeField] Material normalMat;
@@ -118,11 +119,8 @@ public class PlayerContoller : MonoBehaviour
 
     void Update()
     {
-        if (stopMovement)
-        {
-            return;
-        }
         groundedPlayer = controller.isGrounded;
+        move = Vector3.zero;
 
         if (!groundedPlayer && wasGrounded)
         {
@@ -135,9 +133,12 @@ public class PlayerContoller : MonoBehaviour
             playerVelocity.y = 0f;
             hasJumped = false;
         }
+        if (!stopMovement)
+        {
+            move = new Vector3(movementInput.x, 0f, 0f);
+            controller.Move(move * Time.deltaTime * playerSpeed);
+        }
 
-        Vector3 move = new Vector3(movementInput.x, 0f, 0f);
-        controller.Move(move * Time.deltaTime * playerSpeed);
         //controller.enabled = false;
         //transform.position = new Vector3(transform.position.x, transform.position.y, -0.5f);
         //controller.enabled = true;
@@ -231,7 +232,7 @@ public class PlayerContoller : MonoBehaviour
     void OnControllerColliderHit(ControllerColliderHit hit)
     {        
         
-        if (hit.gameObject.GetComponent<PlayerContoller>() == otherPlayer)
+        if (hit.gameObject.GetComponent<PlayerController>() == otherPlayer)
         {       
             impact = AddImpact(hit.moveDirection, hit.moveLength * pushPlayerPower);
             // apply the impact force:
@@ -261,7 +262,7 @@ public class PlayerContoller : MonoBehaviour
 
     }
 
-    [Tooltip("This changes the curse and layers that it collides with")]
+    //"This changes the curse and layers that it collides with"
     public void ChangeMaldicion()
     {
         if(isFirstLevel) 
@@ -299,7 +300,7 @@ public class PlayerContoller : MonoBehaviour
 
         Debug.Log("freezzeandooo");
 
-        this.gameObject.GetComponent<PlayerContoller>().enabled = false;
+        this.gameObject.GetComponent<PlayerController>().enabled = false;
 
         otherPlayer.enabled = false;
 
@@ -309,7 +310,7 @@ public class PlayerContoller : MonoBehaviour
 
     {
 
-        this.gameObject.GetComponent<PlayerContoller>().enabled = true;
+        this.gameObject.GetComponent<PlayerController>().enabled = true;
 
         otherPlayer.enabled = true;
 

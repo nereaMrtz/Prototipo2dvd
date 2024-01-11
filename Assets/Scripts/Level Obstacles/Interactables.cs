@@ -8,7 +8,7 @@ public class Interactables : MonoBehaviour
     [SerializeField] Canvas canvasInteraction;
     bool canvasActive = false;
     [SerializeField] bool forCursed;
-    PlayerContoller player;
+    PlayerController player;
     public float inputDelay = .25f;
     float delayLeft;
 
@@ -16,15 +16,15 @@ public class Interactables : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            if (forCursed && other.GetComponent<PlayerContoller>().curse)
+            if (forCursed && other.GetComponent<PlayerController>().curse)
             {
                 canvasAction.gameObject.SetActive(true);
-                player = other.GetComponent<PlayerContoller>();
+                player = other.GetComponent<PlayerController>();
             }
-            else if(!forCursed && !other.GetComponent<PlayerContoller>().curse)
+            else if(!forCursed && !other.GetComponent<PlayerController>().curse)
             {
                 canvasAction.gameObject.SetActive(true);
-                player = other.GetComponent<PlayerContoller>();
+                player = other.GetComponent<PlayerController>();
             }
         }
     }
@@ -33,13 +33,13 @@ public class Interactables : MonoBehaviour
     {        
         if (other.gameObject.CompareTag("Player"))
         {
-            if (forCursed && other.GetComponent<PlayerContoller>().curse)
+            if (forCursed && other.GetComponent<PlayerController>().curse)
             {
                 canvasAction.gameObject.SetActive(false);
                 canvasInteraction.gameObject.SetActive(false);
                 player = null;
             }
-            else if (!forCursed && !other.GetComponent<PlayerContoller>().curse)
+            else if (!forCursed && !other.GetComponent<PlayerController>().curse)
             {
                 player = null;
                 canvasAction.gameObject.SetActive(false);

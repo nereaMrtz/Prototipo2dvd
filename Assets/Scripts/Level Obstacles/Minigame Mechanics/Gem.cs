@@ -11,11 +11,11 @@ public class Gem : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            if (forCursed && other.gameObject.GetComponent<PlayerContoller>().curse)
+            if (forCursed && other.gameObject.GetComponent<PlayerController>().curse)
             {
                 Collection(other.gameObject);
             }
-            else if (!forCursed && !other.gameObject.GetComponent<PlayerContoller>().curse)
+            else if (!forCursed && !other.gameObject.GetComponent<PlayerController>().curse)
             {
                 Collection(other.gameObject);
             }
