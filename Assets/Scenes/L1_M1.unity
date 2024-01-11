@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3138,7 +3138,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5487212069564264811, guid: 896dbb58d55a3934b9d6d389491e676f, type: 3}
       propertyPath: m_RootOrder
-      value: 40
+      value: 41
       objectReference: {fileID: 0}
     - target: {fileID: 5487212069564264811, guid: 896dbb58d55a3934b9d6d389491e676f, type: 3}
       propertyPath: m_LocalScale.x
@@ -8204,7 +8204,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6410288952433524, guid: 9a3d7444e65a5d947b03b38b10348056, type: 3}
       propertyPath: m_RootOrder
-      value: 37
+      value: 38
       objectReference: {fileID: 0}
     - target: {fileID: 6410288952433524, guid: 9a3d7444e65a5d947b03b38b10348056, type: 3}
       propertyPath: m_LocalScale.x
@@ -28903,7 +28903,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -116.64002}
+  m_AnchoredPosition: {x: 0, y: -116.640015}
   m_SizeDelta: {x: 0, y: -21}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &797670591
@@ -31133,6 +31133,59 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5328965952260784210, guid: 737712ecf87da154b9ea9c3a5d714694, type: 3}
   m_PrefabInstance: {fileID: 1037170485}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1039790184
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1039790186}
+  - component: {fileID: 1039790185}
+  m_Layer: 0
+  m_Name: BallBarrier2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &1039790185
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1039790184}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &1039790186
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1039790184}
+  m_LocalRotation: {x: 0.38268343, y: 0.92387956, z: 0, w: 0}
+  m_LocalPosition: {x: 355.61, y: -15.99, z: -0.52}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 37
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 45}
 --- !u!1 &1040866075
 GameObject:
   m_ObjectHideFlags: 0
@@ -49565,7 +49618,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5487212069564264811, guid: 896dbb58d55a3934b9d6d389491e676f, type: 3}
       propertyPath: m_RootOrder
-      value: 39
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 5487212069564264811, guid: 896dbb58d55a3934b9d6d389491e676f, type: 3}
       propertyPath: m_LocalScale.x
@@ -53149,7 +53202,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -120.89002}
+  m_AnchoredPosition: {x: 0, y: -120.890015}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1648720076
@@ -68111,7 +68164,7 @@ GameObject:
   - component: {fileID: 1855721087}
   - component: {fileID: 1855721088}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: BallBarrier1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71259,7 +71312,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5487212069564264811, guid: 896dbb58d55a3934b9d6d389491e676f, type: 3}
       propertyPath: m_RootOrder
-      value: 38
+      value: 39
       objectReference: {fileID: 0}
     - target: {fileID: 5487212069564264811, guid: 896dbb58d55a3934b9d6d389491e676f, type: 3}
       propertyPath: m_LocalScale.x
