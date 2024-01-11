@@ -72,6 +72,10 @@ public class DialogSystem : MonoBehaviour
 
                 NextLine();
             }
+            else if (Input.GetKeyDown(KeyCode.P))
+            {
+                startText = false;
+            }
 
             if (dialogue[index].type == TYPE.MALDITO)
             {
