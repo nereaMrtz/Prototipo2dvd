@@ -1,0 +1,289 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &471432407370249753
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 471432407370249759}
+  - component: {fileID: 471432407370249758}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &471432407370249759
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 471432407370249753}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &471432407370249758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 471432407370249753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aba48f23dd9f8fa4383cfc94ae792325, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioMixer: {fileID: 24100000, guid: a881f4cca32b9ce49b74a488fcd688d1, type: 2}
+  _masterVolumeMixer: MasterSound
+  _SFXVolumeMixer: SFXSound
+  _musicVolumeMixer: MusicSound
+  _sounds:
+  - _audioClip: {fileID: 8300000, guid: 14685251affefe44995b346028dbead7, type: 3}
+    _audioMixerGroup: {fileID: 2299499932932323075, guid: a881f4cca32b9ce49b74a488fcd688d1, type: 2}
+    _name: Ambiente
+    _volume: 1
+    _loop: 1
+    _play: 1
+    _sound3D: 0
+  - _audioClip: {fileID: 8300000, guid: 9f199f1c7c06e5440817ecb99fd32aef, type: 3}
+    _audioMixerGroup: {fileID: 7810890006595470100, guid: a881f4cca32b9ce49b74a488fcd688d1, type: 2}
+    _name: Simple Door Sound
+    _volume: 1
+    _loop: 0
+    _play: 0
+    _sound3D: 1
+  - _audioClip: {fileID: 8300000, guid: c7cce6495340474418c0c6548c777944, type: 3}
+    _audioMixerGroup: {fileID: 7810890006595470100, guid: a881f4cca32b9ce49b74a488fcd688d1, type: 2}
+    _name: Incorrect Sound
+    _volume: 0.1
+    _loop: 0
+    _play: 0
+    _sound3D: 0
+  - _audioClip: {fileID: 8300000, guid: 21d4e48da3858df43ba397843aa426a6, type: 3}
+    _audioMixerGroup: {fileID: 7810890006595470100, guid: a881f4cca32b9ce49b74a488fcd688d1, type: 2}
+    _name: Sheet Of Paper Sound
+    _volume: 1
+    _loop: 0
+    _play: 0
+    _sound3D: 0
+  - _audioClip: {fileID: 8300000, guid: 9176f628c9ef1664ead6ef044743e709, type: 3}
+    _audioMixerGroup: {fileID: 7810890006595470100, guid: a881f4cca32b9ce49b74a488fcd688d1, type: 2}
+    _name: Menu Button
+    _volume: 1
+    _loop: 0
+    _play: 0
+    _sound3D: 0
+  - _audioClip: {fileID: 8300000, guid: 0c3a2736c5db82b4cbd763475f03d0da, type: 3}
+    _audioMixerGroup: {fileID: 7810890006595470100, guid: a881f4cca32b9ce49b74a488fcd688d1, type: 2}
+    _name: Coin
+    _volume: 0.65
+    _loop: 0
+    _play: 0
+    _sound3D: 0
+  - _audioClip: {fileID: 8300000, guid: 9ef6f59c15cd67749bbe4b3f5e32abe4, type: 3}
+    _audioMixerGroup: {fileID: 7810890006595470100, guid: a881f4cca32b9ce49b74a488fcd688d1, type: 2}
+    _name: ArrastrarBoton(NoToques)
+    _volume: 1
+    _loop: 0
+    _play: 0
+    _sound3D: 1
+  - _audioClip: {fileID: 8300000, guid: 265b70ef290c29448a25216f014f16bd, type: 3}
+    _audioMixerGroup: {fileID: 7810890006595470100, guid: a881f4cca32b9ce49b74a488fcd688d1, type: 2}
+    _name: BotonMenu
+    _volume: 1
+    _loop: 0
+    _play: 0
+    _sound3D: 0
+  - _audioClip: {fileID: 8300000, guid: 824cdd3cc31434c4391977d3cfa2f7de, type: 3}
+    _audioMixerGroup: {fileID: 7810890006595470100, guid: a881f4cca32b9ce49b74a488fcd688d1, type: 2}
+    _name: Lights
+    _volume: 1
+    _loop: 0
+    _play: 0
+    _sound3D: 0
+  - _audioClip: {fileID: 8300000, guid: e31111de6403dd7448f05e3605a23375, type: 3}
+    _audioMixerGroup: {fileID: 7810890006595470100, guid: a881f4cca32b9ce49b74a488fcd688d1, type: 2}
+    _name: PasarPorEncima
+    _volume: 1
+    _loop: 0
+    _play: 0
+    _sound3D: 0
+  - _audioClip: {fileID: 8300000, guid: a2a3481ebea27bd4c91269cf33bf9d93, type: 3}
+    _audioMixerGroup: {fileID: 7810890006595470100, guid: a881f4cca32b9ce49b74a488fcd688d1, type: 2}
+    _name: Press Button
+    _volume: 0.5
+    _loop: 0
+    _play: 0
+    _sound3D: 1
+  - _audioClip: {fileID: 8300000, guid: d271e7eaec994904fb5a8e222dd46c96, type: 3}
+    _audioMixerGroup: {fileID: 7810890006595470100, guid: a881f4cca32b9ce49b74a488fcd688d1, type: 2}
+    _name: Draw
+    _volume: 1
+    _loop: 1
+    _play: 1
+    _sound3D: 0
+  - _audioClip: {fileID: 8300000, guid: 7dcef245ab0b4eb4b96dd4f627d6b6b4, type: 3}
+    _audioMixerGroup: {fileID: 7810890006595470100, guid: a881f4cca32b9ce49b74a488fcd688d1, type: 2}
+    _name: Fade
+    _volume: 1
+    _loop: 0
+    _play: 0
+    _sound3D: 0
+  - _audioClip: {fileID: 8300000, guid: b755eef1c22f0d94c83f90376e6fe5ea, type: 3}
+    _audioMixerGroup: {fileID: 7810890006595470100, guid: a881f4cca32b9ce49b74a488fcd688d1, type: 2}
+    _name: Planta
+    _volume: 1
+    _loop: 0
+    _play: 0
+    _sound3D: 1
+  - _audioClip: {fileID: 8300000, guid: 0d8b0502193a8954ab20088de56df9d8, type: 3}
+    _audioMixerGroup: {fileID: 7810890006595470100, guid: a881f4cca32b9ce49b74a488fcd688d1, type: 2}
+    _name: ArrastrarPuerta
+    _volume: 1
+    _loop: 0
+    _play: 0
+    _sound3D: 1
+  - _audioClip: {fileID: 8300000, guid: 7abe0c51680223545a81276a8ab7353b, type: 3}
+    _audioMixerGroup: {fileID: 7810890006595470100, guid: a881f4cca32b9ce49b74a488fcd688d1, type: 2}
+    _name: ChocarParedes
+    _volume: 1
+    _loop: 0
+    _play: 0
+    _sound3D: 1
+  - _audioClip: {fileID: 8300000, guid: 4f4b0471166e7ec4e845cb47a47e5a4b, type: 3}
+    _audioMixerGroup: {fileID: 7810890006595470100, guid: a881f4cca32b9ce49b74a488fcd688d1, type: 2}
+    _name: Pasos1
+    _volume: 1
+    _loop: 0
+    _play: 0
+    _sound3D: 0
+  - _audioClip: {fileID: 8300000, guid: c499fa8da018b0e4783e7ac675db051c, type: 3}
+    _audioMixerGroup: {fileID: 7810890006595470100, guid: a881f4cca32b9ce49b74a488fcd688d1, type: 2}
+    _name: Pasos2
+    _volume: 1
+    _loop: 0
+    _play: 0
+    _sound3D: 0
+  - _audioClip: {fileID: 8300000, guid: f29218647ed00624f92dde40b616931b, type: 3}
+    _audioMixerGroup: {fileID: 7810890006595470100, guid: a881f4cca32b9ce49b74a488fcd688d1, type: 2}
+    _name: Hipo
+    _volume: 1
+    _loop: 1
+    _play: 1
+    _sound3D: 0
+  - _audioClip: {fileID: 8300000, guid: ccd05c882cab0834b9b08dbbe2d14665, type: 3}
+    _audioMixerGroup: {fileID: 7810890006595470100, guid: a881f4cca32b9ce49b74a488fcd688d1, type: 2}
+    _name: MouseClick
+    _volume: 1
+    _loop: 0
+    _play: 0
+    _sound3D: 0
+  - _audioClip: {fileID: 8300000, guid: cc11a1bce35defc459535dc350e4570e, type: 3}
+    _audioMixerGroup: {fileID: 7810890006595470100, guid: a881f4cca32b9ce49b74a488fcd688d1, type: 2}
+    _name: Release Button
+    _volume: 1
+    _loop: 0
+    _play: 0
+    _sound3D: 1
+  - _audioClip: {fileID: 8300000, guid: c96dbd17e0c1724419a3ed2ba28d28e6, type: 3}
+    _audioMixerGroup: {fileID: 7810890006595470100, guid: a881f4cca32b9ce49b74a488fcd688d1, type: 2}
+    _name: Toc
+    _volume: 0.6
+    _loop: 0
+    _play: 0
+    _sound3D: 1
+  - _audioClip: {fileID: 8300000, guid: 427821497d1e9d34d991d1f6b8c19826, type: 3}
+    _audioMixerGroup: {fileID: 7810890006595470100, guid: a881f4cca32b9ce49b74a488fcd688d1, type: 2}
+    _name: Steps Sound
+    _volume: 1
+    _loop: 1
+    _play: 1
+    _sound3D: 0
+  - _audioClip: {fileID: 8300000, guid: 422c471a8523aca45baf1dccaeaf8449, type: 3}
+    _audioMixerGroup: {fileID: 7810890006595470100, guid: a881f4cca32b9ce49b74a488fcd688d1, type: 2}
+    _name: Discovery
+    _volume: 1
+    _loop: 0
+    _play: 0
+    _sound3D: 1
+  - _audioClip: {fileID: 8300000, guid: c3f13346ffa1fb94685e15665152f7dc, type: 3}
+    _audioMixerGroup: {fileID: 7810890006595470100, guid: a881f4cca32b9ce49b74a488fcd688d1, type: 2}
+    _name: Destroy Wall
+    _volume: 1
+    _loop: 0
+    _play: 0
+    _sound3D: 1
+  - _audioClip: {fileID: 8300000, guid: 4148520e0b901bd449d81c69f373e12e, type: 3}
+    _audioMixerGroup: {fileID: 7810890006595470100, guid: a881f4cca32b9ce49b74a488fcd688d1, type: 2}
+    _name: Button Power On
+    _volume: 1
+    _loop: 0
+    _play: 0
+    _sound3D: 1
+  - _audioClip: {fileID: 8300000, guid: 9df002426a446d349800b6777072e7d8, type: 3}
+    _audioMixerGroup: {fileID: 7810890006595470100, guid: a881f4cca32b9ce49b74a488fcd688d1, type: 2}
+    _name: Electricity Panel
+    _volume: 1
+    _loop: 0
+    _play: 0
+    _sound3D: 1
+  - _audioClip: {fileID: 8300000, guid: 0ca3ed87e8af1ec44ba64f6486eab283, type: 3}
+    _audioMixerGroup: {fileID: 7810890006595470100, guid: a881f4cca32b9ce49b74a488fcd688d1, type: 2}
+    _name: Phone Buzz
+    _volume: 0.5
+    _loop: 0
+    _play: 0
+    _sound3D: 1
+  - _audioClip: {fileID: 8300000, guid: 56763ea9cd23cf541819f5902f9568cb, type: 3}
+    _audioMixerGroup: {fileID: 7810890006595470100, guid: a881f4cca32b9ce49b74a488fcd688d1, type: 2}
+    _name: Reverse Fade
+    _volume: 1
+    _loop: 0
+    _play: 0
+    _sound3D: 0
+  - _audioClip: {fileID: 8300000, guid: f91d11a17e94e0d4285f416f8ca3c561, type: 3}
+    _audioMixerGroup: {fileID: 7810890006595470100, guid: a881f4cca32b9ce49b74a488fcd688d1, type: 2}
+    _name: Cat Cries
+    _volume: 1
+    _loop: 0
+    _play: 0
+    _sound3D: 1
+  - _audioClip: {fileID: 8300000, guid: a36b418f366ca8543bf6ced1a3a2b1ca, type: 3}
+    _audioMixerGroup: {fileID: 7810890006595470100, guid: a881f4cca32b9ce49b74a488fcd688d1, type: 2}
+    _name: Cat Purr
+    _volume: 1
+    _loop: 1
+    _play: 1
+    _sound3D: 1
+  - _audioClip: {fileID: 8300000, guid: 837c8fdfa12b9374ea0c1dd9cbc9c71a, type: 3}
+    _audioMixerGroup: {fileID: 7810890006595470100, guid: a881f4cca32b9ce49b74a488fcd688d1, type: 2}
+    _name: Gate Opening
+    _volume: 1
+    _loop: 0
+    _play: 0
+    _sound3D: 1
+  - _audioClip: {fileID: 8300000, guid: 1066187bf2772eb4487e4a8fdb063ff8, type: 3}
+    _audioMixerGroup: {fileID: 7810890006595470100, guid: a881f4cca32b9ce49b74a488fcd688d1, type: 2}
+    _name: Steps Grass Sound
+    _volume: 1
+    _loop: 1
+    _play: 1
+    _sound3D: 0
+  - _audioClip: {fileID: 8300000, guid: cd5fd762caf7e474397ff1f9ea1d47e9, type: 3}
+    _audioMixerGroup: {fileID: 7810890006595470100, guid: a881f4cca32b9ce49b74a488fcd688d1, type: 2}
+    _name: Ghost Sound
+    _volume: 1
+    _loop: 1
+    _play: 1
+    _sound3D: 0
