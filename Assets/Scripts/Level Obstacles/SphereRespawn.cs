@@ -5,18 +5,24 @@ using UnityEngine;
 public class SphereRespawn : MonoBehaviour
 {
     private Vector3 initPos;
+
+    private Rigidbody rb;
+    
+    
     // Start is called before the first frame update
     void Start()
     {
-        initPos = transform.position;
+        initPos = transform.position;    
+        rb = GetComponent<Rigidbody>(); 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(transform.position.y < -50f)
+        if(transform.position.y < -50f || transform.position.x < 333f)
         {
             transform.position = initPos;
+            rb.velocity = Vector3.zero;
         }
     }
 }
