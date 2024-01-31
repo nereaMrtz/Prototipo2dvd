@@ -1,16 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
+using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
-    [SerializeField] public AudioSource button;
-    [SerializeField] public AudioSource maldicion;
-    [SerializeField] public AudioSource music;
-    [SerializeField] public AudioSource wind;
-    [SerializeField] public AudioSource door_platform;
-    [SerializeField] public AudioSource jump;
+    [SerializeField] AudioSource backgroundSource;
+    [SerializeField] AudioClip[] backgroundMusic;
+    [SerializeField] AudioSource SFXSource;
+    Dictionary<string, AudioClip> SFX;
 
+    [SerializeField] AudioMixer mixer; 
     public static AudioManager Instance { get; private set; }
 
     [HideInInspector] public bool load = false;
@@ -25,5 +26,25 @@ public class AudioManager : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(this.gameObject);
+
     }
+
+    public bool LoadSFX(string clipName, AudioClip clip)
+    {
+        if (clip.LoadAudioData())
+        {
+            SFX.Add(clipName, clip);
+            return true;
+        }
+        else return false;
+    }
+
+    public void PlaySFX(string clipName)
+    {
+        SFXSource.clip = SFX[clipName];
+        SFXSource.Play();
+
+    }
+
+    //mixer.SetFloat("Master", -80f);
 }
