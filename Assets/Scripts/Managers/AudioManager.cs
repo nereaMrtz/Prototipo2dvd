@@ -30,7 +30,6 @@ public class AudioManager : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(this.gameObject);
-
     }
 
     public bool LoadSFX(string clipName, AudioClip clip)
