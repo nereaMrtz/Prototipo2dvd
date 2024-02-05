@@ -14,9 +14,9 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioMixer mixer; 
     public static AudioManager Instance { get; private set; }
 
-    bool masterMute=false;
-    bool bgMute=false;
-    bool sfxMute=false;
+    public bool masterMute { get; private set; } =false;
+    public bool bgMute { get; private set; } = false;
+    public bool sfxMute { get; private set; } = false;
     
     [HideInInspector] public bool load = false;
     [SerializeField] private Animator transition;
@@ -90,5 +90,20 @@ public class AudioManager : MonoBehaviour
             mixer.SetFloat("SoundEffects", 0f);
             sfxMute = false;
         }
+    }
+
+    public void SetMasterVolume(float volume)
+    {
+        mixer.SetFloat("Master", Mathf.Log10(volume) * 20);
+    }
+
+    public void SetBgVolume(float volume)
+    {
+        mixer.SetFloat("BackgroundMusic", Mathf.Log10(volume) * 20);
+    }
+
+    public void SetSFXVolume(float volume)
+    {
+        mixer.SetFloat("SoundEffects", Mathf.Log10(volume) * 20);
     }
 }
