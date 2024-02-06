@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
 
     private float distance;
 
-   // private AudioManager sound;
+   private AudioManager sound;
 
     private void Start()
     {
@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour
         else        
             isFirstLevel= false;        
         controller = this.gameObject.GetComponent<CharacterController>();
-       // sound = GameObject.FindGameObjectWithTag("AM").GetComponent<AudioManager>();
+        sound = GameObject.FindGameObjectWithTag("AM").GetComponent<AudioManager>();
         
     }
 
