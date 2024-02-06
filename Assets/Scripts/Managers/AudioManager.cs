@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Animations;
 using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
@@ -10,16 +9,13 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioClip[] backgroundMusic;
     [SerializeField] AudioSource SFXSource;
     Dictionary<string, AudioClip> SFX;
-
-    [SerializeField] AudioMixer mixer; 
     public static AudioManager Instance { get; private set; }
-
-    public bool masterMute { get; private set; } =false;
+    [SerializeField] AudioMixer mixer;
+    public bool masterMute { get; private set; } = false;
     public bool bgMute { get; private set; } = false;
     public bool sfxMute { get; private set; } = false;
-    
+
     [HideInInspector] public bool load = false;
-    [SerializeField] private Animator transition;
     private void Awake()
     {
         if (Instance != null)
@@ -30,6 +26,13 @@ public class AudioManager : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(this.gameObject);
+        backgroundSource.clip = backgroundMusic[0];
+        backgroundSource.Play(); ;
+    }
+
+    public static AudioManager GetInstance()
+    {
+        return Instance;
     }
 
     public bool LoadSFX(string clipName, AudioClip clip)

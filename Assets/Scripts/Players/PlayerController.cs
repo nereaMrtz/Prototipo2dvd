@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
 
     private float distance;
 
-    private AudioManager sound;
+   // private AudioManager sound;
 
     private void Start()
     {
@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour
         else        
             isFirstLevel= false;        
         controller = this.gameObject.GetComponent<CharacterController>();
-        sound = GameObject.FindGameObjectWithTag("AM").GetComponent<AudioManager>();
+       // sound = GameObject.FindGameObjectWithTag("AM").GetComponent<AudioManager>();
         
     }
 
@@ -109,7 +109,7 @@ public class PlayerController : MonoBehaviour
                 otherPlayer.ChangeMaldicion();
                 ChangeMaldicion();
             }
-            sound.maldicion.Play();
+            //sound.maldicion.Play();
         }
     }
 
@@ -223,7 +223,7 @@ public class PlayerController : MonoBehaviour
         }
         else
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
-        sound.jump.Play();
+        //sound.jump.Play();
         hasJumped = true;
         inputBuffer = false;
     }

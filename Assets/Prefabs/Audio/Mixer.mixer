@@ -25,7 +25,7 @@ AudioMixerGroupController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BackoundMusic
+  m_Name: BackgroundMusic
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 3ed749f69a4cede4eab89cffd564df7c
   m_Children: []
@@ -53,7 +53,13 @@ AudioMixerController:
   m_SuspendThreshold: -80
   m_EnableSuspend: 1
   m_UpdateMode: 0
-  m_ExposedParameters: []
+  m_ExposedParameters:
+  - guid: b365a15645066a740bc789406da4c4e0
+    name: BackgroundMusic
+  - guid: 061d8a923fe6f5149ad481ebd334c3c5
+    name: Master
+  - guid: 34b5c41b2530ecf4cb4a28ba4fb6748a
+    name: MyExposedParam 1
   m_AudioMixerGroupViews:
   - guids:
     - 676c50f48c1a86c4ea5522911606c94b

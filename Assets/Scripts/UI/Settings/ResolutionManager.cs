@@ -54,8 +54,8 @@ namespace Project.Scripts.Managers
         public void SetResolution(int resolutionIndex)
         {
             _currentResolution = _availableResolutions[resolutionIndex];
-            GameManager.Instance.SetCurrentResolution(_currentResolution);
-            GameManager.Instance.ApplyResolution();
+            //GameManager.Instance.SetCurrentResolution(_currentResolution);
+            //GameManager.Instance.ApplyResolution();
         }
     }
 }
