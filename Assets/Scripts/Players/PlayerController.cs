@@ -58,6 +58,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] Material normalMat;
     [SerializeField] Material cursedMat;
+    [SerializeField] ParticleSystem ghostParticles;
 
     [HideInInspector]public bool isFirstLevel = false;
 
@@ -73,7 +74,10 @@ public class PlayerController : MonoBehaviour
             isFirstLevel= false;        
         controller = this.gameObject.GetComponent<CharacterController>();
         sound = GameObject.FindGameObjectWithTag("AM").GetComponent<AudioManager>();
-        
+        if(!curse) 
+        {
+            ghostParticles.Play();
+        }
     }
 
     public void OnMove(InputAction.CallbackContext context)

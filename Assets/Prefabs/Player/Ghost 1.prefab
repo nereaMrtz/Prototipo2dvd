@@ -364,6 +364,9 @@ PrefabInstance:
       addedObject: {fileID: 4020925076712499533}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 46f311046d2104da8b56be3d0a49a119, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 5446174388894241375}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 46f311046d2104da8b56be3d0a49a119, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 7906448707211071365}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 46f311046d2104da8b56be3d0a49a119, type: 3}
@@ -473,6 +476,7 @@ MonoBehaviour:
   curse: 0
   normalMat: {fileID: 2100000, guid: c73d46928ec1139479e77355f4bf266f, type: 2}
   cursedMat: {fileID: 2100000, guid: eed87166b238e464cb2b65ad5991faf4, type: 2}
+  ghostParticles: {fileID: 300329246249051214}
   isFirstLevel: 0
 --- !u!114 &5346985408287639845
 MonoBehaviour:
@@ -605,4 +609,87 @@ SkinnedMeshRenderer:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 46f311046d2104da8b56be3d0a49a119, type: 3}
   m_PrefabInstance: {fileID: 943169512200768277}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2109519347503201217
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 764616680642571518}
+    m_Modifications:
+    - target: {fileID: 6256122665835358622, guid: 266f4aa40154b7347b751467968da21a, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6256122665835358622, guid: 266f4aa40154b7347b751467968da21a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6256122665835358622, guid: 266f4aa40154b7347b751467968da21a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6256122665835358622, guid: 266f4aa40154b7347b751467968da21a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6256122665835358622, guid: 266f4aa40154b7347b751467968da21a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6256122665835358622, guid: 266f4aa40154b7347b751467968da21a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6256122665835358622, guid: 266f4aa40154b7347b751467968da21a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6256122665835358622, guid: 266f4aa40154b7347b751467968da21a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6256122665835358622, guid: 266f4aa40154b7347b751467968da21a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6256122665835358622, guid: 266f4aa40154b7347b751467968da21a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6256122665835358622, guid: 266f4aa40154b7347b751467968da21a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6256122665835358622, guid: 266f4aa40154b7347b751467968da21a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6256122665835358622, guid: 266f4aa40154b7347b751467968da21a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6256122665835358622, guid: 266f4aa40154b7347b751467968da21a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8620288475248984097, guid: 266f4aa40154b7347b751467968da21a, type: 3}
+      propertyPath: m_Name
+      value: 'Particles Invisible '
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 266f4aa40154b7347b751467968da21a, type: 3}
+--- !u!198 &300329246249051214 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1831979270883778447, guid: 266f4aa40154b7347b751467968da21a, type: 3}
+  m_PrefabInstance: {fileID: 2109519347503201217}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5446174388894241375 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6256122665835358622, guid: 266f4aa40154b7347b751467968da21a, type: 3}
+  m_PrefabInstance: {fileID: 2109519347503201217}
   m_PrefabAsset: {fileID: 0}
