@@ -18,4 +18,13 @@ public class SliderValueGetter : MonoBehaviour
     {
         AM.SetMasterVolume(MasterVolume.value);
     }
+
+    public void SetSFX()
+    {
+        AM.SetSFXVolume(SFXVolume.value);
+    }
+    public void SetBackgorund()
+    {
+        AM.SetBgVolume(BgVolume.value);
+    }
 }
