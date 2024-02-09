@@ -275,9 +275,15 @@ public class PlayerController : MonoBehaviour
         }
         curse = !curse;
         if (curse)
+        {
             this.gameObject.layer = 9;
+            ghostParticles.Stop();
+        }
         else
+        {
             this.gameObject.layer = 8;
+            ghostParticles.Play();
+        }
     }
 
     Vector3 AddImpact(Vector3 dir, float force)
