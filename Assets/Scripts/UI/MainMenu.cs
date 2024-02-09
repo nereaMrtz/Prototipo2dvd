@@ -10,10 +10,11 @@ public class MainMenu : MonoBehaviour
     [SerializeField] GameObject mainMenu;
     [SerializeField] GameObject settingsMenu;
     [SerializeField] GameObject firstButtonMain;
+    [SerializeField] GameObject firstButtonSettings;
 
     [Header ("Settings Screen")]
+    [SerializeField] GameObject ControlsScreen;
     [SerializeField] GameObject SoundScreen;
-    [SerializeField] GameObject SoundButton;
     [SerializeField] GameObject CreditsScreen;
     [SerializeField] GameObject ScreenScreen;
 
@@ -39,7 +40,7 @@ public class MainMenu : MonoBehaviour
         settingsMenu.SetActive(true);
         currentMenu = settingsMenu;
         currentSettingScreen = SoundScreen;
-        EventSystem.current.SetSelectedGameObject(SoundButton);
+        EventSystem.current.SetSelectedGameObject(firstButtonSettings);
     }
 
     public void BackToMenu()
@@ -48,6 +49,13 @@ public class MainMenu : MonoBehaviour
         currentMenu.SetActive(false);
         mainMenu.SetActive(true);
         currentMenu = mainMenu;
+    }
+
+    public void OpenControls()
+    {
+        currentSettingScreen.SetActive(false);
+        ControlsScreen.SetActive(true);
+        currentSettingScreen = ControlsScreen;
     }
 
     public void OpenSound()

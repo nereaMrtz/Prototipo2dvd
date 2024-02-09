@@ -12,8 +12,11 @@ public class AudioManager : MonoBehaviour
     public static AudioManager Instance { get; private set; }
     [SerializeField] AudioMixer mixer;
     public bool masterMute { get; private set; } = false;
+    float prevMasterVolume;
     public bool bgMute { get; private set; } = false;
+    float prevBgVolume;
     public bool sfxMute { get; private set; } = false;
+    float prevSfxVolume;
 
     [HideInInspector] public bool load = false;
     private void Awake()
@@ -56,12 +59,13 @@ public class AudioManager : MonoBehaviour
     {
         if (!masterMute)
         {
+            mixer.GetFloat("Master", out prevMasterVolume);
             mixer.SetFloat("Master", -80f);
             masterMute = true;
         }
         else
         {
-            mixer.SetFloat("Master", 0f);
+            mixer.SetFloat("Master", prevMasterVolume);
             masterMute = false;
         }
     }
@@ -70,12 +74,13 @@ public class AudioManager : MonoBehaviour
     {
         if (!bgMute)
         {
+            mixer.GetFloat("BackgroundMusic", out prevBgVolume);
             mixer.SetFloat("BackgroundMusic", -80f);
             bgMute = true;
         }
         else
         {
-            mixer.SetFloat("BackgroundMusic", 0f);
+            mixer.SetFloat("BackgroundMusic", prevBgVolume);
             bgMute = false;
         }
     }
@@ -84,12 +89,13 @@ public class AudioManager : MonoBehaviour
     {
         if (!sfxMute)
         {
+            mixer.GetFloat("SoundEffects", out prevSfxVolume);
             mixer.SetFloat("SoundEffects", -80f);
             sfxMute = true;
         }
         else
         {
-            mixer.SetFloat("SoundEffects", 0f);
+            mixer.SetFloat("SoundEffects", prevSfxVolume);
             sfxMute = false;
         }
     }
