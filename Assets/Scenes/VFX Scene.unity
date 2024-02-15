@@ -73341,6 +73341,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ghost 1
       objectReference: {fileID: 0}
+    - target: {fileID: 300329246249051214, guid: 50fbc1eb949061b4b8707e5f6a558657, type: 3}
+      propertyPath: ExternalForcesModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 300329246249051214, guid: 50fbc1eb949061b4b8707e5f6a558657, type: 3}
+      propertyPath: ExternalForcesModule.multiplierCurve.scalar
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 764616680642571518, guid: 50fbc1eb949061b4b8707e5f6a558657, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -73577,7 +73585,15 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 2470337945441809606, guid: c3816692e7ca7a847b9bfaf3f0942daa, type: 3}
+      propertyPath: ExternalForcesModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2470337945441809606, guid: c3816692e7ca7a847b9bfaf3f0942daa, type: 3}
       propertyPath: LightsModule.rangeCurve.minMaxState
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2470337945441809606, guid: c3816692e7ca7a847b9bfaf3f0942daa, type: 3}
+      propertyPath: ExternalForcesModule.multiplierCurve.scalar
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2470337945441809606, guid: c3816692e7ca7a847b9bfaf3f0942daa, type: 3}
