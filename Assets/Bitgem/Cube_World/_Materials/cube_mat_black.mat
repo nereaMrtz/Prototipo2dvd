@@ -7,7 +7,11 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<<< HEAD:Assets/Bitgem/Cube_World/_Materials/cubeworld_mat.mat
+  m_Name: cubeworld_mat
+========
   m_Name: cube_mat_black
+>>>>>>>> ea7d5ccc0e7d4e09752ceb164b83b3f590c9da84:Assets/Bitgem/Cube_World/_Materials/cube_mat_black.mat
   m_Shader: {fileID: 4800000, guid: 0e9d5a909a1f7e84882a534d0d11e49f, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -84,7 +88,11 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
+<<<<<<<< HEAD:Assets/Bitgem/Cube_World/_Materials/cubeworld_mat.mat
+    - _GlossMapScale: 0.5
+========
     - _GlossMapScale: 1
+>>>>>>>> ea7d5ccc0e7d4e09752ceb164b83b3f590c9da84:Assets/Bitgem/Cube_World/_Materials/cube_mat_black.mat
     - _Glossiness: 0
     - _GlossyReflections: 1
     - _Metallic: 0
@@ -107,10 +115,17 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
+<<<<<<<< HEAD:Assets/Bitgem/Cube_World/_Materials/cubeworld_mat.mat
+    - _UvOffset: {r: 0, g: 0, b: 0, a: 0}
+    - _UvTiling: {r: 1, g: 1, b: 0, a: 0}
+  m_BuildTextureStacks: []
+--- !u!114 &2943382712499736616
+========
     - _UvOffset: {r: 0.375, g: 0, b: 0, a: 0}
     - _UvTiling: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &6735576398301127436
+>>>>>>>> ea7d5ccc0e7d4e09752ceb164b83b3f590c9da84:Assets/Bitgem/Cube_World/_Materials/cube_mat_black.mat
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
