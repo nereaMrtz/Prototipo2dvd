@@ -28,37 +28,33 @@ public class AirHazard : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player1"))
         {
-            if (player1 == null)
-            {
-                player1 = other.GetComponent<PlayerController>();
-                player1Controller = other.GetComponent<CharacterController>();
-            }
-            else if (player2 == null)
-            {
-                player2 = other.GetComponent<PlayerController>();
-                player2Controller = other.GetComponent<CharacterController>();
-            }
+            player1 = other.GetComponent<PlayerController>();
+            player1Controller = other.GetComponent<CharacterController>();
+        }
+        else if (other.gameObject.CompareTag("Player2"))
+        {
+            player2 = other.GetComponent<PlayerController>();
+            player2Controller = other.GetComponent<CharacterController>();
         }
     }
+
     private void OnTriggerExit(Collider other)
     {
 
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player1"))
         {
-            if (player1 != null)
-            {
-                player1Controller.enabled = true;
-                player1 = null;
-                player1Controller = null;
-            }
-            else if (player2 != null)
-            {
-                player2Controller.enabled = true;
-                player2 = null;
-                player2Controller = null;
-            }
+            player1Controller.enabled = true;
+            player1 = null;
+            player1Controller = null;
+
+        }
+        else if (other.gameObject.CompareTag("Player2"))
+        {
+            player2Controller.enabled = true;
+            player2 = null;
+            player2Controller = null;
         }
     }
 }

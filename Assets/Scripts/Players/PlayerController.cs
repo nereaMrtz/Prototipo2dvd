@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour
 
     private float distance;
 
-    private AudioManager sound;
+   private AudioManager sound;
 
     private void Start()
     {
@@ -113,7 +113,7 @@ public class PlayerController : MonoBehaviour
                 otherPlayer.ChangeMaldicion();
                 ChangeMaldicion();
             }
-            sound.maldicion.Play();
+            //sound.maldicion.Play();
         }
     }
 
@@ -227,7 +227,7 @@ public class PlayerController : MonoBehaviour
         }
         else
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
-        sound.jump.Play();
+        //sound.jump.Play();
         hasJumped = true;
         inputBuffer = false;
     }
@@ -305,32 +305,20 @@ public class PlayerController : MonoBehaviour
     }
 
     public void FreezePosition()
-
-    {
-
-        Debug.Log("freezzeandooo");
-
+    { 
         this.gameObject.GetComponent<PlayerController>().enabled = false;
-
         otherPlayer.enabled = false;
-
     }
 
     public void UnfreezePosition()
 
     {
-
         this.gameObject.GetComponent<PlayerController>().enabled = true;
-
         otherPlayer.enabled = true;
-
     }
 
     CharacterController GetContoller()
-
     {
-
         return controller;
-
     }
 }
