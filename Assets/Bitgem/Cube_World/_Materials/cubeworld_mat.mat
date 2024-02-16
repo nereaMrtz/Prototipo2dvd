@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-1059291739054390322
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 7
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -20,11 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<<< HEAD:Assets/Bitgem/Cube_World/Stone/Materials/cubeworld_stone_mat.mat
-  m_Name: cubeworld_stone_mat
-========
   m_Name: cubeworld_mat
->>>>>>>> ea7d5ccc0e7d4e09752ceb164b83b3f590c9da84:Assets/Bitgem/Cube_World/_Materials/cubeworld_mat.mat
   m_Shader: {fileID: 4800000, guid: 0e9d5a909a1f7e84882a534d0d11e49f, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -60,17 +43,6 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
-<<<<<<<< HEAD:Assets/Bitgem/Cube_World/Stone/Materials/cubeworld_stone_mat.mat
-        m_Texture: {fileID: 2800000, guid: 8cb92aa3046a1451a99501b67b1d58c6, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: eee9271f479cb422d9dd0d721107f1fd, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: 25871102f2c194584bf2c74ec9880006, type: 3}
-========
         m_Texture: {fileID: 2800000, guid: 2e8c97a0a8e87b540a1b5ff8199131b3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -80,7 +52,6 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 2800000, guid: 873479a0d3117d44fa5ed31546cdabb6, type: 3}
->>>>>>>> ea7d5ccc0e7d4e09752ceb164b83b3f590c9da84:Assets/Bitgem/Cube_World/_Materials/cubeworld_mat.mat
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -92,11 +63,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
-<<<<<<<< HEAD:Assets/Bitgem/Cube_World/Stone/Materials/cubeworld_stone_mat.mat
-        m_Texture: {fileID: 2800000, guid: ed29f30a9e1094b128f801d2b9c14e58, type: 3}
-========
         m_Texture: {fileID: 2800000, guid: dd8c78a733e0aed4792fee8b228ba70d, type: 3}
->>>>>>>> ea7d5ccc0e7d4e09752ceb164b83b3f590c9da84:Assets/Bitgem/Cube_World/_Materials/cubeworld_mat.mat
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -117,13 +84,8 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-<<<<<<<< HEAD:Assets/Bitgem/Cube_World/Stone/Materials/cubeworld_stone_mat.mat
-    - _GlossMapScale: 1
-    - _Glossiness: 0.5
-========
     - _GlossMapScale: 0.5
     - _Glossiness: 0
->>>>>>>> ea7d5ccc0e7d4e09752ceb164b83b3f590c9da84:Assets/Bitgem/Cube_World/_Materials/cubeworld_mat.mat
     - _GlossyReflections: 1
     - _Metallic: 0
     - _Mode: 0
@@ -148,8 +110,6 @@ Material:
     - _UvOffset: {r: 0, g: 0, b: 0, a: 0}
     - _UvTiling: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
-<<<<<<<< HEAD:Assets/Bitgem/Cube_World/Stone/Materials/cubeworld_stone_mat.mat
-========
 --- !u!114 &2943382712499736616
 MonoBehaviour:
   m_ObjectHideFlags: 11
@@ -163,4 +123,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 7
->>>>>>>> ea7d5ccc0e7d4e09752ceb164b83b3f590c9da84:Assets/Bitgem/Cube_World/_Materials/cubeworld_mat.mat
