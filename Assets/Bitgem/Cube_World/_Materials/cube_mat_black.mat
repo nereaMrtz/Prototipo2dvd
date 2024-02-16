@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<<< HEAD:Assets/Bitgem/Cube_World/_Materials/cubeworld_mat.mat
-  m_Name: cubeworld_mat
+<<<<<<<< HEAD:Assets/Bitgem/Cube_World/_Materials/cube_mat_orange.mat
+  m_Name: cube_mat_orange
 ========
   m_Name: cube_mat_black
 >>>>>>>> ea7d5ccc0e7d4e09752ceb164b83b3f590c9da84:Assets/Bitgem/Cube_World/_Materials/cube_mat_black.mat
@@ -49,11 +49,19 @@ Material:
     - _EmissionMap:
         m_Texture: {fileID: 2800000, guid: 2e8c97a0a8e87b540a1b5ff8199131b3, type: 3}
         m_Scale: {x: 1, y: 1}
+<<<<<<<< HEAD:Assets/Bitgem/Cube_World/_Materials/cube_mat_orange.mat
+        m_Offset: {x: 0.56, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 8f279dd5d2d04dc4abf5d8e7cf77e382, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0.56, y: 0}
+========
         m_Offset: {x: 0.375, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: 8f279dd5d2d04dc4abf5d8e7cf77e382, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0.375, y: 0}
+>>>>>>>> ea7d5ccc0e7d4e09752ceb164b83b3f590c9da84:Assets/Bitgem/Cube_World/_Materials/cube_mat_black.mat
     - _MetallicGlossMap:
         m_Texture: {fileID: 2800000, guid: 873479a0d3117d44fa5ed31546cdabb6, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -88,11 +96,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-<<<<<<<< HEAD:Assets/Bitgem/Cube_World/_Materials/cubeworld_mat.mat
-    - _GlossMapScale: 0.5
-========
     - _GlossMapScale: 1
->>>>>>>> ea7d5ccc0e7d4e09752ceb164b83b3f590c9da84:Assets/Bitgem/Cube_World/_Materials/cube_mat_black.mat
     - _Glossiness: 0
     - _GlossyReflections: 1
     - _Metallic: 0
@@ -115,11 +119,11 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
-<<<<<<<< HEAD:Assets/Bitgem/Cube_World/_Materials/cubeworld_mat.mat
-    - _UvOffset: {r: 0, g: 0, b: 0, a: 0}
+<<<<<<<< HEAD:Assets/Bitgem/Cube_World/_Materials/cube_mat_orange.mat
+    - _UvOffset: {r: 0.56, g: 0, b: 0, a: 0}
     - _UvTiling: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &2943382712499736616
+--- !u!114 &4712101553792177087
 ========
     - _UvOffset: {r: 0.375, g: 0, b: 0, a: 0}
     - _UvTiling: {r: 1, g: 1, b: 0, a: 0}
