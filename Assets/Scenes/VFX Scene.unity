@@ -70446,8 +70446,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target1: {fileID: 1035779348}
   target2: {fileID: 40679209}
-  Ghost1: {fileID: 0}
-  Ghost2: {fileID: 0}
+  Ghost1: {fileID: 5769451956628355340}
+  Ghost2: {fileID: 1722040645}
   timeToChange: 1
 --- !u!1 &1974418115
 GameObject:
