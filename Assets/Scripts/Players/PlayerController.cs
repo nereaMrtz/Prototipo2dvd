@@ -295,32 +295,20 @@ public class PlayerController : MonoBehaviour
     }
 
     public void FreezePosition()
-
-    {
-
-        Debug.Log("freezzeandooo");
-
+    { 
         this.gameObject.GetComponent<PlayerController>().enabled = false;
-
         otherPlayer.enabled = false;
-
     }
 
     public void UnfreezePosition()
 
     {
-
         this.gameObject.GetComponent<PlayerController>().enabled = true;
-
         otherPlayer.enabled = true;
-
     }
 
     CharacterController GetContoller()
-
     {
-
         return controller;
-
     }
 }
