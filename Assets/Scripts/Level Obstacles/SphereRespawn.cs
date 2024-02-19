@@ -21,8 +21,13 @@ public class SphereRespawn : MonoBehaviour
     {
         if(transform.position.y < -50f || transform.position.x < 333f)
         {
-            transform.position = initPos;
-            rb.velocity = Vector3.zero;
+            Respawn();
         }
+    }
+
+    public void Respawn()
+    {
+        transform.position = initPos;
+        rb.velocity = Vector3.zero;
     }
 }
