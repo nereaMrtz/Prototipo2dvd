@@ -147,7 +147,7 @@ public class PlayerController : MonoBehaviour
         //transform.position = new Vector3(transform.position.x, transform.position.y, -0.5f);
         //controller.enabled = true;
 
-        if (jumpInput)
+        if (jumpInput && !stopMovement)
         {
             if (groundedPlayer)
             {
@@ -238,11 +238,11 @@ public class PlayerController : MonoBehaviour
         
         if (hit.gameObject.GetComponent<PlayerController>() == otherPlayer)
         {       
-            impact = AddImpact(hit.moveDirection, hit.moveLength * pushPlayerPower);
-            // apply the impact force:
-            if (impact.magnitude > 0.2) otherPlayer.GetComponent<CharacterController>().Move(impact * Time.deltaTime);
-            // consumes the impact energy each cycle:            
-            impact = Vector3.Lerp(impact, Vector3.zero, 5 * Time.deltaTime);
+            //impact = AddImpact(hit.moveDirection, hit.moveLength * pushPlayerPower);
+            //// apply the impact force:
+            //if (impact.magnitude > 0.2) otherPlayer.GetComponent<CharacterController>().Move(impact * Time.deltaTime);
+            //// consumes the impact energy each cycle:            
+            //impact = Vector3.Lerp(impact, Vector3.zero, 5 * Time.deltaTime);
         }
 
         Rigidbody body = hit.collider.attachedRigidbody;
