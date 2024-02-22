@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Curse")]
 
-    [SerializeField] PlayerController otherPlayer;
+    [SerializeField] public PlayerController otherPlayer;
     public bool curse;
 
     [SerializeField] Material normalMat;
