@@ -115,7 +115,7 @@ public class DialogSystem : MonoBehaviour
                 ghost.SetStopMovement(false);
                 ghost.otherPlayer.SetStopMovement(false);
                 trigger.SetDialogDone(true);
-
+                startText = false;
             }
 
         }
