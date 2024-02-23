@@ -19,7 +19,7 @@ public class SphereRespawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(transform.position.y < -50f || transform.position.x < 333f)
+        if(transform.position.y < -50f)
         {
             Respawn();
         }
@@ -29,5 +29,13 @@ public class SphereRespawn : MonoBehaviour
     {
         transform.position = initPos;
         rb.velocity = Vector3.zero;
+    }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if(collision.gameObject.tag == "Electricity")
+        {
+            Respawn();
+        }
     }
 }
