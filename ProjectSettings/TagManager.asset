@@ -11,6 +11,7 @@ TagManager:
   - Sphere
   - Player1
   - Player2
+  - Electricity
   layers:
   - Default
   - TransparentFX
