@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/L1_M1.unity
     guid: 93a38920778ae034a9db15f82995b314
   - enabled: 1
-    path: Assets/Scenes/L2_M1.unity
+    path: Assets/Scenes/L2_M1_basura.unity
     guid: c5e15f491f2509d4abc0844a1f76b1da
   m_configObjects: {}
