@@ -655,3 +655,4 @@ MonoBehaviour:
   canvasAction: {fileID: 8213714487130240766}
   canvasInteraction: {fileID: 4472424763460491449}
   forCursed: 1
+  inputDelay: 0.25

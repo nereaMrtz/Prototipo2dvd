@@ -12,7 +12,7 @@ public class CheckPoint : MonoBehaviour
 
     private void OnTriggerEnter(Collider coll)
     {
-        if (coll.CompareTag("Player"))
+        if (coll.CompareTag("Player1") || coll.CompareTag("Player2"))
         {  
             CheckPointMaster.Instance.SetLastCheckPointPos(transform.position);
         }
