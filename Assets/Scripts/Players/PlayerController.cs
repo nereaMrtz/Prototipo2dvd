@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        if(SceneManager.GetActiveScene().name == "L1_M1")        
+        if(SceneManager.GetActiveScene().name == "L1_M1" || SceneManager.GetActiveScene().name == "VFX Scene")        
             isFirstLevel = true;        
         else        
             isFirstLevel= false;        
