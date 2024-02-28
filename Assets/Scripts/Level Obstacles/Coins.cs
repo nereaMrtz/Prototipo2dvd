@@ -6,6 +6,13 @@ using UnityEngine;
 
 public class CoinScript : MonoBehaviour
 {
+
+    [SerializeField] float Speed = 1.0f;
+    private void Update()
+    {
+        this.gameObject.transform.Rotate(0, Speed * Time.deltaTime, 0, Space.World);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("puta");
