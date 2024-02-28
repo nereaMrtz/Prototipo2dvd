@@ -1239,10 +1239,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1578017420024248095, guid: 34415a3b8b5b5d24eba92fc503f3ce44, type: 3}
-      propertyPath: Speed
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 3830634805222864088, guid: 34415a3b8b5b5d24eba92fc503f3ce44, type: 3}
       propertyPath: m_Name
       value: Coin
