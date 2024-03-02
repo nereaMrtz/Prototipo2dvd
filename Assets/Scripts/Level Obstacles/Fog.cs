@@ -29,7 +29,7 @@ public class Fog : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player") && other.gameObject.layer == 8)
+        if (other.gameObject.CompareTag("Player1") || other.gameObject.CompareTag("Player2"))
         {
             PlayerController aux = other.gameObject.GetComponent<PlayerController>();
             aux.isFirstLevel = false;
