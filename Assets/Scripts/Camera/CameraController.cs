@@ -10,6 +10,9 @@ public class CameraController : MonoBehaviour
     [SerializeField]private GameObject target1;
     [SerializeField]private GameObject target2;
 
+    [SerializeField] private GameObject arrow1;
+    [SerializeField] private GameObject arrow2;
+
     [SerializeField] private List<Camera> cameras = new List<Camera>();
     
 
@@ -21,6 +24,8 @@ public class CameraController : MonoBehaviour
     private void Start()
     {        
         oldY = target1.transform.position.y;
+        arrow1.SetActive(false);
+        arrow2.SetActive(false);
     }
     // Update is called once per frame
     void Update()
@@ -63,6 +68,8 @@ public class CameraController : MonoBehaviour
             cameras[i].rect = new Rect(auxX, y, width, height);
             x *= -1;
         }
+        arrow1.SetActive(true);
+        arrow2.SetActive(true);
     }
 
     void SetSingleCamera()
@@ -76,5 +83,7 @@ public class CameraController : MonoBehaviour
         //mainCamera.gameObject.SetActive(true);
         mainCamera.rect = new Rect(0, 0, 1, 1);
         //Camera cameraToSet = this.GetComponent<Camera>();
+        arrow1.SetActive(false);
+        arrow2.SetActive(false);
     }
 }
