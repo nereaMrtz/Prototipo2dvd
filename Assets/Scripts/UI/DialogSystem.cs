@@ -8,6 +8,9 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using UnityEngine.TextCore.Text;
+using UnityEditor.Rendering;
+
 public enum TYPE { MALDITO, FANTASMA, BOLA, FOG, BOOB };
 [System.Serializable] public struct line { public string text; public TYPE type; }
 
@@ -38,6 +41,10 @@ public class DialogSystem : MonoBehaviour
     [SerializeField] Texture bolaCristal;
     [SerializeField] Texture fog;
     [SerializeField] Texture boob;
+
+    [SerializeField] TMP_FontAsset BoFont;
+    [SerializeField] TMP_FontAsset ObFont;
+    [SerializeField] TMP_FontAsset defaultFont;
 
     PlayerController ghost;
     DialogTrigger trigger;
@@ -72,6 +79,7 @@ public class DialogSystem : MonoBehaviour
             else if (dialogueText.text == dialogue[index].text && Input.GetKeyDown(KeyCode.Q) || dialogueText.text == dialogue[index].text && gamepad == true)
             {
                 NextLine();
+                gamepad = false;
             }
             else if (Input.GetKeyDown(KeyCode.Q) && typingText || gamepad == true && typingText)
             {
@@ -79,6 +87,7 @@ public class DialogSystem : MonoBehaviour
                 typingText = false;
                 q.SetActive(true);
                 StopCoroutine(typing);  
+                gamepad = false;
             }
             else if (Input.GetKeyDown(KeyCode.P))
             {
@@ -86,35 +95,35 @@ public class DialogSystem : MonoBehaviour
             }
 
 
-            //******** CAMBIO DE IMAGEN EN EL TEXTO
+            //******** CAMBIO DE IMAGEN Y TEXTO
             if (dialogue[index].type == TYPE.MALDITO)
             {
                 ghostImage.texture = maldito;
-               // dialogueText.color = Color.red;
+             //   dialogueText.font = BoFont;
                 dialogueText.outlineColor = Color.red;
             }
             else if (dialogue[index].type == TYPE.FANTASMA)
             {
                 ghostImage.texture = fantasma;
-                // dialogueText.color = Color.cyan;
+              //  dialogueText.font = ObFont;
                 dialogueText.outlineColor = Color.cyan;
             }
             else if (dialogue[index].type == TYPE.BOLA)
             {
                 ghostImage.texture = bolaCristal;
-                // dialogueText.color = Color.magenta;
+              //  dialogueText.font = defaultFont;
                 dialogueText.outlineColor = Color.magenta;
             }
             else if (dialogue[index].type == TYPE.FOG)
             {
                 ghostImage.texture = fog;
-                // dialogueText.color = Color.magenta;
+              //  dialogueText.font = defaultFont;
                 dialogueText.outlineColor = Color.magenta;
             }
             else if (dialogue[index].type == TYPE.BOOB)
             {
                 ghostImage.texture = boob;
-                // dialogueText.color = Color.white;
+              //  dialogueText.font = defaultFont;
                 dialogueText.outlineColor = Color.black;
             }
 
