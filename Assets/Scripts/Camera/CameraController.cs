@@ -19,7 +19,10 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float timeToChange = 0.5f;
 
     [SerializeField] private Camera mainCamera;
+
     private float oldY = 4.6f;
+
+    private bool split = false;
 
     private void Start()
     {        
@@ -33,7 +36,7 @@ public class CameraController : MonoBehaviour
         //Debug.Log(target1.transform.position.y + " " + target2.transform.position.y);
         if(Vector3.Distance(target1.transform.position, target2.transform.position) >= 18f)
         {            
-            SetSplitScreen();
+            SetSplitScreen();            
         }
         else
         {
@@ -52,6 +55,11 @@ public class CameraController : MonoBehaviour
 
     void SetSplitScreen()
     {
+        if(!split)
+        {
+            Fade.Instance.FadeOut();            
+            split = true;
+        }
         mainCamera.enabled = false;
         //mainCamera.gameObject.SetActive(false);
         int cameraAmmount = cameras.Count;
@@ -70,10 +78,19 @@ public class CameraController : MonoBehaviour
         }
         arrow1.SetActive(true);
         arrow2.SetActive(true);
+        //if (!split)
+        //{
+        //    Fade.Instance.FadeIn();
+        //}
     }
 
     void SetSingleCamera()
     {
+        if(split) 
+        {
+            Fade.Instance.FadeOut();
+            split = false;
+        }
         foreach(Camera cam in cameras) 
         {
             cam.enabled = false;
