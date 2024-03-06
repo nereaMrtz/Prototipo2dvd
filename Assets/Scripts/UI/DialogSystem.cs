@@ -22,12 +22,12 @@ public class DialogSystem : MonoBehaviour
     int index = 0;
 
     bool startText;
-    bool typingText;
+    bool typingText = false;
     bool endDialog;
 
     bool gamepad;
 
-    [SerializeField] float wordSpeed;
+    float wordSpeed = 0.03f;
 
     Coroutine typing;
 
@@ -60,6 +60,7 @@ public class DialogSystem : MonoBehaviour
     {
         if (startText)
         {
+            Debug.Log(typingText);
 
             if (!dialogueBox.activeInHierarchy)
             {
@@ -70,8 +71,13 @@ public class DialogSystem : MonoBehaviour
             }
             else if (dialogueText.text == dialogue[index].text && Input.GetKeyDown(KeyCode.Q) || dialogueText.text == dialogue[index].text && gamepad == true)
             {
-
                 NextLine();
+            }
+            else if (Input.GetKeyDown(KeyCode.Q) && typingText || gamepad == true && typingText)
+            {
+                dialogueText.text = dialogue[index].text;
+                typingText = false;
+                StopCoroutine(typing);  
             }
             else if (Input.GetKeyDown(KeyCode.P))
             {
@@ -133,18 +139,22 @@ public class DialogSystem : MonoBehaviour
 
     IEnumerator Typing()
     {
+        wordSpeed = 0.03f;
         foreach (char letter in dialogue[index].text.ToCharArray())
         {
+            typingText = true;
             dialogueText.text += letter;
             // Dialogue sound
             yield return new WaitForSeconds(wordSpeed);
         }
+        typingText = false;
         q.SetActive(true);
     }
 
     public void NextLine()
     {
         q.SetActive(false);
+
 
         if (index < dialogue.Length - 1)
         {
