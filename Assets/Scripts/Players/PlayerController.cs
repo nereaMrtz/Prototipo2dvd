@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
     private float buffer;
     private bool inputBuffer;
 
-    bool jumpBoosted=false;
+    bool jumpBoosted = false;
     float jumpBoost;
 
     float pushPower = 2.0f;
@@ -60,21 +60,21 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Material cursedMat;
     [SerializeField] ParticleSystem ghostParticles;
 
-    [HideInInspector]public bool isFirstLevel = false;
+    [HideInInspector] public bool isFirstLevel = false;
 
     private float distance;
 
-   private AudioManager sound;
+    private AudioManager sound;
 
     private void Start()
     {
-        if(SceneManager.GetActiveScene().name == "L1_M1" || SceneManager.GetActiveScene().name == "VFX Scene")        
-            isFirstLevel = true;        
-        else        
-            isFirstLevel= false;        
+        if (SceneManager.GetActiveScene().name == "L1_M1" || SceneManager.GetActiveScene().name == "VFX Scene")
+            isFirstLevel = true;
+        else
+            isFirstLevel = false;
         controller = this.gameObject.GetComponent<CharacterController>();
         sound = GameObject.FindGameObjectWithTag("AM").GetComponent<AudioManager>();
-        if(!curse) 
+        if (!curse)
         {
             ghostParticles.Play();
         }
@@ -179,12 +179,12 @@ public class PlayerController : MonoBehaviour
 
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
-        
-        if(move != Vector3.zero)
+
+        if (move != Vector3.zero)
         {
             lastInput = move;
-        }        
-        controller.transform.forward = lastInput; 
+        }
+        controller.transform.forward = lastInput;
 
 
 
@@ -234,15 +234,19 @@ public class PlayerController : MonoBehaviour
 
     //This script pushes all rigidbodies that the character touches
     void OnControllerColliderHit(ControllerColliderHit hit)
-    {        
-        
+    {
         if (hit.gameObject.GetComponent<PlayerController>() == otherPlayer)
-        {       
+        {
             //impact = AddImpact(hit.moveDirection, hit.moveLength * pushPlayerPower);
             //// apply the impact force:
             //if (impact.magnitude > 0.2) otherPlayer.GetComponent<CharacterController>().Move(impact * Time.deltaTime);
             //// consumes the impact energy each cycle:            
             //impact = Vector3.Lerp(impact, Vector3.zero, 5 * Time.deltaTime);
+        }
+
+        if (hit.gameObject.layer == 12)
+        {
+            Debug.Log("Murision");
         }
 
         Rigidbody body = hit.collider.attachedRigidbody;
@@ -269,7 +273,7 @@ public class PlayerController : MonoBehaviour
     //"This changes the curse and layers that it collides with"
     public void ChangeMaldicion()
     {
-        if(isFirstLevel) 
+        if (isFirstLevel)
         {
             return;
         }
@@ -305,7 +309,7 @@ public class PlayerController : MonoBehaviour
     }
 
     public void FreezePosition()
-    { 
+    {
         this.gameObject.GetComponent<PlayerController>().enabled = false;
         otherPlayer.enabled = false;
     }
@@ -320,5 +324,10 @@ public class PlayerController : MonoBehaviour
     CharacterController GetContoller()
     {
         return controller;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        
     }
 }

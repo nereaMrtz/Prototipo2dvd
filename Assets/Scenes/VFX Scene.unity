@@ -27944,6 +27944,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FadeCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6485257409715634079, guid: 33f254dbbc53dc84a9475a2abc29c4b0, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6497555563331923915, guid: 33f254dbbc53dc84a9475a2abc29c4b0, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -28032,10 +28036,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1395990836}
-    - target: {fileID: 8675036314452214512, guid: 33f254dbbc53dc84a9475a2abc29c4b0, type: 3}
-      propertyPath: m_RenderMode
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
