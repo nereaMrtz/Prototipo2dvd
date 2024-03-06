@@ -25,7 +25,6 @@ public class Button : MonoBehaviour
         foreach (GameObject platform in platforms)
         {
             platform.GetComponent<MovingPlatform>().Uninteract();
-
         }
     }
 

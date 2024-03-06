@@ -53,6 +53,7 @@ public class DialogSystem : MonoBehaviour
         startText = true;
         ghost = other;
         ghost.SetStopMovement(true);
+        other.otherPlayer.SetStopMovement(true);
     }
 
     private void Update()
@@ -77,25 +78,32 @@ public class DialogSystem : MonoBehaviour
                 startText = false;
             }
 
+
+            //******** CAMBIO DE IMAGEN EN EL TEXTO
             if (dialogue[index].type == TYPE.MALDITO)
             {
                 ghostImage.texture = maldito;
+                dialogueText.color = Color.red;
             }
             else if (dialogue[index].type == TYPE.FANTASMA)
             {
                 ghostImage.texture = fantasma;
+                dialogueText.color = Color.cyan;
             }
             else if (dialogue[index].type == TYPE.BOLA)
             {
                 ghostImage.texture = bolaCristal;
+                dialogueText.color = Color.magenta;
             }
             else if (dialogue[index].type == TYPE.FOG)
             {
                 ghostImage.texture = fog;
+                dialogueText.color = Color.magenta;
             }
             else if (dialogue[index].type == TYPE.BOOB)
             {
                 ghostImage.texture = boob;
+                dialogueText.color = Color.white;
             }
 
         }
@@ -105,8 +113,9 @@ public class DialogSystem : MonoBehaviour
             if (ghost != null)
             {
                 ghost.SetStopMovement(false);
+                ghost.otherPlayer.SetStopMovement(false);
                 trigger.SetDialogDone(true);
-
+                startText = false;
             }
 
         }
