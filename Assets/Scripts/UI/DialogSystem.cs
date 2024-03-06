@@ -77,6 +77,7 @@ public class DialogSystem : MonoBehaviour
             {
                 dialogueText.text = dialogue[index].text;
                 typingText = false;
+                q.SetActive(true);
                 StopCoroutine(typing);  
             }
             else if (Input.GetKeyDown(KeyCode.P))
@@ -89,27 +90,32 @@ public class DialogSystem : MonoBehaviour
             if (dialogue[index].type == TYPE.MALDITO)
             {
                 ghostImage.texture = maldito;
-                dialogueText.color = Color.red;
+               // dialogueText.color = Color.red;
+                dialogueText.outlineColor = Color.red;
             }
             else if (dialogue[index].type == TYPE.FANTASMA)
             {
                 ghostImage.texture = fantasma;
-                dialogueText.color = Color.cyan;
+                // dialogueText.color = Color.cyan;
+                dialogueText.outlineColor = Color.cyan;
             }
             else if (dialogue[index].type == TYPE.BOLA)
             {
                 ghostImage.texture = bolaCristal;
-                dialogueText.color = Color.magenta;
+                // dialogueText.color = Color.magenta;
+                dialogueText.outlineColor = Color.magenta;
             }
             else if (dialogue[index].type == TYPE.FOG)
             {
                 ghostImage.texture = fog;
-                dialogueText.color = Color.magenta;
+                // dialogueText.color = Color.magenta;
+                dialogueText.outlineColor = Color.magenta;
             }
             else if (dialogue[index].type == TYPE.BOOB)
             {
                 ghostImage.texture = boob;
-                dialogueText.color = Color.white;
+                // dialogueText.color = Color.white;
+                dialogueText.outlineColor = Color.black;
             }
 
         }
