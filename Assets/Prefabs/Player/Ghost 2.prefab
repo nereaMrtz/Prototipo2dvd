@@ -597,6 +597,10 @@ MonoBehaviour:
   cursedMat: {fileID: 2100000, guid: e8f4bb0cc7f1d8944bd0e0202e470f4f, type: 2}
   ghostParticles: {fileID: 2470337945441809606}
   isFirstLevel: 0
+  jumpClip: {fileID: 8300000, guid: f85fbd00ee7e3c94ea69dccb5a78f378, type: 3}
+  jumpClipName: jump
+  curseChangeClip: {fileID: 8300000, guid: 9fa0332c1b52eb543971594bef7363d4, type: 3}
+  curseChangeClipName: curseChange
 --- !u!114 &3944136525471278368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -719,6 +723,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79382184ce8d45d488a8b11c486447d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fallDeathClip: {fileID: 0}
+  fallDeathClipName: 
+  damagelDeathClip: {fileID: 0}
+  damagelDeathClipName: 
 --- !u!4 &4337081105755291289 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 46f311046d2104da8b56be3d0a49a119, type: 3}

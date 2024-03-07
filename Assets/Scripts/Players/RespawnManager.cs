@@ -18,8 +18,6 @@ public class RespawnManager : MonoBehaviour
             RespawnFall();
         else if (other.gameObject.layer == 12)//All Death        
             RespawnFall();
-
-
     }
 
     private void OnCollisionEnter(Collision collision)
