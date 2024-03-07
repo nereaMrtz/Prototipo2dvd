@@ -8,6 +8,9 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using UnityEngine.TextCore.Text;
+using UnityEditor.Rendering;
+
 public enum TYPE { MALDITO, FANTASMA, BOLA, FOG, BOOB };
 [System.Serializable] public struct line { public string text; public TYPE type; }
 
@@ -22,12 +25,12 @@ public class DialogSystem : MonoBehaviour
     int index = 0;
 
     bool startText;
-    bool typingText;
+    bool typingText = false;
     bool endDialog;
 
     bool gamepad;
 
-    [SerializeField] float wordSpeed;
+    float wordSpeed = 0.03f;
 
     Coroutine typing;
 
@@ -38,6 +41,13 @@ public class DialogSystem : MonoBehaviour
     [SerializeField] Texture bolaCristal;
     [SerializeField] Texture fog;
     [SerializeField] Texture boob;
+
+    [SerializeField] TMP_FontAsset defaultFont;
+    [SerializeField] Material defaultFontMaterial;
+    [SerializeField] TMP_FontAsset BoFont;
+    [SerializeField] Material BoFontMaterial;
+    [SerializeField] TMP_FontAsset ObFont;
+    [SerializeField] Material ObFontMaterial;
 
     PlayerController ghost;
     DialogTrigger trigger;
@@ -60,6 +70,7 @@ public class DialogSystem : MonoBehaviour
     {
         if (startText)
         {
+            Debug.Log(typingText);
 
             if (!dialogueBox.activeInHierarchy)
             {
@@ -70,8 +81,16 @@ public class DialogSystem : MonoBehaviour
             }
             else if (dialogueText.text == dialogue[index].text && Input.GetKeyDown(KeyCode.Q) || dialogueText.text == dialogue[index].text && gamepad == true)
             {
-
                 NextLine();
+                gamepad = false;
+            }
+            else if (Input.GetKeyDown(KeyCode.Q) && typingText || gamepad == true && typingText)
+            {
+                dialogueText.text = dialogue[index].text;
+                typingText = false;
+                q.SetActive(true);
+                StopCoroutine(typing);  
+                gamepad = false;
             }
             else if (Input.GetKeyDown(KeyCode.P))
             {
@@ -79,33 +98,53 @@ public class DialogSystem : MonoBehaviour
             }
 
 
-            //******** CAMBIO DE IMAGEN EN EL TEXTO
-            if (dialogue[index].type == TYPE.MALDITO)
-            {
-                ghostImage.texture = maldito;
-                dialogueText.color = Color.red;
-            }
-            else if (dialogue[index].type == TYPE.FANTASMA)
-            {
-                ghostImage.texture = fantasma;
-                dialogueText.color = Color.cyan;
-            }
-            else if (dialogue[index].type == TYPE.BOLA)
-            {
-                ghostImage.texture = bolaCristal;
-                dialogueText.color = Color.magenta;
-            }
-            else if (dialogue[index].type == TYPE.FOG)
-            {
-                ghostImage.texture = fog;
-                dialogueText.color = Color.magenta;
-            }
-            else if (dialogue[index].type == TYPE.BOOB)
-            {
-                ghostImage.texture = boob;
-                dialogueText.color = Color.white;
-            }
+            //******** CAMBIO DE IMAGEN Y TEXTO
 
+            switch (dialogue[index].type)
+            {
+                case TYPE.MALDITO:
+
+                    ghostImage.texture = maldito;
+                    dialogueText.font = BoFont;
+                    dialogueText.fontSharedMaterial = BoFontMaterial;
+                    dialogueText.outlineColor = Color.red;
+                    break;
+
+                case TYPE.FANTASMA:
+
+                    ghostImage.texture = fantasma;
+                     dialogueText.font = ObFont;
+                    dialogueText.fontSharedMaterial = ObFontMaterial;
+                    dialogueText.outlineColor = Color.cyan;
+                    break;
+
+                case TYPE.BOLA:
+
+                    ghostImage.texture = bolaCristal;
+                    dialogueText.font = defaultFont;
+                    dialogueText.fontSharedMaterial = defaultFontMaterial;
+                    dialogueText.outlineColor = Color.magenta;
+                    break;
+
+                case TYPE.FOG:
+
+                    ghostImage.texture = fog;
+                    dialogueText.font = defaultFont;
+                    dialogueText.fontSharedMaterial = defaultFontMaterial;
+                    dialogueText.outlineColor = Color.magenta;
+                    break;
+
+                case TYPE.BOOB:
+
+                    ghostImage.texture = boob;
+                    dialogueText.font = defaultFont;
+                    dialogueText.fontSharedMaterial = defaultFontMaterial;
+                    dialogueText.outlineColor = Color.black;
+                    break;
+
+                default:
+                    break;
+            }
         }
         else
         {
@@ -133,18 +172,22 @@ public class DialogSystem : MonoBehaviour
 
     IEnumerator Typing()
     {
+        wordSpeed = 0.03f;
         foreach (char letter in dialogue[index].text.ToCharArray())
         {
+            typingText = true;
             dialogueText.text += letter;
             // Dialogue sound
             yield return new WaitForSeconds(wordSpeed);
         }
+        typingText = false;
         q.SetActive(true);
     }
 
     public void NextLine()
     {
         q.SetActive(false);
+
 
         if (index < dialogue.Length - 1)
         {
