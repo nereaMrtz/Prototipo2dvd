@@ -64,7 +64,10 @@ public class PlayerController : MonoBehaviour
 
     private float distance;
 
-    private AudioManager sound;
+    [SerializeField] AudioClip jumpClip;
+    [SerializeField] string jumpClipName;
+    [SerializeField] AudioClip curseChangeClip;
+    [SerializeField] string curseChangeClipName;
 
     private void Start()
     {
@@ -73,7 +76,6 @@ public class PlayerController : MonoBehaviour
         else
             isFirstLevel = false;
         controller = this.gameObject.GetComponent<CharacterController>();
-        sound = GameObject.FindGameObjectWithTag("AM").GetComponent<AudioManager>();
         if (!curse)
         {
             ghostParticles.Play();
@@ -230,6 +232,9 @@ public class PlayerController : MonoBehaviour
         //sound.jump.Play();
         hasJumped = true;
         inputBuffer = false;
+
+        AudioManager.Instance.LoadSFX(jumpClipName, jumpClip);
+        AudioManager.Instance.PlaySFX(jumpClipName);
     }
 
     //This script pushes all rigidbodies that the character touches
@@ -288,6 +293,9 @@ public class PlayerController : MonoBehaviour
             this.gameObject.layer = 8;
             ghostParticles.Play();
         }
+
+        AudioManager.Instance.LoadSFX(curseChangeClipName, curseChangeClip);
+        AudioManager.Instance.PlaySFX(curseChangeClipName);
     }
 
     Vector3 AddImpact(Vector3 dir, float force)
@@ -324,10 +332,5 @@ public class PlayerController : MonoBehaviour
     CharacterController GetContoller()
     {
         return controller;
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        
     }
 }

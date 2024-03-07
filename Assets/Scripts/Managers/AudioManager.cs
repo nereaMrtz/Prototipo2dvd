@@ -55,7 +55,10 @@ public class AudioManager : MonoBehaviour
 
     bool HasSFX(string clipName)
     {
-         return SFX.TryGetValue(clipName, out var sfx);
+        bool a;
+        a= SFX.ContainsKey(clipName);
+        Debug.Log(a);
+        return a;
     }
 
     public void PlaySFX(string clipName)
