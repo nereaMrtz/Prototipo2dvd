@@ -42,9 +42,12 @@ public class DialogSystem : MonoBehaviour
     [SerializeField] Texture fog;
     [SerializeField] Texture boob;
 
-    [SerializeField] TMP_FontAsset BoFont;
-    [SerializeField] TMP_FontAsset ObFont;
     [SerializeField] TMP_FontAsset defaultFont;
+    [SerializeField] Material defaultFontMaterial;
+    [SerializeField] TMP_FontAsset BoFont;
+    [SerializeField] Material BoFontMaterial;
+    [SerializeField] TMP_FontAsset ObFont;
+    [SerializeField] Material ObFontMaterial;
 
     PlayerController ghost;
     DialogTrigger trigger;
@@ -96,37 +99,52 @@ public class DialogSystem : MonoBehaviour
 
 
             //******** CAMBIO DE IMAGEN Y TEXTO
-            if (dialogue[index].type == TYPE.MALDITO)
-            {
-                ghostImage.texture = maldito;
-             //   dialogueText.font = BoFont;
-                dialogueText.outlineColor = Color.red;
-            }
-            else if (dialogue[index].type == TYPE.FANTASMA)
-            {
-                ghostImage.texture = fantasma;
-              //  dialogueText.font = ObFont;
-                dialogueText.outlineColor = Color.cyan;
-            }
-            else if (dialogue[index].type == TYPE.BOLA)
-            {
-                ghostImage.texture = bolaCristal;
-              //  dialogueText.font = defaultFont;
-                dialogueText.outlineColor = Color.magenta;
-            }
-            else if (dialogue[index].type == TYPE.FOG)
-            {
-                ghostImage.texture = fog;
-              //  dialogueText.font = defaultFont;
-                dialogueText.outlineColor = Color.magenta;
-            }
-            else if (dialogue[index].type == TYPE.BOOB)
-            {
-                ghostImage.texture = boob;
-              //  dialogueText.font = defaultFont;
-                dialogueText.outlineColor = Color.black;
-            }
 
+            switch (dialogue[index].type)
+            {
+                case TYPE.MALDITO:
+
+                    ghostImage.texture = maldito;
+                    dialogueText.font = BoFont;
+                    dialogueText.fontSharedMaterial = BoFontMaterial;
+                    dialogueText.outlineColor = Color.red;
+                    break;
+
+                case TYPE.FANTASMA:
+
+                    ghostImage.texture = fantasma;
+                     dialogueText.font = ObFont;
+                    dialogueText.fontSharedMaterial = ObFontMaterial;
+                    dialogueText.outlineColor = Color.cyan;
+                    break;
+
+                case TYPE.BOLA:
+
+                    ghostImage.texture = bolaCristal;
+                    dialogueText.font = defaultFont;
+                    dialogueText.fontSharedMaterial = defaultFontMaterial;
+                    dialogueText.outlineColor = Color.magenta;
+                    break;
+
+                case TYPE.FOG:
+
+                    ghostImage.texture = fog;
+                    dialogueText.font = defaultFont;
+                    dialogueText.fontSharedMaterial = defaultFontMaterial;
+                    dialogueText.outlineColor = Color.magenta;
+                    break;
+
+                case TYPE.BOOB:
+
+                    ghostImage.texture = boob;
+                    dialogueText.font = defaultFont;
+                    dialogueText.fontSharedMaterial = defaultFontMaterial;
+                    dialogueText.outlineColor = Color.black;
+                    break;
+
+                default:
+                    break;
+            }
         }
         else
         {
