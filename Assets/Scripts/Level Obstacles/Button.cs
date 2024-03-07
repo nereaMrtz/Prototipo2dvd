@@ -7,9 +7,19 @@ public class Button : MonoBehaviour
 {
     [SerializeField] private GameObject[] platforms;
 
+    [SerializeField] AudioClip pressSound;
+    [SerializeField] AudioClip releaseSound;
+    [SerializeField] AudioSource audioSource;
+
+    private void Awake()
+    {
+        audioSource = GetComponentInParent<AudioSource>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        //Adding Sounds
+        audioSource.clip = pressSound;
+        audioSource.Play();
     }
 
     private void OnTriggerStay(Collider other)
@@ -26,6 +36,8 @@ public class Button : MonoBehaviour
         {
             platform.GetComponent<MovingPlatform>().Uninteract();
         }
+        audioSource.clip = releaseSound;
+        audioSource.Play();
     }
 
 }
