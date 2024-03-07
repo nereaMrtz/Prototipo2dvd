@@ -201,7 +201,7 @@ Transform:
   - {fileID: 6386850363081929100}
   - {fileID: 2418569525450465962}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!205 &4055850995298238570
 LODGroup:
@@ -242,6 +242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7190d23e2636174f9c28e01d9bfa2f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinSound: {fileID: 8300000, guid: f7f1334c81f7074438ee58d67e6a2333, type: 3}
   Speed: 40
 --- !u!65 &447052173136181883
 BoxCollider:
