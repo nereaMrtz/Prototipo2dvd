@@ -22,6 +22,7 @@ public class CoinManager : MonoBehaviour
 
     public void AddCoin()
     {
+        Debug.Log(1);
         coins++;
     }
 }

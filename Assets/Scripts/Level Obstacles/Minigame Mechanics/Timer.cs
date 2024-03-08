@@ -27,8 +27,8 @@ public class Timer : MonoBehaviour
         if (timer <= .0f)
         {
             Debug.Log("puto");
-            respawManager1.RespawnFall();
-            respawManager2.RespawnFall();
+            respawManager1.Respawn();
+            respawManager2.Respawn();
         }
     }
 

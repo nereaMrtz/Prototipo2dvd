@@ -8,10 +8,6 @@ public class SphereCinematicEnd : MonoBehaviour
     [SerializeField] private GameObject brokenSphere;
     [SerializeField] private float timeToStopCamera = 5.0f;
     [SerializeField] Fog fog;
-
-    [SerializeField] AudioClip breakClip;
-    [SerializeField] string breakClipName;
-
     private void OnTriggerEnter(Collider other)
     {
         //AddElements.Instance.AddElement(other.gameObject);
@@ -19,8 +15,6 @@ public class SphereCinematicEnd : MonoBehaviour
         other.gameObject.GetComponent<MeshRenderer>().enabled = false;
         other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
         brokenSphere.SetActive(true);
-        AudioManager.Instance.LoadSFX(breakClipName, breakClip);
-        AudioManager.Instance.PlaySFX(breakClipName);
         StartCoroutine(WaitThenDestroy(other.gameObject));
     }
 
