@@ -598,9 +598,9 @@ MonoBehaviour:
   ghostParticles: {fileID: 2470337945441809606}
   isFirstLevel: 0
   jumpClip: {fileID: 8300000, guid: f85fbd00ee7e3c94ea69dccb5a78f378, type: 3}
-  jumpClipName: jump
+  jumpClipName: jump2
   curseChangeClip: {fileID: 8300000, guid: 9fa0332c1b52eb543971594bef7363d4, type: 3}
-  curseChangeClipName: curseChange
+  curseChangeClipName: curseChange2
 --- !u!114 &3944136525471278368
 MonoBehaviour:
   m_ObjectHideFlags: 0

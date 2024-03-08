@@ -233,7 +233,7 @@ public class PlayerController : MonoBehaviour
         hasJumped = true;
         inputBuffer = false;
 
-        AudioManager.Instance.LoadSFX(jumpClipName, jumpClip);
+        if(AudioManager.Instance.LoadSFX(jumpClipName, jumpClip))
         AudioManager.Instance.PlaySFX(jumpClipName);
     }
 
