@@ -9,10 +9,14 @@ public class Fog : MonoBehaviour
     [SerializeField] Vector3 movementVelocity;
     [SerializeField] float maxSpeed;
     [SerializeField] float acceleration;
+    [SerializeField] AudioSource audioSource;
 
     private void Start()
     {
         rb = this.gameObject.GetComponent<Rigidbody>();
+        audioSource.loop = true;
+        audioSource.Play();
+
     }
 
     private void Update()
