@@ -531,8 +531,8 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 5dd71699-c2b0-4d4b-bdfc-8811ffa75f86
     m_ActionName: Player/Dialog[/XInputControllerWindows/buttonEast]
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: Keyboard
+  m_NeverAutoSwitchControlSchemes: 1
+  m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
