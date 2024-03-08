@@ -10,15 +10,25 @@ public class CameraController : MonoBehaviour
     [SerializeField]private GameObject target1;
     [SerializeField]private GameObject target2;
 
-    [SerializeField] private GameObject Ghost1;
-    [SerializeField] private GameObject Ghost2;
+    [SerializeField] private GameObject arrow1;
+    [SerializeField] private GameObject arrow2;
+
+    [SerializeField] private List<Camera> cameras = new List<Camera>();
+    
 
     [SerializeField] private float timeToChange = 0.5f;
+
+    [SerializeField] private Camera mainCamera;
+
     private float oldY = 4.6f;
 
+    private bool split = false;
+
     private void Start()
-    {
+    {        
         oldY = target1.transform.position.y;
+        arrow1.SetActive(false);
+        arrow2.SetActive(false);
     }
     // Update is called once per frame
     void Update()
@@ -26,9 +36,13 @@ public class CameraController : MonoBehaviour
         //Debug.Log(target1.transform.position.y + " " + target2.transform.position.y);
         if(Vector3.Distance(target1.transform.position, target2.transform.position) >= 18f)
         {            
-            ThirdPosition();
+            SetSplitScreen();            
         }
-        else if(Vector3.Distance(target1.transform.position, target2.transform.position) >= 10f)
+        else
+        {
+            SetSingleCamera();
+        }
+        /*else if(Vector3.Distance(target1.transform.position, target2.transform.position) >= 10f)
         {           
             SecondPosition();
         }
@@ -36,31 +50,57 @@ public class CameraController : MonoBehaviour
         {
             FirstPosition();
         }
-        
+        */
     }
 
-    void FirstPosition()
+    void SetSplitScreen()
     {
-       
-        float newY1 = Ghost1.transform.position.y + 3f;
-        float newY2 = Ghost2.transform.position.y + 3f;
-
-        // Move both targets to the new Y position
-        target1.transform.DOMoveY(newY1, timeToChange);
-        target2.transform.DOMoveY(newY2, timeToChange);
+        if(!split)
+        {
+            Fade.Instance.FadeOut();            
+            split = true;
+        }
+        mainCamera.enabled = false;
+        //mainCamera.gameObject.SetActive(false);
+        int cameraAmmount = cameras.Count;
+        float x = -0.5f;
+        for(int i = 0; i < cameraAmmount; i++) 
+        {
+            cameras[i].enabled = true;
+            cameras[i].gameObject.SetActive(true);
+            //Set it split
+            float auxX = x;
+            float y = 0.0f;
+            float width = 1;
+            float height = 1;
+            cameras[i].rect = new Rect(auxX, y, width, height);
+            x *= -1;
+        }
+        arrow1.SetActive(true);
+        arrow2.SetActive(true);
+        //if (!split)
+        //{
+        //    Fade.Instance.FadeIn();
+        //}
     }
 
-    void SecondPosition()
+    void SetSingleCamera()
     {
-        float newY = oldY + 3f;
-        target1.transform.DOMoveY(newY, timeToChange);
-        target2.transform.DOMoveY(newY, timeToChange);
-    }
-
-    void ThirdPosition()
-    {
-        float newY = oldY + 5f;
-        target1.transform.DOMoveY(newY, timeToChange);
-        target2.transform.DOMoveY(newY, timeToChange);
+        if(split) 
+        {
+            Fade.Instance.FadeOut();
+            split = false;
+        }
+        foreach(Camera cam in cameras) 
+        {
+            cam.enabled = false;
+            cam.gameObject.SetActive(false);
+        }
+        mainCamera.enabled = true;
+        //mainCamera.gameObject.SetActive(true);
+        mainCamera.rect = new Rect(0, 0, 1, 1);
+        //Camera cameraToSet = this.GetComponent<Camera>();
+        arrow1.SetActive(false);
+        arrow2.SetActive(false);
     }
 }

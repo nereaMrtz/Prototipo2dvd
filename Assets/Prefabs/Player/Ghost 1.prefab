@@ -422,6 +422,10 @@ MonoBehaviour:
   cursedMat: {fileID: 2100000, guid: eed87166b238e464cb2b65ad5991faf4, type: 2}
   ghostParticles: {fileID: 300329246249051214}
   isFirstLevel: 0
+  jumpClip: {fileID: 8300000, guid: 194f934ce3f547349bc44a3189509a5d, type: 3}
+  jumpClipName: jump
+  curseChangeClip: {fileID: 8300000, guid: 15e6d559940279f4b9d4c81d6cb4c572, type: 3}
+  curseChangeClipName: curseChange
 --- !u!114 &5346985408287639845
 MonoBehaviour:
   m_ObjectHideFlags: 0

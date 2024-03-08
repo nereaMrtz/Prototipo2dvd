@@ -1,4 +1,4 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using Unity.VisualScripting;
@@ -6,7 +6,8 @@ using UnityEngine;
 
 public class CoinScript : MonoBehaviour
 {
-
+    [SerializeField] AudioClip coinSound;
+    [SerializeField] string coinSoundName;
     [SerializeField] float Speed = 1.0f;
     private void Update()
     {
@@ -15,12 +16,13 @@ public class CoinScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("puta");
-
         if(other.gameObject.CompareTag("Player1") || other.gameObject.CompareTag("Player2"))
         {
-            Debug.Log("puta2");
             CoinManager.Instance.AddCoin();
+
+            AudioManager.Instance.LoadSFX(coinSoundName, coinSound);
+            AudioManager.Instance.PlaySFX(coinSoundName);
+
             Destroy(this.gameObject);
         }
     }
