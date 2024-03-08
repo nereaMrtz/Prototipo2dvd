@@ -9,7 +9,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioClip[] backgroundMusic;
     [SerializeField] AudioSource SFXSource;
     Dictionary<string, AudioClip> SFX;
-    public static AudioManager Instance;
+    static public AudioManager Instance;
     [SerializeField] AudioMixer mixer;
     public bool masterMute { get; private set; } = false;
     float prevMasterVolume;
@@ -31,7 +31,8 @@ public class AudioManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
 
         backgroundSource.clip = backgroundMusic[0];
-        backgroundSource.Play(); ;
+        backgroundSource.Play(); 
+        SFX = new Dictionary<string, AudioClip>();
     }
 
     public static AudioManager GetInstance()
@@ -55,9 +56,9 @@ public class AudioManager : MonoBehaviour
 
     bool HasSFX(string clipName)
     {
-        bool a;
-        a= SFX.ContainsKey(clipName);
-        Debug.Log(a);
+        bool a = false;
+        Debug.Log(clipName);
+        a = SFX.ContainsKey(clipName);
         return a;
     }
 
