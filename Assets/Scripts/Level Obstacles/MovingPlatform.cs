@@ -10,7 +10,7 @@ public class MovingPlatform : MonoBehaviour
     private bool interacting = false;
     private float speed = 2.0f;
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (transform.position != firstPosition.position && interacting == false)
         {
