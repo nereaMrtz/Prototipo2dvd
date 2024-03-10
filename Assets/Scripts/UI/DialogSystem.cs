@@ -30,6 +30,8 @@ public class DialogSystem : MonoBehaviour
 
     bool gamepad;
 
+    bool isInteractable;
+
     float wordSpeed = 0.03f;
 
     Coroutine typing;
@@ -51,6 +53,7 @@ public class DialogSystem : MonoBehaviour
 
     PlayerController ghost;
     DialogTrigger trigger;
+    DialogTriggerInteractable triggerI;
     void Start()
     {
         dialogueText.text = "";
@@ -153,8 +156,11 @@ public class DialogSystem : MonoBehaviour
             {
                 ghost.SetStopMovement(false);
                 ghost.otherPlayer.SetStopMovement(false);
-                trigger.SetDialogDone(true);
-                startText = false;
+                if(!isInteractable)
+                 trigger.SetDialogDone(true);
+                else
+                    triggerI.SetDialogDone(true);
+                    startText = false;
             }
 
         }
@@ -210,9 +216,18 @@ public class DialogSystem : MonoBehaviour
     {
         dialogue = dTrigger.dialogue;
         trigger = dTrigger;
+        isInteractable = false;
+    }
+    
+    public void SetDialogInteractable(DialogTriggerInteractable dTrigger)
+    {
+        dialogue = dTrigger.dialogue;
+        triggerI = dTrigger;
+        isInteractable = true;
     }
 
     public bool GetEndDialog() { return endDialog; }
+    public bool GetGamepad() { return gamepad; }
 
     ///////////PLAYER ACTION INPUT
     public void Next(InputAction.CallbackContext context)
