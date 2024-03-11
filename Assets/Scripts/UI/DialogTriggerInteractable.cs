@@ -13,6 +13,9 @@ public class DialogTriggerInteractable : MonoBehaviour
 
     bool triggerDone;
 
+    bool interactionActive = false;
+    PlayerController playerControllerComp;
+
     Collider ghost;
 
 
@@ -25,6 +28,16 @@ public class DialogTriggerInteractable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (interactionActive)
+        {
+            if (dialogSystem.GetGamepad() || Input.GetKeyDown(KeyCode.Q))
+            {
+                Debug.Log("entro entro");
+                dialogSystem.SetDialogInteractable(this);
+                dialogSystem.StartDialog(playerControllerComp);
+            }
+        }
+
         if (triggerDone)
         {
             OtherEndingFunctions.Invoke();
@@ -38,18 +51,26 @@ public class DialogTriggerInteractable : MonoBehaviour
 
         if (other.CompareTag("Player1") || other.CompareTag("Player2"))
         {
+            interactionActive = true;
             pressButton.SetActive(true);
-            if (dialogSystem.GetGamepad() || Input.GetKeyDown(KeyCode.Q))
-            {
-                Debug.Log("entro entro");
-                dialogSystem.SetDialogInteractable(this);
-                dialogSystem.StartDialog(other.GetComponent<PlayerController>());
-            }
+
+            playerControllerComp = other.GetComponent<PlayerController>();
+            //if (dialogSystem.GetGamepad() || Input.GetKeyDown(KeyCode.Q))
+            //{
+            //    Debug.Log("entro entro");
+            //    dialogSystem.SetDialogInteractable(this);
+            //    dialogSystem.StartDialog(other.GetComponent<PlayerController>());
+            //}
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        pressButton.SetActive(false);
+        if (other.CompareTag("Player1") || other.CompareTag("Player2"))
+        {
+            interactionActive = false;
+            pressButton.SetActive(false);
+            playerControllerComp = null;
+        }
     }
 
     public void StartDialog()
