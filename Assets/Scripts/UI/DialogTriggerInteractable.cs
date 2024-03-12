@@ -43,6 +43,7 @@ public class DialogTriggerInteractable : MonoBehaviour
             OtherEndingFunctions.Invoke();
             Destroy(this.gameObject.GetComponent<BoxCollider>());
             Destroy(pressButton);
+            interactionActive = false;
         }
     }
 
