@@ -289,6 +289,7 @@ public class PlayerController : MonoBehaviour
         curse = !curse;
         if (curse)
         {
+            curseEffect.Play();
             this.gameObject.layer = 9;
             ghostParticles.Stop();
         }
@@ -296,7 +297,6 @@ public class PlayerController : MonoBehaviour
         {
             this.gameObject.layer = 8;
             ghostParticles.Play();
-            curseEffect.Play();
         }
 
         AudioManager.Instance.LoadSFX(curseChangeClipName, curseChangeClip);
