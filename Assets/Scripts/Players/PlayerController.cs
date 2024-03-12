@@ -123,7 +123,7 @@ public class PlayerController : MonoBehaviour
     // 8: Not Cursed
     // 9: Cursed
 
-    void Update()
+    void FixedUpdate()
     {
         groundedPlayer = controller.isGrounded;
         move = Vector3.zero;
