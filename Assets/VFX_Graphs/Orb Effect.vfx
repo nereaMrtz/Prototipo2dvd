@@ -20,7 +20,7 @@ MonoBehaviour:
     x: -971
     y: -206
     width: 3915
-    height: 2226
+    height: 2207
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -31,7 +31,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d4c867f6b72b714dbb5fd1780afe208, type: 3}
-  m_Name: prova
+  m_Name: Orb Effect
   m_EditorClassIdentifier: 
   m_UIIgnoredErrors: []
   m_Parent: {fileID: 0}
@@ -102,7 +102,7 @@ VisualEffectResource:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: prova
+  m_Name: Orb Effect
   m_Graph: {fileID: 114350483966674976}
   m_Infos:
     m_RendererSettings:
@@ -6804,7 +6804,7 @@ MonoBehaviour:
   m_Children:
   - {fileID: 8926484042661614856}
   - {fileID: 8926484042661614880}
-  m_UIPosition: {x: -104, y: 872}
+  m_UIPosition: {x: -104, y: 870}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
