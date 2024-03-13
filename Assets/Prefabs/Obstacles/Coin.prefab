@@ -244,7 +244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinSound: {fileID: 8300000, guid: b63089065cb6ec64e896c1bc875b8210, type: 3}
-  audioSource: {fileID: 5200362527356761663}
+  coinSoundName: coin
   Speed: 40
 --- !u!65 &447052173136181883
 BoxCollider:
