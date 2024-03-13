@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Timeline;
 
 using System.Runtime.CompilerServices;
+using UnityEngine.VFX;
 
 
 
@@ -69,9 +70,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] AudioClip curseChangeClip;
     [SerializeField] string curseChangeClipName;
 
+    [SerializeField] VisualEffect curseEffect;
+
+
     private void Start()
     {
-        if (SceneManager.GetActiveScene().name == "L1_M1" || SceneManager.GetActiveScene().name == "VFX Scene")
+        if (SceneManager.GetActiveScene().name == "L1_M1" /*|| SceneManager.GetActiveScene().name == "VFX Scene"*/)
             isFirstLevel = true;
         else
             isFirstLevel = false;
@@ -284,6 +288,7 @@ public class PlayerController : MonoBehaviour
         curse = !curse;
         if (curse)
         {
+            curseEffect.Play();
             this.gameObject.layer = 9;
             ghostParticles.Stop();
         }
