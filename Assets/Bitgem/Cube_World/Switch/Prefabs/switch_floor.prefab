@@ -177,6 +177,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4973588468921990}
   - component: {fileID: 6501531136299577934}
+  - component: {fileID: 3957679332900569129}
   m_Layer: 0
   m_Name: LOD_2
   m_TagString: Untagged
@@ -221,6 +222,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3957679332900569129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1281040798899820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e3b7c5c7c4e6644d8de620c0401e036, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platforms: []
+  pressSound: {fileID: 8300000, guid: 423a610e00be3f340878a9cd5ecda7f1, type: 3}
+  releaseSound: {fileID: 8300000, guid: 911b847c8a8d74846974f3adb30e03a1, type: 3}
+  audioSource: {fileID: 2117589008283534826}
 --- !u!1 &1281510541148024
 GameObject:
   m_ObjectHideFlags: 0
@@ -499,6 +516,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4727292995864624}
   - component: {fileID: 7880779852328812847}
+  - component: {fileID: 4628525051247795877}
   m_Layer: 0
   m_Name: LOD_0
   m_TagString: Untagged
@@ -543,6 +561,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4628525051247795877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688736729558606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e3b7c5c7c4e6644d8de620c0401e036, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platforms: []
+  pressSound: {fileID: 8300000, guid: 423a610e00be3f340878a9cd5ecda7f1, type: 3}
+  releaseSound: {fileID: 8300000, guid: 911b847c8a8d74846974f3adb30e03a1, type: 3}
+  audioSource: {fileID: 2117589008283534826}
 --- !u!1 &1724505584941850
 GameObject:
   m_ObjectHideFlags: 0
@@ -636,6 +670,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4364889006842084}
   - component: {fileID: 6826359925531504989}
+  - component: {fileID: 6449462731009521355}
   m_Layer: 0
   m_Name: LOD_1
   m_TagString: Untagged
@@ -680,6 +715,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6449462731009521355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1784873632799180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e3b7c5c7c4e6644d8de620c0401e036, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platforms: []
+  pressSound: {fileID: 8300000, guid: 423a610e00be3f340878a9cd5ecda7f1, type: 3}
+  releaseSound: {fileID: 8300000, guid: 911b847c8a8d74846974f3adb30e03a1, type: 3}
+  audioSource: {fileID: 2117589008283534826}
 --- !u!1 &1839260726367350
 GameObject:
   m_ObjectHideFlags: 0

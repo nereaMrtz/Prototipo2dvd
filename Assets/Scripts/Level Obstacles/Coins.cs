@@ -20,8 +20,10 @@ public class CoinScript : MonoBehaviour
         {
             CoinManager.Instance.AddCoin();
 
-            if(AudioManager.Instance.LoadSFX(coinSoundName, coinSound))
-            AudioManager.Instance.PlaySFX(coinSoundName);
+            if (AudioManager.Instance.LoadSFX(coinSoundName, coinSound))
+            {
+                AudioManager.Instance.PlaySFX(coinSoundName);
+            }
 
             Destroy(this.gameObject);
         }

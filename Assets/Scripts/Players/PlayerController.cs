@@ -123,7 +123,7 @@ public class PlayerController : MonoBehaviour
     // 8: Not Cursed
     // 9: Cursed
 
-    void Update()
+    void FixedUpdate()
     {
         groundedPlayer = controller.isGrounded;
         move = Vector3.zero;
@@ -229,7 +229,6 @@ public class PlayerController : MonoBehaviour
         }
         else
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
-        //sound.jump.Play();
         hasJumped = true;
         inputBuffer = false;
 
