@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4759635066737742}
   - component: {fileID: 33842059098735726}
   - component: {fileID: 23964631525961966}
-  - component: {fileID: 1886906186360339869}
+  - component: {fileID: 7498690795435399362}
   m_Layer: 0
   m_Name: block_brick_black_4_LOD2
   m_TagString: Untagged
@@ -84,8 +84,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &1886906186360339869
-MeshCollider:
+--- !u!65 &7498690795435399362
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -102,10 +102,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300004, guid: 36fd6da3ce911ed479d6f19d66afd2c5, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 1.0824558, y: 1.0836557, z: 1.0840262}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1436682915421214
 GameObject:
   m_ObjectHideFlags: 0
@@ -117,7 +116,7 @@ GameObject:
   - component: {fileID: 4499991640689392}
   - component: {fileID: 33028524656560268}
   - component: {fileID: 23688789496171126}
-  - component: {fileID: 1059610900648930513}
+  - component: {fileID: 2392559925575133983}
   m_Layer: 0
   m_Name: block_brick_black_4_LOD0
   m_TagString: Untagged
@@ -190,8 +189,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &1059610900648930513
-MeshCollider:
+--- !u!65 &2392559925575133983
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -208,10 +207,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 36fd6da3ce911ed479d6f19d66afd2c5, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 1.0824558, y: 1.0836557, z: 1.0840262}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1491638567507734
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,7 +221,7 @@ GameObject:
   - component: {fileID: 4898870167613146}
   - component: {fileID: 33499396115827954}
   - component: {fileID: 23826904751084322}
-  - component: {fileID: 10796474975820587}
+  - component: {fileID: 6491889517597930147}
   m_Layer: 0
   m_Name: block_brick_black_4_LOD1
   m_TagString: Untagged
@@ -296,8 +294,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &10796474975820587
-MeshCollider:
+--- !u!65 &6491889517597930147
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -314,10 +312,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300002, guid: 36fd6da3ce911ed479d6f19d66afd2c5, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 1.0824558, y: 1.0836557, z: 1.0840262}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1995924662066432
 GameObject:
   m_ObjectHideFlags: 0
