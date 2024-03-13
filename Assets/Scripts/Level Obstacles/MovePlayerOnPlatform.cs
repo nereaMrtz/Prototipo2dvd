@@ -7,7 +7,6 @@ public class MovePlayerOnPlatform : MonoBehaviour
     [SerializeField] Transform platformTransform;
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other);
         other.transform.SetParent(platformTransform);
     }
 
