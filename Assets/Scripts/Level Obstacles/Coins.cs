@@ -22,8 +22,13 @@ public class CoinScript : MonoBehaviour
 
             audioSource.clip = coinSound;
             audioSource.Play();
-
-            Destroy(this.gameObject);
+            StartCoroutine(DestroyThis());
         }
+    }
+
+    IEnumerator DestroyThis()
+    {
+        yield return new WaitForSeconds(1);
+        Destroy(this.gameObject);
     }
 }
