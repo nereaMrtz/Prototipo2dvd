@@ -18,16 +18,16 @@ MonoBehaviour:
     m_Value: 1
   threshold:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 1.2
   intensity:
     m_OverrideState: 1
-    m_Value: 2.61
+    m_Value: 3
   scatter:
     m_OverrideState: 1
-    m_Value: 0.4
+    m_Value: 0.3
   clamp:
     m_OverrideState: 1
-    m_Value: 1.4
+    m_Value: 20
   tint:
     m_OverrideState: 1
     m_Value: {r: 0.23366857, g: 0.23366857, b: 0.5566038, a: 1}
@@ -61,31 +61,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   mode:
-    m_OverrideState: 1
-    m_Value: 1
+    m_OverrideState: 0
+    m_Value: 0
   neutralHDRRangeReductionMode:
     m_OverrideState: 0
     m_Value: 2
   acesPreset:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 3
   hueShiftAmount:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 0
   detectPaperWhite:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 0
   paperWhite:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 300
   detectBrightnessLimits:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 1
   minNits:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 0.005
   maxNits:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 1000
 --- !u!114 &-5196494088558031409
 MonoBehaviour:
@@ -102,13 +102,13 @@ MonoBehaviour:
   active: 1
   lift:
     m_OverrideState: 0
-    m_Value: {x: 0.9205865, y: 0.931383, z: 1, w: 0}
+    m_Value: {x: 0.9462909, y: 0.9567046, z: 1, w: 0.08316008}
   gamma:
-    m_OverrideState: 0
-    m_Value: {x: 0.89657146, y: 0.8902907, z: 1, w: 0}
+    m_OverrideState: 1
+    m_Value: {x: 0.9553968, y: 0.9725914, z: 1, w: 0}
   gain:
     m_OverrideState: 0
-    m_Value: {x: 0.94555515, y: 0.9500851, z: 1, w: 0}
+    m_Value: {x: 0.78842884, y: 0.804985, z: 1, w: 0}
 --- !u!114 &-3911301717297848765
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -170,13 +170,13 @@ MonoBehaviour:
   active: 1
   postExposure:
     m_OverrideState: 1
-    m_Value: -1
+    m_Value: -0.5
   contrast:
     m_OverrideState: 1
     m_Value: 15
   colorFilter:
     m_OverrideState: 1
-    m_Value: {r: 0.8164826, g: 0.81501424, b: 0.9339623, a: 1}
+    m_Value: {r: 0.7048772, g: 0.7048772, b: 0.9056604, a: 1}
   hueShift:
     m_OverrideState: 1
     m_Value: 7
