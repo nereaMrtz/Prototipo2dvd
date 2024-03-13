@@ -22,7 +22,12 @@ public class CoinScript : MonoBehaviour
 
             AudioManager.Instance.LoadSFX(coinSoundName, coinSound);
             AudioManager.Instance.PlaySFX(coinSoundName);
-            Destroy(this.gameObject);
+            StartCoroutine(DestroyThis());
         }
+    }
+    IEnumerator DestroyThis()
+    {
+        yield return new WaitForEndOfFrame();
+            Destroy(this.gameObject);
     }
 }
