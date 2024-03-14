@@ -8,13 +8,13 @@ public class AppearingMessages : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player1")|| other.CompareTag("Player2"))
             canvas.gameObject.SetActive(true);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player1") || other.CompareTag("Player2"))
             canvas.gameObject.SetActive(false); ;
     }
 }
