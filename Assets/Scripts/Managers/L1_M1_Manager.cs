@@ -6,7 +6,7 @@ public class L1_M1_Manager : ScenesManager
 {
     [SerializeField] private GameObject ghost1;
     [SerializeField] private GameObject ghost2;
-    [SerializeField] private float timeToChangeScene = 2f;
+    [SerializeField] private float timeToChangeScene = 0.5f;
 
     private void Update()
     {
