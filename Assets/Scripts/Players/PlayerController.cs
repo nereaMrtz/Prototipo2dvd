@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] VisualEffect curseEffect;
 
-
+    [SerializeField] private Animator animator;
     private void Start()
     {
         if (SceneManager.GetActiveScene().name == "L1_M1" /*|| SceneManager.GetActiveScene().name == "VFX Scene"*/)
@@ -84,6 +84,8 @@ public class PlayerController : MonoBehaviour
         {
             ghostParticles.Play();
         }
+
+        //animator = this.gameObject.GetComponent<Animator>();
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -189,6 +191,12 @@ public class PlayerController : MonoBehaviour
         if (move != Vector3.zero)
         {
             lastInput = move;
+            animator.SetBool("IsWalking", true);
+        }
+        else
+        {
+            animator.SetBool("IsWalking", false);
+
         }
         controller.transform.forward = lastInput;
 
