@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Player Movement")]
 
+    [SerializeField] PlayerMovement pMovement;
+
     [SerializeField] private float playerSpeed = 2.0f;
     private CharacterController controller;
     private Vector2 movementInput = Vector2.zero;
@@ -85,6 +87,9 @@ public class PlayerController : MonoBehaviour
             ghostParticles.Play();
         }
 
+        if (pMovement = null)
+            pMovement = GetComponent<PlayerMovement>();
+
         //animator = this.gameObject.GetComponent<Animator>();
     }
 
@@ -150,10 +155,6 @@ public class PlayerController : MonoBehaviour
             move = new Vector3(movementInput.x, 0f, 0f);
             controller.Move(move * Time.deltaTime * playerSpeed);
         }
-
-        //controller.enabled = false;
-        //transform.position = new Vector3(transform.position.x, transform.position.y, -0.5f);
-        //controller.enabled = true;
 
         if (jumpInput && !stopMovement)
         {
@@ -240,8 +241,8 @@ public class PlayerController : MonoBehaviour
         hasJumped = true;
         inputBuffer = false;
 
-        if(AudioManager.Instance.LoadSFX(jumpClipName, jumpClip))
-        AudioManager.Instance.PlaySFX(jumpClipName);
+        if (AudioManager.Instance.LoadSFX(jumpClipName, jumpClip))
+            AudioManager.Instance.PlaySFX(jumpClipName);
     }
 
     //This script pushes all rigidbodies that the character touches
