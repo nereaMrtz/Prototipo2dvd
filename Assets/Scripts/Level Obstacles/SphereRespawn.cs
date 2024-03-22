@@ -29,6 +29,7 @@ public class SphereRespawn : MonoBehaviour
     {
         transform.position = initPos;
         rb.velocity = Vector3.zero;
+        rb.AddForce(rb.velocity);
     }
 
     private void OnTriggerEnter(Collider collision)
