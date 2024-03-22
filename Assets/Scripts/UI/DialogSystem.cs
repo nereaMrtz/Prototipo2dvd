@@ -73,8 +73,6 @@ public class DialogSystem : MonoBehaviour
     {
         if (startText)
         {
-            Debug.Log(typingText);
-
             if (!dialogueBox.activeInHierarchy)
             {
                 endDialog = false;
