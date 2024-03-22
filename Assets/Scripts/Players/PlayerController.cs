@@ -201,10 +201,6 @@ public class PlayerController : MonoBehaviour
         controller.transform.forward = lastInput;
 
 
-
-        Physics.IgnoreLayerCollision(9, 7, false); // Layer 9: Cursed
-        Physics.IgnoreLayerCollision(8, 7, true); // Layer 8: Not Cursed
-
         if (curse)
         {
             gameObject.GetComponentInChildren<SkinnedMeshRenderer>().material = cursedMat;
