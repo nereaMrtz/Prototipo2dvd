@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Button : MonoBehaviour
+public class PlatformButton : MonoBehaviour
 {
     [SerializeField] private GameObject[] platforms;
 
