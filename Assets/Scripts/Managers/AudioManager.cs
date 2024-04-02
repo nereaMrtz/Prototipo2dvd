@@ -125,4 +125,9 @@ public class AudioManager : MonoBehaviour
     {
         mixer.SetFloat("SoundEffects", Mathf.Log10(volume) * 20);
     }
+
+    public void SetReverb(float reverb)
+    {
+        mixer.SetFloat("Reverb", reverb);
+    }
 }
