@@ -93,20 +93,6 @@ public class PlayerController : MonoBehaviour
         //animator = this.gameObject.GetComponent<Animator>();
     }
 
-    public void OnMove(InputAction.CallbackContext context)
-    {
-        movementInput = context.ReadValue<Vector2>();
-    }
-    public void OnJump(InputAction.CallbackContext context)
-    {
-        float aux = context.ReadValue<float>();
-        if (aux != 0f)
-        {
-            jumpInput = true;
-        }
-        else { jumpInput = false; }
-    }
-
     public void OnInteract(InputAction.CallbackContext context)
     {
         float aux = context.ReadValue<float>();
