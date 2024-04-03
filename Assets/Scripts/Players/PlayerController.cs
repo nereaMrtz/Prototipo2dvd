@@ -120,116 +120,116 @@ public class PlayerController : MonoBehaviour
     // 8: Not Cursed
     // 9: Cursed
 
-    void Update()
-    {
-        groundedPlayer = controller.isGrounded;
-        move = Vector3.zero;
+    //void Update()
+    //{
+    //    groundedPlayer = controller.isGrounded;
+    //    move = Vector3.zero;
 
-        if (!groundedPlayer && wasGrounded)
-        {
-            inCoyote = true;
-            coyoteTimer = maxCoyoteTime;
-        }
+    //    if (!groundedPlayer && wasGrounded)
+    //    {
+    //        inCoyote = true;
+    //        coyoteTimer = maxCoyoteTime;
+    //    }
 
-        if (groundedPlayer && playerVelocity.y < 0)
-        {
-            playerVelocity.y = 0f;
-            hasJumped = false;
-        }
-        if (!stopMovement)
-        {
-            move = new Vector3(movementInput.x, 0f, 0f);
-            controller.Move(move * Time.deltaTime * playerSpeed);
-        }
+    //    if (groundedPlayer && playerVelocity.y < 0)
+    //    {
+    //        playerVelocity.y = 0f;
+    //        hasJumped = false;
+    //    }
+    //    if (!stopMovement)
+    //    {
+    //        move = new Vector3(movementInput.x, 0f, 0f);
+    //        controller.Move(move * Time.deltaTime * playerSpeed);
+    //    }
 
-        if (jumpInput && !stopMovement)
-        {
-            if (groundedPlayer)
-            {
-                Jump();
-            }
-            else if (inCoyote && !hasJumped)
-            {
-                Jump();
-                inCoyote = false;
-            }
-            else
-            {
-                inputBuffer = true;
-                buffer = inputBufferTime;
-            }
-        }
+    //    if (jumpInput && !stopMovement)
+    //    {
+    //        if (groundedPlayer)
+    //        {
+    //            Jump();
+    //        }
+    //        else if (inCoyote && !hasJumped)
+    //        {
+    //            Jump();
+    //            inCoyote = false;
+    //        }
+    //        else
+    //        {
+    //            inputBuffer = true;
+    //            buffer = inputBufferTime;
+    //        }
+    //    }
 
-        if (inputBuffer)
-        {
-            if (groundedPlayer)
-                Jump();
-            buffer -= Time.deltaTime;
-            if (buffer < 0)
-            {
-                inputBuffer = false;
-            }
+    //    if (inputBuffer)
+    //    {
+    //        if (groundedPlayer)
+    //            Jump();
+    //        buffer -= Time.deltaTime;
+    //        if (buffer < 0)
+    //        {
+    //            inputBuffer = false;
+    //        }
 
-        }
+    //    }
 
-        playerVelocity.y += gravityValue * Time.deltaTime;
-        controller.Move(playerVelocity * Time.deltaTime);
+    //    playerVelocity.y += gravityValue * Time.deltaTime;
+    //    controller.Move(playerVelocity * Time.deltaTime);
 
-        if (move != Vector3.zero)
-        {
-            lastInput = move;
-            animator.SetBool("IsWalking", true);
-        }
-        else
-        {
-            animator.SetBool("IsWalking", false);
+    //    if (move != Vector3.zero)
+    //    {
+    //        lastInput = move;
+    //        animator.SetBool("IsWalking", true);
+    //    }
+    //    else
+    //    {
+    //        animator.SetBool("IsWalking", false);
 
-        }
-        controller.transform.forward = lastInput;
+    //    }
+    //    controller.transform.forward = lastInput;
 
 
-        if (curse)
-        {
-            gameObject.GetComponentInChildren<SkinnedMeshRenderer>().material = cursedMat;
-        }
+    //    if (curse)
+    //    {
+    //        gameObject.GetComponentInChildren<SkinnedMeshRenderer>().material = cursedMat;
+    //    }
 
-        if (!curse)
-        {
-            gameObject.GetComponentInChildren<SkinnedMeshRenderer>().material = normalMat;
-        }
+    //    if (!curse)
+    //    {
+    //        gameObject.GetComponentInChildren<SkinnedMeshRenderer>().material = normalMat;
+    //    }
 
-        if (inCoyote)
-        {
-            coyoteTimer -= Time.deltaTime;
+    //    if (inCoyote)
+    //    {
+    //        coyoteTimer -= Time.deltaTime;
 
-            if (coyoteTimer < 0)
-                inCoyote = false;
-        }
+    //        if (coyoteTimer < 0)
+    //            inCoyote = false;
+    //    }
 
-        wasGrounded = groundedPlayer;
-        if (transform.position.z != -0.5f)
-        {
-            controller.enabled = false;
-            transform.position = new Vector3(transform.position.x, transform.position.y, -0.5f);
-            controller.enabled = true;
-        }
-    }
+    //    wasGrounded = groundedPlayer;
+    //    if (transform.position.z != -0.5f)
+    //    {
+    //        controller.enabled = false;
+    //        transform.position = new Vector3(transform.position.x, transform.position.y, -0.5f);
+    //        controller.enabled = true;
+    //    }
+    //}
 
-    void Jump()
-    {
-        if (jumpBoosted)
-        {
-            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue * jumpBoost);
-            jumpBoosted = false;
-        }
-        else
-            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
-        hasJumped = true;
-        inputBuffer = false;
+    //void Jump()
+    //{
+    //    if (jumpBoosted)
+    //    {
+    //        playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue * jumpBoost);
+    //        jumpBoosted = false;
+    //    }
+    //    else
+    //        playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+    //    hasJumped = true;
+    //    inputBuffer = false;
 
-        if (AudioManager.Instance.LoadSFX(jumpClipName, jumpClip))
-            AudioManager.Instance.PlaySFX(jumpClipName);
-    }
+    //    if (AudioManager.Instance.LoadSFX(jumpClipName, jumpClip))
+    //        AudioManager.Instance.PlaySFX(jumpClipName);
+    //}
 
     //This script pushes all rigidbodies that the character touches
     void OnControllerColliderHit(ControllerColliderHit hit)

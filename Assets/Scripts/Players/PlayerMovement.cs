@@ -12,9 +12,11 @@ public class PlayerMovement : MonoBehaviour
     bool jumpInput;
 
     [Header("Movement")]
-    public float topSpeed = 5f;
-    public float acceleration = 5f;
-    public float deceleration = 10f;
+    public float topSpeed = 10f;
+    public float acceleration = 20f;
+    public float deceleration = 30f;
+    public float jumpForce = 1f;
+    public float groundedRayLength = 0.1f;
 
     void Start()
     {
@@ -60,21 +62,41 @@ public class PlayerMovement : MonoBehaviour
             {
                 accelVector = deltaVelocity;
             }
-            rb.velocity =  new Vector3(rb.velocity.x + accelVector.x, rb.velocity.y, 0.0f);
+            rb.velocity = new Vector3(rb.velocity.x + accelVector.x, rb.velocity.y, 0.0f);
 
-            rb.velocity = Vector2.ClampMagnitude(rb.velocity, topSpeed);
 
             Debug.Log(rb.velocity);
         }
         else
         {
             Vector2 decelVector = -rb.velocity.normalized * (deceleration * Time.fixedDeltaTime);
-            rb.velocity = new Vector3(rb.velocity.x + decelVector.x, rb.velocity.y, 0.0f); ;
+            rb.velocity = new Vector3(rb.velocity.x + decelVector.x, rb.velocity.y, 0.0f); 
+
 
             if (Vector2.Dot((Vector2)(rb.velocity) + decelVector, decelVector) > 0f)
             {
                 rb.velocity = Vector3.zero;
             }
         }
+
+        if (jumpInput)
+        {
+            rb.velocity = new Vector3(rb.velocity.x, Mathf.Sqrt(jumpForce * -3.0f * Physics.gravity.y), 0.0f);
+
+        }
+        else if(!IsGrounded())
+        {
+            rb.AddForce(new Vector3(0.0f, Physics.gravity.y * 5, 0.0f));
+        }
+        else
+        {
+            rb.velocity = new Vector3(rb.velocity.x, 0.0f, 0.0f);
+        }
+    }
+
+    bool IsGrounded()
+    {
+        Debug.DrawRay(transform.position, -Vector3.up, Color.green, groundedRayLength);
+        return Physics.Raycast(transform.position, -Vector3.up, groundedRayLength);
     }
 }
