@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -43,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        movementInput.Normalize();
+        movementInput.Normalize();       
     }
 
     private void FixedUpdate()
@@ -63,34 +64,30 @@ public class PlayerMovement : MonoBehaviour
                 accelVector = deltaVelocity;
             }
             rb.velocity = new Vector3(rb.velocity.x + accelVector.x, rb.velocity.y, 0.0f);
-
-
-            Debug.Log(rb.velocity);
         }
         else
         {
             Vector2 decelVector = -rb.velocity.normalized * (deceleration * Time.fixedDeltaTime);
-            rb.velocity = new Vector3(rb.velocity.x + decelVector.x, rb.velocity.y, 0.0f); 
+            rb.velocity = new Vector3(rb.velocity.x + decelVector.x, rb.velocity.y, 0.0f);
 
-
-            if (Vector2.Dot((Vector2)(rb.velocity) + decelVector, decelVector) > 0f)
+            if (Vector2.Dot(new Vector2(rb.velocity.x, rb.velocity.y) + decelVector, decelVector) > 0f)
             {
                 rb.velocity = Vector3.zero;
             }
         }
 
-        if (jumpInput)
+        if (jumpInput && IsGrounded())
         {
-            rb.velocity = new Vector3(rb.velocity.x, Mathf.Sqrt(jumpForce * -3.0f * Physics.gravity.y), 0.0f);
-
+            rb.AddForce(0.0f, jumpForce, 0.0f, ForceMode.Impulse);
         }
         else if(!IsGrounded())
         {
-            rb.AddForce(new Vector3(0.0f, Physics.gravity.y * 5, 0.0f));
+            rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y + -9.81f * Time.fixedDeltaTime, 0.0f);
+            //rb.AddForce(0.0f, Physics.gravity.y, 0.0f, ForceMode.Acceleration);
         }
         else
         {
-            rb.velocity = new Vector3(rb.velocity.x, 0.0f, 0.0f);
+            //rb.velocity = new Vector3(rb.velocity.x, 0.0f, 0.0f);
         }
     }
 
