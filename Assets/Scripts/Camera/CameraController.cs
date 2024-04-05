@@ -10,15 +10,15 @@ public class CameraController : MonoBehaviour
     [SerializeField]private GameObject target1;
     [SerializeField]private GameObject target2;
 
-    [SerializeField] private GameObject arrow1;
-    [SerializeField] private GameObject arrow2;
+    private GameObject arrow1;
+    private GameObject arrow2;
 
-    [SerializeField] private List<Camera> cameras = new List<Camera>();
+     private List<Camera> cameras = new List<Camera>();
     
 
-    [SerializeField] private float timeToChange = 0.5f;
+    private float timeToChange = 0.5f;
 
-    [SerializeField] private Camera mainCamera;
+    private Camera mainCamera;
 
     private float oldY = 4.6f;
 
@@ -32,7 +32,10 @@ public class CameraController : MonoBehaviour
     }
     // Update is called once per frame
     void Update()
-    {     
+    {
+
+        Debug.Log("Los fantasmas estan a una distancia de: " + Vector3.Distance(target1.transform.position, target2.transform.position));
+        /*
         //Debug.Log(target1.transform.position.y + " " + target2.transform.position.y);
         if(Vector3.Distance(target1.transform.position, target2.transform.position) >= 18f)
         {         
