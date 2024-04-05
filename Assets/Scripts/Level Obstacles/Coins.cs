@@ -1,4 +1,4 @@
- using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using Unity.VisualScripting;
@@ -16,18 +16,18 @@ public class CoinScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("Player1") || other.gameObject.CompareTag("Player2"))
+        if (other.gameObject.CompareTag("Player1") || other.gameObject.CompareTag("Player2"))
         {
             CoinManager.Instance.AddCoin();
 
-            AudioManager.Instance.LoadSFX(coinSoundName, coinSound);
-            AudioManager.Instance.PlaySFX(coinSoundName);
+            if (AudioManager.Instance.LoadSFX(coinSoundName, coinSound))
+                AudioManager.Instance.PlaySFX(coinSoundName);
             StartCoroutine(DestroyThis());
         }
     }
     IEnumerator DestroyThis()
     {
         yield return new WaitForEndOfFrame();
-            Destroy(this.gameObject);
+        Destroy(this.gameObject);
     }
 }

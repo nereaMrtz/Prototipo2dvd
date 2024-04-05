@@ -129,7 +129,7 @@ public class PlayerController : MonoBehaviour
     // 8: Not Cursed
     // 9: Cursed
 
-    void FixedUpdate()
+    void Update()
     {
         groundedPlayer = controller.isGrounded;
         move = Vector3.zero;
@@ -200,10 +200,6 @@ public class PlayerController : MonoBehaviour
         }
         controller.transform.forward = lastInput;
 
-
-
-        Physics.IgnoreLayerCollision(9, 7, false); // Layer 9: Cursed
-        Physics.IgnoreLayerCollision(8, 7, true); // Layer 8: Not Cursed
 
         if (curse)
         {
