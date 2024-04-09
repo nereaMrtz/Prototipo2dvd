@@ -18,6 +18,12 @@ public class PlayerMovement : MonoBehaviour
     public float deceleration = 30f;
     public float jumpForce = 1f;
     public float groundedRayLength = 0.1f;
+    public float gravity = -10.0f;
+
+    private Vector3 targetMovement = Vector3.zero;
+    public GameObject groundCheck;
+    public GameObject rightCheck;
+    public GameObject leftCheck;
 
     void Start()
     {
@@ -49,51 +55,49 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (movementInput != Vector2.zero)
+        if (!IsGrounded())
+            targetMovement.y += gravity * Time.fixedDeltaTime;
+        else
+            targetMovement.y = 0.0f;
+
+        if (Mathf.Abs(movementInput.x) > 0.01f)
         {
-            Vector2 currentvelocity = rb.velocity;
-
-            Vector2 targetVelocity = movementInput * topSpeed;
-
-            Vector2 deltaVelocity = targetVelocity - currentvelocity;
-
-            Vector2 accelVector = deltaVelocity.normalized * (acceleration * Time.fixedDeltaTime);
-
-            if (accelVector.sqrMagnitude > deltaVelocity.sqrMagnitude)
-            {
-                accelVector = deltaVelocity;
-            }
-            rb.velocity = new Vector3(rb.velocity.x + accelVector.x, rb.velocity.y, 0.0f);
+            targetMovement.x = Mathf.Lerp(targetMovement.x, movementInput.x * topSpeed * Time.fixedDeltaTime, Time.fixedDeltaTime * 40.0f); ;
         }
         else
-        {
-            Vector2 decelVector = -rb.velocity.normalized * (deceleration * Time.fixedDeltaTime);
-            rb.velocity = new Vector3(rb.velocity.x + decelVector.x, rb.velocity.y, 0.0f);
+            targetMovement.x = Mathf.Lerp(targetMovement.x, 0.0f, Time.fixedDeltaTime * 20.0f);
 
-            if (Vector2.Dot(new Vector2(rb.velocity.x, rb.velocity.y) + decelVector, decelVector) > 0f)
-            {
-                rb.velocity = Vector3.zero;
-            }
-        }
+        if (isCollidingRight())
+            targetMovement.x = Mathf.Min(targetMovement.x, 0.0f);
+        if (isCollidingLeft())
+            targetMovement.x = Mathf.Max(targetMovement.x, 0.0f);
 
+        rb.MovePosition(rb.position + targetMovement);
+       
         if (jumpInput && IsGrounded())
         {
-            rb.AddForce(0.0f, jumpForce, 0.0f, ForceMode.Impulse);
-        }
-        else if(!IsGrounded())
-        {
-            rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y + -9.81f * Time.fixedDeltaTime, 0.0f);
-            //rb.AddForce(0.0f, Physics.gravity.y, 0.0f, ForceMode.Acceleration);
-        }
-        else
-        {
-            //rb.velocity = new Vector3(rb.velocity.x, 0.0f, 0.0f);
+            targetMovement.y = jumpForce;
         }
     }
 
     bool IsGrounded()
     {
-        Debug.DrawRay(transform.position, -Vector3.up, Color.green, groundedRayLength);
-        return Physics.Raycast(transform.position, -Vector3.up, groundedRayLength);
+        return Physics.OverlapSphere(groundCheck.transform.position, 0.2f).Length > 1;
+    }
+
+    bool isCollidingRight()
+    {
+        return Physics.OverlapSphere(rightCheck.transform.position, 0.2f).Length > 1;
+    }
+
+    bool isCollidingLeft()
+    {
+        return Physics.OverlapSphere(leftCheck.transform.position, 0.2f).Length > 1;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(groundCheck.transform.position, 0.2f);
     }
 }
