@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class L1_M1_Manager : ScenesManager
+public class L1_M1_Manager : MonoBehaviour
 {
     [SerializeField] private GameObject ghost1;
     [SerializeField] private GameObject ghost2;
     [SerializeField] private float timeToChangeScene = 0.5f;
+    [SerializeField] private string sceneName;
 
     private void Update()
     {
@@ -20,9 +22,10 @@ public class L1_M1_Manager : ScenesManager
         }
     }
 
-    protected override void ChangeScene()
-    {        
-        base.ChangeScene();
+    void ChangeScene()
+    {
+        LevelLoader.Instance.SetLoad();
+        SceneManager.LoadScene(sceneName);
     }
 
     IEnumerator WaitThenChangeScene() 
