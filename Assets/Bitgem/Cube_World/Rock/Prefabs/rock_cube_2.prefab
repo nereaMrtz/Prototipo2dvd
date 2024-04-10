@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4181687938892186}
-  - component: {fileID: 205398833963595584}
   m_Layer: 0
   m_Name: rock_cube_2
   m_TagString: Untagged
@@ -24,9 +23,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1484154211911848}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4131421117549840}
@@ -35,33 +34,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!205 &205398833963595584
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1484154211911848}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: 0.0026443005, y: -0.0013409853, z: -0.0067509413}
-  m_Size: 1.1756761
-  m_FadeMode: 0
-  m_AnimateCrossFading: 0
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.10372176
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 23395513573892154}
-  - screenRelativeHeight: 0.049834106
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 23183286253234480}
-  - screenRelativeHeight: 0.01
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 23213657564439976}
-  m_Enabled: 1
 --- !u!1 &1622558219401526
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,7 +158,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4832183675864598
 Transform:
   m_ObjectHideFlags: 0
@@ -292,7 +264,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4572715841117018
 Transform:
   m_ObjectHideFlags: 0
