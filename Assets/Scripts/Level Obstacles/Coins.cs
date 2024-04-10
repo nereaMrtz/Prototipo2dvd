@@ -9,6 +9,14 @@ public class CoinScript : MonoBehaviour
     [SerializeField] AudioClip coinSound;
     [SerializeField] string coinSoundName = "coin";
     [SerializeField] float Speed = 1.0f;
+
+    HUDUI hud;
+
+    private void Start()
+    {
+        hud = FindAnyObjectByType<HUDUI>();
+    }
+
     private void Update()
     {
         this.gameObject.transform.Rotate(0, Speed * Time.deltaTime, 0, Space.World);
@@ -23,6 +31,7 @@ public class CoinScript : MonoBehaviour
             if (AudioManager.Instance.LoadSFX(coinSoundName, coinSound))
                 AudioManager.Instance.PlaySFX(coinSoundName);
             StartCoroutine(DestroyThis());
+            hud.Show();
         }
     }
     IEnumerator DestroyThis()
@@ -30,4 +39,6 @@ public class CoinScript : MonoBehaviour
         yield return new WaitForEndOfFrame();
         Destroy(this.gameObject);
     }
+
+
 }
