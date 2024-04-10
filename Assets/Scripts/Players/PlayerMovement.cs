@@ -55,29 +55,33 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+
+        if (Mathf.Abs(movementInput.x) > 0.01f)
+        {
+            targetMovement.x = Mathf.Lerp(targetMovement.x, movementInput.x * topSpeed, Time.fixedDeltaTime * acceleration); ;
+        }
+        else
+            targetMovement.x = Mathf.Lerp(targetMovement.x, 0.0f, Time.fixedDeltaTime * deceleration);
+
+        //if (isCollidingRight())
+        //    targetMovement.x = Mathf.Min(targetMovement.x, 0.0f);
+        //if (isCollidingLeft())
+        //    targetMovement.x = Mathf.Max(targetMovement.x, 0.0f);
+
+
+        if (jumpInput && IsGrounded())
+        {
+            rb.AddForce(Vector3.up * jumpForce);
+        }
+
+        targetMovement.y = rb.velocity.y;
+
         if (!IsGrounded())
             targetMovement.y += gravity * Time.fixedDeltaTime;
         else
             targetMovement.y = 0.0f;
 
-        if (Mathf.Abs(movementInput.x) > 0.01f)
-        {
-            targetMovement.x = Mathf.Lerp(targetMovement.x, movementInput.x * topSpeed * Time.fixedDeltaTime, Time.fixedDeltaTime * 40.0f); ;
-        }
-        else
-            targetMovement.x = Mathf.Lerp(targetMovement.x, 0.0f, Time.fixedDeltaTime * 20.0f);
-
-        if (isCollidingRight())
-            targetMovement.x = Mathf.Min(targetMovement.x, 0.0f);
-        if (isCollidingLeft())
-            targetMovement.x = Mathf.Max(targetMovement.x, 0.0f);
-
-        rb.MovePosition(rb.position + targetMovement);
-       
-        if (jumpInput && IsGrounded())
-        {
-            targetMovement.y = jumpForce;
-        }
+        rb.velocity = targetMovement;
     }
 
     bool IsGrounded()

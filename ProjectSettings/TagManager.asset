@@ -28,7 +28,7 @@ TagManager:
   - GhostDeath
   - AllDeath
   - Sphere
-  - 
+  - CollisionCheck
   - 
   - 
   - 
