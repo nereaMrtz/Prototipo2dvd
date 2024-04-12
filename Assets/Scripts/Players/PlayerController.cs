@@ -11,9 +11,7 @@ using UnityEngine.Timeline;
 using System.Runtime.CompilerServices;
 using UnityEngine.VFX;
 
-
-
-[RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(PlayerMovement))]
 
 public class PlayerController : MonoBehaviour
 {
