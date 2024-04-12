@@ -1,3 +1,4 @@
+using Cinemachine;
 using DG.Tweening;
 using DG.Tweening.Core;
 using System.Collections;
@@ -10,132 +11,59 @@ public class CameraController : MonoBehaviour
     [SerializeField]private GameObject target1;
     [SerializeField]private GameObject target2;
 
-    private GameObject arrow1;
-    private GameObject arrow2;
+    private CinemachineVirtualCamera camera;
+    private CinemachineBasicMultiChannelPerlin noise;
 
-     private List<Camera> cameras = new List<Camera>();
-    
+    [SerializeField] private float firstDistance = 25f;
+    [SerializeField] private float secondDistance = 27f;
 
-    private float timeToChange = 0.5f;
+    [SerializeField] private float shakeAmplitude = 0.7f;
 
-    private Camera mainCamera;
 
-    private float oldY = 4.6f;
-
-    private bool split = false;
+    private bool shaking = false;
 
     private void Start()
-    {        
-        oldY = target1.transform.position.y;
-        arrow1.SetActive(false);
-        arrow2.SetActive(false);
+    {
+        camera = GetComponent<CinemachineVirtualCamera>();
+        noise = camera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
     }
     // Update is called once per frame
     void Update()
     {
 
-        Debug.Log("Los fantasmas estan a una distancia de: " + Vector3.Distance(target1.transform.position, target2.transform.position));
-        /*
-        //Debug.Log(target1.transform.position.y + " " + target2.transform.position.y);
-        if(Vector3.Distance(target1.transform.position, target2.transform.position) >= 18f)
-        {         
-            if(target1.transform.position.x < target2.transform.position.x)
-                SetSplitScreen1();  
-            else
-                SetSplitScreen2();
+        //Debug.Log("Los fantasmas estan a una distancia de: " + Vector3.Distance(target1.transform.position, target2.transform.position));
+        
+        if(Vector3.Distance(target1.transform.position, target2.transform.position) > secondDistance)
+        {
+            RespawnGhosts();
+        }
+        else if(Vector3.Distance(target1.transform.position, target2.transform.position) > firstDistance)
+        {
+            StartShake();
         }
         else
         {
-            SetSingleCamera();
+            if(shaking)
+                StopShake();
         }
-        /*else if(Vector3.Distance(target1.transform.position, target2.transform.position) >= 10f)
-        {           
-            SecondPosition();
-        }
-        else
-        {
-            FirstPosition();
-        }
-        */
     }
 
-    void SetSplitScreen1()
+    void StartShake()
     {
-        if(!split)
-        {
-            Fade.Instance.FadeOut();            
-            split = true;
-        }
-        mainCamera.enabled = false;
-        //mainCamera.gameObject.SetActive(false);
-        int cameraAmmount = cameras.Count;
-        float x = -0.5f;
-        for(int i = 0; i < cameraAmmount; i++) 
-        {
-            cameras[i].enabled = true;
-            cameras[i].gameObject.SetActive(true);
-            //Set it split
-            float auxX = x;
-            float y = 0.0f;
-            float width = 1;
-            float height = 1;
-            cameras[i].rect = new Rect(auxX, y, width, height);
-            x *= -1;
-        }
-        arrow1.SetActive(true);
-        arrow2.SetActive(true);
-        //if (!split)
-        //{
-        //    Fade.Instance.FadeIn();
-        //}
+        noise.m_AmplitudeGain = shakeAmplitude;
+        shaking = true;
     }
-    void SetSplitScreen2()
+    private void StopShake()
     {
-        if (!split)
-        {
-            Fade.Instance.FadeOut();
-            split = true;
-        }
-        mainCamera.enabled = false;
-        //mainCamera.gameObject.SetActive(false);
-        int cameraAmmount = cameras.Count;
-        float x = -0.5f;
-        for (int i = cameraAmmount-1; i >= 0; i--)
-        {
-            cameras[i].enabled = true;
-            cameras[i].gameObject.SetActive(true);
-            //Set it split
-            float auxX = x;
-            float y = 0.0f;
-            float width = 1;
-            float height = 1;
-            cameras[i].rect = new Rect(auxX, y, width, height);
-            x *= -1;
-        }
-        arrow1.SetActive(true);
-        arrow2.SetActive(true);
-        //if (!split)
-        //{
-        //    Fade.Instance.FadeIn();
-        //}
+        noise.m_AmplitudeGain = 0f;
+        shaking = false;
     }
-    void SetSingleCamera()
+
+    void RespawnGhosts()
     {
-        if(split) 
-        {
-            Fade.Instance.FadeOut();
-            split = false;
-        }
-        foreach(Camera cam in cameras) 
-        {
-            cam.enabled = false;
-            cam.gameObject.SetActive(false);
-        }
-        mainCamera.enabled = true;
-        //mainCamera.gameObject.SetActive(true);
-        mainCamera.rect = new Rect(0, 0, 1, 1);
-        //Camera cameraToSet = this.GetComponent<Camera>();
-        arrow1.SetActive(false);
-        arrow2.SetActive(false);
+        Debug.Log("A");
+        target2.GetComponent<RespawnManager>().RespawnCamera();
+        target1.GetComponent<RespawnManager>().RespawnCamera();
     }
+
 }

@@ -52,10 +52,20 @@ public class RespawnManager : MonoBehaviour
         AudioManager.Instance.PlaySFX(damagelDeathClipName);
     }
 
+    public void RespawnCamera()
+    {
+        this.gameObject.GetComponent<CharacterController>().enabled = false;
+        this.gameObject.transform.position = CheckPointMaster.Instance.GetLastCheckPointPos();
+        this.gameObject.GetComponent<CharacterController>().enabled = true;
+        hasRespawned = true;
+        StartCoroutine(HasRespawnedBoolean());
+        AudioManager.Instance.LoadSFX(damagelDeathClipName, damagelDeathClip);
+        AudioManager.Instance.PlaySFX(damagelDeathClipName);
+    }
     IEnumerator HasRespawnedBoolean()
     {
         yield return new WaitForNextFrameUnit();
-        Debug.Log(2);
+        Debug.Log(this.gameObject);
         hasRespawned = false;
     }
 }
