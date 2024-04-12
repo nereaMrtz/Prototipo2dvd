@@ -30,14 +30,14 @@ public class PlayerMovement : MonoBehaviour
     [Tooltip("This marks the time the player will have to jump after it leaves contact with the ground")]
     public float coyoteTime = .5f;
     private float coyoteTimer;
-    private bool inCoyote;
+    private bool inCoyote = false;
     private bool prevGrounded;
 
     [Header("InputBuffer")]
     [Tooltip("This is the time during which the player will jump as soon as it makes contat with the ground")]
     public float inputBuffer = .5f;
     private float inputBufferTimer;
-    private bool inBuffer;
+    private bool inBuffer = false;
 
     void Start()
     {
@@ -48,6 +48,8 @@ public class PlayerMovement : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         movementInput = context.ReadValue<Vector2>();
+
+
     }
     public void OnJump(InputAction.CallbackContext context)
     {
@@ -62,18 +64,14 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         movementInput.Normalize();
-    }
-
-    private void FixedUpdate()
-    {
 
         #region Movement
         if (Mathf.Abs(movementInput.x) > 0.01f)
         {
-            targetMovement.x = Mathf.Lerp(targetMovement.x, movementInput.x * topSpeed, Time.fixedDeltaTime * acceleration); ;
+            targetMovement.x = Mathf.Lerp(targetMovement.x, movementInput.x * topSpeed, Time.deltaTime * acceleration); ;
         }
         else
-            targetMovement.x = Mathf.Lerp(targetMovement.x, 0.0f, Time.fixedDeltaTime * deceleration);
+            targetMovement.x = Mathf.Lerp(targetMovement.x, 0.0f, Time.deltaTime * deceleration);
 
         #endregion
 
@@ -87,7 +85,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (inCoyote)
         {
-            coyoteTimer -= Time.fixedDeltaTime;
+            coyoteTimer -= Time.deltaTime;
             if (coyoteTimer < 0.0f)
             {
                 inCoyote = false;
@@ -104,9 +102,9 @@ public class PlayerMovement : MonoBehaviour
             inputBufferTimer = inputBuffer;
         }
 
-        if(inBuffer)
+        if (inBuffer)
         {
-            inputBufferTimer -= Time.fixedDeltaTime;
+            inputBufferTimer -= Time.deltaTime;
             if (inputBufferTimer < 0.0f)
             {
                 inBuffer = false;
@@ -127,15 +125,24 @@ public class PlayerMovement : MonoBehaviour
         targetMovement.y = rb.velocity.y;
 
         if (!IsGrounded())
-            targetMovement.y += gravity * Time.fixedDeltaTime;
+        {
+            targetMovement.y += gravity * Time.deltaTime;
+        }
         else
             targetMovement.y = 0.0f;
 
         #endregion
+        Debug.Log(targetMovement);
 
         rb.velocity = targetMovement;
 
         prevGrounded = IsGrounded();
+    }
+
+    private void FixedUpdate()
+    {
+
+       
     }
 
     bool IsGrounded()
