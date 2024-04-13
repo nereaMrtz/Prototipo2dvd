@@ -25,17 +25,19 @@ public class PlayerMovement : MonoBehaviour
     public float groundedRayLength = 0.1f;
     public float gravity = -10.0f;
     public GameObject groundCheck;
+    public GameObject rightCheck;
+    public GameObject leftCheck;
 
     [Header("Coyote Time")]
     [Tooltip("This marks the time the player will have to jump after it leaves contact with the ground")]
-    public float coyoteTime = .5f;
+    public float coyoteTime = 0.5f;
     private float coyoteTimer;
     private bool inCoyote = false;
     private bool prevGrounded;
 
     [Header("InputBuffer")]
     [Tooltip("This is the time during which the player will jump as soon as it makes contat with the ground")]
-    public float inputBuffer = .5f;
+    public float inputBuffer = 0.5f;
     private float inputBufferTimer;
     private bool inBuffer = false;
 
@@ -64,14 +66,17 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         movementInput.Normalize();
+    }
 
+    private void FixedUpdate()
+    {
         #region Movement
         if (Mathf.Abs(movementInput.x) > 0.01f)
         {
-            targetMovement.x = Mathf.Lerp(targetMovement.x, movementInput.x * topSpeed, Time.deltaTime * acceleration); ;
+            targetMovement.x = Mathf.Lerp(targetMovement.x, movementInput.x * topSpeed, Time.fixedDeltaTime * acceleration); ;
         }
         else
-            targetMovement.x = Mathf.Lerp(targetMovement.x, 0.0f, Time.deltaTime * deceleration);
+            targetMovement.x = Mathf.Lerp(targetMovement.x, 0.0f, Time.fixedDeltaTime * deceleration);
 
         #endregion
 
@@ -85,8 +90,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (inCoyote)
         {
-            coyoteTimer -= Time.deltaTime;
-            if (coyoteTimer < 0.0f)
+            coyoteTimer -= Time.fixedDeltaTime;
+            if (coyoteTimer <= 0.0f)
             {
                 inCoyote = false;
             }
@@ -104,8 +109,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (inBuffer)
         {
-            inputBufferTimer -= Time.deltaTime;
-            if (inputBufferTimer < 0.0f)
+            inputBufferTimer -= Time.fixedDeltaTime;
+            if (inputBufferTimer <= 0.0f)
             {
                 inBuffer = false;
             }
@@ -117,32 +122,31 @@ public class PlayerMovement : MonoBehaviour
 
         if ((jumpInput || inBuffer) && (IsGrounded() || inCoyote))
         {
+
             rb.AddForce(Vector3.up * jumpForce);
             inCoyote = false;
             inBuffer = false;
+            jumpInput = false;
         }
 
-        targetMovement.y = rb.velocity.y;
+        if (!(IsCollidingLeft() || IsCollidingRight()))
+            targetMovement.y = rb.velocity.y;
 
         if (!IsGrounded())
         {
-            targetMovement.y += gravity * Time.deltaTime;
+            float gravinc = gravity * Time.fixedDeltaTime;
+            targetMovement.y += gravinc;
         }
         else
             targetMovement.y = 0.0f;
 
         #endregion
-        Debug.Log(targetMovement);
 
         rb.velocity = targetMovement;
 
         prevGrounded = IsGrounded();
-    }
 
-    private void FixedUpdate()
-    {
 
-       
     }
 
     bool IsGrounded()
@@ -150,9 +154,19 @@ public class PlayerMovement : MonoBehaviour
         return Physics.OverlapSphere(groundCheck.transform.position, 0.2f).Length > 1;
     }
 
+    bool IsCollidingRight()
+    {
+        return Physics.OverlapSphere(rightCheck.transform.position, 0.2f).Length > 1;
+    }
+    bool IsCollidingLeft()
+    {
+        return Physics.OverlapSphere(leftCheck.transform.position, 0.2f).Length > 1;
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawSphere(groundCheck.transform.position, 0.2f);
     }
+
 }
