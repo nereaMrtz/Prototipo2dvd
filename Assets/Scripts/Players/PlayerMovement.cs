@@ -120,6 +120,13 @@ public class PlayerMovement : MonoBehaviour
 
         #region Jump
 
+        if ((IsCollidingLeft() && movementInput.x<0.0f) || (IsCollidingRight()&& movementInput.x > 0.0f))
+        {
+            targetMovement.x = 0.0f;
+            Debug.Log("a");
+        }
+
+
         if ((jumpInput || inBuffer) && (IsGrounded() || inCoyote))
         {
 
@@ -129,8 +136,8 @@ public class PlayerMovement : MonoBehaviour
             jumpInput = false;
         }
 
-        if (!(IsCollidingLeft() || IsCollidingRight()))
-            targetMovement.y = rb.velocity.y;
+
+        targetMovement.y = rb.velocity.y;
 
         if (!IsGrounded())
         {
