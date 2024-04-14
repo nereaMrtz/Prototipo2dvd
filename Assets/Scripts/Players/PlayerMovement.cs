@@ -155,7 +155,8 @@ public class PlayerMovement : MonoBehaviour
 
             if ((jumpInput || inBuffer) && (IsGrounded() || inCoyote))
             {
-
+                if (inCoyote)
+                    movementInput.y = 0.0f;
                 rb.AddForce(Vector3.up * jumpForce);
                 inCoyote = false;
                 inBuffer = false;

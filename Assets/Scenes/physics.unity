@@ -520,8 +520,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 352962030}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.04, y: 1.7782108, z: -0.5617545}
-  m_LocalScale: {x: 6.2375, y: 3.6375, z: 1}
+  m_LocalPosition: {x: 7.04, y: 1.0241, z: -0.5617545}
+  m_LocalScale: {x: 6.2375, y: 2.1293924, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1076,30 +1076,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3368635915266414580, guid: 50fbc1eb949061b4b8707e5f6a558657, type: 3}
-      propertyPath: fallDeathClip
-      value: 
-      objectReference: {fileID: 8300000, guid: d57d946e77fbcd24ba5f02c27f22cc26, type: 3}
-    - target: {fileID: 3368635915266414580, guid: 50fbc1eb949061b4b8707e5f6a558657, type: 3}
-      propertyPath: damagelDeathClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 10d967014c8fba347933c4b9b639ee76, type: 3}
-    - target: {fileID: 3821680850090979460, guid: 50fbc1eb949061b4b8707e5f6a558657, type: 3}
-      propertyPath: jumpClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 194f934ce3f547349bc44a3189509a5d, type: 3}
-    - target: {fileID: 3821680850090979460, guid: 50fbc1eb949061b4b8707e5f6a558657, type: 3}
-      propertyPath: cursedMat
-      value: 
-      objectReference: {fileID: 2100000, guid: c73d46928ec1139479e77355f4bf266f, type: 2}
-    - target: {fileID: 3821680850090979460, guid: 50fbc1eb949061b4b8707e5f6a558657, type: 3}
-      propertyPath: normalMat
-      value: 
-      objectReference: {fileID: 2100000, guid: eed87166b238e464cb2b65ad5991faf4, type: 2}
-    - target: {fileID: 3821680850090979460, guid: 50fbc1eb949061b4b8707e5f6a558657, type: 3}
-      propertyPath: curseChangeClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 9fa0332c1b52eb543971594bef7363d4, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1476,7 +1452,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8563523874756356995, guid: 34415a3b8b5b5d24eba92fc503f3ce44, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.855998
+      value: -2.19
       objectReference: {fileID: 0}
     - target: {fileID: 8563523874756356995, guid: 34415a3b8b5b5d24eba92fc503f3ce44, type: 3}
       propertyPath: m_LocalPosition.y
