@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4453756275418576}
   - component: {fileID: 33377405970874140}
   - component: {fileID: 23821188417753568}
-  - component: {fileID: 5810288848945098093}
+  - component: {fileID: 3209207624755581644}
   m_Layer: 0
   m_Name: deco_woodtop2_LOD1
   m_TagString: Untagged
@@ -84,8 +84,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &5810288848945098093
-MeshCollider:
+--- !u!65 &3209207624755581644
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -102,10 +102,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300002, guid: d6ebe56c4f95cb745820b57f55fdf8a6, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 1.1264389, y: 0.36644885, z: 1.1137497}
+  m_Center: {x: -0.00091323256, y: 0.4082269, z: 0}
 --- !u!1 &1182468726374368
 GameObject:
   m_ObjectHideFlags: 0
@@ -117,7 +116,7 @@ GameObject:
   - component: {fileID: 4401467834042326}
   - component: {fileID: 33608330803418812}
   - component: {fileID: 23025717553029652}
-  - component: {fileID: 3742022166669678417}
+  - component: {fileID: 5953496460960641329}
   m_Layer: 0
   m_Name: deco_woodtop2_LOD0
   m_TagString: Untagged
@@ -190,8 +189,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &3742022166669678417
-MeshCollider:
+--- !u!65 &5953496460960641329
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -208,10 +207,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: d6ebe56c4f95cb745820b57f55fdf8a6, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 1.1264389, y: 0.36644885, z: 1.1260974}
+  m_Center: {x: -0.00091323256, y: 0.4082269, z: 0}
 --- !u!1 &1417800577002286
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,7 +221,7 @@ GameObject:
   - component: {fileID: 4293003952814470}
   - component: {fileID: 33454381814008366}
   - component: {fileID: 23433736188680364}
-  - component: {fileID: 4813368047927722731}
+  - component: {fileID: 5671979992264689694}
   m_Layer: 0
   m_Name: deco_woodtop2_LOD2
   m_TagString: Untagged
@@ -296,8 +294,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &4813368047927722731
-MeshCollider:
+--- !u!65 &5671979992264689694
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -314,10 +312,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300004, guid: d6ebe56c4f95cb745820b57f55fdf8a6, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 1.0955906, y: 0.3356442, z: 1.0689015}
+  m_Center: {x: -0.00091323256, y: 0.4074678, z: 0}
 --- !u!1 &1645964573084016
 GameObject:
   m_ObjectHideFlags: 0

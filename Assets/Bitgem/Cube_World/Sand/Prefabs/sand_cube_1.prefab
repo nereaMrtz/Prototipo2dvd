@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 4075357896251972}
   - component: {fileID: 33480777705743456}
   - component: {fileID: 23195945936206376}
-  - component: {fileID: 3915134263683290122}
+  - component: {fileID: 6170094565465258305}
   m_Layer: 0
   m_Name: sand1_block_1_LOD0
   m_TagString: Untagged
@@ -146,8 +146,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &3915134263683290122
-MeshCollider:
+--- !u!65 &6170094565465258305
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -164,10 +164,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: e2bcd16def08fe54ea7282bb8a1b910d, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 1.0836195, y: 1.0855975, z: 1.0857564}
+  m_Center: {x: 0, y: 0.0009890199, z: 0.0009647608}
 --- !u!1 &1551895293047554
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,7 +178,7 @@ GameObject:
   - component: {fileID: 4025345635521308}
   - component: {fileID: 33636475761025660}
   - component: {fileID: 23976633878134038}
-  - component: {fileID: 2741851862704854594}
+  - component: {fileID: 5421271273536034730}
   m_Layer: 0
   m_Name: sand1_block_1_LOD1
   m_TagString: Untagged
@@ -252,8 +251,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &2741851862704854594
-MeshCollider:
+--- !u!65 &5421271273536034730
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -270,10 +269,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300002, guid: e2bcd16def08fe54ea7282bb8a1b910d, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 1.0834382, y: 1.0841185, z: 1.0845308}
+  m_Center: {x: 0.000007927418, y: 0.0003361702, z: 0.0015635192}
 --- !u!1 &1575991780313180
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,7 +283,7 @@ GameObject:
   - component: {fileID: 4405909212357890}
   - component: {fileID: 33606228456968480}
   - component: {fileID: 23027867755898134}
-  - component: {fileID: 7188655250945379947}
+  - component: {fileID: 6626493398730225517}
   m_Layer: 0
   m_Name: sand1_block_1_LOD2
   m_TagString: Untagged
@@ -358,8 +356,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &7188655250945379947
-MeshCollider:
+--- !u!65 &6626493398730225517
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -376,7 +374,6 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300004, guid: e2bcd16def08fe54ea7282bb8a1b910d, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1.0007991, z: 1.0010753}
+  m_Center: {x: 0, y: 0.00039952993, z: 0.0005376637}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4171388511851998}
   - component: {fileID: 33167737266866698}
   - component: {fileID: 23424931261778026}
-  - component: {fileID: 3777477348522291484}
+  - component: {fileID: 1057733499065551725}
   m_Layer: 0
   m_Name: block_wood2_LOD0
   m_TagString: Untagged
@@ -84,8 +84,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &3777477348522291484
-MeshCollider:
+--- !u!65 &1057733499065551725
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -102,10 +102,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 662936655e3d5134b9fd845c4c8f058b, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 1.0859774, y: 1.0867765, z: 1.0859774}
+  m_Center: {x: 0, y: 0.00039952993, z: 0.0010752678}
 --- !u!1 &1439347048209302
 GameObject:
   m_ObjectHideFlags: 0
@@ -117,7 +116,7 @@ GameObject:
   - component: {fileID: 4894227599127952}
   - component: {fileID: 33835602416035824}
   - component: {fileID: 23432883848252876}
-  - component: {fileID: 8617384133614837081}
+  - component: {fileID: 686619147672934887}
   m_Layer: 0
   m_Name: block_wood2_LOD1
   m_TagString: Untagged
@@ -190,8 +189,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &8617384133614837081
-MeshCollider:
+--- !u!65 &686619147672934887
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -208,10 +207,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300002, guid: 662936655e3d5134b9fd845c4c8f058b, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 1.0859774, y: 1.0867765, z: 1.0859774}
+  m_Center: {x: 0, y: 0.00039952993, z: 0.0010752678}
 --- !u!1 &1666009160431028
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,7 +283,7 @@ GameObject:
   - component: {fileID: 4016916685360432}
   - component: {fileID: 33051322999019816}
   - component: {fileID: 23176757284079380}
-  - component: {fileID: 2834023683522536929}
+  - component: {fileID: 8778399746417071739}
   m_Layer: 0
   m_Name: block_wood2_LOD2
   m_TagString: Untagged
@@ -358,8 +356,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &2834023683522536929
-MeshCollider:
+--- !u!65 &8778399746417071739
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -376,7 +374,6 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300004, guid: 662936655e3d5134b9fd845c4c8f058b, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1.0007992, z: 1.0010753}
+  m_Center: {x: 0, y: 0.00039955974, z: 0.0005376637}

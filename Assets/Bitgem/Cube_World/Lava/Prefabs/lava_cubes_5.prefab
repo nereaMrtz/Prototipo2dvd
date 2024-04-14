@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4373208794922686}
   - component: {fileID: 33545901521855992}
   - component: {fileID: 23475240892405454}
-  - component: {fileID: 4922817833493458725}
+  - component: {fileID: 8615643721820595741}
   m_Layer: 0
   m_Name: block_lava1_5_LOD0
   m_TagString: Untagged
@@ -84,8 +84,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &4922817833493458725
-MeshCollider:
+--- !u!65 &8615643721820595741
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -102,10 +102,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 977ee00416273b342be755d46d2bd5dc, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 1.1384583, y: 1.1392959, z: 1.1384583}
+  m_Center: {x: 0, y: 0.00039952993, z: 0.0010752976}
 --- !u!1 &1298528465503338
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,7 +178,7 @@ GameObject:
   - component: {fileID: 4516699871876836}
   - component: {fileID: 33457524602389924}
   - component: {fileID: 23331263213036126}
-  - component: {fileID: 9107484080945530785}
+  - component: {fileID: 702939334221958464}
   m_Layer: 0
   m_Name: block_lava1_5_LOD1
   m_TagString: Untagged
@@ -252,8 +251,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &9107484080945530785
-MeshCollider:
+--- !u!65 &702939334221958464
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -270,10 +269,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300002, guid: 977ee00416273b342be755d46d2bd5dc, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 1.1384583, y: 1.1392959, z: 1.1384583}
+  m_Center: {x: 0, y: 0.00039952993, z: 0.0010752976}
 --- !u!1 &1589726792374110
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,7 +283,7 @@ GameObject:
   - component: {fileID: 4841155338701294}
   - component: {fileID: 33837078685101924}
   - component: {fileID: 23979840634480632}
-  - component: {fileID: 7796465325673971084}
+  - component: {fileID: 5927222189328231798}
   m_Layer: 0
   m_Name: block_lava1_5_LOD2
   m_TagString: Untagged
@@ -358,8 +356,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &7796465325673971084
-MeshCollider:
+--- !u!65 &5927222189328231798
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -376,7 +374,6 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300004, guid: 977ee00416273b342be755d46d2bd5dc, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 1.0000007, y: 1.0000007, z: 1.0000007}
+  m_Center: {x: 0, y: 0, z: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4629535482307536}
   - component: {fileID: 33647068132007214}
   - component: {fileID: 23906859949681380}
-  - component: {fileID: 2003036808057386304}
+  - component: {fileID: 7628971487293328202}
   m_Layer: 0
   m_Name: block_stone1_3_half_LOD1
   m_TagString: Untagged
@@ -84,8 +84,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &2003036808057386304
-MeshCollider:
+--- !u!65 &7628971487293328202
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -102,10 +102,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300002, guid: fc3158aba30d0534abf6cf57dd3ed046, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 1.0415306, y: 0.546138, z: 1.0446028}
+  m_Center: {x: 0, y: 0.25192854, z: 0}
 --- !u!1 &1371404333480256
 GameObject:
   m_ObjectHideFlags: 0
@@ -117,7 +116,7 @@ GameObject:
   - component: {fileID: 4020996031285076}
   - component: {fileID: 33579030087843228}
   - component: {fileID: 23307943882253620}
-  - component: {fileID: 2542099999860419602}
+  - component: {fileID: 1543528924750457444}
   m_Layer: 0
   m_Name: block_stone1_3_half_LOD2
   m_TagString: Untagged
@@ -190,8 +189,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &2542099999860419602
-MeshCollider:
+--- !u!65 &1543528924750457444
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -208,10 +207,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300004, guid: fc3158aba30d0534abf6cf57dd3ed046, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 1, y: 0.5038571, z: 1}
+  m_Center: {x: 0, y: 0.25192854, z: 0}
 --- !u!1 &1617307599804500
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,7 +221,7 @@ GameObject:
   - component: {fileID: 4803946687100692}
   - component: {fileID: 33348353043599582}
   - component: {fileID: 23913403919775330}
-  - component: {fileID: 7053007494554512983}
+  - component: {fileID: 2679542788881932175}
   m_Layer: 0
   m_Name: block_stone1_3_half_LOD0
   m_TagString: Untagged
@@ -296,8 +294,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &7053007494554512983
-MeshCollider:
+--- !u!65 &2679542788881932175
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -314,10 +312,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: fc3158aba30d0534abf6cf57dd3ed046, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 1.0540344, y: 0.5719653, z: 1.0564241}
+  m_Center: {x: 0, y: 0.25192854, z: 0}
 --- !u!1 &1620647005149138
 GameObject:
   m_ObjectHideFlags: 0

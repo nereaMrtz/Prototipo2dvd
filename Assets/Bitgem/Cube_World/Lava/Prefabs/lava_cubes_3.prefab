@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4701539062940898}
   - component: {fileID: 33420512167714456}
   - component: {fileID: 23933636626728160}
-  - component: {fileID: 8079982547252587515}
+  - component: {fileID: 4087591392143261930}
   m_Layer: 0
   m_Name: block_lava1_3_LOD0
   m_TagString: Untagged
@@ -84,8 +84,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &8079982547252587515
-MeshCollider:
+--- !u!65 &4087591392143261930
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -102,10 +102,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 7fd743c051894c64f84c3bc8aab9d73e, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 1.1384583, y: 1.1392959, z: 1.1384583}
+  m_Center: {x: 0, y: 0.00039952993, z: 0.0010752976}
 --- !u!1 &1361614467346062
 GameObject:
   m_ObjectHideFlags: 0
@@ -117,7 +116,7 @@ GameObject:
   - component: {fileID: 4714904429083532}
   - component: {fileID: 33138500255127342}
   - component: {fileID: 23749135503434876}
-  - component: {fileID: 5316520206745104196}
+  - component: {fileID: 330021771354987237}
   m_Layer: 0
   m_Name: block_lava1_3_LOD2
   m_TagString: Untagged
@@ -190,8 +189,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &5316520206745104196
-MeshCollider:
+--- !u!65 &330021771354987237
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -208,10 +207,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300004, guid: 7fd743c051894c64f84c3bc8aab9d73e, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 1.0000007, y: 1.0000007, z: 1.0000007}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1432235849829698
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,7 +221,7 @@ GameObject:
   - component: {fileID: 4905434235738282}
   - component: {fileID: 33155261854731984}
   - component: {fileID: 23837109706549402}
-  - component: {fileID: 7077040806820678174}
+  - component: {fileID: 8578387685915435411}
   m_Layer: 0
   m_Name: block_lava1_3_LOD1
   m_TagString: Untagged
@@ -296,8 +294,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &7077040806820678174
-MeshCollider:
+--- !u!65 &8578387685915435411
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -314,10 +312,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300002, guid: 7fd743c051894c64f84c3bc8aab9d73e, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 1.1384583, y: 1.1392959, z: 1.1384583}
+  m_Center: {x: 0, y: 0.00039952993, z: 0.0010752976}
 --- !u!1 &1981395108020200
 GameObject:
   m_ObjectHideFlags: 0
@@ -351,7 +348,7 @@ Transform:
   - {fileID: 4905434235738282}
   - {fileID: 4714904429083532}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!205 &205329768713663748
 LODGroup:
