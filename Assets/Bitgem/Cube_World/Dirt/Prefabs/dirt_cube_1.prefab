@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4054296229388180}
   - component: {fileID: 33971238947669658}
   - component: {fileID: 23483328378156216}
+  - component: {fileID: 917336600964921893}
   m_Layer: 0
   m_Name: block_dirt1_1_LOD0
   m_TagString: Untagged

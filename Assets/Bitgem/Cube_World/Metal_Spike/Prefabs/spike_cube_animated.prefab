@@ -183,12 +183,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.3475113, y: 0.8960438, z: 0.44173256}
-  m_Center: {x: 0.014980316, y: 0.4527922, z: 0.00000010430813}
+  m_Size: {x: 0.3475113, y: 0.6861672, z: 0.44173256}
+  m_Center: {x: 0.014980316, y: 0.34785396, z: 0.00000010430813}
 --- !u!1 &1615758579433740
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,7 +200,8 @@ GameObject:
   - component: {fileID: 4601749878212138}
   - component: {fileID: 33796018192584818}
   - component: {fileID: 23679687716586154}
-  m_Layer: 0
+  - component: {fileID: 3862817408325647869}
+  m_Layer: 12
   m_Name: deco_spike1_animated_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -272,6 +273,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3862817408325647869
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615758579433740}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.3475113, y: 0.6861672, z: 0.44173256}
+  m_Center: {x: 0.014980316, y: 0.34785396, z: 0.00000010430813}
 --- !u!1 &1633785859523546
 GameObject:
   m_ObjectHideFlags: 0
@@ -384,14 +406,14 @@ Transform:
   m_GameObject: {fileID: 1650811508528622}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4062983063451478}
   - {fileID: 4749439023917070}
   - {fileID: 4606432478783084}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &95822264180264630
 Animator:
@@ -463,8 +485,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1.2779372, z: 1}
-  m_Center: {x: 0, y: 0.13896859, z: 0}
+  m_Size: {x: 1, y: 1.04369, z: 1}
+  m_Center: {x: 0, y: 0.021845102, z: 0}
 --- !u!1 &1850135591187540
 GameObject:
   m_ObjectHideFlags: 0
@@ -560,7 +582,8 @@ GameObject:
   - component: {fileID: 4723214379150784}
   - component: {fileID: 33620218660355336}
   - component: {fileID: 23656386598085520}
-  m_Layer: 0
+  - component: {fileID: 4220517481677582258}
+  m_Layer: 12
   m_Name: deco_spike1_animated_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -632,3 +655,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4220517481677582258
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1898261181076334}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.3475113, y: 0.6861672, z: 0.44173256}
+  m_Center: {x: 0.014980316, y: 0.34785396, z: 0.00000010430813}

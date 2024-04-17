@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4401467834042326}
   - component: {fileID: 33608330803418812}
   - component: {fileID: 23025717553029652}
-  - component: {fileID: 3742022166669678417}
+  - component: {fileID: 5953496460960641329}
   m_Layer: 0
   m_Name: deco_woodtop2_LOD0
   m_TagString: Untagged
@@ -84,8 +84,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &3742022166669678417
-MeshCollider:
+--- !u!65 &5953496460960641329
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
