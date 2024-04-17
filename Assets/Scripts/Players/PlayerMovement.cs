@@ -11,7 +11,7 @@ using UnityEngine.Rendering;
 
 public class PlayerMovement : MonoBehaviour
 {
-    
+
     [SerializeField] Rigidbody rb;
 
     private Vector2 movementInput;
@@ -178,16 +178,19 @@ public class PlayerMovement : MonoBehaviour
 
     bool IsGrounded()
     {
-        return Physics.OverlapSphere(groundCheck.transform.position, 0.2f).Length > 1;
+        //layerMask |= (1 << 0);//Include layer 0
+        //layerMask |= (0 << 15);//Exclude layer 15
+        //Debug.Log( layerMask);
+        return Physics.OverlapSphere(groundCheck.transform.position, 0.2f, 1 << 0 |1<<8|1<<9).Length > 1;
     }
 
     bool IsCollidingRight()
     {
-        return Physics.OverlapSphere(rightCheck.transform.position, 0.2f).Length > 1;
+        return Physics.OverlapSphere(rightCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9).Length > 1;
     }
     bool IsCollidingLeft()
     {
-        return Physics.OverlapSphere(leftCheck.transform.position, 0.2f).Length > 1;
+        return Physics.OverlapSphere(leftCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9).Length > 1;
     }
 
     private void OnDrawGizmos()

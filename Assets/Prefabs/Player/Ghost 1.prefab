@@ -541,6 +541,9 @@ PrefabInstance:
       addedObject: {fileID: 6995723414481044536}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 46f311046d2104da8b56be3d0a49a119, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 3821680850090979460}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 46f311046d2104da8b56be3d0a49a119, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 9038420892246066334}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 46f311046d2104da8b56be3d0a49a119, type: 3}
       insertIndex: -1
@@ -554,9 +557,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 46f311046d2104da8b56be3d0a49a119, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5933811416692483050}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 46f311046d2104da8b56be3d0a49a119, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3821680850090979460}
   m_SourcePrefab: {fileID: 100100000, guid: 46f311046d2104da8b56be3d0a49a119, type: 3}
 --- !u!1 &132757771941164612 stripped
 GameObject:
@@ -584,6 +584,31 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3821680850090979460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132757771941164612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a87c6becc2e481c448faf1cbf9874fd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pMovement: {fileID: 9038420892246066334}
+  otherPlayer: {fileID: 0}
+  curse: 0
+  normalMat: {fileID: 2100000, guid: eed87166b238e464cb2b65ad5991faf4, type: 2}
+  cursedMat: {fileID: 2100000, guid: c73d46928ec1139479e77355f4bf266f, type: 2}
+  ghostParticles: {fileID: 300329246249051214}
+  isFirstLevel: 0
+  jumpClip: {fileID: 8300000, guid: 194f934ce3f547349bc44a3189509a5d, type: 3}
+  jumpClipName: Jump
+  curseChangeClip: {fileID: 8300000, guid: 9fa0332c1b52eb543971594bef7363d4, type: 3}
+  curseChangeClipName: Curse Change
+  curseEffect: {fileID: 8865115791382537839}
+  animator: {fileID: 289529880358551730}
 --- !u!114 &9038420892246066334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -714,8 +739,8 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 5dd71699-c2b0-4d4b-bdfc-8811ffa75f86
     m_ActionName: Player/Dialog[/XInputControllerWindows/buttonEast]
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: Gamepad
+  m_NeverAutoSwitchControlSchemes: 1
+  m_DefaultControlScheme: Keyboard
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
@@ -785,31 +810,6 @@ CapsuleCollider:
   m_Height: 1.1588728
   m_Direction: 1
   m_Center: {x: 1.2392621e-18, y: 0.44702613, z: 0.015712202}
---- !u!114 &3821680850090979460
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 132757771941164612}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a87c6becc2e481c448faf1cbf9874fd6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pMovement: {fileID: 9038420892246066334}
-  otherPlayer: {fileID: 0}
-  curse: 0
-  normalMat: {fileID: 2100000, guid: eed87166b238e464cb2b65ad5991faf4, type: 2}
-  cursedMat: {fileID: 2100000, guid: c73d46928ec1139479e77355f4bf266f, type: 2}
-  ghostParticles: {fileID: 300329246249051214}
-  isFirstLevel: 0
-  jumpClip: {fileID: 8300000, guid: 194f934ce3f547349bc44a3189509a5d, type: 3}
-  jumpClipName: Jump
-  curseChangeClip: {fileID: 8300000, guid: 9fa0332c1b52eb543971594bef7363d4, type: 3}
-  curseChangeClipName: Curse Change
-  curseEffect: {fileID: 8865115791382537839}
-  animator: {fileID: 289529880358551730}
 --- !u!4 &764616680642571518 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 46f311046d2104da8b56be3d0a49a119, type: 3}
