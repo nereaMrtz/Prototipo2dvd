@@ -12,13 +12,13 @@ GameObject:
   - component: {fileID: 33929447014779690}
   - component: {fileID: 23941100420177572}
   - component: {fileID: 4480794669658493417}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: block_wood3_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4130600568382530
 Transform:
   m_ObjectHideFlags: 0
@@ -115,7 +115,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4451261231430844}
-  - component: {fileID: 205937486212250936}
   - component: {fileID: 6731908871850475540}
   m_Layer: 12
   m_Name: wood_cube_3
@@ -131,9 +130,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1301565480787884}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4896102092294210}
@@ -142,33 +141,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!205 &205937486212250936
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1301565480787884}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: 0, y: 0, z: 0.0010752678}
-  m_Size: 2.14396
-  m_FadeMode: 0
-  m_AnimateCrossFading: 0
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.25
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 23517438394244564}
-  - screenRelativeHeight: 0.125
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 23264991566310114}
-  - screenRelativeHeight: 0.01
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 23941100420177572}
-  m_Enabled: 1
 --- !u!65 &6731908871850475540
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -202,7 +174,7 @@ GameObject:
   - component: {fileID: 33138431754943022}
   - component: {fileID: 23517438394244564}
   - component: {fileID: 1107943031044494563}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: block_wood3_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -308,13 +280,13 @@ GameObject:
   - component: {fileID: 33084631800578426}
   - component: {fileID: 23264991566310114}
   - component: {fileID: 8561914314219492322}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: block_wood3_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4831102072008326
 Transform:
   m_ObjectHideFlags: 0
