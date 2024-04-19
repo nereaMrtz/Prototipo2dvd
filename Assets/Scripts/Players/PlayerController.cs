@@ -54,6 +54,7 @@ public class PlayerController : MonoBehaviour
         if (pMovement == null)
         {
             pMovement = GetComponentInParent<PlayerMovement>();
+            pMovement.curse = curse;
         }
     }
 
