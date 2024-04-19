@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 4075357896251972}
   - component: {fileID: 33480777705743456}
   - component: {fileID: 23195945936206376}
-  - component: {fileID: 3915134263683290122}
+  - component: {fileID: 6170094565465258305}
   m_Layer: 0
   m_Name: sand1_block_1_LOD0
   m_TagString: Untagged
@@ -116,8 +116,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &3915134263683290122
-MeshCollider:
+--- !u!65 &6170094565465258305
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}

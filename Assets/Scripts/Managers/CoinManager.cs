@@ -24,4 +24,9 @@ public class CoinManager : MonoBehaviour
     {
         coins++;
     }
+
+    public int GetCoins()
+    {
+        return coins;
+    }
 }

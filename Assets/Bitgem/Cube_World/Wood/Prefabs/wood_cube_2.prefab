@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4171388511851998}
   - component: {fileID: 33167737266866698}
   - component: {fileID: 23424931261778026}
-  - component: {fileID: 3777477348522291484}
+  - component: {fileID: 1057733499065551725}
   m_Layer: 0
   m_Name: block_wood2_LOD0
   m_TagString: Untagged
@@ -84,8 +84,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &3777477348522291484
-MeshCollider:
+--- !u!65 &1057733499065551725
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}

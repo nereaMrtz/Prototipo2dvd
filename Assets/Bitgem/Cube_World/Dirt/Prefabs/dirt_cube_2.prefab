@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 4607915937060534}
   - component: {fileID: 33899559474671262}
   - component: {fileID: 23457146916277990}
-  - component: {fileID: 7978508762597568913}
+  - component: {fileID: 1937650141226510959}
   m_Layer: 0
   m_Name: block_dirt1_2_LOD0
   m_TagString: Untagged
@@ -116,8 +116,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &7978508762597568913
-MeshCollider:
+--- !u!65 &1937650141226510959
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}

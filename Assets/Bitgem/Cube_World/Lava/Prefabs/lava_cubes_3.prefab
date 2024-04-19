@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4701539062940898}
   - component: {fileID: 33420512167714456}
   - component: {fileID: 23933636626728160}
-  - component: {fileID: 8079982547252587515}
+  - component: {fileID: 4087591392143261930}
   m_Layer: 0
   m_Name: block_lava1_3_LOD0
   m_TagString: Untagged
@@ -84,8 +84,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &8079982547252587515
-MeshCollider:
+--- !u!65 &4087591392143261930
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
