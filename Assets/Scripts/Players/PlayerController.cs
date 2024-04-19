@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] string curseChangeClipName;
 
     [SerializeField] VisualEffect curseEffect;
+    [SerializeField] VisualEffect cursedEffect;
 
     [SerializeField] private Animator animator;
     private void Start()
@@ -49,6 +50,10 @@ public class PlayerController : MonoBehaviour
         if (!curse)
         {
             ghostParticles.Play();
+        }
+        else
+        {
+            cursedEffect.Play();
         }
 
         if (pMovement == null)
@@ -98,9 +103,11 @@ public class PlayerController : MonoBehaviour
             curseEffect.Play();
             this.gameObject.layer = 9;
             ghostParticles.Stop();
+            cursedEffect.Play();
         }
         else
         {
+            cursedEffect.Stop();
             this.gameObject.layer = 8;
             ghostParticles.Play();
         }
