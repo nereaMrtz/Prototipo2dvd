@@ -47,7 +47,11 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Modificators")]
     public bool movementEnabled = true;
-    [HideInInspector] public bool curse;
+    public bool curse;
+
+    [Header("Animations")]
+    [SerializeField] private Animator animator;
+    private Vector3 lastDirection = Vector3.right;
 
     void Start()
     {
@@ -100,11 +104,17 @@ public class PlayerMovement : MonoBehaviour
 
             if (Mathf.Abs(movementInput.x) > 0.01f)
             {
-                targetMovement.x = Mathf.Lerp(targetMovement.x, movementInput.x * topSpeed, Time.fixedDeltaTime * acceleration); ;
+                targetMovement.x = Mathf.Lerp(targetMovement.x, movementInput.x * topSpeed, Time.fixedDeltaTime * acceleration);
+                animator.SetBool("IsWalking", true);
+                lastDirection.x = movementInput.x;
             }
             else
+            {
+                animator.SetBool("IsWalking", false);
                 targetMovement.x = Mathf.Lerp(targetMovement.x, 0.0f, Time.fixedDeltaTime * deceleration);
+            }
 
+            animator.transform.forward = lastDirection;
             #endregion
 
             #region Coyote Time
@@ -180,7 +190,7 @@ public class PlayerMovement : MonoBehaviour
     bool IsGrounded()
     {
         if (curse)
-            return Physics.OverlapSphere(groundCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 1 << 7, QueryTriggerInteraction.Ignore).Length > 1;
+            return Physics.OverlapSphere(groundCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 1 << 6, QueryTriggerInteraction.Ignore).Length > 1;
         else
             return Physics.OverlapSphere(groundCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 1 << 7, QueryTriggerInteraction.Ignore).Length > 1;
     }
@@ -188,14 +198,14 @@ public class PlayerMovement : MonoBehaviour
     bool IsCollidingRight()
     {
         if (curse)
-            return Physics.OverlapSphere(rightCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 1 << 7, QueryTriggerInteraction.Ignore).Length > 1;
+            return Physics.OverlapSphere(rightCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 1 << 6, QueryTriggerInteraction.Ignore).Length > 1;
         else
             return Physics.OverlapSphere(rightCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 1 << 7, QueryTriggerInteraction.Ignore).Length > 1;
     }
     bool IsCollidingLeft()
     {
         if (curse)
-            return Physics.OverlapSphere(leftCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 1 << 7, QueryTriggerInteraction.Ignore).Length > 1;
+            return Physics.OverlapSphere(leftCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 1 << 6, QueryTriggerInteraction.Ignore).Length > 1;
         else
             return Physics.OverlapSphere(leftCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 1 << 7, QueryTriggerInteraction.Ignore).Length > 1;
     }

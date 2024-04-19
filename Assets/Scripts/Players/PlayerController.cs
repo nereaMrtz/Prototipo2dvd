@@ -39,7 +39,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] VisualEffect curseEffect;
     [SerializeField] VisualEffect cursedEffect;
 
-    [SerializeField] private Animator animator;
     private void Start()
     {
         if (SceneManager.GetActiveScene().name == "L1_M1" /*|| SceneManager.GetActiveScene().name == "VFX Scene"*/)
@@ -82,7 +81,6 @@ public class PlayerController : MonoBehaviour
                 otherPlayer.ChangeMaldicion();
                 ChangeMaldicion();
             }
-            //sound.maldicion.Play();
         }
     }
 
