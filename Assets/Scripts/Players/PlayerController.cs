@@ -103,6 +103,7 @@ public class PlayerController : MonoBehaviour
             this.gameObject.layer = 8;
             ghostParticles.Play();
         }
+            pMovement.curse=curse; 
 
         AudioManager.Instance.LoadSFX(curseChangeClipName, curseChangeClip);
         AudioManager.Instance.PlaySFX(curseChangeClipName);
@@ -110,6 +111,9 @@ public class PlayerController : MonoBehaviour
 
     public void SetStopMovement(bool set)
     {
-        pMovement.movementEnabled = set;
+        if(set)
+        pMovement.movementEnabled = false;
+        else
+        pMovement.movementEnabled = true;
     }
 }
