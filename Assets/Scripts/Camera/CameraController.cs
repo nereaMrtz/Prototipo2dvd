@@ -65,7 +65,6 @@ public class CameraController : MonoBehaviour
         {
             Debug.Log("B");
             target2.GetComponent<RespawnManager>().RespawnCamera();
-            Debug.Log("A");
         }
 
         if (target1 != null && target1.GetComponent<RespawnManager>() != null)
