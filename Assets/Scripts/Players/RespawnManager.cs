@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -54,13 +55,21 @@ public class RespawnManager : MonoBehaviour
 
     public void RespawnCamera()
     {
-        this.gameObject.GetComponent<PlayerMovement>().enabled = false;
-        this.gameObject.transform.position = CheckPointMaster.Instance.GetLastCheckPointPos();
-        this.gameObject.GetComponent<PlayerMovement>().enabled = true;
-        hasRespawned = true;
-        StartCoroutine(HasRespawnedBoolean());
-        AudioManager.Instance.LoadSFX(damagelDeathClipName, damagelDeathClip);
-        AudioManager.Instance.PlaySFX(damagelDeathClipName);
+
+        try
+        {
+            this.gameObject.GetComponent<PlayerMovement>().enabled = false;
+            this.gameObject.transform.position = CheckPointMaster.Instance.GetLastCheckPointPos();
+            this.gameObject.GetComponent<PlayerMovement>().enabled = true;
+            hasRespawned = true;
+            StartCoroutine(HasRespawnedBoolean());
+            AudioManager.Instance.LoadSFX(damagelDeathClipName, damagelDeathClip);
+            AudioManager.Instance.PlaySFX(damagelDeathClipName);
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError("Error en RespawnCamera(): " + ex.Message);
+        }
     }
     IEnumerator HasRespawnedBoolean()
     {
