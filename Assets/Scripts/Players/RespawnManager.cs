@@ -34,7 +34,10 @@ public class RespawnManager : MonoBehaviour
     public void RespawnFall()
     {
         this.gameObject.GetComponent<PlayerMovement>().enabled = false;
-        this.gameObject.transform.position = CheckPointMaster.Instance.GetLastCheckPointPos();
+        if(this.gameObject.tag == "Player1")
+            this.gameObject.transform.position = CheckPointMaster.Instance.GetLastCheckPointPosGhost1();
+        else if(this.gameObject.tag == "Player2")
+            this.gameObject.transform.position = CheckPointMaster.Instance.GetLastCheckPointPosGhost2();
         this.gameObject.GetComponent<PlayerMovement>().enabled = true;
         hasRespawned = true;
         StartCoroutine(HasRespawnedBoolean());
@@ -44,9 +47,13 @@ public class RespawnManager : MonoBehaviour
 
     public void RespawnDamage()
     {
+        Debug.Log(this.gameObject);
         this.gameObject.GetComponent<PlayerMovement>().enabled = false;
-        this.gameObject.transform.position = CheckPointMaster.Instance.GetLastCheckPointPos();
-        this.gameObject.GetComponent<CharacterController>().enabled = true;
+        if (this.gameObject.tag == "Player1")
+            this.gameObject.transform.position = CheckPointMaster.Instance.GetLastCheckPointPosGhost1();
+        else if (this.gameObject.tag == "Player2")
+            this.gameObject.transform.position = CheckPointMaster.Instance.GetLastCheckPointPosGhost2();
+        this.gameObject.GetComponent<PlayerMovement>().enabled = true;
         hasRespawned = true;
         StartCoroutine(HasRespawnedBoolean());
         AudioManager.Instance.LoadSFX(damagelDeathClipName, damagelDeathClip);
@@ -59,12 +66,21 @@ public class RespawnManager : MonoBehaviour
         try
         {
             this.gameObject.GetComponent<PlayerMovement>().enabled = false;
-            this.gameObject.transform.position = CheckPointMaster.Instance.GetLastCheckPointPos();
+            if (this.gameObject.tag == "Player1")
+            {
+                Debug.Log("Respawn player 1");
+                this.gameObject.transform.position = CheckPointMaster.Instance.GetLastCheckPointPosGhost1();
+            }
+            else if (this.gameObject.tag == "Player2")
+            {
+                Debug.Log("Respawn player 2");
+                this.gameObject.transform.position = CheckPointMaster.Instance.GetLastCheckPointPosGhost2(); 
+            }
             this.gameObject.GetComponent<PlayerMovement>().enabled = true;
             hasRespawned = true;
             StartCoroutine(HasRespawnedBoolean());
-            AudioManager.Instance.LoadSFX(damagelDeathClipName, damagelDeathClip);
-            AudioManager.Instance.PlaySFX(damagelDeathClipName);
+            //AudioManager.Instance.LoadSFX(damagelDeathClipName, damagelDeathClip);
+            //AudioManager.Instance.PlaySFX(damagelDeathClipName);
         }
         catch (Exception ex)
         {
@@ -74,7 +90,6 @@ public class RespawnManager : MonoBehaviour
     IEnumerator HasRespawnedBoolean()
     {
         yield return new WaitForNextFrameUnit();
-        Debug.Log(this.gameObject);
         hasRespawned = false;
     }
 }

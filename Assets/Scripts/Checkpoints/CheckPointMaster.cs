@@ -6,7 +6,8 @@ public class CheckPointMaster : MonoBehaviour
 {
     public static CheckPointMaster Instance { get; private set; }
 
-    private Vector3 lastCheckPointPos;
+    private Vector3 lastCheckPointPosGhost1;
+    private Vector3 lastCheckPointPosGhost2;
 
     private void Awake()
     {
@@ -20,13 +21,24 @@ public class CheckPointMaster : MonoBehaviour
         
     }    
 
-    public void SetLastCheckPointPos(Vector3 lastCheckPointPos)
+    public void SetLastCheckPointPosGhost1(Vector3 lastCheckPointPos)
     {
-        this.lastCheckPointPos = lastCheckPointPos;
+        Debug.Log("Ghost 1 checkpoint setted at" + lastCheckPointPos);
+        this.lastCheckPointPosGhost1 = lastCheckPointPos;
+    }
+    public void SetLastCheckPointPosGhost2(Vector3 lastCheckPointPos)
+    {
+        Debug.Log("Ghost 2 checkpoint setted at" + lastCheckPointPos);
+        this.lastCheckPointPosGhost2 = lastCheckPointPos;
     }
 
-    public Vector3 GetLastCheckPointPos()
+    public Vector3 GetLastCheckPointPosGhost1()
     {
-        return this.lastCheckPointPos;
+        return this.lastCheckPointPosGhost1;
+    }
+
+    public Vector3 GetLastCheckPointPosGhost2()
+    {
+        return this.lastCheckPointPosGhost2;
     }
 }
