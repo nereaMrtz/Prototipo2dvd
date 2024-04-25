@@ -65,7 +65,8 @@ public class RespawnManager : MonoBehaviour
 
         try
         {
-            this.gameObject.GetComponent<PlayerMovement>().enabled = false;
+
+            this.gameObject.GetComponent<Rigidbody>().isKinematic = false;
             if (this.gameObject.tag == "Player1")
             {
                 Debug.Log("Respawn player 1");
@@ -76,9 +77,9 @@ public class RespawnManager : MonoBehaviour
                 Debug.Log("Respawn player 2");
                 this.gameObject.transform.position = CheckPointMaster.Instance.GetLastCheckPointPosGhost2(); 
             }
-            this.gameObject.GetComponent<PlayerMovement>().enabled = true;
+            this.gameObject.GetComponent<Rigidbody>().isKinematic = true;
             hasRespawned = true;
-            StartCoroutine(HasRespawnedBoolean());
+            StartCoroutine(HasRespawnedBooleanCamera());
             //AudioManager.Instance.LoadSFX(damagelDeathClipName, damagelDeathClip);
             //AudioManager.Instance.PlaySFX(damagelDeathClipName);
         }
@@ -90,6 +91,12 @@ public class RespawnManager : MonoBehaviour
     IEnumerator HasRespawnedBoolean()
     {
         yield return new WaitForNextFrameUnit();
+        hasRespawned = false;
+    }
+    IEnumerator HasRespawnedBooleanCamera()
+    {
+        yield return new WaitForNextFrameUnit();
+        this.gameObject.GetComponent<Rigidbody>().isKinematic = false;
         hasRespawned = false;
     }
 }
