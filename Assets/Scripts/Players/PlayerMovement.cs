@@ -150,7 +150,6 @@ public class PlayerMovement : MonoBehaviour
             if ((IsCollidingLeft() && movementInput.x < 0.0f) || (IsCollidingRight() && movementInput.x > 0.0f))
             {
                 targetMovement.x = 0.0f;
-                Debug.Log("a");
             }
 
 
@@ -182,23 +181,27 @@ public class PlayerMovement : MonoBehaviour
         if (curse)
             return Physics.OverlapSphere(groundCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 1 << 6 | 0 << 7, QueryTriggerInteraction.Ignore).Length > 1;
         else
-            return Physics.OverlapSphere(groundCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 1 << 7, QueryTriggerInteraction.Ignore).Length > 1;
+            return Physics.OverlapSphere(groundCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 1 << 6, QueryTriggerInteraction.Ignore).Length > 1;
     }
 
     bool IsCollidingRight()
     {
+        bool rtn;
         if (curse)
-            return Physics.OverlapSphere(rightCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 1 << 6 | 0 << 7, QueryTriggerInteraction.Ignore).Length > 1;
+            rtn = Physics.OverlapSphere(rightCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 0 << 6 | 1 << 7, QueryTriggerInteraction.Ignore).Length > 1;
         else
-            return Physics.OverlapSphere(rightCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 1 << 7, QueryTriggerInteraction.Ignore).Length > 1;
+            rtn = Physics.OverlapSphere(rightCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 1 << 6, QueryTriggerInteraction.Ignore).Length > 1;
+        return rtn;
     }
 
     bool IsCollidingLeft()
     {
+        bool rtn;
         if (curse)
-            return Physics.OverlapSphere(leftCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 1 << 6 | 0 << 7, QueryTriggerInteraction.Ignore).Length > 1;
+            rtn = Physics.OverlapSphere(leftCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 0 << 6 | 1 << 7, QueryTriggerInteraction.Ignore).Length > 1;
         else
-            return Physics.OverlapSphere(leftCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 1 << 7, QueryTriggerInteraction.Ignore).Length > 1;
+            rtn = Physics.OverlapSphere(leftCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 1 << 6, QueryTriggerInteraction.Ignore).Length > 1;
+        return rtn;
     }
 
     private void OnDrawGizmos()
