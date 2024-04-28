@@ -401,9 +401,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2998847049229316041, guid: 7416a8bd00384754890118043f2e7ad7, type: 3}
   m_PrefabInstance: {fileID: 107738755326432239}
   m_PrefabAsset: {fileID: 0}
---- !u!2083052967 &7848445306177023655 stripped
-VisualEffect:
-  m_CorrespondingSourceObject: {fileID: 7896363481530973512, guid: 7416a8bd00384754890118043f2e7ad7, type: 3}
+--- !u!1 &7866676471965245217 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7805528985985551566, guid: 7416a8bd00384754890118043f2e7ad7, type: 3}
   m_PrefabInstance: {fileID: 107738755326432239}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2493994120943240944
@@ -976,7 +976,7 @@ MonoBehaviour:
   curseChangeClip: {fileID: 8300000, guid: 9fa0332c1b52eb543971594bef7363d4, type: 3}
   curseChangeClipName: curseChange2
   curseEffect: {fileID: 7537672896332806645}
-  cursedEffect: {fileID: 7848445306177023655}
+  cursedEffect: {fileID: 7866676471965245217}
   animator: {fileID: 3444759329462790896}
 --- !u!114 &3944136525471278368
 MonoBehaviour:

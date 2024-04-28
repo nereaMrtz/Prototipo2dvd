@@ -37,11 +37,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] string curseChangeClipName;
 
     [SerializeField] VisualEffect curseEffect;
-    [SerializeField] VisualEffect cursedEffect;
+    [SerializeField] GameObject cursedEffect;
 
     [SerializeField] private Animator animator;
     private void Start()
     {
+        cursedEffect.SetActive(false);
+
         if (SceneManager.GetActiveScene().name == "L1_M1" /*|| SceneManager.GetActiveScene().name == "VFX Scene"*/)
             isFirstLevel = true;
         else
@@ -53,7 +55,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            cursedEffect.Play();
+            cursedEffect.SetActive(true);
         }
 
         if (pMovement == null)
@@ -103,11 +105,11 @@ public class PlayerController : MonoBehaviour
             curseEffect.Play();
             this.gameObject.layer = 9;
             ghostParticles.Stop();
-            cursedEffect.Play();
+            cursedEffect.SetActive(true);
         }
         else
         {
-            cursedEffect.Stop();
+            cursedEffect.SetActive(false);
             this.gameObject.layer = 8;
             ghostParticles.Play();
         }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -33,7 +34,10 @@ public class RespawnManager : MonoBehaviour
     public void RespawnFall()
     {
         this.gameObject.GetComponent<PlayerMovement>().enabled = false;
-        this.gameObject.transform.position = CheckPointMaster.Instance.GetLastCheckPointPos();
+        if(this.gameObject.tag == "Player1")
+            this.gameObject.transform.position = CheckPointMaster.Instance.GetLastCheckPointPosGhost1();
+        else if(this.gameObject.tag == "Player2")
+            this.gameObject.transform.position = CheckPointMaster.Instance.GetLastCheckPointPosGhost2();
         this.gameObject.GetComponent<PlayerMovement>().enabled = true;
         hasRespawned = true;
         StartCoroutine(HasRespawnedBoolean());
@@ -43,9 +47,13 @@ public class RespawnManager : MonoBehaviour
 
     public void RespawnDamage()
     {
+        Debug.Log(this.gameObject);
         this.gameObject.GetComponent<PlayerMovement>().enabled = false;
-        this.gameObject.transform.position = CheckPointMaster.Instance.GetLastCheckPointPos();
-        this.gameObject.GetComponent<CharacterController>().enabled = true;
+        if (this.gameObject.tag == "Player1")
+            this.gameObject.transform.position = CheckPointMaster.Instance.GetLastCheckPointPosGhost1();
+        else if (this.gameObject.tag == "Player2")
+            this.gameObject.transform.position = CheckPointMaster.Instance.GetLastCheckPointPosGhost2();
+        this.gameObject.GetComponent<PlayerMovement>().enabled = true;
         hasRespawned = true;
         StartCoroutine(HasRespawnedBoolean());
         AudioManager.Instance.LoadSFX(damagelDeathClipName, damagelDeathClip);
@@ -54,18 +62,41 @@ public class RespawnManager : MonoBehaviour
 
     public void RespawnCamera()
     {
-        this.gameObject.GetComponent<PlayerMovement>().enabled = false;
-        this.gameObject.transform.position = CheckPointMaster.Instance.GetLastCheckPointPos();
-        this.gameObject.GetComponent<PlayerMovement>().enabled = true;
-        hasRespawned = true;
-        StartCoroutine(HasRespawnedBoolean());
-        AudioManager.Instance.LoadSFX(damagelDeathClipName, damagelDeathClip);
-        AudioManager.Instance.PlaySFX(damagelDeathClipName);
+
+        try
+        {
+
+            this.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+            if (this.gameObject.tag == "Player1")
+            {
+                Debug.Log("Respawn player 1");
+                this.gameObject.transform.position = CheckPointMaster.Instance.GetLastCheckPointPosGhost1();
+            }
+            else if (this.gameObject.tag == "Player2")
+            {
+                Debug.Log("Respawn player 2");
+                this.gameObject.transform.position = CheckPointMaster.Instance.GetLastCheckPointPosGhost2(); 
+            }
+            this.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+            hasRespawned = true;
+            StartCoroutine(HasRespawnedBooleanCamera());
+            //AudioManager.Instance.LoadSFX(damagelDeathClipName, damagelDeathClip);
+            //AudioManager.Instance.PlaySFX(damagelDeathClipName);
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError("Error en RespawnCamera(): " + ex.Message);
+        }
     }
     IEnumerator HasRespawnedBoolean()
     {
         yield return new WaitForNextFrameUnit();
-        Debug.Log(this.gameObject);
+        hasRespawned = false;
+    }
+    IEnumerator HasRespawnedBooleanCamera()
+    {
+        yield return new WaitForNextFrameUnit();
+        this.gameObject.GetComponent<Rigidbody>().isKinematic = false;
         hasRespawned = false;
     }
 }

@@ -21,6 +21,7 @@ public class CameraController : MonoBehaviour
 
 
     private bool shaking = false;
+    private bool respawning = false;
 
     private void Start()
     {
@@ -31,13 +32,14 @@ public class CameraController : MonoBehaviour
     void Update()
     {
 
-        //Debug.Log("Los fantasmas estan a una distancia de: " + Vector3.Distance(target1.transform.position, target2.transform.position));
+        //Debug.Log("Los fantasmas estan a una distancia de: " + Mathf.Abs(target1.transform.position.y - target2.transform.position.y));
         
-        if(Vector3.Distance(target1.transform.position, target2.transform.position) > secondDistance)
-        {
+        if(!respawning && (Vector3.Distance(target1.transform.position, target2.transform.position) > secondDistance || Mathf.Abs(target1.transform.position.y - target2.transform.position.y) > 13f))
+        {           
+            respawning = true;
             RespawnGhosts();
         }
-        else if(Vector3.Distance(target1.transform.position, target2.transform.position) > firstDistance)
+        else if(Vector3.Distance(target1.transform.position, target2.transform.position) > firstDistance || Mathf.Abs(target1.transform.position.y - target2.transform.position.y) > 9f)
         {
             StartShake();
         }
@@ -61,9 +63,27 @@ public class CameraController : MonoBehaviour
 
     void RespawnGhosts()
     {
-        Debug.Log("A");
-        target2.GetComponent<RespawnManager>().RespawnCamera();
-        target1.GetComponent<RespawnManager>().RespawnCamera();
+
+        if (target2 != null && target2.GetComponent<RespawnManager>() != null)
+        {       
+            Debug.Log("Respawn: " + target2);            
+            target2.GetComponent<RespawnManager>().RespawnCamera();
+        }
+
+        if (target1 != null && target1.GetComponent<RespawnManager>() != null)
+        {
+            Debug.Log("Respawn: " + target1);
+            target1.GetComponent<RespawnManager>().RespawnCamera();
+        }
+
+        StartCoroutine("RespawningBoolean");
     }
 
+    IEnumerator RespawningBoolean()
+    {
+        Debug.Log("Coroutine");
+        yield return new WaitForSeconds(3f);
+        Debug.Log("Coroutine 2");
+        respawning = false;
+    }
 }
