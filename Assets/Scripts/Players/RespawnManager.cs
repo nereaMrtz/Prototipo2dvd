@@ -32,9 +32,9 @@ public class RespawnManager : MonoBehaviour
 
     public void RespawnFall()
     {
-        this.gameObject.GetComponent<CharacterController>().enabled = false;
+        this.gameObject.GetComponent<PlayerMovement>().enabled = false;
         this.gameObject.transform.position = CheckPointMaster.Instance.GetLastCheckPointPos();
-        this.gameObject.GetComponent<CharacterController>().enabled = true;
+        this.gameObject.GetComponent<PlayerMovement>().enabled = true;
         hasRespawned = true;
         StartCoroutine(HasRespawnedBoolean());
         AudioManager.Instance.LoadSFX(fallDeathClipName, fallDeathClip);
@@ -43,7 +43,7 @@ public class RespawnManager : MonoBehaviour
 
     public void RespawnDamage()
     {
-        this.gameObject.GetComponent<CharacterController>().enabled = false;
+        this.gameObject.GetComponent<PlayerMovement>().enabled = false;
         this.gameObject.transform.position = CheckPointMaster.Instance.GetLastCheckPointPos();
         this.gameObject.GetComponent<CharacterController>().enabled = true;
         hasRespawned = true;
@@ -54,9 +54,9 @@ public class RespawnManager : MonoBehaviour
 
     public void RespawnCamera()
     {
-        this.gameObject.GetComponent<CharacterController>().enabled = false;
+        this.gameObject.GetComponent<PlayerMovement>().enabled = false;
         this.gameObject.transform.position = CheckPointMaster.Instance.GetLastCheckPointPos();
-        this.gameObject.GetComponent<CharacterController>().enabled = true;
+        this.gameObject.GetComponent<PlayerMovement>().enabled = true;
         hasRespawned = true;
         StartCoroutine(HasRespawnedBoolean());
         AudioManager.Instance.LoadSFX(damagelDeathClipName, damagelDeathClip);

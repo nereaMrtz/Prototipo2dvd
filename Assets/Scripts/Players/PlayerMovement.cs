@@ -47,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Modificators")]
     public bool movementEnabled = true;
+    [HideInInspector] public bool curse;
 
     void Start()
     {
@@ -178,19 +179,25 @@ public class PlayerMovement : MonoBehaviour
 
     bool IsGrounded()
     {
-        //layerMask |= (1 << 0);//Include layer 0
-        //layerMask |= (0 << 15);//Exclude layer 15
-        //Debug.Log( layerMask);
-        return Physics.OverlapSphere(groundCheck.transform.position, 0.2f, 1 << 0 |1<<8|1<<9).Length > 1;
+        if (curse)
+            return Physics.OverlapSphere(groundCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 1 << 7, QueryTriggerInteraction.Ignore).Length > 1;
+        else
+            return Physics.OverlapSphere(groundCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 1 << 7, QueryTriggerInteraction.Ignore).Length > 1;
     }
 
     bool IsCollidingRight()
     {
-        return Physics.OverlapSphere(rightCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9).Length > 1;
+        if (curse)
+            return Physics.OverlapSphere(rightCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 1 << 7, QueryTriggerInteraction.Ignore).Length > 1;
+        else
+            return Physics.OverlapSphere(rightCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 1 << 7, QueryTriggerInteraction.Ignore).Length > 1;
     }
     bool IsCollidingLeft()
     {
-        return Physics.OverlapSphere(leftCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9).Length > 1;
+        if (curse)
+            return Physics.OverlapSphere(leftCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 1 << 7, QueryTriggerInteraction.Ignore).Length > 1;
+        else
+            return Physics.OverlapSphere(leftCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 1 << 7, QueryTriggerInteraction.Ignore).Length > 1;
     }
 
     private void OnDrawGizmos()
