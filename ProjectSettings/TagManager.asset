@@ -13,6 +13,7 @@ TagManager:
   - Player2
   - Electricity
   - CoinManager
+  - CM vcam
   layers:
   - Default
   - TransparentFX
@@ -30,7 +31,7 @@ TagManager:
   - Sphere
   - CollisionCheck
   - NotHitable
-  - 
+  - Box
   - 
   - 
   - 
