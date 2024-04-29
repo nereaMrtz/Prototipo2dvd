@@ -240,8 +240,8 @@ public class PlayerController : MonoBehaviour
         hasJumped = true;
         inputBuffer = false;
 
-        if(AudioManager.Instance.LoadSFX(jumpClipName, jumpClip))
-        AudioManager.Instance.PlaySFX(jumpClipName);
+        //if(AudioManager.Instance.LoadSFX(jumpClipName, jumpClip))
+        //AudioManager.Instance.PlaySFX(jumpClipName);
     }
 
     //This script pushes all rigidbodies that the character touches
@@ -302,8 +302,8 @@ public class PlayerController : MonoBehaviour
             ghostParticles.Play();
         }
 
-        AudioManager.Instance.LoadSFX(curseChangeClipName, curseChangeClip);
-        AudioManager.Instance.PlaySFX(curseChangeClipName);
+        //AudioManager.Instance.LoadSFX(curseChangeClipName, curseChangeClip);
+        //AudioManager.Instance.PlaySFX(curseChangeClipName);
     }
 
     Vector3 AddImpact(Vector3 dir, float force)

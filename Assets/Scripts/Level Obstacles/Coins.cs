@@ -6,8 +6,7 @@ using UnityEngine;
 
 public class CoinScript : MonoBehaviour
 {
-    [SerializeField] AudioClip coinSound;
-    [SerializeField] string coinSoundName = "coin";
+    
     [SerializeField] float Speed = 1.0f;
     private void Update()
     {
@@ -20,8 +19,7 @@ public class CoinScript : MonoBehaviour
         {
             CoinManager.Instance.AddCoin();
 
-            if (AudioManager.Instance.LoadSFX(coinSoundName, coinSound))
-                AudioManager.Instance.PlaySFX(coinSoundName);
+            FMODUnity.RuntimeManager.PlayOneShot("event:/PickedCoin");
             StartCoroutine(DestroyThis());
         }
     }

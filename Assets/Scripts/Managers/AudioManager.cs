@@ -31,7 +31,7 @@ public class AudioManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
 
         backgroundSource.clip = backgroundMusic[0];
-        backgroundSource.Play(); 
+        backgroundSource.Play();
         SFX = new Dictionary<string, AudioClip>();
     }
 
