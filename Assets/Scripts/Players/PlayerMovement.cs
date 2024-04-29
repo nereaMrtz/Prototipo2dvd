@@ -53,6 +53,18 @@ public class PlayerMovement : MonoBehaviour
     {
         if (rb == null)
             rb = GetComponentInParent<Rigidbody>();
+        if (curse)
+        {
+            groundCheck.layer = 9;
+            leftCheck.layer = 9;
+            rightCheck.layer = 9;
+        }
+        else
+        {
+            groundCheck.layer = 8;
+            leftCheck.layer = 8;
+            rightCheck.layer = 8;
+        }
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -72,6 +84,18 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         movementInput.Normalize();
+        if (curse)
+        {
+            groundCheck.layer = 9;
+            leftCheck.layer = 9;
+            rightCheck.layer = 9;
+        }
+        else
+        {
+            groundCheck.layer = 8;
+            leftCheck.layer = 8;
+            rightCheck.layer = 8;
+        }
     }
 
     private void FixedUpdate()
