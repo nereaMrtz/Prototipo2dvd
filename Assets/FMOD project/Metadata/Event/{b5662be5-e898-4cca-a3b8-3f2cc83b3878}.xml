@@ -11,7 +11,7 @@
 			<value>2</value>
 		</property>
 		<relationship name="folder">
-			<destination>{94efe894-3c5e-4d10-a361-82018c5d7eb9}</destination>
+			<destination>{30c11870-e70a-4c48-aa80-53eee5f30b38}</destination>
 		</relationship>
 		<relationship name="tags">
 			<destination>{014a46d4-63ab-4b43-bcbb-14a13eda97e0}</destination>
@@ -38,7 +38,7 @@
 			<destination>{81ae005a-4db4-45c1-b278-520312cd6c96}</destination>
 		</relationship>
 		<relationship name="banks">
-			<destination>{71c037b8-b563-4c86-9eaa-4b70fea88e0b}</destination>
+			<destination>{795d5bac-fa0b-465b-89b6-49b0cc257796}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{f14f2114-005b-490f-9468-711679daa78f}">
@@ -59,10 +59,14 @@
 			<destination>{f22cd26b-2301-4c3c-982f-9cc770092ed9}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{aa92e3a4-d4f9-425c-9c08-969fceef7b33}</destination>
+			<destination>{071b4a57-a896-4c28-b3dc-110aa171288a}</destination>
 		</relationship>
 	</object>
-	<object class="EventAutomatableProperties" id="{92306351-85f4-4b1a-842f-a5f814fa9775}" />
+	<object class="EventAutomatableProperties" id="{92306351-85f4-4b1a-842f-a5f814fa9775}">
+		<property name="maximumDistance">
+			<value>8</value>
+		</property>
+	</object>
 	<object class="MarkerTrack" id="{08a455ab-d1ca-4122-9dae-ee9ad14c7ced}" />
 	<object class="GroupTrack" id="{9ddef145-1ff0-42aa-a8ae-8dfe35c830e6}">
 		<relationship name="modules">
@@ -107,7 +111,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{31ca6d32-12f9-4070-9d8f-44d064d009b4}">
 		<property name="volume">
-			<value>-22</value>
+			<value>-27.5</value>
 		</property>
 		<property name="name">
 			<value>Audio 1</value>
@@ -139,6 +143,7 @@
 	<object class="MixerBusEffectChain" id="{482e77c3-b7e7-420e-ad39-b5bd00dbec0c}">
 		<relationship name="effects">
 			<destination>{375d48ff-a07f-449c-9085-980503048345}</destination>
+			<destination>{78941abe-b3cb-4078-8b30-c84c01cce3bd}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{fdeabe0c-1346-4cbd-9204-0e842a79f00a}" />
@@ -151,6 +156,7 @@
 	</object>
 	<object class="MixerBusPanner" id="{e9376e09-9fd0-40c9-9ed1-e3a9c7b535d7}" />
 	<object class="MixerBusFader" id="{375d48ff-a07f-449c-9085-980503048345}" />
+	<object class="ObjectSpatialiserEffect" id="{78941abe-b3cb-4078-8b30-c84c01cce3bd}" />
 	<object class="MixerBusFader" id="{35d316a9-6e67-48ea-9076-bad826429480}" />
 	<object class="SpatialiserEffect" id="{979a01d0-f038-4a61-be18-a1319c47ebff}" />
 </objects>

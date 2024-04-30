@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{b7d0db75-552b-4442-889a-e37a8a5f973f}">
+		<property name="assetPath">
+			<value>Bola de cristal romper.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.75108333333333333</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{f855878a-f658-4c05-82c5-457ac2fdb8c6}</destination>
+		</relationship>
+	</object>
+</objects>

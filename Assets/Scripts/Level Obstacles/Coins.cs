@@ -19,7 +19,7 @@ public class CoinScript : MonoBehaviour
         {
             CoinManager.Instance.AddCoin();
 
-            FMODUnity.RuntimeManager.PlayOneShot("event:/PickedCoin");
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Environment/PickedCoin");
             StartCoroutine(DestroyThis());
         }
     }

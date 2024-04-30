@@ -4,12 +4,30 @@ using UnityEngine;
 
 public class ReverbTrigger : MonoBehaviour
 {
-    [SerializeField] float reverb = 0.0f;
+    private FMOD.Studio.EventInstance instance;
+
+    public FMODUnity.EventReference fmodEvent;
+
+    [SerializeField]
+    [Range(0f, 1f)]
+    private float reverb;
+
+    void Start()
+    {
+        instance = FMODUnity.RuntimeManager.CreateInstance(fmodEvent);
+        instance.start();
+    }
+
+    void Update()
+    {
+        instance.setParameterByName("Reverb", reverb);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player1"))
         {
-            AudioManager.Instance.SetReverb(reverb);
+            reverb = 1.0f;
         }
     }
 
@@ -17,7 +35,7 @@ public class ReverbTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player1"))
         {
-            AudioManager.Instance.SetReverb(0.0f);
+            reverb = 0.0f;
         }
     }
 }

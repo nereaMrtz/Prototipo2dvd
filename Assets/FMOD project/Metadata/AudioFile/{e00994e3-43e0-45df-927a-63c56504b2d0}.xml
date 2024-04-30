@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{e00994e3-43e0-45df-927a-63c56504b2d0}">
+		<property name="assetPath">
+			<value>Muerte por caida.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>4</value>
+		</property>
+		<property name="length">
+			<value>2.6936054421768709</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{f855878a-f658-4c05-82c5-457ac2fdb8c6}</destination>
+		</relationship>
+	</object>
+</objects>

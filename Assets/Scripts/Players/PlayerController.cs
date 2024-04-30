@@ -239,9 +239,7 @@ public class PlayerController : MonoBehaviour
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
         hasJumped = true;
         inputBuffer = false;
-
-        //if(AudioManager.Instance.LoadSFX(jumpClipName, jumpClip))
-        //AudioManager.Instance.PlaySFX(jumpClipName);
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Player/Jump");
     }
 
     //This script pushes all rigidbodies that the character touches

@@ -243,8 +243,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7190d23e2636174f9c28e01d9bfa2f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinSound: {fileID: 8300000, guid: b63089065cb6ec64e896c1bc875b8210, type: 3}
-  coinSoundName: coin
   Speed: 40
 --- !u!65 &447052173136181883
 BoxCollider:
@@ -286,7 +284,7 @@ MonoBehaviour:
       Data2: 1218477510
       Data3: -425798762
       Data4: -1420505442
-    Path: event:/PickedCoin
+    Path: event:/Environment/PickedCoin
   Event: 
   PlayEvent: 5
   StopEvent: 0
@@ -296,8 +294,8 @@ MonoBehaviour:
   AllowNonRigidbodyDoppler: 0
   Params: []
   OverrideAttenuation: 0
-  OverrideMinDistance: -1
-  OverrideMaxDistance: -1
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &9058531215041468349
 GameObject:
   m_ObjectHideFlags: 0

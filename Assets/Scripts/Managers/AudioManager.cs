@@ -5,12 +5,12 @@ using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
-    [SerializeField] AudioSource backgroundSource;
-    [SerializeField] AudioClip[] backgroundMusic;
-    [SerializeField] AudioSource SFXSource;
+    AudioSource backgroundSource;
+    AudioClip[] backgroundMusic;
+    AudioSource SFXSource;
     Dictionary<string, AudioClip> SFX;
     static public AudioManager Instance;
-    [SerializeField] AudioMixer mixer;
+    AudioMixer mixer;
     public bool masterMute { get; private set; } = false;
     float prevMasterVolume;
     public bool bgMute { get; private set; } = false;
@@ -29,10 +29,6 @@ public class AudioManager : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(this.gameObject);
-
-        backgroundSource.clip = backgroundMusic[0];
-        backgroundSource.Play();
-        SFX = new Dictionary<string, AudioClip>();
     }
 
     public static AudioManager GetInstance()

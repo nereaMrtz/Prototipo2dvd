@@ -4,11 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 public class RespawnManager : MonoBehaviour
-{
-    [SerializeField] AudioClip fallDeathClip;
-    [SerializeField] string fallDeathClipName;
-    [SerializeField] AudioClip damagelDeathClip;
-    [SerializeField] string damagelDeathClipName;
+{    
     public bool hasRespawned { get; private set; }
     private void OnTriggerEnter(Collider other)
     {
@@ -37,8 +33,7 @@ public class RespawnManager : MonoBehaviour
         this.gameObject.GetComponent<CharacterController>().enabled = true;
         hasRespawned = true;
         StartCoroutine(HasRespawnedBoolean());
-        AudioManager.Instance.LoadSFX(fallDeathClipName, fallDeathClip);
-        AudioManager.Instance.PlaySFX(fallDeathClipName);
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Player/FallDeath");
     }
 
     public void RespawnDamage()
@@ -48,8 +43,7 @@ public class RespawnManager : MonoBehaviour
         this.gameObject.GetComponent<CharacterController>().enabled = true;
         hasRespawned = true;
         StartCoroutine(HasRespawnedBoolean());
-        AudioManager.Instance.LoadSFX(damagelDeathClipName, damagelDeathClip);
-        AudioManager.Instance.PlaySFX(damagelDeathClipName);
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Player/Death");
     }
 
     IEnumerator HasRespawnedBoolean()
