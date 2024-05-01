@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CheckPointMaster : MonoBehaviour
 {
@@ -8,17 +9,25 @@ public class CheckPointMaster : MonoBehaviour
 
     private Vector3 lastCheckPointPosGhost1;
     private Vector3 lastCheckPointPosGhost2;
+    [SerializeField] private Transform initialPosGhost1;
+    [SerializeField] private Transform initialPosGhost2;
 
-    private void Awake()
+    private void Start()
     {
-        if (Instance != null)
+        GameObject ghost1 = GameObject.FindGameObjectWithTag("Player1");
+        if (ghost1 != null)
         {
-            Debug.LogError("There's more than one CheckPointMaster!" + transform + " - " + Instance);
-            Destroy(gameObject);
-            return;
+            this.lastCheckPointPosGhost1 = initialPosGhost1.position;
+            ghost1.GetComponent<PlayerMovement>().enabled = false;
+            ghost1.transform.position = initialPosGhost1.position;
         }
-            Instance = this;            
-        
+        GameObject ghost2 = GameObject.FindGameObjectWithTag("Player2");
+        if (ghost2 != null)
+        {
+            this.lastCheckPointPosGhost2 = initialPosGhost2.position;
+            ghost2.GetComponent<PlayerMovement>().enabled = false;
+            ghost2.transform.position = initialPosGhost2.position;
+        }
     }    
 
     public void SetLastCheckPointPosGhost1(Vector3 lastCheckPointPos)
