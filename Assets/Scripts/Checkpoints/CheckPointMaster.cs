@@ -9,24 +9,31 @@ public class CheckPointMaster : MonoBehaviour
 
     private Vector3 lastCheckPointPosGhost1;
     private Vector3 lastCheckPointPosGhost2;
-    [SerializeField] private Transform initialPosGhost1;
-    [SerializeField] private Transform initialPosGhost2;
+    [SerializeField] private Vector3 initialPosGhost1;
+    [SerializeField] private Vector3 initialPosGhost2;
 
     private void Start()
     {
         GameObject ghost1 = GameObject.FindGameObjectWithTag("Player1");
         if (ghost1 != null)
         {
-            this.lastCheckPointPosGhost1 = initialPosGhost1.position;
+            this.lastCheckPointPosGhost1 = initialPosGhost1;
+            ghost1.GetComponent<Rigidbody>().position = initialPosGhost1;
             ghost1.GetComponent<PlayerMovement>().enabled = false;
-            ghost1.transform.position = initialPosGhost1.position;
+            ghost1.transform.position = initialPosGhost1;
+            ghost1.GetComponent<PlayerMovement>().enabled = true;
         }
+
         GameObject ghost2 = GameObject.FindGameObjectWithTag("Player2");
         if (ghost2 != null)
         {
-            this.lastCheckPointPosGhost2 = initialPosGhost2.position;
+            this.lastCheckPointPosGhost2 = initialPosGhost2;
             ghost2.GetComponent<PlayerMovement>().enabled = false;
-            ghost2.transform.position = initialPosGhost2.position;
+            ghost2.GetComponent<Rigidbody>().position = initialPosGhost2;
+            Debug.Log(ghost2.transform.position);
+            ghost2.transform.position = initialPosGhost2;
+            Debug.Log(ghost2.transform.position);
+            ghost2.GetComponent<PlayerMovement>().enabled = true;
         }
     }    
 
