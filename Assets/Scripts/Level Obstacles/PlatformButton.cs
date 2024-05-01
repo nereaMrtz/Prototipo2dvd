@@ -20,6 +20,7 @@ public class PlatformButton : MonoBehaviour
     {
         audioSource.clip = pressSound;
         audioSource.Play();
+        Debug.Log("1");
     }
 
     private void OnTriggerStay(Collider other)

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4260465957656508375}
   - component: {fileID: 5025035844597043229}
   - component: {fileID: 3381293184719692345}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PortalButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 8679370163592802299}
   - component: {fileID: 7717193996740791296}
   - component: {fileID: 5332348589233927421}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: CursedButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -231,10 +231,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e3b7c5c7c4e6644d8de620c0401e036, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platforms: []
-  pressSound: {fileID: 0}
-  releaseSound: {fileID: 0}
-  audioSource: {fileID: 0}
+  platforms:
+  - {fileID: 0}
+  pressSound: {fileID: 8300000, guid: 423a610e00be3f340878a9cd5ecda7f1, type: 3}
+  releaseSound: {fileID: 8300000, guid: 911b847c8a8d74846974f3adb30e03a1, type: 3}
+  audioSource: {fileID: 5332348589233927421}
 --- !u!82 &5332348589233927421
 AudioSource:
   m_ObjectHideFlags: 0
@@ -246,7 +247,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6816189412838095031, guid: 77effcd7f0775a8469b7ab263036daa2, type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
