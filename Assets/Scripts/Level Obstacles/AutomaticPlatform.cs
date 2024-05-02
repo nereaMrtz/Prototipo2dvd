@@ -13,6 +13,7 @@ public class AutomaticPlatform : MonoBehaviour
     [SerializeField] private float speed = 5.0f;
     [SerializeField] private float waitTime = 3.0f;
 
+
     private void FixedUpdate()
     {
         if (transform.position != lastPosition.position && go)
@@ -27,7 +28,7 @@ public class AutomaticPlatform : MonoBehaviour
             if (transform.position == firstPosition.position)
                 StartCoroutine("ChangeDirection");
         }
-    }    
+    }
 
     IEnumerator ChangeDirection()
     {

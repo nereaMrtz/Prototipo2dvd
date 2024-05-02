@@ -41,7 +41,9 @@ public class CoordinatedPlatform : MonoBehaviour
     public void Interact()
     {
         if (transform.position == lastPosition.position)
+        {
             return;
+        }
         if (transform.position != lastPosition.position)
         {
             transform.position = Vector3.MoveTowards(transform.position, lastPosition.position, speed * Time.deltaTime);
