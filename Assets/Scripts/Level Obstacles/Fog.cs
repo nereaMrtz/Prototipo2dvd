@@ -10,6 +10,7 @@ public class Fog : MonoBehaviour
     [SerializeField] float maxSpeed;
     [SerializeField] float acceleration;
     [SerializeField] AudioSource audioSource;
+    bool cursed = true;
 
     private void Start()
     {
@@ -37,7 +38,11 @@ public class Fog : MonoBehaviour
         {
             PlayerController aux = other.gameObject.GetComponent<PlayerController>();
             aux.isFirstLevel = false;
-            aux.ChangeMaldicion();
+            if (cursed)
+            {
+                aux.ChangeMaldicion();
+                cursed = false;
+            }
         }
     }
 }
