@@ -41,7 +41,7 @@ public class CameraController : MonoBehaviour
             respawning = true;
             RespawnGhosts();
         }
-        else if(Vector3.Distance(target1.transform.position, target2.transform.position) > firstDistance || Mathf.Abs(target1.transform.position.y - target2.transform.position.y) > 9f)
+        else if(Vector3.Distance(target1.transform.position, target2.transform.position) > firstDistance || Mathf.Abs(target1.transform.position.y - target2.transform.position.y) > 12f)
         {
             StartShake();
         }
@@ -67,14 +67,12 @@ public class CameraController : MonoBehaviour
     {
 
         if (target2 != null && target2.GetComponent<RespawnManager>() != null)
-        {       
-            Debug.Log("Respawn: " + target2);            
+        {                
             target2.GetComponent<RespawnManager>().RespawnCamera();
         }
 
         if (target1 != null && target1.GetComponent<RespawnManager>() != null)
         {
-            Debug.Log("Respawn: " + target1);
             target1.GetComponent<RespawnManager>().RespawnCamera();
         }
 
@@ -83,9 +81,7 @@ public class CameraController : MonoBehaviour
 
     IEnumerator RespawningBoolean()
     {
-        Debug.Log("Coroutine");
         yield return new WaitForSeconds(3f);
-        Debug.Log("Coroutine 2");
         respawning = false;
     }
 }

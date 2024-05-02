@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,6 +24,7 @@ public class SphereRespawn : MonoBehaviour
         {
             Respawn();
         }
+        transform.DOScale(new Vector3(1.75f, 1.75f, 1.75f), 0.01f);
     }
 
     public void Respawn()

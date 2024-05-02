@@ -35,9 +35,10 @@ public class RespawnManager : MonoBehaviour
     {
         this.gameObject.GetComponent<PlayerMovement>().enabled = false;
         if(this.gameObject.tag == "Player1")
-            this.gameObject.transform.position = CheckPointMaster.Instance.GetLastCheckPointPosGhost1();
+            this.gameObject.transform.position = GameObject.FindGameObjectWithTag("CM").GetComponent<CheckPointMaster>().GetLastCheckPointPosGhost1();
         else if(this.gameObject.tag == "Player2")
-            this.gameObject.transform.position = CheckPointMaster.Instance.GetLastCheckPointPosGhost2();
+            this.gameObject.transform.position = GameObject.FindGameObjectWithTag("CM").GetComponent<CheckPointMaster>().GetLastCheckPointPosGhost2();
+
         this.gameObject.GetComponent<PlayerMovement>().enabled = true;
         hasRespawned = true;
         StartCoroutine(HasRespawnedBoolean());
@@ -47,12 +48,11 @@ public class RespawnManager : MonoBehaviour
 
     public void RespawnDamage()
     {
-        Debug.Log(this.gameObject);
         this.gameObject.GetComponent<PlayerMovement>().enabled = false;
         if (this.gameObject.tag == "Player1")
-            this.gameObject.transform.position = CheckPointMaster.Instance.GetLastCheckPointPosGhost1();
+            this.gameObject.transform.position = GameObject.FindGameObjectWithTag("CM").GetComponent<CheckPointMaster>().GetLastCheckPointPosGhost1();
         else if (this.gameObject.tag == "Player2")
-            this.gameObject.transform.position = CheckPointMaster.Instance.GetLastCheckPointPosGhost2();
+            this.gameObject.transform.position = GameObject.FindGameObjectWithTag("CM").GetComponent<CheckPointMaster>().GetLastCheckPointPosGhost2();
         this.gameObject.GetComponent<PlayerMovement>().enabled = true;
         hasRespawned = true;
         StartCoroutine(HasRespawnedBoolean());
@@ -69,12 +69,10 @@ public class RespawnManager : MonoBehaviour
             this.gameObject.GetComponent<Rigidbody>().isKinematic = false;
             if (this.gameObject.tag == "Player1")
             {
-                Debug.Log("Respawn player 1");
                 this.gameObject.transform.position = GameObject.FindGameObjectWithTag("CM").GetComponent<CheckPointMaster>().GetLastCheckPointPosGhost1();
             }
             else if (this.gameObject.tag == "Player2")
             {
-                Debug.Log("Respawn player 2");
                 this.gameObject.transform.position = GameObject.FindGameObjectWithTag("CM").GetComponent<CheckPointMaster>().GetLastCheckPointPosGhost2(); 
             }
             this.gameObject.GetComponent<Rigidbody>().isKinematic = true;
