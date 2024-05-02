@@ -724,7 +724,7 @@ MonoBehaviour:
   topSpeed: 10
   acceleration: 3
   deceleration: 6
-  jumpForce: 900
+  jumpForce: 930
   groundedRayLength: 0.25
   gravity: -42
   groundCheck: {fileID: 4401439072631756704}
