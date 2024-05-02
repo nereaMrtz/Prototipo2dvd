@@ -300,8 +300,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target1: {fileID: 0}
   target2: {fileID: 0}
-  firstDistance: 22
-  secondDistance: 27
+  firstDistance: 24
+  secondDistance: 30
   shakeAmplitude: 0.7
 --- !u!1 &4302199780137177433
 GameObject:
