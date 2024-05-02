@@ -702,7 +702,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 46f311046d2104da8b56be3d0a49a119, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 46f311046d2104da8b56be3d0a49a119, type: 3}
       propertyPath: m_LocalScale.x
@@ -718,15 +718,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 46f311046d2104da8b56be3d0a49a119, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 71.44795
+      value: 308.44003
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 46f311046d2104da8b56be3d0a49a119, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -36.67264
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 46f311046d2104da8b56be3d0a49a119, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.35372
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 46f311046d2104da8b56be3d0a49a119, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1103,10 +1103,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79382184ce8d45d488a8b11c486447d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallDeathClip: {fileID: 0}
-  fallDeathClipName: 
-  damagelDeathClip: {fileID: 0}
-  damagelDeathClipName: 
+  fallDeathClip: {fileID: 8300000, guid: d57d946e77fbcd24ba5f02c27f22cc26, type: 3}
+  fallDeathClipName: FallDeath
+  damagelDeathClip: {fileID: 8300000, guid: 10d967014c8fba347933c4b9b639ee76, type: 3}
+  damagelDeathClipName: DamageDeath
 --- !u!54 &6524090565055608970
 Rigidbody:
   m_ObjectHideFlags: 0
