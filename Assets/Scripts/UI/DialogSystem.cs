@@ -58,7 +58,6 @@ public class DialogSystem : MonoBehaviour
     {
         dialogueText.text = "";
         q.SetActive(false);
-
     }
 
     public void StartDialog(PlayerController other)

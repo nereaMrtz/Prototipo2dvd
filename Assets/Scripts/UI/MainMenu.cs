@@ -81,7 +81,7 @@ public class MainMenu : MonoBehaviour
 
     public void Play()
     {
-        SceneManager.LoadScene("L1_M1");
+        SceneManager.LoadScene("L2_M1");
     }
 
 }

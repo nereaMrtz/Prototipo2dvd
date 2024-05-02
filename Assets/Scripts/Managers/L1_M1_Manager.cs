@@ -10,6 +10,12 @@ public class L1_M1_Manager : MonoBehaviour
     [SerializeField] private float timeToChangeScene = 0.5f;
     [SerializeField] private string sceneName;
 
+    private void Start()
+    {
+        ghost1 = GameObject.FindGameObjectWithTag("Player1");
+        ghost2 = GameObject.FindGameObjectWithTag("Player2");
+    }
+
     private void Update()
     {
         if(ghost1.layer == 9 && ghost2.layer == 9)
