@@ -28,8 +28,10 @@ public class PlayerMovement : MonoBehaviour
     public float groundedRayLength = 0.1f;
     public float gravity = -10.0f;
     [SerializeField] private GameObject groundCheck;
-    [SerializeField] private GameObject rightCheck;
-    [SerializeField] private GameObject leftCheck;
+    [SerializeField] private GameObject rightUpCheck;
+    [SerializeField] private GameObject rightDownCheck;
+    [SerializeField] private GameObject leftUpCheck;
+    [SerializeField] private GameObject leftDownCheck;
 
     [Header("Coyote Time")]
     [Tooltip("This marks the time the player will have to jump after it leaves contact with the ground")]
@@ -56,14 +58,18 @@ public class PlayerMovement : MonoBehaviour
         if (curse)
         {
             groundCheck.layer = 9;
-            leftCheck.layer = 9;
-            rightCheck.layer = 9;
+            leftUpCheck.layer = 9;
+            leftDownCheck.layer = 9;
+            rightUpCheck.layer = 9;
+            rightDownCheck.layer = 9;
         }
         else
         {
             groundCheck.layer = 8;
-            leftCheck.layer = 8;
-            rightCheck.layer = 8;
+            leftUpCheck.layer = 8;
+            leftDownCheck.layer = 8;
+            rightUpCheck.layer = 8;
+            rightDownCheck.layer = 8;
         }
     }
 
@@ -87,14 +93,18 @@ public class PlayerMovement : MonoBehaviour
         if (curse)
         {
             groundCheck.layer = 9;
-            leftCheck.layer = 9;
-            rightCheck.layer = 9;
+            leftUpCheck.layer = 9;
+            leftDownCheck.layer = 9;
+            rightUpCheck.layer = 9;
+            rightDownCheck.layer = 9;
         }
         else
         {
             groundCheck.layer = 8;
-            leftCheck.layer = 8;
-            rightCheck.layer = 8;
+            leftUpCheck.layer = 8;
+            leftDownCheck.layer = 8;
+            rightUpCheck.layer = 8;
+            rightDownCheck.layer = 8;
         }
     }
 
@@ -212,9 +222,11 @@ public class PlayerMovement : MonoBehaviour
     {
         bool rtn;
         if (curse)
-            rtn = Physics.OverlapSphere(rightCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 0 << 6 | 1 << 7, QueryTriggerInteraction.Ignore).Length > 1;
+            rtn = (Physics.OverlapSphere(rightUpCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 0 << 6 | 1 << 7, QueryTriggerInteraction.Ignore).Length > 1 ||
+                Physics.OverlapSphere(rightDownCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 0 << 6 | 1 << 7, QueryTriggerInteraction.Ignore).Length > 1);
         else
-            rtn = Physics.OverlapSphere(rightCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 1 << 6, QueryTriggerInteraction.Ignore).Length > 1;
+            rtn = (Physics.OverlapSphere(rightUpCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 1 << 6, QueryTriggerInteraction.Ignore).Length > 1||
+                Physics.OverlapSphere(rightDownCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 1 << 6, QueryTriggerInteraction.Ignore).Length > 1);
         return rtn;
     }
 
@@ -222,9 +234,11 @@ public class PlayerMovement : MonoBehaviour
     {
         bool rtn;
         if (curse)
-            rtn = Physics.OverlapSphere(leftCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 0 << 6 | 1 << 7, QueryTriggerInteraction.Ignore).Length > 1;
+            rtn = (Physics.OverlapSphere(leftUpCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 0 << 6 | 1 << 7, QueryTriggerInteraction.Ignore).Length > 1 ||
+                Physics.OverlapSphere(leftDownCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 0 << 6 | 1 << 7, QueryTriggerInteraction.Ignore).Length > 1);
         else
-            rtn = Physics.OverlapSphere(leftCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 1 << 6, QueryTriggerInteraction.Ignore).Length > 1;
+            rtn = (Physics.OverlapSphere(leftUpCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 1 << 6, QueryTriggerInteraction.Ignore).Length > 1||
+                Physics.OverlapSphere(leftDownCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 1 << 6, QueryTriggerInteraction.Ignore).Length > 1);
         return rtn;
     }
 
