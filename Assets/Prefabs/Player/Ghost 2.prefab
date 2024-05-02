@@ -970,7 +970,7 @@ MonoBehaviour:
   pMovement: {fileID: 7881546225854045478}
   otherPlayer: {fileID: 0}
   curse: 0
-  normalMat: {fileID: 2100000, guid: c73d46928ec1139479e77355f4bf266f, type: 2}
+  normalMat: {fileID: 2100000, guid: eed87166b238e464cb2b65ad5991faf4, type: 2}
   cursedMat: {fileID: 2100000, guid: eed87166b238e464cb2b65ad5991faf4, type: 2}
   ghostParticles: {fileID: 2470337945441809606}
   isFirstLevel: 0
