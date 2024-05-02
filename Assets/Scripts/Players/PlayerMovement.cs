@@ -110,8 +110,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (movementEnabled)
-        {
 
             #region Gravity
 
@@ -202,11 +200,14 @@ public class PlayerMovement : MonoBehaviour
 
             #endregion
 
+        if (!movementEnabled)
+        {
+            targetMovement = Vector3.zero;
+        }
             rb.velocity = targetMovement;
 
             prevGrounded = IsGrounded();
 
-        }
 
     }
 
