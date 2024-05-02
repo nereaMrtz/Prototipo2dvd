@@ -51,6 +51,10 @@ public class PlayerMovement : MonoBehaviour
     public bool movementEnabled = true;
     [HideInInspector] public bool curse;
 
+    [Header("Animations")]
+    [SerializeField] private Animator animator;
+    private Vector3 lastDirection = Vector3.right;
+
     void Start()
     {
         if (rb == null)
@@ -132,16 +136,24 @@ public class PlayerMovement : MonoBehaviour
 
             if (Mathf.Abs(movementInput.x) > 0.01f)
             {
-                targetMovement.x = Mathf.Lerp(targetMovement.x, movementInput.x * topSpeed, Time.fixedDeltaTime * acceleration); ;
+                targetMovement.x = Mathf.Lerp(targetMovement.x, movementInput.x * topSpeed, Time.fixedDeltaTime * acceleration);
+                animator.SetBool("IsWalking", true);
+                lastDirection.x = movementInput.x;
             }
             else
+            {
+
                 targetMovement.x = Mathf.Lerp(targetMovement.x, 0.0f, Time.fixedDeltaTime * deceleration);
+                animator.SetBool("IsWalking", false);
+            }
 
-            #endregion
+        animator.transform.forward = lastDirection;
 
-            #region Coyote Time
+        #endregion
 
-            if (prevGrounded && !IsGrounded() && !hasJumped)
+        #region Coyote Time
+
+        if (prevGrounded && !IsGrounded() && !hasJumped)
             {
                 inCoyote = true;
                 coyoteTimer = coyoteTime;
@@ -194,11 +206,12 @@ public class PlayerMovement : MonoBehaviour
                 inBuffer = false;
                 jumpInput = false;
                 hasJumped = true;
+                animator.SetTrigger("Jump");
             }
 
 
 
-            #endregion
+        #endregion
 
         if (!movementEnabled)
         {
@@ -207,7 +220,7 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = targetMovement;
 
             prevGrounded = IsGrounded();
-
+        animator.SetBool("IsGrounded",IsGrounded());
 
     }
 
