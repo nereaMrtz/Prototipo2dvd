@@ -46,7 +46,7 @@ public class Fog : MonoBehaviour
             }
             else
             {
-                SceneManager.LoadScene("L2_M2");
+                SceneManager.LoadScene("L2_M1");
             }
         }
     }
