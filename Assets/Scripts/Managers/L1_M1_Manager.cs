@@ -26,6 +26,12 @@ public class L1_M1_Manager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.T)) {
             StartCoroutine("WaitThenChangeScene");
         }
+
+        if(Input.GetKeyUp(KeyCode.G))
+        {
+            ghost1.GetComponent<RespawnManager>().RespawnCamera();
+            ghost2.GetComponent<RespawnManager>().RespawnCamera();
+        }
     }
 
     void ChangeScene()
