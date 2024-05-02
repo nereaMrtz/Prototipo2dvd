@@ -22,6 +22,7 @@ public class CheckPointMaster : MonoBehaviour
             ghost1.GetComponent<PlayerMovement>().enabled = false;
             ghost1.transform.position = initialPosGhost1;
             ghost1.GetComponent<PlayerMovement>().enabled = true;
+            AddElements.Instance.AddGhost(ghost1);
         }
 
         GameObject ghost2 = GameObject.FindGameObjectWithTag("Player2");
@@ -30,10 +31,9 @@ public class CheckPointMaster : MonoBehaviour
             this.lastCheckPointPosGhost2 = initialPosGhost2;
             ghost2.GetComponent<PlayerMovement>().enabled = false;
             ghost2.GetComponent<Rigidbody>().position = initialPosGhost2;
-            Debug.Log(ghost2.transform.position);
             ghost2.transform.position = initialPosGhost2;
-            Debug.Log(ghost2.transform.position);
             ghost2.GetComponent<PlayerMovement>().enabled = true;
+            AddElements.Instance.AddGhost(ghost2);
         }
     }    
 

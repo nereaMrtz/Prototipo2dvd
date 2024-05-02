@@ -27,6 +27,12 @@ public class CameraController : MonoBehaviour
     {
         camera = GetComponent<CinemachineVirtualCamera>();
         noise = camera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+        GameObject[] targets = GameObject.FindGameObjectsWithTag("CamTarget");
+        if (targets != null)
+        {
+            target1 = targets[0];
+            target2 = targets[1];
+        }
     }
     // Update is called once per frame
     void Update()

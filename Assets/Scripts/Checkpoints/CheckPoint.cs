@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class CheckPoint : MonoBehaviour
 {
-
+    private CheckPointMaster CM;
     private void Start()
     {
-        
+        CM = GameObject.FindGameObjectWithTag("CM").GetComponent<CheckPointMaster>();
     }
 
     private void OnTriggerEnter(Collider coll)
     {
         if (coll.CompareTag("Player1"))
         {
-            CheckPointMaster.Instance.SetLastCheckPointPosGhost1(coll.GetComponent<Transform>().position);
+            CM.SetLastCheckPointPosGhost1(coll.GetComponent<Transform>().position);
         }
         else if(coll.CompareTag("Player2"))
         {
-            CheckPointMaster.Instance.SetLastCheckPointPosGhost2(coll.GetComponent<Transform>().position);
+            CM.SetLastCheckPointPosGhost2(coll.GetComponent<Transform>().position);
         }
     }
 }

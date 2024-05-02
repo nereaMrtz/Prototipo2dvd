@@ -29,6 +29,10 @@ public class AddElements : MonoBehaviour
     {
         cinemachineTargetGroup.AddMember(gameObject.transform, 2, 4);
     }
+    public void AddGhost(GameObject gameObject)
+    {
+        cinemachineTargetGroup.AddMember(gameObject.transform, 1, 4);
+    }
 
     public void RemoveElement(GameObject gameObject) 
     { 
