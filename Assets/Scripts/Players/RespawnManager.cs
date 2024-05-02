@@ -70,12 +70,12 @@ public class RespawnManager : MonoBehaviour
             if (this.gameObject.tag == "Player1")
             {
                 Debug.Log("Respawn player 1");
-                this.gameObject.transform.position = CheckPointMaster.Instance.GetLastCheckPointPosGhost1();
+                this.gameObject.transform.position = GameObject.FindGameObjectWithTag("CM").GetComponent<CheckPointMaster>().GetLastCheckPointPosGhost1();
             }
             else if (this.gameObject.tag == "Player2")
             {
                 Debug.Log("Respawn player 2");
-                this.gameObject.transform.position = CheckPointMaster.Instance.GetLastCheckPointPosGhost2(); 
+                this.gameObject.transform.position = GameObject.FindGameObjectWithTag("CM").GetComponent<CheckPointMaster>().GetLastCheckPointPosGhost2(); 
             }
             this.gameObject.GetComponent<Rigidbody>().isKinematic = true;
             hasRespawned = true;
