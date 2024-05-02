@@ -13,15 +13,6 @@ public class CoordinatedPlatform : MonoBehaviour
     private bool interacting = false;
     private float speed = 2.0f;
 
-    public AudioClip platformClip;
-    public AudioSource audioSource;
-
-    private void Start()
-    {
-        audioSource.clip = platformClip;
-        audioSource.loop = true;
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.CompareTag("Player1")|| other.gameObject.CompareTag("Player2"))
@@ -44,7 +35,6 @@ public class CoordinatedPlatform : MonoBehaviour
         if(isReady && otherPlatform.isReady)
         {
             Interact();
-            audioSource.Play();
         }
     }
 
@@ -52,13 +42,11 @@ public class CoordinatedPlatform : MonoBehaviour
     {
         if (transform.position == lastPosition.position)
         {
-            audioSource.Stop();
             return;
         }
         if (transform.position != lastPosition.position)
         {
             transform.position = Vector3.MoveTowards(transform.position, lastPosition.position, speed * Time.deltaTime);
-            audioSource.Play();
         }
     }
 }
