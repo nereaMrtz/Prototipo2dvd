@@ -181,8 +181,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platforms:
   - {fileID: 0}
-  pressSound: {fileID: 8300000, guid: 423a610e00be3f340878a9cd5ecda7f1, type: 3}
-  releaseSound: {fileID: 8300000, guid: 911b847c8a8d74846974f3adb30e03a1, type: 3}
+  pressSound: {fileID: 8300000, guid: 4888372ed994c9d48993497453630a7e, type: 3}
+  releaseSound: {fileID: 8300000, guid: 4fcc926ccae2471418682a0e932c53d7, type: 3}
   audioSource: {fileID: 5332348589233927421}
 --- !u!82 &5332348589233927421
 AudioSource:
