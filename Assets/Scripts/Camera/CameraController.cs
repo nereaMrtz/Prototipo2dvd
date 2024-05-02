@@ -16,6 +16,7 @@ public class CameraController : MonoBehaviour
 
     [SerializeField] private float firstDistance = 25f;
     [SerializeField] private float secondDistance = 27f;
+    [SerializeField] private float verticalDistance = 20f;
 
     [SerializeField] private float shakeAmplitude = 0.7f;
 
@@ -36,12 +37,12 @@ public class CameraController : MonoBehaviour
 
         //Debug.Log("Los fantasmas estan a una distancia de: " + Mathf.Abs(target1.transform.position.y - target2.transform.position.y));
         
-        if(!respawning && (Vector3.Distance(target1.transform.position, target2.transform.position) > secondDistance || Mathf.Abs(target1.transform.position.y - target2.transform.position.y) > 13f))
+        if(!respawning && (Vector3.Distance(target1.transform.position, target2.transform.position) > secondDistance || Mathf.Abs(target1.transform.position.y - target2.transform.position.y) > verticalDistance))
         {           
             respawning = true;
             RespawnGhosts();
         }
-        else if(Vector3.Distance(target1.transform.position, target2.transform.position) > firstDistance || Mathf.Abs(target1.transform.position.y - target2.transform.position.y) > 12f)
+        else if(Vector3.Distance(target1.transform.position, target2.transform.position) > firstDistance || Mathf.Abs(target1.transform.position.y - target2.transform.position.y) > verticalDistance)
         {
             StartShake();
         }
