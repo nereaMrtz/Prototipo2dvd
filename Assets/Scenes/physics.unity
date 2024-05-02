@@ -884,6 +884,14 @@ PrefabInstance:
       propertyPath: m_Center.x
       value: -0.0077865236
       objectReference: {fileID: 0}
+    - target: {fileID: 7050233061697923678, guid: d54ea038ae13e844a905f895cdd50ac6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 13.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8504180346867226180, guid: d54ea038ae13e844a905f895cdd50ac6, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8731483283398164143, guid: d54ea038ae13e844a905f895cdd50ac6, type: 3}
       propertyPath: m_Name
       value: Platform
