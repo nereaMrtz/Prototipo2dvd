@@ -14,5 +14,6 @@ public class MovePlayerOnPlatform : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         other.transform.SetParent(null);
+        DontDestroyOnLoad(other);
     }
 }
