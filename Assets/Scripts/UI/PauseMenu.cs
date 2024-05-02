@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 
@@ -9,11 +10,12 @@ public class PauseMenu : MonoBehaviour
     public static PauseMenu instance;
 
     //public GameObject pauseMenu;
-    public GameObject[] menuParts;
-    public GameObject[] settingsMenuParts;
+    public GameObject pauseMenu;
+    public GameObject settingsMenu;
     public bool isPaused;
+    public bool pauseInput;
     public string pauseButton = "Pause";
-    public GameObject[] UI;
+    public GameObject UI;
 
     private ScreenWipe sw;
     private Scene currentScene;
@@ -33,20 +35,27 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+    public void OnPause(InputAction.CallbackContext context)
+    {
+        float aux = context.ReadValue<float>();
+        if (aux != 0f)
+        {
+            pauseInput = true;
+        }
+        else { pauseInput = false; }
+    }
+
     void Start()
     {
         //pauseMenu.SetActive(false);
-        foreach (GameObject part in menuParts)
-        {
-            part.SetActive(false);
-        }
+        pauseMenu.SetActive(false);
     }
 
 
     void Update()
     {
 
-        if (Input.GetButtonDown(pauseButton) && !(SceneManager.GetActiveScene().name == mainMenu))
+        if (pauseInput && !(SceneManager.GetActiveScene().name == mainMenu))
         {
             if (isPaused)
             {
@@ -64,35 +73,18 @@ public class PauseMenu : MonoBehaviour
 
     public void PauseGame()
     {
-        foreach (GameObject part in menuParts)
-        {
-            part.SetActive(true);
-        }
-        foreach (GameObject part in UI)
-        {
-            part.SetActive(false);
-        }
+        pauseMenu.SetActive(false);
+        UI.SetActive(false);
 
         Time.timeScale = 0;
         isPaused = true;
     }
 
-
-
     public void ResumeGame()
     {
-        foreach (GameObject part in menuParts)
-        {
-            part.SetActive(false);
-        }
-        foreach (GameObject part in settingsMenuParts)
-        {
-            part.SetActive(false);
-        }
-        foreach (GameObject part in UI)
-        {
-            part.SetActive(true);
-        }
+        pauseMenu.SetActive(false);
+        settingsMenu.SetActive(false);
+        UI.SetActive(false);
         Time.timeScale = 1;
         StartCoroutine("SetPauseFalse");
     }
