@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Fog : MonoBehaviour
 {
@@ -42,6 +43,10 @@ public class Fog : MonoBehaviour
             {
                 aux.ChangeMaldicion();
                 cursed = false;
+            }
+            else
+            {
+                SceneManager.LoadScene("L2_M2");
             }
         }
     }
