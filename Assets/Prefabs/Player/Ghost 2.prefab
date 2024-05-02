@@ -1259,7 +1259,7 @@ MonoBehaviour:
   leftUpCheck: {fileID: 8300510588316886459}
   leftDownCheck: {fileID: 2966316577460598501}
   coyoteTime: 0.5
-  inputBuffer: 0.5
+  inputBuffer: 0.2
   movementEnabled: 1
   curse: 0
 --- !u!136 &4288031568556051382
