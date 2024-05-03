@@ -18,17 +18,16 @@ public class L2_M1_Manager : MonoBehaviour
 
     private void Update()
     {
-          
-        
-        if(Input.GetKeyDown(KeyCode.T)) {
-            StartCoroutine("WaitThenChangeScene2");
-        }
+              
+        //if(Input.GetKeyDown(KeyCode.T)) {
+        //    StartCoroutine("WaitThenChangeScene2");
+        //}
 
-        if(Input.GetKeyUp(KeyCode.G))
-        {
-            ghost1.GetComponent<RespawnManager>().RespawnCamera();
-            ghost2.GetComponent<RespawnManager>().RespawnCamera();
-        }
+        //if(Input.GetKeyUp(KeyCode.G))
+        //{
+        //    ghost1.GetComponent<RespawnManager>().RespawnCamera();
+        //    ghost2.GetComponent<RespawnManager>().RespawnCamera();
+        //}
     }
 
     void ChangeScene()
