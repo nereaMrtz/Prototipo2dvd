@@ -41,12 +41,15 @@ public class CheckPointMaster : MonoBehaviour
     {
         Debug.Log("Ghost 1 checkpoint setted at" + lastCheckPointPos);
         this.lastCheckPointPosGhost1 = lastCheckPointPos;
+        lastCheckPointPos.y += 1.5f;
+        this.lastCheckPointPosGhost2 = lastCheckPointPos;
+
     }
     public void SetLastCheckPointPosGhost2(Vector3 lastCheckPointPos)
     {
-        Debug.Log("Ghost 2 checkpoint setted at" + lastCheckPointPos);
-        lastCheckPointPos.y += 1.5f;
-        this.lastCheckPointPosGhost2 = lastCheckPointPos;
+        //Debug.Log("Ghost 2 checkpoint setted at" + lastCheckPointPos);
+        //lastCheckPointPos.y += 1.5f;
+        //this.lastCheckPointPosGhost2 = lastCheckPointPos;
     }
 
     public Vector3 GetLastCheckPointPosGhost1()
