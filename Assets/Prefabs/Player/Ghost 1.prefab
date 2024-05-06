@@ -736,6 +736,7 @@ MonoBehaviour:
   inputBuffer: 0.2
   movementEnabled: 1
   curse: 0
+  animator: {fileID: 0}
 --- !u!114 &5346985408287639845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -842,7 +843,19 @@ MonoBehaviour:
     m_ActionId: 5dd71699-c2b0-4d4b-bdfc-8811ffa75f86
     m_ActionName: Player/Dialog[/XInputControllerWindows/buttonEast]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: OnPause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
     m_ActionId: 57b932be-3225-4054-a876-043e57499d43
     m_ActionName: Player/Pause[/XInputControllerWindows/start,/DualShock4GamepadHID/start,/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 1
@@ -866,6 +879,7 @@ MonoBehaviour:
   fallDeathClipName: Fall Death
   damagelDeathClip: {fileID: 8300000, guid: 10d967014c8fba347933c4b9b639ee76, type: 3}
   damagelDeathClipName: Damage Death
+  animator: {fileID: 0}
 --- !u!54 &5780777039151934285
 Rigidbody:
   m_ObjectHideFlags: 0

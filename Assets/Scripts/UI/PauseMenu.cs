@@ -14,26 +14,12 @@ public class PauseMenu : MonoBehaviour
     public GameObject settingsMenu;
     public bool isPaused;
     public bool pauseInput;
-    public string pauseButton = "Pause";
-    public GameObject UI;
+   // public GameObject UI;
 
     private ScreenWipe sw;
     private Scene currentScene;
 
-    [SerializeField] string mainMenu;
-
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
+    const string mainMenu = "mainMenu";
 
     public void OnPause(InputAction.CallbackContext context)
     {
@@ -73,8 +59,8 @@ public class PauseMenu : MonoBehaviour
 
     public void PauseGame()
     {
-        pauseMenu.SetActive(false);
-        UI.SetActive(false);
+        pauseMenu.SetActive(true);
+        //UI.SetActive(true);
 
         Time.timeScale = 0;
         isPaused = true;
@@ -84,7 +70,7 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenu.SetActive(false);
         settingsMenu.SetActive(false);
-        UI.SetActive(false);
+        //UI.SetActive(false);
         Time.timeScale = 1;
         StartCoroutine("SetPauseFalse");
     }
