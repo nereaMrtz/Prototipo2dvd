@@ -8,7 +8,9 @@ public class SphereRespawn : MonoBehaviour
     private Vector3 initPos;
 
     private Rigidbody rb;
-    
+
+    [SerializeField] private string clipName;
+    [SerializeField] private AudioClip clip;
     
     // Start is called before the first frame update
     void Start()
@@ -32,6 +34,10 @@ public class SphereRespawn : MonoBehaviour
         transform.position = initPos;
         rb.velocity = Vector3.zero;
         rb.AddForce(rb.velocity);
+        //if(AudioManager.Instance.LoadSFX(clipName, clip))
+        //{
+        //    AudioManager.Instance.PlaySFX(clipName);
+        //}
     }
 
     private void OnTriggerEnter(Collider collision)
