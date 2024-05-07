@@ -131,15 +131,16 @@ public class PlayerController : MonoBehaviour
     public void ToggleMaldicion(bool active)
     {
         if (!active) {
-            curse = false;
-            pMovement.curse = curse;
-            otherPlayer.curse = false;
-            otherPlayer.pMovement.curse = otherPlayer.curse;
+            if (curse)
+                ChangeMaldicion();
+            if(otherPlayer.curse)
+            {
+                otherPlayer.ChangeMaldicion();
+            }
         }
         else
         {
-            curse = true;
-            pMovement.curse = curse;
+            ChangeMaldicion();
         }
     }
 }
