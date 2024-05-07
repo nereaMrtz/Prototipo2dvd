@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class RespawnManager : MonoBehaviour
 {
+   
     [SerializeField] AudioClip fallDeathClip;
     [SerializeField] string fallDeathClipName;
     [SerializeField] AudioClip damagelDeathClip;
@@ -14,6 +15,21 @@ public class RespawnManager : MonoBehaviour
     [SerializeField] private Animator animator;
 
     public bool hasRespawned { get; private set; }
+
+
+    private void Update()
+    {
+       
+        if(this.gameObject.GetComponent<IsInCamera>().IsInCameraNow())
+        {
+            Debug.Log(this.gameObject + "esta dins");
+        }
+        else
+        {
+            Debug.Log(this.gameObject + "esta fora");
+
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == 4 && gameObject.layer == 9)//Cursed Death

@@ -12,14 +12,10 @@ public class CameraController : MonoBehaviour
     [SerializeField]private GameObject target2;
 
     private CinemachineVirtualCamera camera;
-    private CinemachineBasicMultiChannelPerlin noise;
+    private CinemachineBasicMultiChannelPerlin noise;    
 
-    [SerializeField] private float firstDistance = 25f;
     [SerializeField] private float secondDistance = 27f;
     [SerializeField] private float verticalDistance = 20f;
-
-    [SerializeField] private float shakeAmplitude = 0.7f;
-
 
     private bool shaking = false;
     private bool respawning = false;
@@ -29,40 +25,45 @@ public class CameraController : MonoBehaviour
         camera = GetComponent<CinemachineVirtualCamera>();
         noise = camera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
         target1 = GameObject.FindGameObjectWithTag("Player1");
-        target2 = GameObject.FindGameObjectWithTag("Player2");
+        target2 = GameObject.FindGameObjectWithTag("Player2");       
+
     }
-    // Update is called once per frame
+
+
     void Update()
     {
 
         //Debug.Log("Los fantasmas estan a una distancia de: " + Mathf.Abs(target1.transform.position.y - target2.transform.position.y));
         
-        if(!respawning && (Vector3.Distance(target1.transform.position, target2.transform.position) > secondDistance || Mathf.Abs(target1.transform.position.y - target2.transform.position.y) > verticalDistance))
+        if(Vector3.Distance(target1.transform.position, target2.transform.position) > secondDistance)
         {           
-            respawning = true;
-            RespawnGhosts();
-        }
-        else if(Vector3.Distance(target1.transform.position, target2.transform.position) > firstDistance || Mathf.Abs(target1.transform.position.y - target2.transform.position.y) > verticalDistance)
-        {
-            StartShake();
-        }
-        else
-        {
-            if(shaking)
-                StopShake();
-        }
+            if(target1.transform.position.x > target2.transform.position.x) 
+            {
+                if(target1.GetComponent<PlayerMovement>().GetMovementInputX() > 0.001f)
+                {
+                    target1.GetComponent<PlayerMovement>().SetTargetMovement(Vector3.zero);
+                }
+                if (target2.GetComponent<PlayerMovement>().GetMovementInputX() < -0.001f)
+                {
+                    target2.GetComponent<PlayerMovement>().SetTargetMovement(Vector3.zero);
+                }
+            }
+            else
+            {
+                if (target1.GetComponent<PlayerMovement>().GetMovementInputX() < 0.001f)
+                {
+                    target1.GetComponent<PlayerMovement>().SetTargetMovement(Vector3.zero);
+                }
+                if (target2.GetComponent<PlayerMovement>().GetMovementInputX() > -0.001f)
+                {
+                    target2.GetComponent<PlayerMovement>().SetTargetMovement(Vector3.zero);
+                }
+            }
+        }        
     }
 
-    void StartShake()
-    {
-        noise.m_AmplitudeGain = shakeAmplitude;
-        shaking = true;
-    }
-    private void StopShake()
-    {
-        noise.m_AmplitudeGain = 0f;
-        shaking = false;
-    }
+  
+
 
     void RespawnGhosts()
     {

@@ -262,4 +262,13 @@ public class PlayerMovement : MonoBehaviour
         Gizmos.DrawSphere(groundCheck.transform.position, 0.2f);
     }
 
+    public void SetTargetMovement(Vector3 aux)
+    {
+        targetMovement = aux;
+    }
+
+    public float GetMovementInputX()
+    {
+        return movementInput.x;
+    }
 }
