@@ -13,7 +13,7 @@ public class MovePlayerOnPlatform : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         other.transform.SetParent(null);
-        if (!other.CompareTag("Sphere")) ;
+        if (!other.CompareTag("Sphere"))
         DontDestroyOnLoad(other);
     }
 }
