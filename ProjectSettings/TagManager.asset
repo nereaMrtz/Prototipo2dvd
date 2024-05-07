@@ -15,6 +15,7 @@ TagManager:
   - CoinManager
   - CM vcam
   - CamTarget
+  - TopCollider
   layers:
   - Default
   - TransparentFX
