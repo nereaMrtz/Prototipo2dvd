@@ -40,8 +40,7 @@ public class PauseMenu : MonoBehaviour
 
     void Update()
     {
-
-        if (pauseInput && !(SceneManager.GetActiveScene().name == mainMenu))
+        if (pauseInput)
         {
             if (isPaused)
             {
