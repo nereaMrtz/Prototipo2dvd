@@ -1207,6 +1207,7 @@ MonoBehaviour:
   fallDeathClipName: FallDeath
   damagelDeathClip: {fileID: 8300000, guid: 10d967014c8fba347933c4b9b639ee76, type: 3}
   damagelDeathClipName: DamageDeath
+  animator: {fileID: 0}
 --- !u!54 &6524090565055608970
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1262,6 +1263,7 @@ MonoBehaviour:
   inputBuffer: 0.2
   movementEnabled: 1
   curse: 0
+  animator: {fileID: 0}
 --- !u!136 &4288031568556051382
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1282,9 +1284,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.32418784
-  m_Height: 1.1588728
+  m_Height: 1.1306443
   m_Direction: 1
-  m_Center: {x: 1.2392621e-18, y: 0.44702613, z: 0.015712202}
+  m_Center: {x: 1.2392621e-18, y: 0.43291187, z: 0.015712202}
 --- !u!114 &7241642465191430029
 MonoBehaviour:
   m_ObjectHideFlags: 0
