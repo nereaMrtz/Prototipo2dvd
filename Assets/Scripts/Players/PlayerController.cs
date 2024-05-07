@@ -106,6 +106,7 @@ public class PlayerController : MonoBehaviour
             this.gameObject.layer = 9;
             ghostParticles.Stop();
             cursedEffect.SetActive(true);
+
         }
         else
         {
@@ -125,5 +126,19 @@ public class PlayerController : MonoBehaviour
         pMovement.movementEnabled = false;
         else
         pMovement.movementEnabled = true;
+    }
+
+    public void ToggleMaldicion(bool active)
+    {
+        if(curse != active)
+        {
+            curse = active;
+            pMovement.curse = curse;
+        }
+        if (otherPlayer.curse != active)
+        {
+            otherPlayer.curse = active;
+            otherPlayer.pMovement.curse = curse;
+        }
     }
 }
