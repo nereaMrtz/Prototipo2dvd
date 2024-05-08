@@ -20,34 +20,86 @@ public class RespawnManager : MonoBehaviour
     private void Update()
     {
        
-        if(this.gameObject.GetComponent<IsInCamera>().IsInCameraNow())
+        if(!this.gameObject.GetComponent<IsInCamera>().IsInCameraNow())
         {
-            Debug.Log(this.gameObject + "esta dins");
+            RespawnCamera2();           
         }
-        else
-        {
-            Debug.Log(this.gameObject + "esta fora");
-
-        }
+       
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == 4 && gameObject.layer == 9)//Cursed Death
-            RespawnFall();
-        else if (other.gameObject.layer == 11 && gameObject.layer == 8)//Not cursed Death        
-            RespawnFall();
-        else if (other.gameObject.layer == 12)//All Death        
-            RespawnFall();
+        {
+
+            if(CheckPointMaster.Instance.ActiveCheckpoint())
+            { 
+                RespawnFall();
+            }
+            else
+            {
+                RespawnCamera2();
+            }
+        }
+        else if (other.gameObject.layer == 11 && gameObject.layer == 8)//Not cursed Death
+        {
+            if (CheckPointMaster.Instance.ActiveCheckpoint())
+            {
+                RespawnFall();
+            }
+            else
+            {
+                RespawnCamera2();
+            }
+        }
+        else if (other.gameObject.layer == 12)//All Death
+        {
+
+            if (CheckPointMaster.Instance.ActiveCheckpoint())
+            {
+                RespawnFall();
+            }
+            else
+            {
+                RespawnCamera2();
+            }
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.layer == 4 && gameObject.layer == 9)//Cursed Death
-            RespawnDamage();
+        {
+            if (CheckPointMaster.Instance.ActiveCheckpoint())
+            {
+                RespawnDamage();
+            }
+            else
+            {
+                RespawnCamera2();
+            }
+        }            
         else if (collision.gameObject.layer == 11 && gameObject.layer == 8)//Not cursed Death        
-            RespawnDamage();
+        {
+            if (CheckPointMaster.Instance.ActiveCheckpoint())
+            {
+                RespawnDamage();
+            }
+            else
+            {
+                RespawnCamera2();
+            }
+        }
         else if (collision.gameObject.layer == 12)//All Death        
-            RespawnDamage();
+        {
+            if (CheckPointMaster.Instance.ActiveCheckpoint())
+            {
+                RespawnDamage();
+            }
+            else
+            {
+                RespawnCamera2();
+            }
+        }
     }
 
     public void RespawnFall()
@@ -81,9 +133,31 @@ public class RespawnManager : MonoBehaviour
         AudioManager.Instance.PlaySFX(damagelDeathClipName);
     }
 
+    public void RespawnCamera2()
+    {
+        GameObject ghost1 = GameObject.FindWithTag("Player1");
+        GameObject ghost2 = GameObject.FindWithTag("Player2");
+        this.gameObject.GetComponent<PlayerMovement>().enabled = false;
+        if (this.gameObject.tag == "Player1")
+        {
+            Vector3 position = ghost2.transform.position;
+            position.y += 2.5f;
+            this.gameObject.transform.position = position;
+        }
+        else if (this.gameObject.tag == "Player2")
+        {
+            Vector3 position = ghost1.transform.position;
+            position.y += 2.5f;
+            this.gameObject.transform.position = position;
+        }
+        this.gameObject.GetComponent<PlayerMovement>().enabled = true;
+        hasRespawned = true;
+        StartCoroutine(HasRespawnedBoolean());
+        AudioManager.Instance.LoadSFX(fallDeathClipName, fallDeathClip);
+        AudioManager.Instance.PlaySFX(fallDeathClipName);
+    }
     public void RespawnCamera()
     {
-
         try
         {
             animator.SetBool("IsDying", true);

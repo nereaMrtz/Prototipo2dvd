@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,20 +6,50 @@ using UnityEngine;
 public class CheckPoint : MonoBehaviour
 {
     private CheckPointMaster CM;
+
+    private bool isActive = false; 
+    private bool isOnCamera = false; 
+    private bool player1Passed = false; 
+    private bool player2Passed = false;
+
+    [SerializeField]private Transform grave;
+
     private void Start()
     {
         CM = GameObject.FindGameObjectWithTag("CM").GetComponent<CheckPointMaster>();
     }
 
+    private void Update()
+    {
+        if(player1Passed && player2Passed && !isActive) 
+        {
+            isActive = true;
+            Vector3 pos = grave.position;
+            pos.y += 3f;
+            grave.DOMoveY(pos.y, 1f);
+        }    
+        if(this.GetComponent<IsInCamera>().IsInCameraNow() && isActive) 
+        {
+            CM.SetActiveCheckpoint(true);
+        }
+        else
+        {
+            CM.SetActiveCheckpoint(false);
+        }
+    }
+
+
     private void OnTriggerEnter(Collider coll)
     {
         if (coll.CompareTag("Player1"))
         {
-            CM.SetLastCheckPointPosGhost1(coll.GetComponent<Transform>().position);
+            player1Passed = true;
+            CM.SetLastCheckPointPos(coll.GetComponent<Transform>().position);
         }
         else if(coll.CompareTag("Player2"))
         {
-            CM.SetLastCheckPointPosGhost2(coll.GetComponent<Transform>().position);
+            player2Passed = true;
+            //CM.SetLastCheckPointPosGhost2(coll.GetComponent<Transform>().position);
         }
     }
 }
