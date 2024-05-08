@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.ProBuilder.MeshOperations;
 using UnityEngine.Rendering;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -55,6 +56,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Animator animator;
     private Vector3 lastDirection = Vector3.right;
 
+    private float distance;
+    PlayerController pController;
+
     void Start()
     {
         if (rb == null)
@@ -75,6 +79,8 @@ public class PlayerMovement : MonoBehaviour
             rightUpCheck.layer = 8;
             rightDownCheck.layer = 8;
         }
+        if (pController == null)
+            pController = GetComponent<PlayerController>();
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -115,99 +121,108 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
 
-            #region Gravity
+        #region Gravity
 
-            targetMovement.y = rb.velocity.y;
+        targetMovement.y = rb.velocity.y;
 
-            if (!IsGrounded())
-            {
-                float gravinc = gravity * Time.fixedDeltaTime;
-                targetMovement.y += gravinc;
-            }
-            else
-            {
-                targetMovement.y = 0.0f;
-                hasJumped = false;
-            }
+        if (!IsGrounded())
+        {
+            float gravinc = gravity * Time.fixedDeltaTime;
+            targetMovement.y += gravinc;
+        }
+        else
+        {
+            targetMovement.y = 0.0f;
+            hasJumped = false;
+        }
 
-            #endregion
+        #endregion
 
-            #region Movement
+        #region Movement
 
-            if (Mathf.Abs(movementInput.x) > 0.01f)
-            {
-                targetMovement.x = Mathf.Lerp(targetMovement.x, movementInput.x * topSpeed, Time.fixedDeltaTime * acceleration);
-                animator.SetBool("IsWalking", true);
-                lastDirection.x = movementInput.x;
-            }
-            else
-            {
+        if (Mathf.Abs(movementInput.x) > 0.01f)
+        {
+            targetMovement.x = Mathf.Lerp(targetMovement.x, movementInput.x * topSpeed, Time.fixedDeltaTime * acceleration);
+            animator.SetBool("IsWalking", true);
+            lastDirection.x = movementInput.x;
+        }
+        else
+        {
 
-                targetMovement.x = Mathf.Lerp(targetMovement.x, 0.0f, Time.fixedDeltaTime * deceleration);
-                animator.SetBool("IsWalking", false);
-            }
+            targetMovement.x = Mathf.Lerp(targetMovement.x, 0.0f, Time.fixedDeltaTime * deceleration);
+            animator.SetBool("IsWalking", false);
+        }
 
         animator.transform.forward = lastDirection;
+
+        if ((IsCollidingLeft() && movementInput.x < 0.0f) || (IsCollidingRight() && movementInput.x > 0.0f))
+        {
+            targetMovement.x = 0.0f;
+        }
+        if (CheckDistanceLeft())
+        {
+            Debug.Log("Too far left");
+        }
+        if (CheckDistanceRight())
+        {
+            Debug.Log("Too far right");
+        }
 
         #endregion
 
         #region Coyote Time
 
         if (prevGrounded && !IsGrounded() && !hasJumped)
+        {
+            inCoyote = true;
+            coyoteTimer = coyoteTime;
+        }
+
+        if (inCoyote)
+        {
+            coyoteTimer -= Time.fixedDeltaTime;
+            if (coyoteTimer <= 0.0f)
             {
-                inCoyote = true;
-                coyoteTimer = coyoteTime;
-            }
-
-            if (inCoyote)
-            {
-                coyoteTimer -= Time.fixedDeltaTime;
-                if (coyoteTimer <= 0.0f)
-                {
-                    inCoyote = false;
-                }
-            }
-
-            #endregion
-
-            #region Input Buffer
-
-            if (jumpInput && !IsGrounded())
-            {
-                inBuffer = true;
-                inputBufferTimer = inputBuffer;
-            }
-
-            if (inBuffer)
-            {
-                inputBufferTimer -= Time.fixedDeltaTime;
-                if (inputBufferTimer <= 0.0f)
-                {
-                    inBuffer = false;
-                }
-            }
-
-            #endregion
-
-            #region Jump
-
-            if ((IsCollidingLeft() && movementInput.x < 0.0f) || (IsCollidingRight() && movementInput.x > 0.0f))
-            {
-                targetMovement.x = 0.0f;
-            }
-
-
-            if ((jumpInput || inBuffer) && (IsGrounded() || inCoyote))
-            {
-                if (inCoyote)
-                    movementInput.y = 0.0f;
-                rb.AddForce(Vector3.up * jumpForce);
                 inCoyote = false;
-                inBuffer = false;
-                jumpInput = false;
-                hasJumped = true;
-                animator.SetTrigger("Jump");
             }
+        }
+
+        #endregion
+
+        #region Input Buffer
+
+        if (jumpInput && !IsGrounded())
+        {
+            inBuffer = true;
+            inputBufferTimer = inputBuffer;
+        }
+
+        if (inBuffer)
+        {
+            inputBufferTimer -= Time.fixedDeltaTime;
+            if (inputBufferTimer <= 0.0f)
+            {
+                inBuffer = false;
+            }
+        }
+
+        #endregion
+
+        #region Jump
+
+
+
+        if ((jumpInput || inBuffer) && (IsGrounded() || inCoyote))
+        {
+            if (inCoyote)
+                movementInput.y = 0.0f;
+            rb.AddForce(Vector3.up * jumpForce);
+            inCoyote = false;
+            inBuffer = false;
+            jumpInput = false;
+            hasJumped = true;
+            animator.SetTrigger("Jump");
+        }
 
 
 
@@ -217,10 +232,10 @@ public class PlayerMovement : MonoBehaviour
         {
             targetMovement = Vector3.zero;
         }
-            rb.velocity = targetMovement;
+        rb.velocity = targetMovement;
 
-            prevGrounded = IsGrounded();
-        animator.SetBool("IsGrounded",IsGrounded());
+        prevGrounded = IsGrounded();
+        animator.SetBool("IsGrounded", IsGrounded());
 
     }
 
@@ -239,7 +254,7 @@ public class PlayerMovement : MonoBehaviour
             rtn = (Physics.OverlapSphere(rightUpCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 0 << 6 | 1 << 7, QueryTriggerInteraction.Ignore).Length > 1 ||
                 Physics.OverlapSphere(rightDownCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 0 << 6 | 1 << 7, QueryTriggerInteraction.Ignore).Length > 1);
         else
-            rtn = (Physics.OverlapSphere(rightUpCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 1 << 6, QueryTriggerInteraction.Ignore).Length > 1||
+            rtn = (Physics.OverlapSphere(rightUpCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 1 << 6, QueryTriggerInteraction.Ignore).Length > 1 ||
                 Physics.OverlapSphere(rightDownCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 1 << 6, QueryTriggerInteraction.Ignore).Length > 1);
         return rtn;
     }
@@ -251,7 +266,7 @@ public class PlayerMovement : MonoBehaviour
             rtn = (Physics.OverlapSphere(leftUpCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 0 << 6 | 1 << 7, QueryTriggerInteraction.Ignore).Length > 1 ||
                 Physics.OverlapSphere(leftDownCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 0 << 6 | 1 << 7, QueryTriggerInteraction.Ignore).Length > 1);
         else
-            rtn = (Physics.OverlapSphere(leftUpCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 1 << 6, QueryTriggerInteraction.Ignore).Length > 1||
+            rtn = (Physics.OverlapSphere(leftUpCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 1 << 6, QueryTriggerInteraction.Ignore).Length > 1 ||
                 Physics.OverlapSphere(leftDownCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 1 << 6, QueryTriggerInteraction.Ignore).Length > 1);
         return rtn;
     }
@@ -262,13 +277,28 @@ public class PlayerMovement : MonoBehaviour
         Gizmos.DrawSphere(groundCheck.transform.position, 0.2f);
     }
 
-    public void SetTargetMovement(Vector3 aux)
+    [Tooltip("Returns false if it isn't in the limit of the camera")]
+    bool CheckDistanceRight()
     {
-        targetMovement = aux;
+        if (transform.position.x < pController.otherPlayer.transform.position.x)
+        {
+            return false;
+        }
+        else if (Mathf.Abs(transform.position.x) - Mathf.Abs(pController.otherPlayer.transform.position.x) < distance)
+            return false;
+        else
+            return true;
     }
 
-    public float GetMovementInputX()
+    bool CheckDistanceLeft()
     {
-        return movementInput.x;
+        if (transform.position.x > pController.otherPlayer.transform.position.x)
+        {
+            return false;
+        }
+        else if (Mathf.Abs(pController.otherPlayer.transform.position.x) - MathF.Abs(transform.position.x) < distance)
+            return false;
+        else
+            return true;
     }
 }

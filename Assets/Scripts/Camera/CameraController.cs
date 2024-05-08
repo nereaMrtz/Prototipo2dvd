@@ -14,7 +14,7 @@ public class CameraController : MonoBehaviour
     private CinemachineVirtualCamera camera;
     private CinemachineBasicMultiChannelPerlin noise;    
 
-    [SerializeField] private float secondDistance = 27f;
+    [SerializeField] private float Distance = 27f;
     [SerializeField] private float verticalDistance = 20f;
 
     private bool shaking = false;
@@ -28,41 +28,6 @@ public class CameraController : MonoBehaviour
         target2 = GameObject.FindGameObjectWithTag("Player2");       
 
     }
-
-
-    void Update()
-    {
-
-        //Debug.Log("Los fantasmas estan a una distancia de: " + Mathf.Abs(target1.transform.position.y - target2.transform.position.y));
-        
-        if(Vector3.Distance(target1.transform.position, target2.transform.position) > secondDistance)
-        {           
-            if(target1.transform.position.x > target2.transform.position.x) 
-            {
-                if(target1.GetComponent<PlayerMovement>().GetMovementInputX() > 0.001f)
-                {
-                    target1.GetComponent<PlayerMovement>().SetTargetMovement(Vector3.zero);
-                }
-                if (target2.GetComponent<PlayerMovement>().GetMovementInputX() < -0.001f)
-                {
-                    target2.GetComponent<PlayerMovement>().SetTargetMovement(Vector3.zero);
-                }
-            }
-            else
-            {
-                if (target1.GetComponent<PlayerMovement>().GetMovementInputX() < 0.001f)
-                {
-                    target1.GetComponent<PlayerMovement>().SetTargetMovement(Vector3.zero);
-                }
-                if (target2.GetComponent<PlayerMovement>().GetMovementInputX() > -0.001f)
-                {
-                    target2.GetComponent<PlayerMovement>().SetTargetMovement(Vector3.zero);
-                }
-            }
-        }        
-    }
-
-  
 
 
     void RespawnGhosts()
