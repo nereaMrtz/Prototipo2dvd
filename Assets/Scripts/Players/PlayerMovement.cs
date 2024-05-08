@@ -1,3 +1,4 @@
+using Cinemachine.Utility;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -56,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Animator animator;
     private Vector3 lastDirection = Vector3.right;
 
-    private float distance;
+    private float distance = 27.0f;
     PlayerController pController;
 
     void Start()
@@ -161,11 +162,13 @@ public class PlayerMovement : MonoBehaviour
         }
         if (CheckDistanceLeft())
         {
-            Debug.Log("Too far left");
+            if (movementInput.x < 0.0f)
+                targetMovement.x = 0.0f;
         }
         if (CheckDistanceRight())
         {
-            Debug.Log("Too far right");
+            if (movementInput.x > 0.0f)
+                targetMovement.x = 0.0f;
         }
 
         #endregion
@@ -209,8 +212,6 @@ public class PlayerMovement : MonoBehaviour
         #endregion
 
         #region Jump
-
-
 
         if ((jumpInput || inBuffer) && (IsGrounded() || inCoyote))
         {
@@ -284,7 +285,7 @@ public class PlayerMovement : MonoBehaviour
         {
             return false;
         }
-        else if (Mathf.Abs(transform.position.x) - Mathf.Abs(pController.otherPlayer.transform.position.x) < distance)
+        else if (Mathf.Abs(Mathf.Abs(transform.position.x) - Mathf.Abs(pController.otherPlayer.transform.position.x)) < distance)
             return false;
         else
             return true;
@@ -296,7 +297,7 @@ public class PlayerMovement : MonoBehaviour
         {
             return false;
         }
-        else if (Mathf.Abs(pController.otherPlayer.transform.position.x) - MathF.Abs(transform.position.x) < distance)
+        else if (Mathf.Abs(Mathf.Abs(pController.otherPlayer.transform.position.x) - MathF.Abs(transform.position.x)) < distance)
             return false;
         else
             return true;
