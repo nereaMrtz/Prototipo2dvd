@@ -14,6 +14,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject settingsMenu;
     public bool isPaused;
     public bool pauseInput;
+    bool prevInput;
     // public GameObject UI;
     public HUDUI hudui;
 
@@ -41,7 +42,7 @@ public class PauseMenu : MonoBehaviour
 
     void Update()
     {
-        if (pauseInput)
+        if (pauseInput && !prevInput)
         {
             if (isPaused)
             {
@@ -54,7 +55,7 @@ public class PauseMenu : MonoBehaviour
         }
         if (SceneManager.GetActiveScene().name == mainMenu)
             ResumeGame();
-
+        prevInput = pauseInput;
     }
 
     public void PauseGame()
