@@ -7,7 +7,7 @@ public class HUDUI : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI coinsText;
     [SerializeField] GameObject hud;
-    Animator anim;
+    [HideInInspector]public Animator anim;
 
     private void Update()
     {

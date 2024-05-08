@@ -14,7 +14,8 @@ public class PauseMenu : MonoBehaviour
     public GameObject settingsMenu;
     public bool isPaused;
     public bool pauseInput;
-   // public GameObject UI;
+    // public GameObject UI;
+    public HUDUI hudui;
 
     private ScreenWipe sw;
     private Scene currentScene;
@@ -59,7 +60,7 @@ public class PauseMenu : MonoBehaviour
     public void PauseGame()
     {
         pauseMenu.SetActive(true);
-        //UI.SetActive(true);
+        hudui.anim.Play("CoinsUIKeep");
 
         Time.timeScale = 0;
         isPaused = true;
@@ -69,7 +70,7 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenu.SetActive(false);
         settingsMenu.SetActive(false);
-        //UI.SetActive(false);
+        hudui.anim.Play("hide"); ;
         Time.timeScale = 1;
         StartCoroutine("SetPauseFalse");
     }
