@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
 {
     public bool interactInput { get; private set; }
     public PlayerMovement pMovement;
+    [SerializeField] private float distance = 27f;
 
     [Header("Curse")]
 
@@ -29,7 +30,6 @@ public class PlayerController : MonoBehaviour
 
     [HideInInspector] public bool isFirstLevel = false;
 
-    private float distance;
 
     [SerializeField] AudioClip jumpClip;
     [SerializeField] string jumpClipName;

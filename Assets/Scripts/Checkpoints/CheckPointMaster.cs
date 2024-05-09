@@ -11,10 +11,13 @@ public class CheckPointMaster : MonoBehaviour
     private Vector3 lastCheckPointPosGhost2;
     [SerializeField] private Vector3 initialPosGhost1;
     [SerializeField] private Vector3 initialPosGhost2;
+    private GameObject ghost1;
+    private GameObject ghost2;
 
+    bool activeCheckpoint = false;
     private void Start()
     {
-        GameObject ghost1 = GameObject.FindGameObjectWithTag("Player1");
+        ghost1 = GameObject.FindGameObjectWithTag("Player1");
         if (ghost1 != null)
         {
             this.lastCheckPointPosGhost1 = initialPosGhost1;
@@ -25,7 +28,7 @@ public class CheckPointMaster : MonoBehaviour
             AddElements.Instance.AddGhost(ghost1);
         }
 
-        GameObject ghost2 = GameObject.FindGameObjectWithTag("Player2");
+        ghost2 = GameObject.FindGameObjectWithTag("Player2");
         if (ghost2 != null)
         {
             this.lastCheckPointPosGhost2 = initialPosGhost2;
@@ -35,9 +38,16 @@ public class CheckPointMaster : MonoBehaviour
             ghost2.GetComponent<PlayerMovement>().enabled = true;
             AddElements.Instance.AddGhost(ghost2);
         }
-    }    
+    }
 
-    public void SetLastCheckPointPosGhost1(Vector3 lastCheckPointPos)
+    private void Update()
+    {
+        if(activeCheckpoint)
+            Debug.Log("There's a checkpoint active on camera");
+        else
+            Debug.Log("There's not a checkpoint active on camera");
+    }
+    public void SetLastCheckPointPos(Vector3 lastCheckPointPos)
     {
         Debug.Log("Ghost 1 checkpoint setted at" + lastCheckPointPos);
         this.lastCheckPointPosGhost1 = lastCheckPointPos;
@@ -52,6 +62,15 @@ public class CheckPointMaster : MonoBehaviour
         //this.lastCheckPointPosGhost2 = lastCheckPointPos;
     }
 
+    public void SetActiveCheckpoint(bool aux)
+    {
+        activeCheckpoint = aux;
+    }
+
+    public bool ActiveCheckpoint()
+    {
+        return activeCheckpoint;
+    }
     public Vector3 GetLastCheckPointPosGhost1()
     {
         return this.lastCheckPointPosGhost1;
