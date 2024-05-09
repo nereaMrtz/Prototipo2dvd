@@ -40,16 +40,9 @@ public class CheckPointMaster : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if(activeCheckpoint)
-            Debug.Log("There's a checkpoint active on camera");
-        else
-            Debug.Log("There's not a checkpoint active on camera");
-    }
+    
     public void SetLastCheckPointPos(Vector3 lastCheckPointPos)
     {
-        Debug.Log("Ghost 1 checkpoint setted at" + lastCheckPointPos);
         this.lastCheckPointPosGhost1 = lastCheckPointPos;
         lastCheckPointPos.y += 1.5f;
         this.lastCheckPointPosGhost2 = lastCheckPointPos;
