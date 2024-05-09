@@ -19,12 +19,12 @@ public class atajos : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.U))
         {
             CheckNextLevel(SceneManager.GetActiveScene().name);
             ChangeScene(sceneToLoad);
         }
-        if (Input.GetKeyDown(KeyCode.U))
+        if (Input.GetKeyDown(KeyCode.T))
         {
             CheckLastLevel(SceneManager.GetActiveScene().name);
             ChangeScene(sceneToLoad);
@@ -42,7 +42,7 @@ public class atajos : MonoBehaviour
         switch (scene)
         {
             case "L1_M1":
-                //Activar maldicion
+                ghost1.GetComponent<PlayerController>().ToggleMaldicion(true);
                 sceneToLoad = "L2_M1";
                 break;
             case "L2_M1":
@@ -66,7 +66,7 @@ public class atajos : MonoBehaviour
                 sceneToLoad = "MainMenu";
                 break;
             case "L2_M1":
-                //Desactivar maldicion
+                ghost1.GetComponent<PlayerController>().ToggleMaldicion(false);
                 sceneToLoad = "L1_M1";
                 break;
             case "L3_M1":
