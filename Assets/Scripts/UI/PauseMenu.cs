@@ -61,7 +61,7 @@ public class PauseMenu : MonoBehaviour
     public void PauseGame()
     {
         pauseMenu.SetActive(true);
-        hudui.anim.Play("CoinsUIKeep");
+        hudui.ShowPauseMenuHud();
 
         Time.timeScale = 0;
         isPaused = true;
@@ -71,7 +71,7 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenu.SetActive(false);
         settingsMenu.SetActive(false);
-        hudui.anim.Play("hide"); ;
+        hudui.anim.Play("hide"); 
         Time.timeScale = 1;
         StartCoroutine("SetPauseFalse");
     }

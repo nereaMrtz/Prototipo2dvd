@@ -26,4 +26,9 @@ public class HUDUI : MonoBehaviour
         anim.Play("hide");
     }
 
+    public void ShowPauseMenuHud()
+    {
+        anim.Play("coinsUIKeep");
+    }
+
 }
