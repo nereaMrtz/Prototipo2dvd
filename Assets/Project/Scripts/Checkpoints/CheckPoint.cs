@@ -25,7 +25,7 @@ public class CheckPoint : MonoBehaviour
         {
             isActive = true;
             Vector3 pos = grave.position;
-            pos.y += 3f;
+            pos.y += 1f;
             grave.DOMoveY(pos.y, 1f);
         }    
         if(this.GetComponent<IsInCamera>().IsInCameraNow() && isActive) 
