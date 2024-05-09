@@ -132,15 +132,30 @@ public class PlayerController : MonoBehaviour
     {
         if (!active) {
             if (curse)
-                ChangeMaldicion();
-            if(otherPlayer.curse)
             {
-                otherPlayer.ChangeMaldicion();
+                curse = active;
+                curseEffect.Play();
+                this.gameObject.layer = 9;
+                ghostParticles.Stop();
+                pMovement.curse = curse;
+            }
+            cursedEffect.SetActive(true);
+            if (otherPlayer.curse)
+            {
+                otherPlayer.curse = active;
+                otherPlayer.curseEffect.Play();
+                otherPlayer.gameObject.layer = 9;
+                otherPlayer.ghostParticles.Stop();
+                otherPlayer.pMovement.curse = curse;
             }
         }
         else
         {
-            ChangeMaldicion();
+            curse = active;
+            cursedEffect.SetActive(false);
+            this.gameObject.layer = 8;
+            ghostParticles.Play();
+            pMovement.curse = curse;
         }
     }
 }
