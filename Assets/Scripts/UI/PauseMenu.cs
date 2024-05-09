@@ -80,6 +80,7 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         StartCoroutine("SetPauseFalse");
+        Destroy(GameObject.FindGameObjectWithTag("Camera"));
         SceneManager.LoadScene("Main Menu"); 
     }
 
