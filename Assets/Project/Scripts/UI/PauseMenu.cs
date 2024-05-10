@@ -14,26 +14,14 @@ public class PauseMenu : MonoBehaviour
     public GameObject settingsMenu;
     public bool isPaused;
     public bool pauseInput;
-    public string pauseButton = "Pause";
-    public GameObject UI;
+    bool prevInput;
+    // public GameObject UI;
+    public HUDUI hudui;
 
     private ScreenWipe sw;
     private Scene currentScene;
 
-    [SerializeField] string mainMenu;
-
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
+    const string mainMenu = "mainMenu";
 
     public void OnPause(InputAction.CallbackContext context)
     {
@@ -54,8 +42,7 @@ public class PauseMenu : MonoBehaviour
 
     void Update()
     {
-
-        if (pauseInput && !(SceneManager.GetActiveScene().name == mainMenu))
+        if (pauseInput && !prevInput)
         {
             if (isPaused)
             {
@@ -68,13 +55,13 @@ public class PauseMenu : MonoBehaviour
         }
         if (SceneManager.GetActiveScene().name == mainMenu)
             ResumeGame();
-
+        prevInput = pauseInput;
     }
 
     public void PauseGame()
     {
-        pauseMenu.SetActive(false);
-        UI.SetActive(false);
+        pauseMenu.SetActive(true);
+        hudui.ShowPauseMenuHud();
 
         Time.timeScale = 0;
         isPaused = true;
@@ -84,7 +71,7 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenu.SetActive(false);
         settingsMenu.SetActive(false);
-        UI.SetActive(false);
+        hudui.anim.Play("hide"); 
         Time.timeScale = 1;
         StartCoroutine("SetPauseFalse");
     }
@@ -93,6 +80,7 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         StartCoroutine("SetPauseFalse");
+        Destroy(GameObject.FindGameObjectWithTag("Camera"));
         SceneManager.LoadScene("Main Menu"); 
     }
 
