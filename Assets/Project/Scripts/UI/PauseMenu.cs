@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -89,6 +90,7 @@ public class PauseMenu : MonoBehaviour
         Destroy(GameObject.FindGameObjectWithTag("Player1"));
         Destroy(GameObject.FindGameObjectWithTag("Player2"));
         StartCoroutine(DestroyThis());
+        AudioManager.Instance.PlayBackground(0);
         SceneManager.LoadScene(mainMenu); 
     }
 
@@ -112,7 +114,7 @@ public class PauseMenu : MonoBehaviour
     }
     IEnumerator DestroyThis()
     {
-        yield return new WaitForEndOfFrame();
+        yield return new WaitForNextFrameUnit();
         Destroy(this);
     }
 
