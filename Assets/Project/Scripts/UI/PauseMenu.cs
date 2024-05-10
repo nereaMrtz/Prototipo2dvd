@@ -19,9 +19,6 @@ public class PauseMenu : MonoBehaviour
     // public GameObject UI;
     public HUDUI hudui;
 
-    [SerializeField] GameObject firstPauseButton;
-    [SerializeField] GameObject firstSettingsButton;
-
     private ScreenWipe sw;
     private Scene currentScene;
 
