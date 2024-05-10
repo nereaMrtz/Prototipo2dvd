@@ -64,6 +64,44 @@ public class RespawnManager : MonoBehaviour
             }
         }
     }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.layer == 4 && gameObject.layer == 9)//Cursed Death
+        {
+
+            if(CheckPointMaster.Instance.ActiveCheckpoint())
+            { 
+                RespawnFall();
+            }
+            else
+            {
+                RespawnCamera2();
+            }
+        }
+        else if (other.gameObject.layer == 11 && gameObject.layer == 8)//Not cursed Death
+        {
+            if (CheckPointMaster.Instance.ActiveCheckpoint())
+            {
+                RespawnFall();
+            }
+            else
+            {
+                RespawnCamera2();
+            }
+        }
+        else if (other.gameObject.layer == 12)//All Death
+        {
+
+            if (CheckPointMaster.Instance.ActiveCheckpoint())
+            {
+                RespawnFall();
+            }
+            else
+            {
+                RespawnCamera2();
+            }
+        }
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
