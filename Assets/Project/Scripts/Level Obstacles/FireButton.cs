@@ -7,12 +7,20 @@ public class FireButton : MonoBehaviour
 {
     [SerializeField] GameObject[] walls;
 
+    [SerializeField] GameObject pressButton;    
+
     bool wallActive=true;
     float timer;
     public float wallDelay;
+
+    private GameObject ghost1;
+    private GameObject ghost2;
     void Start()
     {
-        foreach(GameObject wall in walls)
+        ghost1 = GameObject.FindGameObjectWithTag("Player1");
+        ghost2 = GameObject.FindGameObjectWithTag("Player2");
+
+        foreach (GameObject wall in walls)
         {
             wall.SetActive(true);
         }
@@ -21,18 +29,18 @@ public class FireButton : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player1") || other.CompareTag("Player2"))
-        {
-            foreach (var wall in walls)
-            {
-                wall.SetActive(false);
-            }
+        {    
+            pressButton.SetActive(true);
         }
     }
+
+
 
     private void OnTriggerExit(Collider other)
     {
         timer = 0.0f;
         wallActive = false;
+        pressButton.SetActive(false);
     }
 
     // Update is called once per frame
@@ -48,6 +56,14 @@ public class FireButton : MonoBehaviour
             foreach (var wall in walls)
             {
                 wall.SetActive(true);
+            }
+        }
+
+        if(ghost1.GetComponent<PlayerController>().interactInput == true && pressButton.activeInHierarchy || ghost2.GetComponent<PlayerController>().interactInput == true && pressButton.activeInHierarchy)
+        {
+            foreach (var wall in walls)
+            {
+                wall.SetActive(false);
             }
         }
     }
