@@ -144,8 +144,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 99
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bf2bdf399a7a4c14e9ca7ab225ce0970, type: 2}
-  m_sharedMaterial: {fileID: 3354239738957819486, guid: bf2bdf399a7a4c14e9ca7ab225ce0970, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 8585011136121287543}
   m_Layer: 5
   m_Name: HUDUI
-  m_TagString: Untagged
+  m_TagString: HUDUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -246,7 +246,7 @@ RectTransform:
   m_Children:
   - {fileID: 9029974841654188127}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -330,6 +330,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinsText: {fileID: 6243878158744435814}
   hud: {fileID: 5927944501449292166}
+  anim: {fileID: 0}
 --- !u!114 &8585011136121287543
 MonoBehaviour:
   m_ObjectHideFlags: 0

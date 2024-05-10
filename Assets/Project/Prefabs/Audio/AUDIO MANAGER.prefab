@@ -160,7 +160,7 @@ Transform:
   m_Children:
   - {fileID: 2572346923154814846}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7410792812688082793
 MonoBehaviour:
@@ -177,6 +177,7 @@ MonoBehaviour:
   backgroundSource: {fileID: 8617790804220731730}
   backgroundMusic:
   - {fileID: 8300000, guid: 68dd76f732e8fec47b1e49687078e85a, type: 3}
+  - {fileID: 8300000, guid: 246d26f308c826d4a8b7475ef285d4af, type: 3}
   SFXSource: {fileID: 8484586268633983038}
   mixer: {fileID: 24100000, guid: 77effcd7f0775a8469b7ab263036daa2, type: 2}
   load: 0

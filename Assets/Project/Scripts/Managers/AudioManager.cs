@@ -66,6 +66,12 @@ public class AudioManager : MonoBehaviour
 
     }
 
+    public void PlayBackground(int i)
+    {
+        backgroundSource.clip = backgroundMusic[i];
+        backgroundSource.Play();
+    }
+
     public void MuteMaster()
     {
         if (!masterMute)
