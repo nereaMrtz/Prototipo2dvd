@@ -785,6 +785,18 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: -6177155099693592008, guid: 46f311046d2104da8b56be3d0a49a119, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6177155099693592008, guid: 46f311046d2104da8b56be3d0a49a119, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6177155099693592008, guid: 46f311046d2104da8b56be3d0a49a119, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -5395959557547378802, guid: 46f311046d2104da8b56be3d0a49a119, type: 3}
       propertyPath: m_Layer
       value: 8
@@ -1179,6 +1191,7 @@ MonoBehaviour:
   movementEnabled: 1
   curse: 0
   animator: {fileID: 3444759329462790896}
+  armature: {fileID: 3340856879410658209}
 --- !u!136 &4288031568556051382
 CapsuleCollider:
   m_ObjectHideFlags: 0

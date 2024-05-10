@@ -55,7 +55,9 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Animations")]
     [SerializeField] private Animator animator;
-    private Vector3 lastDirection = Vector3.right;
+    [SerializeField] private GameObject armature;
+    private Vector3 lastDirection = Vector3.forward;
+
 
     private float distance = 27.0f;
     PlayerController pController;
@@ -148,7 +150,10 @@ public class PlayerMovement : MonoBehaviour
         {
             targetMovement.x = Mathf.Lerp(targetMovement.x, movementInput.x * topSpeed, Time.fixedDeltaTime * acceleration);
             animator.SetBool("IsWalking", true);
-            lastDirection.x = movementInput.x;
+            if (movementInput.x < 0.0f)
+                lastDirection = Vector3.forward;
+            else if (movementInput.x > 0.0f)
+                lastDirection = Vector3.back;
         }
         else
         {
@@ -157,9 +162,9 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("IsWalking", false);
         }
 
-        this.gameObject.transform.forward = lastDirection;
+        armature.transform.forward = lastDirection;
 
-        if ((IsCollidingLeft() && movementInput.x < 0.0f) || (IsCollidingRight() && movementInput.x > 0.0f))
+        if (((IsCollidingLeft() && movementInput.x < 0.0f) || (IsCollidingRight() && movementInput.x > 0.0f)) && IsGrounded())
         {
             targetMovement.x = 0.0f;
         }
