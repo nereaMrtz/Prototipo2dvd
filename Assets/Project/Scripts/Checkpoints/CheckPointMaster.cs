@@ -15,6 +15,17 @@ public class CheckPointMaster : MonoBehaviour
     private GameObject ghost2;
 
     bool activeCheckpoint = false;
+
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Debug.LogError("There's more than one CheckPointMaster!" + transform + " - " + Instance);
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
     private void Start()
     {
         ghost1 = GameObject.FindGameObjectWithTag("Player1");
@@ -44,7 +55,7 @@ public class CheckPointMaster : MonoBehaviour
     public void SetLastCheckPointPos(Vector3 lastCheckPointPos)
     {
         this.lastCheckPointPosGhost1 = lastCheckPointPos;
-        lastCheckPointPos.y += 1.5f;
+        lastCheckPointPos.y += 2.5f;
         this.lastCheckPointPosGhost2 = lastCheckPointPos;
 
     }

@@ -12,18 +12,15 @@ public class CameraController : MonoBehaviour
     [SerializeField]private GameObject target2;
 
     private CinemachineVirtualCamera camera;
-    private CinemachineBasicMultiChannelPerlin noise;    
 
     [SerializeField] private float Distance = 27f;
     [SerializeField] private float verticalDistance = 20f;
 
-    private bool shaking = false;
     private bool respawning = false;
 
     private void Start()
     {
         camera = GetComponent<CinemachineVirtualCamera>();
-        noise = camera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
         target1 = GameObject.FindGameObjectWithTag("Player1");
         target2 = GameObject.FindGameObjectWithTag("Player2");       
 
