@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -42,6 +43,11 @@ public class PauseMenu : MonoBehaviour
     {
         //pauseMenu.SetActive(false);
         pauseMenu.SetActive(false);
+        if (hudui != null)
+        {
+            GameObject ui=GameObject.FindGameObjectWithTag("HUDUI");
+            hudui = ui.GetComponent<HUDUI>();
+        }
     }
 
 
