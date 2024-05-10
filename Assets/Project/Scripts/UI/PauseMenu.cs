@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
@@ -17,6 +18,9 @@ public class PauseMenu : MonoBehaviour
     bool prevInput;
     // public GameObject UI;
     public HUDUI hudui;
+
+    [SerializeField] GameObject firstPauseButton;
+    [SerializeField] GameObject firstSettingsButton;
 
     private ScreenWipe sw;
     private Scene currentScene;
@@ -62,6 +66,7 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenu.SetActive(true);
         hudui.ShowPauseMenuHud();
+        EventSystem.current.SetSelectedGameObject(firstPauseButton);
 
         Time.timeScale = 0;
         isPaused = true;
@@ -81,7 +86,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         StartCoroutine("SetPauseFalse");
         Destroy(GameObject.FindGameObjectWithTag("Camera"));
-        SceneManager.LoadScene("Main Menu"); 
+        SceneManager.LoadScene(mainMenu); 
     }
 
     public void QuitGame()
