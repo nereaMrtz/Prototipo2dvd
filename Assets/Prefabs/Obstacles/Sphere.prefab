@@ -11704,3 +11704,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bd95b967b65703428eb8bd75faf5690, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clipName: SphereRespawn
+  clip: {fileID: 8300000, guid: 316a3318163d5bb42aae181d91d437fb, type: 3}
