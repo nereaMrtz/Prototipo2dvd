@@ -42,7 +42,7 @@ public class atajos : MonoBehaviour
         switch (scene)
         {
             case "L1_M1":
-                ghost1.GetComponent<PlayerController>().ToggleMaldicion(true);
+                ghost1.GetComponent<PlayerController>().ToggleMaldicion(false);
                 sceneToLoad = "L2_M1";
                 break;
             case "L2_M1":
@@ -66,7 +66,7 @@ public class atajos : MonoBehaviour
                 sceneToLoad = "MainMenu";
                 break;
             case "L2_M1":
-                ghost1.GetComponent<PlayerController>().ToggleMaldicion(false);
+                ghost1.GetComponent<PlayerController>().ToggleMaldicion(true);
                 sceneToLoad = "L1_M1";
                 break;
             case "L3_M1":
