@@ -740,7 +740,7 @@ MonoBehaviour:
   inputBuffer: 0.2
   movementEnabled: 1
   curse: 0
-  animator: {fileID: 0}
+  animator: {fileID: 289529880358551730}
 --- !u!114 &5346985408287639845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -871,7 +871,7 @@ MonoBehaviour:
   fallDeathClipName: Fall Death
   damagelDeathClip: {fileID: 8300000, guid: 10d967014c8fba347933c4b9b639ee76, type: 3}
   damagelDeathClipName: Damage Death
-  animator: {fileID: 0}
+  animator: {fileID: 289529880358551730}
 --- !u!54 &5780777039151934285
 Rigidbody:
   m_ObjectHideFlags: 0
