@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor.Tilemaps;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
@@ -17,6 +20,9 @@ public class PauseMenu : MonoBehaviour
     bool prevInput;
     // public GameObject UI;
     public HUDUI hudui;
+
+    [SerializeField] GameObject firstPauseButton;
+    [SerializeField] GameObject firstSettingsButton;
 
     private ScreenWipe sw;
     private Scene currentScene;
@@ -37,6 +43,11 @@ public class PauseMenu : MonoBehaviour
     {
         //pauseMenu.SetActive(false);
         pauseMenu.SetActive(false);
+        if (hudui != null)
+        {
+            GameObject ui=GameObject.FindGameObjectWithTag("HUDUI");
+            hudui = ui.GetComponent<HUDUI>();
+        }
     }
 
 
@@ -62,7 +73,7 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenu.SetActive(true);
         hudui.ShowPauseMenuHud();
-
+        OpenPause();
         Time.timeScale = 0;
         isPaused = true;
     }
@@ -78,10 +89,15 @@ public class PauseMenu : MonoBehaviour
 
     public void GoToMainMenu()
     {
+
         Time.timeScale = 1f;
         StartCoroutine("SetPauseFalse");
         Destroy(GameObject.FindGameObjectWithTag("Camera"));
-        SceneManager.LoadScene("Main Menu"); 
+        Destroy(GameObject.FindGameObjectWithTag("Player1"));
+        Destroy(GameObject.FindGameObjectWithTag("Player2"));
+        StartCoroutine(DestroyThis());
+        AudioManager.Instance.PlayBackground(0);
+        SceneManager.LoadScene(mainMenu); 
     }
 
     public void QuitGame()
@@ -101,5 +117,20 @@ public class PauseMenu : MonoBehaviour
     {
         yield return new WaitForEndOfFrame();
         isPaused = false;
+    }
+    IEnumerator DestroyThis()
+    {
+        yield return new WaitForNextFrameUnit();
+        Destroy(this.gameObject);
+    }
+
+    public void OpenSetting()
+    {
+        EventSystem.current.SetSelectedGameObject(firstSettingsButton);
+    }
+
+    public void OpenPause()
+    {
+        EventSystem.current.SetSelectedGameObject(firstPauseButton);
     }
 }

@@ -59,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 lastDirection = Vector3.forward;
 
 
-    private float distance = 27.0f;
+    private float distance = 33.0f;
     PlayerController pController;
 
     void Start()

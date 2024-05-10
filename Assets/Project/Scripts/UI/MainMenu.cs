@@ -58,6 +58,7 @@ public class MainMenu : MonoBehaviour
     public void Play()
     {
         SceneManager.LoadScene("L1_M1");
+        AudioManager.Instance.PlayBackground(1);
     }
 
 }
