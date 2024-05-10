@@ -154,7 +154,7 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("IsWalking", false);
         }
 
-        animator.transform.forward = lastDirection;
+        this.gameObject.transform.forward = lastDirection;
 
         if ((IsCollidingLeft() && movementInput.x < 0.0f) || (IsCollidingRight() && movementInput.x > 0.0f))
         {
