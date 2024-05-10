@@ -117,7 +117,8 @@ GameObject:
   - component: {fileID: 4964482996414692}
   - component: {fileID: 33898957144764872}
   - component: {fileID: 23003603931472896}
-  - component: {fileID: 7520326381627509844}
+  - component: {fileID: 4543564282538844829}
+  - component: {fileID: 2416966662736213263}
   m_Layer: 0
   m_Name: box_wooden_3_LOD0
   m_TagString: Untagged
@@ -190,8 +191,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &7520326381627509844
-MeshCollider:
+--- !u!65 &4543564282538844829
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -208,10 +209,36 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300006, guid: 1519baed00c0a2d458f7f9c10f1dedd1, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 1.0557244, y: 1.0410075, z: 1.0826652}
+  m_Center: {x: 0, y: -0.000000029802322, z: -0.000000029802322}
+--- !u!54 &2416966662736213263
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1238841175873104}
+  serializedVersion: 4
+  m_Mass: 10
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 120
+  m_CollisionDetection: 0
 --- !u!1 &1611205364368486
 GameObject:
   m_ObjectHideFlags: 0
@@ -327,7 +354,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4708329260527186}
-  - component: {fileID: 205735702546305434}
   m_Layer: 0
   m_Name: wooden_box_3
   m_TagString: Untagged
@@ -351,32 +377,5 @@ Transform:
   - {fileID: 4277095621026494}
   - {fileID: 4231641395306498}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!205 &205735702546305434
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1984197563326602}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
-  m_Size: 1.0826652
-  m_FadeMode: 0
-  m_AnimateCrossFading: 0
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.25
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 23003603931472896}
-  - screenRelativeHeight: 0.125
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 23973261079734006}
-  - screenRelativeHeight: 0.01
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 23648374066370810}
-  m_Enabled: 1
