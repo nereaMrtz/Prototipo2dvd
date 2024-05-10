@@ -82,9 +82,13 @@ public class PauseMenu : MonoBehaviour
 
     public void GoToMainMenu()
     {
+
         Time.timeScale = 1f;
         StartCoroutine("SetPauseFalse");
         Destroy(GameObject.FindGameObjectWithTag("Camera"));
+        Destroy(GameObject.FindGameObjectWithTag("Player1"));
+        Destroy(GameObject.FindGameObjectWithTag("Player2"));
+        StartCoroutine(DestroyThis());
         SceneManager.LoadScene(mainMenu); 
     }
 
@@ -105,6 +109,11 @@ public class PauseMenu : MonoBehaviour
     {
         yield return new WaitForEndOfFrame();
         isPaused = false;
+    }
+    IEnumerator DestroyThis()
+    {
+        yield return new WaitForEndOfFrame();
+        Destroy(this);
     }
 
     public void OpenSetting()
