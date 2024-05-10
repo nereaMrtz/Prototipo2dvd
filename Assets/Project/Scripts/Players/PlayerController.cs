@@ -17,7 +17,6 @@ public class PlayerController : MonoBehaviour
 {
     public bool interactInput { get; private set; }
     public PlayerMovement pMovement;
-    [SerializeField] private float distance = 27f;
 
     [Header("Curse")]
 
@@ -114,7 +113,7 @@ public class PlayerController : MonoBehaviour
             this.gameObject.layer = 8;
             ghostParticles.Play();
         }
-            pMovement.curse=curse; 
+        pMovement.curse = curse;
 
         AudioManager.Instance.LoadSFX(curseChangeClipName, curseChangeClip);
         AudioManager.Instance.PlaySFX(curseChangeClipName);
@@ -122,25 +121,41 @@ public class PlayerController : MonoBehaviour
 
     public void SetStopMovement(bool set)
     {
-        if(set)
-        pMovement.movementEnabled = false;
+        if (set)
+            pMovement.movementEnabled = false;
         else
-        pMovement.movementEnabled = true;
+            pMovement.movementEnabled = true;
     }
 
     public void ToggleMaldicion(bool active)
     {
-        if (!active) {
+        if (!active)
+        {
             if (curse)
-                ChangeMaldicion();
-            if(otherPlayer.curse)
             {
-                otherPlayer.ChangeMaldicion();
+                curse = active;
+                curseEffect.Play();
+                this.gameObject.layer = 9;
+                ghostParticles.Stop();
+                pMovement.curse = curse;
+            }
+            cursedEffect.SetActive(true);
+            if (otherPlayer.curse)
+            {
+                otherPlayer.curse = active;
+                otherPlayer.curseEffect.Play();
+                otherPlayer.gameObject.layer = 9;
+                otherPlayer.ghostParticles.Stop();
+                otherPlayer.pMovement.curse = curse;
             }
         }
         else
         {
-            ChangeMaldicion();
+            curse = active;
+            cursedEffect.SetActive(false);
+            this.gameObject.layer = 8;
+            ghostParticles.Play();
+            pMovement.curse = curse;
         }
     }
 }
