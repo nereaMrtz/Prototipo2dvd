@@ -5,8 +5,7 @@ using UnityEngine;
 public class PasstroughCollider : MonoBehaviour
 {
     [SerializeField] GameObject collider;
-    [SerializeField] GameObject TopCollider1;
-    [SerializeField] GameObject TopCollider2;
+
     void Start()
     {
         collider.SetActive(false);
@@ -18,14 +17,12 @@ public class PasstroughCollider : MonoBehaviour
         {
             collider.SetActive(true);
             other.transform.localScale = new Vector3(2f, 1.6f, 2f);
-            TopCollider1.SetActive(false);
 
         }
         else if (other.CompareTag("Player2"))
         {
             collider.SetActive(true);
             other.transform.localScale = new Vector3(2f, 1.6f, 2f);
-            TopCollider2.SetActive(false);
         }
     }
     private void OnTriggerExit(Collider other)
