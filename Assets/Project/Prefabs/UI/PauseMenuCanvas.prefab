@@ -1074,8 +1074,7 @@ MonoBehaviour:
   isPaused: 0
   pauseInput: 0
   hudui: {fileID: 0}
-  firstPauseButton: {fileID: 0}
-  firstSettingsButton: {fileID: 0}
+  firstPauseButton: {fileID: 6567236287891713185}
 --- !u!1 &3672358381379850808
 GameObject:
   m_ObjectHideFlags: 0
