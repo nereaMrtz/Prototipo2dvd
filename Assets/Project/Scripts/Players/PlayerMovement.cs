@@ -152,7 +152,7 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("IsWalking", true);
             if (movementInput.x < 0.0f)
                 lastDirection = Vector3.forward;
-            else if(movementInput.x>0.0f)
+            else if (movementInput.x > 0.0f)
                 lastDirection = Vector3.back;
         }
         else
@@ -164,7 +164,7 @@ public class PlayerMovement : MonoBehaviour
 
         armature.transform.forward = lastDirection;
 
-        if ((IsCollidingLeft() && movementInput.x < 0.0f) || (IsCollidingRight() && movementInput.x > 0.0f))
+        if (((IsCollidingLeft() && movementInput.x < 0.0f) || (IsCollidingRight() && movementInput.x > 0.0f)) && IsGrounded())
         {
             targetMovement.x = 0.0f;
         }
