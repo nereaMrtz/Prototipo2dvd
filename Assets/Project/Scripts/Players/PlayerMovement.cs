@@ -71,6 +71,7 @@ public class PlayerMovement : MonoBehaviour
             leftDownCheck.layer = 9;
             rightUpCheck.layer = 9;
             rightDownCheck.layer = 9;
+            this.gameObject.layer = 9;
         }
         else
         {
@@ -79,6 +80,7 @@ public class PlayerMovement : MonoBehaviour
             leftDownCheck.layer = 8;
             rightUpCheck.layer = 8;
             rightDownCheck.layer = 8;
+            this.gameObject.layer = 8;
         }
         if (pController == null)
             pController = GetComponent<PlayerController>();
