@@ -115,7 +115,7 @@ public class PauseMenu : MonoBehaviour
     IEnumerator DestroyThis()
     {
         yield return new WaitForNextFrameUnit();
-        Destroy(this);
+        Destroy(this.gameObject);
     }
 
     public void OpenSetting()
