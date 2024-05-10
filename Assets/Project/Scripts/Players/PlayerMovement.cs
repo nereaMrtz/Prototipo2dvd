@@ -164,7 +164,7 @@ public class PlayerMovement : MonoBehaviour
 
         armature.transform.forward = lastDirection;
 
-        if (((IsCollidingLeft() && movementInput.x < 0.0f) || (IsCollidingRight() && movementInput.x > 0.0f)) && IsGrounded())
+        if (((IsCollidingLeft() && movementInput.x < 0.0f) || (IsCollidingRight() && movementInput.x > 0.0f)) && !IsGrounded())
         {
             targetMovement.x = 0.0f;
         }
