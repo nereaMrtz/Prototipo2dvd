@@ -14,6 +14,9 @@ public class CheckPoint : MonoBehaviour
 
     [SerializeField]private Transform grave;
 
+    [Header("Sound")]
+    [SerializeField] private string clipName;
+    [SerializeField] private AudioClip clip;
     private void Start()
     {
         CM = GameObject.FindGameObjectWithTag("CM").GetComponent<CheckPointMaster>();
@@ -27,6 +30,8 @@ public class CheckPoint : MonoBehaviour
             Vector3 pos = grave.position;
             pos.y += 1f;
             grave.DOMoveY(pos.y, 1f);
+            if (AudioManager.Instance.LoadSFX(clipName, clip))
+                AudioManager.Instance.PlaySFX(clipName);
         }    
         if(this.GetComponent<IsInCamera>().IsInCameraNow() && isActive) 
         {
