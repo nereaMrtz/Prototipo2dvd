@@ -154,7 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target1: {fileID: 0}
   target2: {fileID: 0}
-  secondDistance: 27
+  Distance: 27
   verticalDistance: 20
 --- !u!1 &4302199780137177433
 GameObject:
@@ -242,7 +242,7 @@ MonoBehaviour:
   m_MinimumDistance: 1
   m_MaximumDistance: 5000
   m_MinimumFOV: 10
-  m_MaximumFOV: 50
+  m_MaximumFOV: 60
   m_MinimumOrthoSize: 1
   m_MaximumOrthoSize: 5000
 --- !u!114 &8250564025579088313
