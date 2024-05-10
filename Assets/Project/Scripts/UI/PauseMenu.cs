@@ -20,6 +20,7 @@ public class PauseMenu : MonoBehaviour
     public HUDUI hudui;
 
     [SerializeField] GameObject firstPauseButton;
+    [SerializeField] GameObject firstSettingsButton;
 
     private ScreenWipe sw;
     private Scene currentScene;
@@ -65,8 +66,7 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenu.SetActive(true);
         hudui.ShowPauseMenuHud();
-        EventSystem.current.SetSelectedGameObject(firstPauseButton);
-
+        OpenPause();
         Time.timeScale = 0;
         isPaused = true;
     }
@@ -105,5 +105,15 @@ public class PauseMenu : MonoBehaviour
     {
         yield return new WaitForEndOfFrame();
         isPaused = false;
+    }
+
+    public void OpenSetting()
+    {
+        EventSystem.current.SetSelectedGameObject(firstSettingsButton);
+    }
+
+    public void OpenPause()
+    {
+        EventSystem.current.SetSelectedGameObject(firstPauseButton);
     }
 }
