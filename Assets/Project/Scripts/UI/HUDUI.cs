@@ -7,7 +7,7 @@ public class HUDUI : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI coinsText;
     [SerializeField] GameObject hud;
-    Animator anim;
+    [HideInInspector]public Animator anim;
 
     private void Update()
     {
@@ -24,6 +24,11 @@ public class HUDUI : MonoBehaviour
     public void Hide()
     {
         anim.Play("hide");
+    }
+
+    public void ShowPauseMenuHud()
+    {
+        anim.Play("coinsUIKeep");
     }
 
 }

@@ -16,6 +16,7 @@ TagManager:
   - CM vcam
   - CamTarget
   - TopCollider
+  - Camera
   layers:
   - Default
   - TransparentFX
