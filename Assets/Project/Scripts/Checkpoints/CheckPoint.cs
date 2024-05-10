@@ -28,7 +28,7 @@ public class CheckPoint : MonoBehaviour
         {
             isActive = true;
             Vector3 pos = grave.position;
-            pos.y += 1f;
+            pos.y += 2f;
             grave.DOMoveY(pos.y, 1f);
             if (AudioManager.Instance.LoadSFX(clipName, clip))
                 AudioManager.Instance.PlaySFX(clipName);
