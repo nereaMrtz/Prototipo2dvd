@@ -104,7 +104,7 @@ public class RespawnManager : MonoBehaviour
 
     public void RespawnFall()
     {
-        animator.SetBool("IsDying", true);
+        //animator.SetBool("IsDying", true);
         this.gameObject.GetComponent<PlayerMovement>().enabled = false;
         if(this.gameObject.tag == "Player1")
             this.gameObject.transform.position = GameObject.FindGameObjectWithTag("CM").GetComponent<CheckPointMaster>().GetLastCheckPointPosGhost1();
@@ -120,7 +120,7 @@ public class RespawnManager : MonoBehaviour
 
     public void RespawnDamage()
     {
-        animator.SetBool("IsDying", true);
+        //animator.SetBool("IsDying", true);
         this.gameObject.GetComponent<PlayerMovement>().enabled = false;
         if (this.gameObject.tag == "Player1")
             this.gameObject.transform.position = GameObject.FindGameObjectWithTag("CM").GetComponent<CheckPointMaster>().GetLastCheckPointPosGhost1();
@@ -160,7 +160,7 @@ public class RespawnManager : MonoBehaviour
     {
         try
         {
-            animator.SetBool("IsDying", true);
+            //animator.SetBool("IsDying", true);
             
             this.gameObject.GetComponent<Rigidbody>().isKinematic = false;
             if (this.gameObject.tag == "Player1")
