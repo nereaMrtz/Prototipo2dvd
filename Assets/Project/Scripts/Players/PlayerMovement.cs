@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     public float acceleration = 10f;
     public float deceleration = 10f;
     private Vector3 targetMovement = Vector3.zero;
+    private Vector3 forceModifier;
 
     [Header("Jump")]
     public float jumpForce = 1f;
@@ -241,6 +242,9 @@ public class PlayerMovement : MonoBehaviour
         {
             targetMovement = Vector3.zero;
         }
+
+        targetMovement += forceModifier;
+
         rb.velocity = targetMovement;
 
         prevGrounded = IsGrounded();
@@ -309,5 +313,10 @@ public class PlayerMovement : MonoBehaviour
             return false;
         else
             return true;
+    }
+
+    public void SetForceModifier(Vector3 force)
+    {
+        forceModifier = force;
     }
 }
