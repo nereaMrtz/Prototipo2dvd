@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 33176720754468666}
   - component: {fileID: 23154007707357534}
   - component: {fileID: 123571317553385777}
+  - component: {fileID: 2281146182327878887}
+  - component: {fileID: 8553692408126590848}
   m_Layer: 0
   m_Name: cloud1_2_LOD1
   m_TagString: Untagged
@@ -105,6 +107,47 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.1967521, y: 1.1857775, z: 1.2213159}
   m_Center: {x: 0, y: 0.00039952993, z: 0.0010752976}
+--- !u!54 &2281146182327878887
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1387527745603610}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &8553692408126590848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1387527745603610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da540e11a7b02cd4e8ca8d8b24c355d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallDelay: 2
+  respawnTime: 5
 --- !u!1 &1483917692861860
 GameObject:
   m_ObjectHideFlags: 0
@@ -117,6 +160,8 @@ GameObject:
   - component: {fileID: 33892517720811552}
   - component: {fileID: 23293631063721568}
   - component: {fileID: 1425002363747826576}
+  - component: {fileID: 602157874208118992}
+  - component: {fileID: 3989039537940568358}
   m_Layer: 0
   m_Name: cloud1_2_LOD0
   m_TagString: Untagged
@@ -210,6 +255,47 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.1967521, y: 1.1857775, z: 1.2213159}
   m_Center: {x: 0, y: 0.00039952993, z: 0.0010752976}
+--- !u!54 &602157874208118992
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1483917692861860}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &3989039537940568358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1483917692861860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da540e11a7b02cd4e8ca8d8b24c355d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallDelay: 2
+  respawnTime: 5
 --- !u!1 &1663691202653200
 GameObject:
   m_ObjectHideFlags: 0
@@ -284,6 +370,8 @@ GameObject:
   - component: {fileID: 33345378474551452}
   - component: {fileID: 23480284279917214}
   - component: {fileID: 4707092456749468519}
+  - component: {fileID: 1648501804955079064}
+  - component: {fileID: 1708243825800478533}
   m_Layer: 0
   m_Name: cloud1_2_LOD2
   m_TagString: Untagged
@@ -377,3 +465,44 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.9999995, y: 0.99999905, z: 1.0000011}
   m_Center: {x: -0.00000025331974, y: 0, z: 0}
+--- !u!54 &1648501804955079064
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674561569470934}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1708243825800478533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674561569470934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da540e11a7b02cd4e8ca8d8b24c355d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallDelay: 2
+  respawnTime: 5
