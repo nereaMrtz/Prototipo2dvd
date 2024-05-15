@@ -53,6 +53,7 @@ public class CheckPoint : MonoBehaviour
         }
         else if(coll.CompareTag("Player2"))
         {
+            CM.SetLastCheckPointPos2(coll.GetComponent<Transform>().position);
             player2Passed = true;
             //CM.SetLastCheckPointPosGhost2(coll.GetComponent<Transform>().position);
         }
