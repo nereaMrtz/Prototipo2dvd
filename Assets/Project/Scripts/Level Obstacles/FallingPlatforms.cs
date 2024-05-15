@@ -16,17 +16,12 @@ public class FallingPlatforms : MonoBehaviour
         initialPos = transform.position;
         rb = GetComponent<Rigidbody>();
     }
-
-    // Update is called once per frame
-    void Update()
+       
+    private void OnTriggerEnter(Collider coll)
     {
-        
-    }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.tag == "Player1" || collision.gameObject.tag == "Player2")
-        {
+        if(coll.gameObject.tag == "Player1" || coll.gameObject.tag == "Player2")
+        {            
             StartCoroutine("PlatformDrop");
         }
     }
@@ -34,14 +29,14 @@ public class FallingPlatforms : MonoBehaviour
     IEnumerator PlatformDrop()
     {
         yield return new WaitForSeconds(fallDelay);
-        rb.isKinematic = true;
+        rb.isKinematic = false;
         yield return new WaitForSeconds(respawnTime);
         ResetPosition();
     }
 
     private void ResetPosition()
     {
-        rb.isKinematic = false;
+        rb.isKinematic = true;
         transform.position = initialPos;
     }
 }
