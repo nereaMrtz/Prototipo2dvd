@@ -17,10 +17,10 @@ public class FallingPlatforms : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
        
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider coll)
     {
 
-        if(collision.gameObject.tag == "Player1" || collision.gameObject.tag == "Player2")
+        if(coll.gameObject.tag == "Player1" || coll.gameObject.tag == "Player2")
         {            
             StartCoroutine("PlatformDrop");
         }
