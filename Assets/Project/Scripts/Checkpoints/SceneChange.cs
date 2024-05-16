@@ -16,5 +16,9 @@ public class SceneChange : MonoBehaviour
             SceneManager.LoadScene("L2_M1");
         else if (SceneManager.GetActiveScene().name == "L2_M1")
             SceneManager.LoadScene("L3_M1");
+        else if (SceneManager.GetActiveScene().name == "L3_M1")
+            SceneManager.LoadScene("L4_M1");
+        else if (SceneManager.GetActiveScene().name == "L4_M1")
+            SceneManager.LoadScene("MainMenu");
     }
 }
