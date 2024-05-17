@@ -82,8 +82,7 @@ public class RespawnManager : MonoBehaviour
 
             if (this.gameObject.tag == "Player1")
             {
-                Debug.Log(CheckPointMaster.Instance.ActiveCheckpoint1());
-
+                
                 if (CheckPointMaster.Instance.ActiveCheckpoint1())
                 {
                     RespawnFall();

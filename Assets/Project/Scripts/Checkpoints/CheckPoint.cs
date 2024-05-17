@@ -33,8 +33,6 @@ public class CheckPoint : MonoBehaviour
             isActive1 = true;
             if(!graveMoved)
             {
-                Debug.Log("Grave 1");
-
                 Vector3 pos = grave.position;
                 pos.y += 2f;
                 grave.DOMoveY(pos.y, 1f);
@@ -49,8 +47,6 @@ public class CheckPoint : MonoBehaviour
             isActive2 = true;
             if (!graveMoved)
             {
-
-                Debug.Log("Grave 2");
                 Vector3 pos = grave.position;
                 pos.y += 2f;
                 grave.DOMoveY(pos.y, 0.7f);
@@ -61,12 +57,12 @@ public class CheckPoint : MonoBehaviour
         } 
         if(this.GetComponent<IsInCamera>().IsInCameraNow() && isActive1) 
         {
-            Debug.Log("Active for 1");
+            //Debug.Log("Active for 1");
             CM.SetActiveCheckpoint1(true);
         }
         if(this.GetComponent<IsInCamera>().IsInCameraNow() && isActive2) 
         {
-            Debug.Log("Active for 2");
+            //Debug.Log("Active for 2");
             CM.SetActiveCheckpoint2(true);
         }
         if (!this.GetComponent<IsInCamera>().IsInCameraNow())
