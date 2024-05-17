@@ -55,15 +55,13 @@ public class CheckPointMaster : MonoBehaviour
     public void SetLastCheckPointPos(Vector3 lastCheckPointPos)
     {
         this.lastCheckPointPosGhost1 = lastCheckPointPos;
-        lastCheckPointPos.y += 2.5f;
-        this.lastCheckPointPosGhost2 = lastCheckPointPos;
 
     }
     public void SetLastCheckPointPosGhost2(Vector3 lastCheckPointPos)
     {
         //Debug.Log("Ghost 2 checkpoint setted at" + lastCheckPointPos);
         //lastCheckPointPos.y += 1.5f;
-        //this.lastCheckPointPosGhost2 = lastCheckPointPos;
+        this.lastCheckPointPosGhost2 = lastCheckPointPos;
     }
 
     public void SetActiveCheckpoint(bool aux)

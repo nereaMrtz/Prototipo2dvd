@@ -324,7 +324,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4824569945091706}
-  - component: {fileID: 205092572291935726}
   m_Layer: 0
   m_Name: sand_cube_3
   m_TagString: Untagged
@@ -348,32 +347,5 @@ Transform:
   - {fileID: 4664369657177628}
   - {fileID: 4277620710923114}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!205 &205092572291935726
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1462743779960144}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: 0, y: 0.00003606081, z: 0.0009647608}
-  m_Size: 1.0857564
-  m_FadeMode: 0
-  m_AnimateCrossFading: 0
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.25
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 23410088119249350}
-  - screenRelativeHeight: 0.125
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 23430745136388270}
-  - screenRelativeHeight: 0.01
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 23389933491436710}
-  m_Enabled: 1
