@@ -8,9 +8,12 @@ public class CheckPoint : MonoBehaviour
     private CheckPointMaster CM;
 
     private bool isActive = false; 
+    private bool isActive1 = false; 
+    private bool isActive2 = false; 
     private bool isOnCamera = false; 
     private bool player1Passed = false; 
     private bool player2Passed = false;
+    private bool graveMoved = false;
 
     [SerializeField]private Transform grave;
 
@@ -24,22 +27,48 @@ public class CheckPoint : MonoBehaviour
 
     private void Update()
     {
-        if(player1Passed && player2Passed && !isActive) 
+        if (!player1Passed && !isActive1)
         {
-            isActive = true;
-            Vector3 pos = grave.position;
-            pos.y += 2f;
-            grave.DOMoveY(pos.y, 1f);
+            player1Passed = true;
+            isActive1 = true;
+            if(!graveMoved)
+            {
+                Vector3 pos = grave.position;
+                pos.y += 2f;
+                grave.DOMoveY(pos.y, 1f);
+                graveMoved = true;
+            }
             if (AudioManager.Instance.LoadSFX(clipName, clip))
                 AudioManager.Instance.PlaySFX(clipName);
-        }    
-        if(this.GetComponent<IsInCamera>().IsInCameraNow() && isActive) 
-        {
-            CM.SetActiveCheckpoint(true);
         }
-        else
+        if (!player2Passed && !isActive2) 
         {
-            CM.SetActiveCheckpoint(false);
+            player2Passed = true;
+            isActive2 = true;
+            if (!graveMoved)
+            {
+                Vector3 pos = grave.position;
+                pos.y += 2f;
+                grave.DOMoveY(pos.y, 0.7f);
+                graveMoved = true;
+            }
+            if (AudioManager.Instance.LoadSFX(clipName, clip))
+                AudioManager.Instance.PlaySFX(clipName);
+        } 
+        if(this.GetComponent<IsInCamera>().IsInCameraNow() && isActive1) 
+        {
+            //Debug.Log("Active for 1");
+            CM.SetActiveCheckpoint1(true);
+        }
+        if(this.GetComponent<IsInCamera>().IsInCameraNow() && isActive2) 
+        {
+            //Debug.Log("Active for 2");
+            CM.SetActiveCheckpoint2(true);
+        }
+        if (!this.GetComponent<IsInCamera>().IsInCameraNow())
+        {
+            CM.SetActiveCheckpoint1(false);
+            CM.SetActiveCheckpoint2(false);
         }
     }
 

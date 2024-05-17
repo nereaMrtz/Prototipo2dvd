@@ -24,43 +24,84 @@ public class RespawnManager : MonoBehaviour
         {
             RespawnCamera2();           
         }
-       
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == 4 && gameObject.layer == 9)//Cursed Death
         {
-
-            if(CheckPointMaster.Instance.ActiveCheckpoint())
-            { 
-                RespawnFall();
-            }
-            else
+            if(this.gameObject.tag == "Player1")
             {
-                RespawnCamera2();
+                if(CheckPointMaster.Instance.ActiveCheckpoint1())
+                { 
+                    RespawnFall();
+                }
+                else
+                {
+                    RespawnCamera2();
+                }
+            }
+            if (this.gameObject.tag == "Player2")
+            {
+                if (CheckPointMaster.Instance.ActiveCheckpoint2())
+                {
+                    RespawnFall();
+                }
+                else
+                {
+                    RespawnCamera2();
+                }
             }
         }
         else if (other.gameObject.layer == 11 && gameObject.layer == 8)//Not cursed Death
         {
-            if (CheckPointMaster.Instance.ActiveCheckpoint())
+            if (this.gameObject.tag == "Player1")
             {
-                RespawnFall();
+                if (CheckPointMaster.Instance.ActiveCheckpoint1())
+                {
+                    RespawnFall();
+                }
+                else
+                {
+                    RespawnCamera2();
+                }
             }
-            else
+            if (this.gameObject.tag == "Player2")
             {
-                RespawnCamera2();
+                if (CheckPointMaster.Instance.ActiveCheckpoint2())
+                {
+                    RespawnFall();
+                }
+                else
+                {
+                    RespawnCamera2();
+                }
             }
         }
         else if (other.gameObject.layer == 12)//All Death
         {
 
-            if (CheckPointMaster.Instance.ActiveCheckpoint())
+            if (this.gameObject.tag == "Player1")
             {
-                RespawnFall();
+                
+                if (CheckPointMaster.Instance.ActiveCheckpoint1())
+                {
+                    RespawnFall();
+                }
+                else
+                {
+                    RespawnCamera2();
+                }
             }
-            else
+            if (this.gameObject.tag == "Player2")
             {
-                RespawnCamera2();
+                if (CheckPointMaster.Instance.ActiveCheckpoint2())
+                {
+                    RespawnFall();
+                }
+                else
+                {
+                    RespawnCamera2();
+                }
             }
         }
     }
@@ -69,36 +110,78 @@ public class RespawnManager : MonoBehaviour
         if (other.gameObject.layer == 4 && gameObject.layer == 9)//Cursed Death
         {
 
-            if(CheckPointMaster.Instance.ActiveCheckpoint())
-            { 
-                RespawnFall();
-            }
-            else
+            if (this.gameObject.tag == "Player1")
             {
-                RespawnCamera2();
+                if (CheckPointMaster.Instance.ActiveCheckpoint1())
+                {
+                    RespawnFall();
+                }
+                else
+                {
+                    RespawnCamera2();
+                }
+            }
+            if (this.gameObject.tag == "Player2")
+            {
+                if (CheckPointMaster.Instance.ActiveCheckpoint2())
+                {
+                    RespawnFall();
+                }
+                else
+                {
+                    RespawnCamera2();
+                }
             }
         }
         else if (other.gameObject.layer == 11 && gameObject.layer == 8)//Not cursed Death
         {
-            if (CheckPointMaster.Instance.ActiveCheckpoint())
+            if (this.gameObject.tag == "Player1")
             {
-                RespawnFall();
+                if (CheckPointMaster.Instance.ActiveCheckpoint1())
+                {
+                    RespawnFall();
+                }
+                else
+                {
+                    RespawnCamera2();
+                }
             }
-            else
+            if (this.gameObject.tag == "Player2")
             {
-                RespawnCamera2();
+                if (CheckPointMaster.Instance.ActiveCheckpoint2())
+                {
+                    RespawnFall();
+                }
+                else
+                {
+                    RespawnCamera2();
+                }
             }
         }
         else if (other.gameObject.layer == 12)//All Death
         {
 
-            if (CheckPointMaster.Instance.ActiveCheckpoint())
+            if (this.gameObject.tag == "Player1")
             {
-                RespawnFall();
+                if (CheckPointMaster.Instance.ActiveCheckpoint1())
+                {
+                    RespawnFall();
+                }
+                else
+                {
+                    RespawnCamera2();
+                }
             }
-            else
+            if (this.gameObject.tag == "Player2")
             {
-                RespawnCamera2();
+                if (CheckPointMaster.Instance.ActiveCheckpoint2())
+                {
+                    RespawnFall();
+                }
+                else
+                {
+                    RespawnCamera2();
+                }
             }
         }
     }
@@ -107,35 +190,77 @@ public class RespawnManager : MonoBehaviour
     {
         if (collision.gameObject.layer == 4 && gameObject.layer == 9)//Cursed Death
         {
-            if (CheckPointMaster.Instance.ActiveCheckpoint())
+            if (this.gameObject.tag == "Player1")
             {
-                RespawnDamage();
+                if (CheckPointMaster.Instance.ActiveCheckpoint1())
+                {
+                    RespawnDamage();
+                }
+                else
+                {
+                    RespawnCamera2();
+                }
             }
-            else
+            if (this.gameObject.tag == "Player2")
             {
-                RespawnCamera2();
+                if (CheckPointMaster.Instance.ActiveCheckpoint2())
+                {
+                    RespawnDamage();
+                }
+                else
+                {
+                    RespawnCamera2();
+                }
             }
         }            
         else if (collision.gameObject.layer == 11 && gameObject.layer == 8)//Not cursed Death        
         {
-            if (CheckPointMaster.Instance.ActiveCheckpoint())
+            if (this.gameObject.tag == "Player1")
             {
-                RespawnDamage();
+                if (CheckPointMaster.Instance.ActiveCheckpoint1())
+                {
+                    RespawnDamage();
+                }
+                else
+                {
+                    RespawnCamera2();
+                }
             }
-            else
+            if (this.gameObject.tag == "Player2")
             {
-                RespawnCamera2();
+                if (CheckPointMaster.Instance.ActiveCheckpoint2())
+                {
+                    RespawnDamage();
+                }
+                else
+                {
+                    RespawnCamera2();
+                }
             }
         }
         else if (collision.gameObject.layer == 12)//All Death        
         {
-            if (CheckPointMaster.Instance.ActiveCheckpoint())
+            if (this.gameObject.tag == "Player1")
             {
-                RespawnDamage();
+                if (CheckPointMaster.Instance.ActiveCheckpoint1())
+                {
+                    RespawnDamage();
+                }
+                else
+                {
+                    RespawnCamera2();
+                }
             }
-            else
+            if (this.gameObject.tag == "Player2")
             {
-                RespawnCamera2();
+                if (CheckPointMaster.Instance.ActiveCheckpoint2())
+                {
+                    RespawnDamage();
+                }
+                else
+                {
+                    RespawnCamera2();
+                }
             }
         }
     }

@@ -34,18 +34,24 @@ public class FireButton : MonoBehaviour
         }
     }
 
-
-
     private void OnTriggerExit(Collider other)
     {
         timer = 0.0f;
-        wallActive = false;
         pressButton.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
+        if(ghost1.GetComponent<PlayerController>().interactInput == true && pressButton.activeInHierarchy || ghost2.GetComponent<PlayerController>().interactInput == true && pressButton.activeInHierarchy)
+        {
+            foreach (var wall in walls)
+            {
+                wall.SetActive(false);
+            }
+            wallActive = false;
+            timer = 0.0f;
+        }
+
         if(!wallActive && timer < wallDelay)
         {
             timer += Time.deltaTime;
@@ -59,12 +65,7 @@ public class FireButton : MonoBehaviour
             }
         }
 
-        if(ghost1.GetComponent<PlayerController>().interactInput == true && pressButton.activeInHierarchy || ghost2.GetComponent<PlayerController>().interactInput == true && pressButton.activeInHierarchy)
-        {
-            foreach (var wall in walls)
-            {
-                wall.SetActive(false);
-            }
-        }
+
+
     }
 }
