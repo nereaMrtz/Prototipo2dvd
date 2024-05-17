@@ -8,7 +8,7 @@ public class MovingPlatform : MonoBehaviour
     [SerializeField] private Transform lastPosition;
 
     private bool interacting = false;
-    [SerializeField] private float speed = 2.0f;
+    [SerializeField] private float speed = 4.0f;
 
     private void FixedUpdate()
     {

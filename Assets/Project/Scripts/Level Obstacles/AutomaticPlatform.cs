@@ -10,7 +10,7 @@ public class AutomaticPlatform : MonoBehaviour
 
     private bool go = true;
     [Header("Parameters")]
-    [SerializeField] private float speed = 5.0f;
+    [SerializeField] private float speed = 6.0f;
     [SerializeField] private float waitTime = 3.0f;
 
 
