@@ -14,7 +14,8 @@ public class CheckPointMaster : MonoBehaviour
     private GameObject ghost1;
     private GameObject ghost2;
 
-    bool activeCheckpoint = false;
+    bool activeCheckpoint1 = false;
+    bool activeCheckpoint2 = false;
 
     private void Awake()
     {
@@ -64,14 +65,22 @@ public class CheckPointMaster : MonoBehaviour
         this.lastCheckPointPosGhost2 = lastCheckPointPos;
     }
 
-    public void SetActiveCheckpoint(bool aux)
+    public void SetActiveCheckpoint1(bool aux)
     {
-        activeCheckpoint = aux;
+        activeCheckpoint1 = aux;
+    }
+     public void SetActiveCheckpoint2(bool aux)
+    {
+        activeCheckpoint2 = aux;
     }
 
-    public bool ActiveCheckpoint()
+    public bool ActiveCheckpoint1()
     {
-        return activeCheckpoint;
+        return activeCheckpoint1;
+    }
+    public bool ActiveCheckpoint2()
+    {
+        return activeCheckpoint2;
     }
     public Vector3 GetLastCheckPointPosGhost1()
     {
