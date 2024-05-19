@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 4454208730209292}
   - component: {fileID: 95822264180264630}
   - component: {fileID: 8671756727108912833}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: spike_cube_animated
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,7 +192,7 @@ GameObject:
   - component: {fileID: 4062983063451478}
   - component: {fileID: 33760793584569102}
   - component: {fileID: 23891286222903822}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: block_metal_spike1_animated_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
