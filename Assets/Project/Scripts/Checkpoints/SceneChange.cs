@@ -12,6 +12,8 @@ public class SceneChange : MonoBehaviour
 
     public void ChangeScene()
     {
+        GameObject.FindGameObjectWithTag("Player1").GetComponent<PlayerMovement>().SetForceModifier(Vector3.zero);
+        GameObject.FindGameObjectWithTag("Player2").GetComponent<PlayerMovement>().SetForceModifier(Vector3.zero);
         if (SceneManager.GetActiveScene().name == "L1_M1")
             SceneManager.LoadScene("L2_M1");
         else if (SceneManager.GetActiveScene().name == "L2_M1")
