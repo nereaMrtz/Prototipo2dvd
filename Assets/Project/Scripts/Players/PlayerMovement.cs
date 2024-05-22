@@ -168,7 +168,7 @@ public class PlayerMovement : MonoBehaviour
 
         armature.transform.forward = lastDirection;
 
-        if (((IsCollidingLeft() && movementInput.x < 0.0f) || (IsCollidingRight() && movementInput.x > 0.0f)))
+        if (((IsCollidingLeft() && movementInput.x < 0.0f) || (IsCollidingRight() && movementInput.x > 0.0f)) && !IsGrounded())
         {
             targetMovement.x = 0.0f;
         }
@@ -227,6 +227,8 @@ public class PlayerMovement : MonoBehaviour
 
         if ((jumpInput || inBuffer) && (IsGrounded() || inCoyote))
         {
+            if ((IsCollidingLeft() && movementInput.x < 0.0f) || (IsCollidingRight() && movementInput.x > 0.0f))
+                targetMovement.x = 0.0f;
             if (inCoyote)
                 movementInput.y = 0.0f;
             rb.AddForce(Vector3.up * jumpForce);
