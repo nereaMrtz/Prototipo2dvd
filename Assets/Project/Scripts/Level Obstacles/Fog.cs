@@ -23,14 +23,11 @@ public class Fog : MonoBehaviour
 
     private void Update()
     {
-        if (active)
-        {
             rb.AddForce(movementVelocity*Time.deltaTime);
             if (movementVelocity.x < maxSpeed)
             {
                 movementVelocity.x += (acceleration * Time.deltaTime);
             }
-        }
     }
 
     private void OnTriggerEnter(Collider other)
