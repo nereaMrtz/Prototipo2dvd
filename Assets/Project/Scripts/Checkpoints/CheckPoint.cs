@@ -27,6 +27,8 @@ public class CheckPoint : MonoBehaviour
 
     private void Update()
     {
+
+        Debug.Log(this.gameObject + " " + this.GetComponent<IsInCamera>().IsInCameraNow());
         if (!player1Passed && !isActive1)
         {
             player1Passed = true;

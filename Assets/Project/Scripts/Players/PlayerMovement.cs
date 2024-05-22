@@ -136,11 +136,14 @@ public class PlayerMovement : MonoBehaviour
         {
             float gravinc = gravity * Time.fixedDeltaTime;
             targetMovement.y += gravinc;
+            rb.angularDrag = 0.0f;
         }
         else
         {
             targetMovement.y = 0.0f;
             hasJumped = false;
+            rb.angularDrag = 0.05f;
+
         }
 
         #endregion
@@ -165,7 +168,7 @@ public class PlayerMovement : MonoBehaviour
 
         armature.transform.forward = lastDirection;
 
-        if (((IsCollidingLeft() && movementInput.x < 0.0f) || (IsCollidingRight() && movementInput.x > 0.0f)) && !IsGrounded())
+        if (((IsCollidingLeft() && movementInput.x < 0.0f) || (IsCollidingRight() && movementInput.x > 0.0f)))
         {
             targetMovement.x = 0.0f;
         }
