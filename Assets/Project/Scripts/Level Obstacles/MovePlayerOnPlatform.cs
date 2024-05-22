@@ -7,6 +7,7 @@ public class MovePlayerOnPlatform : MonoBehaviour
     [SerializeField] Transform platformTransform;
     private void OnTriggerEnter(Collider other)
     {
+        if (!other.CompareTag("Fog")) 
         other.transform.SetParent(platformTransform);
     }
 
@@ -14,6 +15,6 @@ public class MovePlayerOnPlatform : MonoBehaviour
     {
         other.transform.SetParent(null);
         if (other.CompareTag("Player1") || other.CompareTag("Player2"))
-        DontDestroyOnLoad(other);
+            DontDestroyOnLoad(other);
     }
 }
