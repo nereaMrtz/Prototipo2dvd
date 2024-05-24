@@ -17,6 +17,7 @@ public class CheckPointMaster : MonoBehaviour
     bool activeCheckpoint1 = false;
     bool activeCheckpoint2 = false;
 
+    private CheckPoint[] checkPoints;
     private void Awake()
     {
         if (Instance != null)
@@ -50,6 +51,8 @@ public class CheckPointMaster : MonoBehaviour
             ghost2.GetComponent<PlayerMovement>().enabled = true;
             AddElements.Instance.AddGhost(ghost2);
         }
+
+        checkPoints = FindObjectsOfType<CheckPoint>();
     }
 
     
@@ -59,9 +62,7 @@ public class CheckPointMaster : MonoBehaviour
 
     }
     public void SetLastCheckPointPos2(Vector3 lastCheckPointPos)
-    {
-        //Debug.Log("Ghost 2 checkpoint setted at" + lastCheckPointPos);
-        //lastCheckPointPos.y += 1.5f;
+    {        
         this.lastCheckPointPosGhost2 = lastCheckPointPos;
     }
 
@@ -76,11 +77,21 @@ public class CheckPointMaster : MonoBehaviour
 
     public bool ActiveCheckpoint1()
     {
-        return activeCheckpoint1;
+        foreach(CheckPoint checkPoint in checkPoints)
+        {
+            if(checkPoint.isActive1 && checkPoint.isOnCamera)
+                return true;
+        }
+        return false;
     }
     public bool ActiveCheckpoint2()
     {
-        return activeCheckpoint2;
+        foreach (CheckPoint checkPoint in checkPoints)
+        {
+            if (checkPoint.isActive2 && checkPoint.isOnCamera)
+                return true;
+        }
+        return false;
     }
     public Vector3 GetLastCheckPointPosGhost1()
     {

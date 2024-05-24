@@ -7,10 +7,10 @@ public class CheckPoint : MonoBehaviour
 {
     private CheckPointMaster CM;
 
-    private bool isActive = false; 
-    private bool isActive1 = false; 
-    private bool isActive2 = false; 
-    private bool isOnCamera = false; 
+    private bool isActive = false;
+    [HideInInspector]public bool isActive1 = false;
+    [HideInInspector]public bool isActive2 = false;
+    [HideInInspector]public bool isOnCamera = false; 
     private bool graveMoved = false;
 
     [SerializeField]private Transform grave;
@@ -26,7 +26,7 @@ public class CheckPoint : MonoBehaviour
     private void Update()
     {
 
-        Debug.Log(this.gameObject + " " + this.GetComponent<IsInCamera>().IsInCameraNow());
+        //Debug.Log(this.gameObject + " " + this.GetComponent<IsInCamera>().IsInCameraNow());
         //if (player1Passed && !isActive1)
         //{
         //    isActive1 = true;
@@ -55,18 +55,21 @@ public class CheckPoint : MonoBehaviour
         //} 
         if(this.GetComponent<IsInCamera>().IsInCameraNow() && isActive1) 
         {
-            //Debug.Log("Active for 1");
-            CM.SetActiveCheckpoint1(true);
+            Debug.Log("Active for 1");
+            CheckPointMaster.Instance.SetActiveCheckpoint1(true);
+            isOnCamera = true;
         }
         if(this.GetComponent<IsInCamera>().IsInCameraNow() && isActive2) 
         {
-            //Debug.Log("Active for 2");
-            CM.SetActiveCheckpoint2(true);
+            isOnCamera = true;
+            Debug.Log("Active for 2");
+            CheckPointMaster.Instance.SetActiveCheckpoint2(true);
         }
         if (!this.GetComponent<IsInCamera>().IsInCameraNow())
         {
-            CM.SetActiveCheckpoint1(false);
-            CM.SetActiveCheckpoint2(false);
+            isOnCamera = false;
+            CheckPointMaster.Instance.SetActiveCheckpoint1(false);
+            CheckPointMaster.Instance.SetActiveCheckpoint2(false);
         }
     }
 
@@ -76,12 +79,12 @@ public class CheckPoint : MonoBehaviour
         if (coll.CompareTag("Player1"))
         {
             isActive1 = true;
-            CM.SetLastCheckPointPos(coll.GetComponent<Transform>().position);
+            CheckPointMaster.Instance.SetLastCheckPointPos(coll.GetComponent<Transform>().position);
         }
-        else if(coll.CompareTag("Player2"))
+        if(coll.CompareTag("Player2"))
         {
             isActive2 = true;
-            CM.SetLastCheckPointPos2(coll.GetComponent<Transform>().position);
+            CheckPointMaster.Instance.SetLastCheckPointPos2(coll.GetComponent<Transform>().position);
             //CM.SetLastCheckPointPosGhost2(coll.GetComponent<Transform>().position);
         }
     }

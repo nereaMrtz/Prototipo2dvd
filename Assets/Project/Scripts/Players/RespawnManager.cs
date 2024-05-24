@@ -19,7 +19,8 @@ public class RespawnManager : MonoBehaviour
 
     private void Update()
     {
-       
+        Debug.Log(CheckPointMaster.Instance.ActiveCheckpoint1());
+        Debug.Log(CheckPointMaster.Instance.ActiveCheckpoint2());
         if(!this.gameObject.GetComponent<IsInCamera>().IsInCameraNow())
         {
             RespawnCamera2();           
