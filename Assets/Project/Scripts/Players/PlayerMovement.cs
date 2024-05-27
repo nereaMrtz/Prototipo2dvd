@@ -248,6 +248,11 @@ public class PlayerMovement : MonoBehaviour
             targetMovement = Vector3.zero;
         }
 
+        if (this.transform.position.z != -.5f)
+        {
+            this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, -0.5f);
+        }
+
         targetMovement += forceModifier;
 
         rb.velocity = targetMovement;
