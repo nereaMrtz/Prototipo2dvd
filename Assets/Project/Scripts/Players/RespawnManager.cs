@@ -18,9 +18,7 @@ public class RespawnManager : MonoBehaviour
 
 
     private void Update()
-    {
-        Debug.Log(CheckPointMaster.Instance.ActiveCheckpoint1());
-        Debug.Log(CheckPointMaster.Instance.ActiveCheckpoint2());
+    {        
         if(!this.gameObject.GetComponent<IsInCamera>().IsInCameraNow())
         {
             RespawnCamera2();           
@@ -108,6 +106,7 @@ public class RespawnManager : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
+
         if (other.gameObject.layer == 4 && gameObject.layer == 9)//Cursed Death
         {
 
@@ -325,7 +324,8 @@ public class RespawnManager : MonoBehaviour
         try
         {
             //animator.SetBool("IsDying", true);
-            
+        Debug.Log("Respawn Camera");
+
             this.gameObject.GetComponent<Rigidbody>().isKinematic = false;
             if (this.gameObject.tag == "Player1")
             {

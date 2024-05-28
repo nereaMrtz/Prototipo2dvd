@@ -77,7 +77,9 @@ public class CheckPointMaster : MonoBehaviour
 
     public bool ActiveCheckpoint1()
     {
-        foreach(CheckPoint checkPoint in checkPoints)
+        if (checkPoints == null)
+            SetCheckpoints();
+        foreach (CheckPoint checkPoint in checkPoints)
         {
             if(checkPoint.isActive1 && checkPoint.isOnCamera)
                 return true;
@@ -86,6 +88,8 @@ public class CheckPointMaster : MonoBehaviour
     }
     public bool ActiveCheckpoint2()
     {
+        if (checkPoints == null)
+            SetCheckpoints();
         foreach (CheckPoint checkPoint in checkPoints)
         {
             if (checkPoint.isActive2 && checkPoint.isOnCamera)
@@ -101,5 +105,10 @@ public class CheckPointMaster : MonoBehaviour
     public Vector3 GetLastCheckPointPosGhost2()
     {
         return this.lastCheckPointPosGhost2;
+    }
+
+    private void SetCheckpoints()
+    {
+        checkPoints = FindObjectsOfType<CheckPoint>();
     }
 }

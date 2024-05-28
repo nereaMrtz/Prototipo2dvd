@@ -27,42 +27,28 @@ public class CheckPoint : MonoBehaviour
     {
 
         //Debug.Log(this.gameObject + " " + this.GetComponent<IsInCamera>().IsInCameraNow());
-        //if (player1Passed && !isActive1)
-        //{
-        //    isActive1 = true;
-        //    if(!graveMoved)
-        //    {
-        //        Vector3 pos = grave.position;
-        //        pos.y += 2f;
-        //        grave.DOMoveY(pos.y, 1f);
-        //        graveMoved = true;
-        //    }
-        //    if (AudioManager.Instance.LoadSFX(clipName, clip))
-        //        AudioManager.Instance.PlaySFX(clipName);
-        //}
-        //if (player2Passed && !isActive2) 
-        //{
-        //    isActive2 = true;
-        //    if (!graveMoved)
-        //    {
-        //        Vector3 pos = grave.position;
-        //        pos.y += 2f;
-        //        grave.DOMoveY(pos.y, 0.7f);
-        //        graveMoved = true;
-        //    }
-        //    if (AudioManager.Instance.LoadSFX(clipName, clip))
-        //        AudioManager.Instance.PlaySFX(clipName);
-        //} 
-        if(this.GetComponent<IsInCamera>().IsInCameraNow() && isActive1) 
+        if (isActive1 || isActive2)
+        {            
+            if (!graveMoved)
+            {
+                Vector3 pos = grave.position;
+                pos.y += 2f;
+                grave.DOMoveY(pos.y, 1f);
+                graveMoved = true;
+            }
+            if (AudioManager.Instance.LoadSFX(clipName, clip))
+                AudioManager.Instance.PlaySFX(clipName);
+        }
+        if (this.GetComponent<IsInCamera>().IsInCameraNow() && isActive1) 
         {
-            Debug.Log("Active for 1");
+            //Debug.Log("Active for 1");
             CheckPointMaster.Instance.SetActiveCheckpoint1(true);
             isOnCamera = true;
         }
         if(this.GetComponent<IsInCamera>().IsInCameraNow() && isActive2) 
         {
             isOnCamera = true;
-            Debug.Log("Active for 2");
+            //Debug.Log("Active for 2");
             CheckPointMaster.Instance.SetActiveCheckpoint2(true);
         }
         if (!this.GetComponent<IsInCamera>().IsInCameraNow())
