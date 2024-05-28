@@ -18,6 +18,7 @@ TagManager:
   - TopCollider
   - Camera
   - HUDUI
+  - Box
   layers:
   - Default
   - TransparentFX

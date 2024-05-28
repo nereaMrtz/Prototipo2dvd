@@ -28,6 +28,9 @@ public class PauseMenu : MonoBehaviour
 
     const string mainMenu = "mainMenu";
 
+    GameObject ghost1;
+    GameObject ghost2;
+
     public void OnPause(InputAction.CallbackContext context)
     {
         float aux = context.ReadValue<float>();
@@ -75,10 +78,12 @@ public class PauseMenu : MonoBehaviour
         OpenPause();
         Time.timeScale = 0;
         isPaused = true;
+        EventSystem.current.SetSelectedGameObject(firstPauseButton);
     }
 
     public void ResumeGame()
     {
+
         pauseMenu.SetActive(false);
         settingsMenu.SetActive(false);
         hudui.anim.Play("hide"); 

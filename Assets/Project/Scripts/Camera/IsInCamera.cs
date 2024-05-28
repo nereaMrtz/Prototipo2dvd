@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Unity.Burst.Intrinsics.X86;
 
 public class IsInCamera : MonoBehaviour
 {
@@ -19,7 +20,15 @@ public class IsInCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        cameraFrustrum = GeometryUtility.CalculateFrustumPlanes(cam);
+        if(cam != null) 
+        {
+            cameraFrustrum = GeometryUtility.CalculateFrustumPlanes(cam);
+        }
+        else
+        {
+            GameObject aux = GameObject.FindGameObjectWithTag("MainCamera");
+            cam = aux.GetComponent<Camera>();
+        }
     }
 
     public bool IsInCameraNow()

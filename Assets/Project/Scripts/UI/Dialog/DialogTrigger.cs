@@ -11,6 +11,7 @@ public class DialogTrigger : MonoBehaviour
     DialogSystem dialogSystem;
 
     bool triggerDone;
+    public bool deleteTiggerBefore = true;
 
     Collider ghost;
 
@@ -26,7 +27,8 @@ public class DialogTrigger : MonoBehaviour
         if (triggerDone)
         {
             OtherEndingFunctions.Invoke();
-            Destroy(this.gameObject);
+            if(deleteTiggerBefore)
+                 Destroy(this.gameObject);
         }
     }
 

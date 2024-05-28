@@ -136,11 +136,14 @@ public class PlayerMovement : MonoBehaviour
         {
             float gravinc = gravity * Time.fixedDeltaTime;
             targetMovement.y += gravinc;
+            rb.angularDrag = 0.0f;
         }
         else
         {
             targetMovement.y = 0.0f;
             hasJumped = false;
+            rb.angularDrag = 0.05f;
+
         }
 
         #endregion
@@ -224,6 +227,8 @@ public class PlayerMovement : MonoBehaviour
 
         if ((jumpInput || inBuffer) && (IsGrounded() || inCoyote))
         {
+            if ((IsCollidingLeft() && movementInput.x < 0.0f) || (IsCollidingRight() && movementInput.x > 0.0f))
+                targetMovement.x = 0.0f;
             if (inCoyote)
                 movementInput.y = 0.0f;
             rb.AddForce(Vector3.up * jumpForce);
@@ -241,6 +246,11 @@ public class PlayerMovement : MonoBehaviour
         if (!movementEnabled)
         {
             targetMovement = Vector3.zero;
+        }
+
+        if (this.transform.position.z != -.5f)
+        {
+            this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, -0.5f);
         }
 
         targetMovement += forceModifier;
