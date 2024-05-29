@@ -48,6 +48,7 @@ public class AudioManager : MonoBehaviour
         }
         else if (clip.LoadAudioData())
         {
+            Debug.Log("Succesfully loaded");
             SFX.Add(clipName, clip);
             return true;
         }
