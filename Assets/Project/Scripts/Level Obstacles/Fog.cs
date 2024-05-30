@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -12,6 +13,7 @@ public class Fog : MonoBehaviour
     [SerializeField] float acceleration;
     [SerializeField] AudioSource audioSource;
     bool cursed = true;
+    public SceneChange sChange;
 
     private void Start()
     {
@@ -43,7 +45,7 @@ public class Fog : MonoBehaviour
             }
             else
             {
-                SceneManager.LoadScene("L2_M1");
+                sChange.ChangeScene();
             }
         }
     }

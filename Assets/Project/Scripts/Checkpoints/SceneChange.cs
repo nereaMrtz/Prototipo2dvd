@@ -12,8 +12,12 @@ public class SceneChange : MonoBehaviour
 
     public void ChangeScene()
     {
-        GameObject.FindGameObjectWithTag("Player1").GetComponent<PlayerMovement>().SetForceModifier(Vector3.zero);
-        GameObject.FindGameObjectWithTag("Player2").GetComponent<PlayerMovement>().SetForceModifier(Vector3.zero);
+        GameObject ghost = GameObject.FindGameObjectWithTag("Player1");
+        ghost.GetComponent<PlayerMovement>().SetForceModifier(Vector3.zero);
+        DontDestroyOnLoad(ghost);
+        GameObject ghost2 = GameObject.FindGameObjectWithTag("Player2");
+        ghost2.GetComponent<PlayerMovement>().SetForceModifier(Vector3.zero);
+        DontDestroyOnLoad(ghost2);
         if (SceneManager.GetActiveScene().name == "L1_M1")
             SceneManager.LoadScene("L2_M1");
         else if (SceneManager.GetActiveScene().name == "L2_M1")
@@ -21,6 +25,10 @@ public class SceneChange : MonoBehaviour
         else if (SceneManager.GetActiveScene().name == "L3_M1")
             SceneManager.LoadScene("L4_M1");
         else if (SceneManager.GetActiveScene().name == "L4_M1")
+        {
+            Destroy(ghost);
+            Destroy(ghost2);
             SceneManager.LoadScene("MainMenu");
+        }
     }
 }
