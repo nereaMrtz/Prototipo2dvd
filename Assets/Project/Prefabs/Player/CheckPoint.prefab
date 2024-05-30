@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9083826182946700813}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 4137501211775633445}
   - component: {fileID: 1064117227620239232}
   - component: {fileID: 2963500165186286410}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Gravestone_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 4921943387378624965}
   - component: {fileID: 3700535186434844876}
   - component: {fileID: 1074199755763608869}
-  m_Layer: 15
+  m_Layer: 14
   m_Name: CheckPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,14 +143,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5337576220014260729}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 50.8, y: 0.96, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9083826182946700813}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &4921943387378624965
 BoxCollider:
@@ -171,8 +171,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 7.2380104, y: 5.4377303, z: 5}
-  m_Center: {x: -0.27358055, y: 1.7634981, z: -0.34023356}
+  m_Size: {x: 13.79187, y: 11.763656, z: 5}
+  m_Center: {x: -0.08333588, y: 4.9264607, z: -0.34023356}
 --- !u!114 &3700535186434844876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,6 +275,10 @@ PrefabInstance:
     - target: {fileID: 5221492103343441727, guid: 871801d1f2dbda84aa474dda55a948d2, type: 3}
       propertyPath: m_Name
       value: Ghost_A
+      objectReference: {fileID: 0}
+    - target: {fileID: 5221492103343441727, guid: 871801d1f2dbda84aa474dda55a948d2, type: 3}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 5221492103343441727, guid: 871801d1f2dbda84aa474dda55a948d2, type: 3}
       propertyPath: m_IsActive
