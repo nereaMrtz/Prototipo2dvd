@@ -37,6 +37,8 @@ public class SceneChange : MonoBehaviour
             Destroy(GameObject.FindGameObjectWithTag("Camera"));
             Destroy(ghost);
             Destroy(ghost2);
+            Destroy(FindObjectOfType<DialogSystem>().gameObject);
+            Destroy(FindObjectOfType<HUDUI>().gameObject);
             AudioManager.Instance.PlayBackground(2);
             SceneManager.LoadScene("Credits");
         }

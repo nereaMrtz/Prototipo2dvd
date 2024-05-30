@@ -105,6 +105,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+
         movementInput.Normalize();
         if (curse)
         {
