@@ -12,6 +12,12 @@ public class SceneChange : MonoBehaviour
 
     public void ChangeScene()
     {
+        if (SceneManager.GetActiveScene().name == "Credits")
+        {
+            AudioManager.Instance.PlayBackground(0);
+            SceneManager.LoadScene("MainMenu");
+            return;
+        }
         GameObject ghost = GameObject.FindGameObjectWithTag("Player1");
         ghost.GetComponent<PlayerMovement>().SetForceModifier(Vector3.zero);
         ghost.transform.SetParent(null);
@@ -28,9 +34,12 @@ public class SceneChange : MonoBehaviour
             SceneManager.LoadScene("L4_M1");
         else if (SceneManager.GetActiveScene().name == "L4_M1")
         {
+            Destroy(GameObject.FindGameObjectWithTag("Camera"));
             Destroy(ghost);
             Destroy(ghost2);
-            SceneManager.LoadScene("MainMenu");
+            AudioManager.Instance.PlayBackground(2);
+            SceneManager.LoadScene("Credits");
         }
+        
     }
 }
