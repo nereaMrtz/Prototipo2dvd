@@ -265,20 +265,20 @@ public class PlayerMovement : MonoBehaviour
     bool IsGrounded()
     {
         if (curse)
-            return Physics.OverlapSphere(groundCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 0 << 6 | 1 << 7, QueryTriggerInteraction.Ignore).Length > 1;
+            return Physics.OverlapSphere(groundCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 0 << 6 | 1 << 7 | 0<<15, QueryTriggerInteraction.Ignore).Length > 1;
         else
-            return Physics.OverlapSphere(groundCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 1 << 6, QueryTriggerInteraction.Ignore).Length > 1;
+            return Physics.OverlapSphere(groundCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 1 << 6 | 0 << 15, QueryTriggerInteraction.Ignore).Length > 1;
     }
 
     bool IsCollidingRight()
     {
         bool rtn;
         if (curse)
-            rtn = (Physics.OverlapSphere(rightUpCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 0 << 6 | 1 << 7, QueryTriggerInteraction.Ignore).Length > 1 ||
-                Physics.OverlapSphere(rightDownCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 0 << 6 | 1 << 7, QueryTriggerInteraction.Ignore).Length > 1);
+            rtn = (Physics.OverlapSphere(rightUpCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 0 << 6 | 1 << 7 | 0 << 15, QueryTriggerInteraction.Ignore).Length > 1 ||
+                Physics.OverlapSphere(rightDownCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 0 << 6 | 1 << 7 | 0 << 15, QueryTriggerInteraction.Ignore).Length > 1);
         else
-            rtn = (Physics.OverlapSphere(rightUpCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 1 << 6, QueryTriggerInteraction.Ignore).Length > 1 ||
-                Physics.OverlapSphere(rightDownCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 1 << 6, QueryTriggerInteraction.Ignore).Length > 1);
+            rtn = (Physics.OverlapSphere(rightUpCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 1 << 6 | 0 << 15, QueryTriggerInteraction.Ignore).Length > 1 ||
+                Physics.OverlapSphere(rightDownCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 1 << 6 | 0 << 15, QueryTriggerInteraction.Ignore).Length > 1);
         return rtn;
     }
 
@@ -286,11 +286,11 @@ public class PlayerMovement : MonoBehaviour
     {
         bool rtn;
         if (curse)
-            rtn = (Physics.OverlapSphere(leftUpCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 0 << 6 | 1 << 7, QueryTriggerInteraction.Ignore).Length > 1 ||
-                Physics.OverlapSphere(leftDownCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 0 << 6 | 1 << 7, QueryTriggerInteraction.Ignore).Length > 1);
+            rtn = (Physics.OverlapSphere(leftUpCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 0 << 6 | 1 << 7 | 0 << 15, QueryTriggerInteraction.Ignore).Length > 1 ||
+                Physics.OverlapSphere(leftDownCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 0 << 6 | 1 << 7 | 0 << 15, QueryTriggerInteraction.Ignore).Length > 1);
         else
-            rtn = (Physics.OverlapSphere(leftUpCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 1 << 6, QueryTriggerInteraction.Ignore).Length > 1 ||
-                Physics.OverlapSphere(leftDownCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 1 << 6, QueryTriggerInteraction.Ignore).Length > 1);
+            rtn = (Physics.OverlapSphere(leftUpCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 1 << 6 | 0 << 15, QueryTriggerInteraction.Ignore).Length > 1 ||
+                Physics.OverlapSphere(leftDownCheck.transform.position, 0.2f, 1 << 0 | 1 << 8 | 1 << 9 | 1 << 6 | 0 << 15, QueryTriggerInteraction.Ignore).Length > 1);
         return rtn;
     }
 
