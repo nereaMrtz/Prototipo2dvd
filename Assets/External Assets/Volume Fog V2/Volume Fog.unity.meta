@@ -1,5 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/External Assets/Volume Fog V2/Volume Fog.unity.meta
 guid: bf83d5dae7052184da06655c1aa7f06f
+========
+guid: 3beea689e6d26f64a9ddceb4bd12c2b4
+folderAsset: yes
+>>>>>>>> feature/final_lvl4:Assets/Project/Scripts/Final.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
