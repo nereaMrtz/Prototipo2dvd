@@ -52,8 +52,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.5685983, y: 6.2110305, z: 4.215809}
-  m_Center: {x: 0.28429914, y: 2.6055152, z: 0.019180298}
+  m_Size: {x: 2.0255737, y: 7.511307, z: 5.8434043}
+  m_Center: {x: -0.33392334, y: 3.2556539, z: -0.7946174}
 --- !u!114 &352519153336466776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,3 +72,7 @@ MonoBehaviour:
   - text: "No seas miedica, si no nos atrevemos nunca sabremos qu\xE9 hay m\xE1s
       all\xE1. Adem\xE1s, \xBFqu\xE9 es lo peor que puede pasar? "
     type: 0
+  deleteTiggerBefore: 1
+  OtherEndingFunctions:
+    m_PersistentCalls:
+      m_Calls: []

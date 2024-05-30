@@ -10,6 +10,13 @@ public class TwoPlayerTrigger : MonoBehaviour
 
     [SerializeField] public UnityEvent EndingFunctions;
 
+    DialogTrigger dialog;
+
+    private void Start()
+    {
+        dialog = GetComponent<DialogTrigger>();
+    }
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -23,6 +30,7 @@ public class TwoPlayerTrigger : MonoBehaviour
     {
         if (ghost1 && ghost2)
         {
+            dialog.SetDialogDone(true);
             EndingFunctions.Invoke();
         }
     }
