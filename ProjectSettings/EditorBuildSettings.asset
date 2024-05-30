@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Project/Scenes/physics.unity
     guid: 15ec24f40c5bfcf4ca6fee036024767b
+  - enabled: 1
+    path: Assets/Project/Scenes/Credits.unity
+    guid: becb6a859accc39488f29d5101a47966
   m_configObjects: {}
