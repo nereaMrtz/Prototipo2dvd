@@ -28,6 +28,7 @@ public class SceneChange : MonoBehaviour
             SceneManager.LoadScene("L4_M1");
         else if (SceneManager.GetActiveScene().name == "L4_M1")
         {
+            Destroy(GameObject.FindGameObjectWithTag("Camera"));
             Destroy(ghost);
             Destroy(ghost2);
             SceneManager.LoadScene("MainMenu");
