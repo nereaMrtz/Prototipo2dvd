@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class CreditsMenu : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class CreditsMenu : MonoBehaviour
     {
         yield return new WaitForSeconds(buttonDelay);
         BackButton.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(BackButton);
     }
 
     // Update is called once per frame
