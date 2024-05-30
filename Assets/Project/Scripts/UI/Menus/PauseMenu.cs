@@ -99,6 +99,8 @@ public class PauseMenu : MonoBehaviour
         Destroy(GameObject.FindGameObjectWithTag("Camera"));
         Destroy(GameObject.FindGameObjectWithTag("Player1"));
         Destroy(GameObject.FindGameObjectWithTag("Player2"));
+        Destroy(FindObjectOfType<DialogSystem>().gameObject);
+        Destroy(FindObjectOfType<HUDUI>().gameObject);
         StartCoroutine(DestroyThis());
         AudioManager.Instance.PlayBackground(0);
         SceneManager.LoadScene(mainMenu); 

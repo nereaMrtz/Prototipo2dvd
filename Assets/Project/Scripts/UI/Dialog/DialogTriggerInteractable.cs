@@ -20,7 +20,7 @@ public class DialogTriggerInteractable : MonoBehaviour
 
 
     [SerializeField] public UnityEvent OtherEndingFunctions;
-    void Awake()
+    void Start()
     {
         dialogSystem = FindAnyObjectByType<DialogSystem>();
     }
