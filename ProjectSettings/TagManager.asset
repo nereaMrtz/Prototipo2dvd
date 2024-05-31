@@ -15,6 +15,10 @@ TagManager:
   - CoinManager
   - CM vcam
   - CamTarget
+  - TopCollider
+  - Camera
+  - HUDUI
+  - Box
   layers:
   - Default
   - TransparentFX

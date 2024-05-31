@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4130600568382530}
   - component: {fileID: 33929447014779690}
   - component: {fileID: 23941100420177572}
-  - component: {fileID: 4480794669658493417}
+  - component: {fileID: 6183714264553505068}
   m_Layer: 12
   m_Name: block_wood3_LOD2
   m_TagString: Untagged
@@ -159,8 +159,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.0942671, y: 2.204223, z: 1.0394564}
-  m_Center: {x: 0.027196884, y: 0.030088305, z: -0.019728184}
+  m_Size: {x: 1.0942671, y: 2.3529043, z: 1.0394564}
+  m_Center: {x: 0.027196884, y: 0.0020954013, z: -0.019728184}
 --- !u!1 &1350621821055776
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,7 +172,7 @@ GameObject:
   - component: {fileID: 4896102092294210}
   - component: {fileID: 33138431754943022}
   - component: {fileID: 23517438394244564}
-  - component: {fileID: 1107943031044494563}
+  - component: {fileID: 2236535140737949754}
   m_Layer: 12
   m_Name: block_wood3_LOD0
   m_TagString: Untagged
@@ -277,7 +277,7 @@ GameObject:
   - component: {fileID: 4831102072008326}
   - component: {fileID: 33084631800578426}
   - component: {fileID: 23264991566310114}
-  - component: {fileID: 8561914314219492322}
+  - component: {fileID: 144423145891101729}
   m_Layer: 12
   m_Name: block_wood3_LOD1
   m_TagString: Untagged
