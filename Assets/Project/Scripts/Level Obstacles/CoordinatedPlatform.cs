@@ -13,6 +13,8 @@ public class CoordinatedPlatform : MonoBehaviour
     private bool interacting = false;
     [SerializeField] private float speed = 2.0f;
 
+    public AudioSource aSOurce;
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.CompareTag("Player1")|| other.gameObject.CompareTag("Player2"))
@@ -36,16 +38,22 @@ public class CoordinatedPlatform : MonoBehaviour
         {
             Interact();
         }
+        else
+        {
+            aSOurce.Stop();
+        }
     }
 
     public void Interact()
     {
         if (transform.position == lastPosition.position)
         {
+            aSOurce.Stop();
             return;
         }
         if (transform.position != lastPosition.position)
         {
+            aSOurce.Play();
             transform.position = Vector3.MoveTowards(transform.position, lastPosition.position, speed * Time.deltaTime);
         }
     }

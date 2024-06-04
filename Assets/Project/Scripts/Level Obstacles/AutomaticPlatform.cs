@@ -12,21 +12,32 @@ public class AutomaticPlatform : MonoBehaviour
     [Header("Parameters")]
     [SerializeField] private float speed = 6.0f;
     [SerializeField] private float waitTime = 3.0f;
-
+    public AudioSource aSource;
 
     private void FixedUpdate()
     {
         if (transform.position != lastPosition.position && go)
         {
             transform.position = Vector3.MoveTowards(transform.position, lastPosition.position, speed * Time.deltaTime);
+            aSource.Play();
             if (transform.position == lastPosition.position)
+            {
                 StartCoroutine("ChangeDirection");
+                aSource.Stop();
+
+            }
         }
         else if (transform.position != firstPosition.position && !go)
         {
             transform.position = Vector3.MoveTowards(transform.position, firstPosition.position, speed * Time.deltaTime);
+            aSource.Play();
+
             if (transform.position == firstPosition.position)
+            {
                 StartCoroutine("ChangeDirection");
+                aSource.Stop();
+
+            }
         }
     }
 

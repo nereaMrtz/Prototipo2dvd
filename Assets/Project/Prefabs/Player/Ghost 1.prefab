@@ -350,7 +350,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 46f311046d2104da8b56be3d0a49a119, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 46f311046d2104da8b56be3d0a49a119, type: 3}
       propertyPath: m_LocalScale.x
@@ -366,11 +366,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 46f311046d2104da8b56be3d0a49a119, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 73
+      value: 74.3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 46f311046d2104da8b56be3d0a49a119, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.5
+      value: 2.3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 46f311046d2104da8b56be3d0a49a119, type: 3}
       propertyPath: m_LocalPosition.z
@@ -612,8 +612,6 @@ MonoBehaviour:
   cursedMat: {fileID: 2100000, guid: e8f4bb0cc7f1d8944bd0e0202e470f4f, type: 2}
   ghostParticles: {fileID: 300329246249051214}
   isFirstLevel: 0
-  jumpClip: {fileID: 8300000, guid: 194f934ce3f547349bc44a3189509a5d, type: 3}
-  jumpClipName: Jump
   curseChangeClip: {fileID: 8300000, guid: 9fa0332c1b52eb543971594bef7363d4, type: 3}
   curseChangeClipName: Curse Change
   curseEffect: {fileID: 8865115791382537839}
@@ -649,6 +647,8 @@ MonoBehaviour:
   curse: 0
   animator: {fileID: 289529880358551730}
   armature: {fileID: 4331088270865519392}
+  jumpClip: {fileID: 8300000, guid: 194f934ce3f547349bc44a3189509a5d, type: 3}
+  jumpClipName: Jump
 --- !u!114 &5346985408287639845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -771,7 +771,7 @@ MonoBehaviour:
     m_ActionId: 57b932be-3225-4054-a876-043e57499d43
     m_ActionName: Player/Pause[/XInputControllerWindows/start,/DualShock4GamepadHID/start,/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 1
-  m_DefaultControlScheme: Keyboard
+  m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}

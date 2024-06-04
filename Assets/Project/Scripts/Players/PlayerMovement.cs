@@ -60,6 +60,10 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 lastDirection = Vector3.forward;
 
 
+    [SerializeField] AudioClip jumpClip;
+    [SerializeField] string jumpClipName;
+
+
     private float distance = 33.0f;
     PlayerController pController;
 
@@ -238,6 +242,8 @@ public class PlayerMovement : MonoBehaviour
             jumpInput = false;
             hasJumped = true;
             animator.SetTrigger("Jump");
+           if( AudioManager.Instance.LoadSFX(jumpClipName, jumpClip))
+            AudioManager.Instance.PlaySFX(jumpClipName);
         }
 
 

@@ -30,8 +30,7 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public bool isFirstLevel = false;
 
 
-    [SerializeField] AudioClip jumpClip;
-    [SerializeField] string jumpClipName;
+
     [SerializeField] AudioClip curseChangeClip;
     [SerializeField] string curseChangeClipName;
 
