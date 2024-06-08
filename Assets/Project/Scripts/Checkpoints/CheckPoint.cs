@@ -25,6 +25,10 @@ public class CheckPoint : MonoBehaviour
 
     private void Update()
     {
+        if(CM == null)
+        {
+            CM = GameObject.FindGameObjectWithTag("CM").GetComponent<CheckPointMaster>();
+        }
 
         //Debug.Log(this.gameObject + " " + this.GetComponent<IsInCamera>().IsInCameraNow());
         if (isActive1 || isActive2)
